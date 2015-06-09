@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | coderqi</title>
+    <title>利用gitPage和Hexo创建独立的个人博客（一） | coderqi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="coder_qi">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="这是我的第一篇博客，欢迎大家常来围观。网址是：www.coderqi.com
+独立博客很多程序猿已经有了写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事事会做很久的，所以最后的记过就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程">
     
     
     
@@ -78,15 +79,15 @@ var _hmt = _hmt || [];
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/08/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2015/06/09/利用gitPage和Hexo创建独立的个人博客(一)/" title="利用gitPage和Hexo创建独立的个人博客（一）" itemprop="url">利用gitPage和Hexo创建独立的个人博客（一）</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://coderqi.com" title="coder_qi">coder_qi</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-06-08T03:46:49.000Z" itemprop="datePublished">2015-06-08</time>
-    更新日期:<time datetime="2015-06-08T03:46:49.000Z" itemprop="dateModified">2015-06-08</time>
+    <time datetime="2015-06-09T04:04:14.000Z" itemprop="datePublished">2015-06-09</time>
+    更新日期:<time datetime="2015-06-09T04:04:14.000Z" itemprop="dateModified">2015-06-09</time>
     
   </p>
 </header>
@@ -95,18 +96,28 @@ var _hmt = _hmt || [];
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立博客"><span class="toc-number">1.</span> <span class="toc-text">独立博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitPage+Hexo"><span class="toc-number">2.</span> <span class="toc-text">gitPage+Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">3.</span> <span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Hexo环境搭建"><span class="toc-number">3.0.1.</span> <span class="toc-text">Hexo环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="###安装NodeJS"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">##安装NodeJS</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="###安装hexo"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">##安装hexo</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Git环境搭建"><span class="toc-number">3.0.2.</span> <span class="toc-text">Git环境搭建</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p>这是我的第一篇博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
+<h3 id="独立博客">独立博客</h3><p>很多程序猿已经有了写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事事会做很久的，所以最后的记过就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷而不失水准的发布博客的方法，于是便有了gitPage+Hexo的方式</p>
+<h3 id="gitPage+Hexo">gitPage+Hexo</h3><p>gitPage是github推出一个可以显示静态网页的服务。而对于我们的博客来说，基本除了评论的模块之外，剩下的都是静态网页，所以完全可以满足我们的需求，我们将我们的博客做成静态网页传到gitPage上就行，然后我们就可以在浏览器里访问到我们的网站了。<br>但是对于一些程序猿来说，静态网页的编写也是一件相对费时费力的工作。于是一些人找到了一些静态网页生成工具，这样程序猿只需要编写内容即可，剩下的事儿就交给工具了，工具会根据你选择的模板和你写的内容生成静态网页，于是，静态网页我们也有了。<br>那么思路很明显了，想要实现拥有一个独立的私有博客，我们需要两个东西，一个是可供浏览器访问的空间，这个我们选择gitPage，一个是一个静态网页生成工具，Octopress也好，Hexo也罢，这里我选择的是Hexo。</p>
+<h3 id="环境搭建">环境搭建</h3><h5 id="Hexo环境搭建">Hexo环境搭建</h5><p>在安装Hexo之前，还需要一些环境的搭建。需要安装NodeJS。</p>
+<h6 id="##安装NodeJS">##安装NodeJS</h6><p>安装NodeJS有两种方式<br><br>1 安装包的方式<br><br>直接去官网也好，百度也罢，下载一个安装包，安装就行，简便快捷，这也是我比较推荐的方式。</p>
+<p>2 命令行方式<br><br>如果用命令行安装，推荐通过homebrew安装，简单、高效、靠谱。<br><br>homebrew的安装一条指令就可以了<br><br><code>bash
+$ ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</code><br></p>
+<p>安装完homebrew，接下来该安装nvm，否则在安装hexo的时候会报错<br><code>bash
+git clone git://github.com/creationix/nvm.git ~/nvm
+echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; ~/.bash_profile</code><br><br>然后关掉终端再打开。<br><br><code>bash
+nvm install v2.2.3
+nvm use v2.2.3
+nvm alias default v2.2.3</code><br><br>这里我安装的时2.2.3，安装的时候可以通过list命令查看一下列表把版本号换成最新的即可。<br></p>
+<p>现在我们可以安装NodeJS了<br><br><code>bash
+sudo brew install nodejs</code><br></p>
+<h6 id="##安装hexo">##安装hexo</h6><p>到现在了，安装Hexo就很简单了<br><br><br><code>bash
+sudo npm install -g hexo</code><br></p>
+<h5 id="Git环境搭建">Git环境搭建</h5><p>这个，还是去参考百度吧，一大堆。</p>
+<p>到这里环境就搭建完了。下一篇讲解如何用这个环境发布博客。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +127,7 @@ var _hmt = _hmt || [];
 
 <div class="article-share" id="share">
 
-  <div data-url="http://coderqi.com/2015/06/08/hello-world/" data-title="Hello World | coderqi" data-tsina="null" class="share clearfix">
+  <div data-url="http://coderqi.com/2015/06/09/利用gitPage和Hexo创建独立的个人博客(一)/" data-title="利用gitPage和Hexo创建独立的个人博客（一） | coderqi" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -129,7 +140,7 @@ var _hmt = _hmt || [];
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立博客"><span class="toc-number">1.</span> <span class="toc-text">独立博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitPage+Hexo"><span class="toc-number">2.</span> <span class="toc-text">gitPage+Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">3.</span> <span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Hexo环境搭建"><span class="toc-number">3.0.1.</span> <span class="toc-text">Hexo环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="###安装NodeJS"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">##安装NodeJS</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="###安装hexo"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">##安装hexo</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Git环境搭建"><span class="toc-number">3.0.2.</span> <span class="toc-text">Git环境搭建</span></a></li></ol></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
