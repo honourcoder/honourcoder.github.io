@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IOS开发之利用AsyncSocket实现即时通信 | coderqi</title>
+  <title>利用gitPage和Hexo创建独立的个人博客（二） | coderqi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在实现App的时候经常需要进行实时的网络通信，也就是即时通信。实现即时通信的方式很多，可以利用融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，GCDAsyncSocket，AsyncSocket等等，他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。
-AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
+  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
+上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。
+gitPage设置想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io注意这里必须是上面的名字，然后只要再这里面上传一个index.html,我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IOS开发之利用AsyncSocket实现即时通信">
-<meta property="og:url" content="http://www.coderqi.com/2015/06/11/云计算大会2015参与感悟/index.html">
+<meta property="og:title" content="利用gitPage和Hexo创建独立的个人博客（二）">
+<meta property="og:url" content="http://www.coderqi.com/2015/06/11/利用gitPage和Hexo创建独立的个人博客(二)/index.html">
 <meta property="og:site_name" content="coderqi">
-<meta property="og:description" content="在实现App的时候经常需要进行实时的网络通信，也就是即时通信。实现即时通信的方式很多，可以利用融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，GCDAsyncSocket，AsyncSocket等等，他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。
-AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
-<meta property="og:updated_time" content="2015-06-11T04:13:34.000Z">
+<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
+上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。
+gitPage设置想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io注意这里必须是上面的名字，然后只要再这里面上传一个index.html,我">
+<meta property="og:updated_time" content="2015-06-11T08:37:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOS开发之利用AsyncSocket实现即时通信">
-<meta name="twitter:description" content="在实现App的时候经常需要进行实时的网络通信，也就是即时通信。实现即时通信的方式很多，可以利用融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，GCDAsyncSocket，AsyncSocket等等，他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。
-AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
+<meta name="twitter:title" content="利用gitPage和Hexo创建独立的个人博客（二）">
+<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
+上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。
+gitPage设置想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io注意这里必须是上面的名字，然后只要再这里面上传一个index.html,我">
   
     <link rel="alternative" href="/atom.xml" title="coderqi" type="application/atom+xml">
   
@@ -34,7 +37,7 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img lazy-src="" class="js-avatar">
+			<img lazy-src="http://d.pcs.baidu.com/thumbnail/90bd37d43be55db0d5a513ccd77d5ccb?fid=1832792545-250528-12105641702858&amp;time=1434002400&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lmQ%2Fo3SR6HosXwsQDyNKBL9ozkY%3D&amp;rt=sh&amp;expires=2h&amp;r=119641469&amp;sharesign=unknown&amp;size=c710_u500&amp;quality=100" class="js-avatar">
 		</a>
 
 		<hgroup>
@@ -42,7 +45,7 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 		</hgroup>
 
 		
-		<p class="header-subtitle">life need patient</p>
+		<p class="header-subtitle">simple life,easy life</p>
 		
 
 		
@@ -102,9 +105,9 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="/#" title="github">github</a>
+								<a class="github" target="_blank" href="/“https://github.com/honourcoder”" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+								<a class="weibo" target="_blank" href="http://weibo.com/petCatCorner/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
 					        
 								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
 					        
@@ -146,7 +149,7 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 				
 				<section class="switch-part switch-part4">
 				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+					<div id="js-aboutme">不要问我从哪里来，也不要问我要到哪里去。我就是我，是颜色不一样的吃货…</div>
 				</section>
 				
 			</div>
@@ -163,13 +166,13 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="" class="js-avatar">
+				<img lazy-src="http://d.pcs.baidu.com/thumbnail/90bd37d43be55db0d5a513ccd77d5ccb?fid=1832792545-250528-12105641702858&amp;time=1434002400&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lmQ%2Fo3SR6HosXwsQDyNKBL9ozkY%3D&amp;rt=sh&amp;expires=2h&amp;r=119641469&amp;sharesign=unknown&amp;size=c710_u500&amp;quality=100" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">coder_qi</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">life need patient</p>
+			<p class="header-subtitle">simple life,easy life</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -184,9 +187,9 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="/#" title="github">github</a>
+						<a class="github" target="_blank" href="/“https://github.com/honourcoder”" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="http://weibo.com/petCatCorner/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
 			        
 						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
 			        
@@ -197,24 +200,22 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-云计算大会2015参与感悟" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-利用gitPage和Hexo创建独立的个人博客(二)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/11/云计算大会2015参与感悟/" class="article-date">
-  	<time datetime="2015-06-11T04:13:34.000Z" itemprop="datePublished">2015-06-11</time>
+      <a href="/2015/06/11/利用gitPage和Hexo创建独立的个人博客(二)/" class="article-date">
+  	<time datetime="2015-06-11T08:37:38.000Z" itemprop="datePublished">2015-06-11</time>
 </a>
     </div>
   
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      IOS开发之利用AsyncSocket实现即时通信
+      利用gitPage和Hexo创建独立的个人博客（二）
     </h1>
   
 
@@ -230,10 +231,19 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。<br><br>实现即时通信的方式很多，可以利用融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，GCDAsyncSocket，AsyncSocket等等，他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br></p>
-<h3 id="AsyncSocket简介">AsyncSocket简介</h3><p>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
-<h3 id="AsyncSocket使用">AsyncSocket使用</h3><h6 id="在项目引入ASyncSocket库">在项目引入ASyncSocket库</h6><p>1.下载ASyncSocket库源码<br><br>2.把ASyncSocket库源码加入项目：<br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。<br><br>3.在项目增加CFNetwork框架 <br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework</p>
-<h6 id="连接服务器">连接服务器</h6><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下：<br><br><code>import &quot;AsyncSocket.h&quot;</code><br><br>然后就与服务器建立链接了<br></p>
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
+<p>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。</p>
+<h4 id="gitPage设置">gitPage设置</h4><p>想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io<br>注意这里必须是上面的名字，然后只要再这里面上传一个index.html,我们就可以通过再浏览器里输入<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io来访问index.html.<br>注意：这里必须要有一个index.html,否则访问会显示404.</p>
+<h4 id="初始化Hexo文件夹">初始化Hexo文件夹</h4><p>有了存放并显示网页的地方，剩下的就是利用Hexo生成静态网页了。<br><br>创建一个文件夹，然后对这个文件夹进行初始化，创建一些hexo的基本文件,从命令行里进入文件夹之后，执行下列指令<br><br><code>bash
+hexo init</code><br><br>执行完指令后，发现文件夹下面多了五个文件夹和几个文件。如下图：</p>
+<h4 id="安装Hexo依赖包">安装Hexo依赖包</h4><p>接下来，再安装hexo的一些依赖包，执行<br><br><code>bash
+sudo npm install</code><br></p>
+<h4 id="创建新的博客">创建新的博客</h4><p>hexo可以通过指令新建一个模板博客，执行下列指令<br><br><code>bash
+hexo new &quot;新博客的标题&quot;</code><br><br>这样在source/_posts文件夹下面就会生成一个“新博客的标题.md”文件，这就是生成的静态网页文件，我们可以参照默认的那个hello world.md中得内容的格式编写我们的博客，一些语法都可以在hello world.md中找到。</p>
+<h4 id="生成静态网页">生成静态网页</h4><p>写完内容之后，我们就要利用hexo的主题样式模板生成静态网页了，执行下列指令<br><br><code>bash
+hexo g</code><br><br>这时候，在hexo的根目录下的public文件夹下会新生成一个index.html和一些文件夹。</p>
+<h4 id="上传文件">上传文件</h4><p>然后我们通过命令行也好，通过客户端工具也罢，只要把这些文件上传的到之前建立好的那个github仓库里就可以了。</p>
+<h4 id="查看结果">查看结果</h4><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。<br>至于username，可以在github里面进行设置</p>
 
       
     </div>
@@ -243,11 +253,15 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
     
 <nav id="article-nav">
   
-  
-    <a href="/2015/06/10/利用gitPage和Hexo创建独立的个人博客(一)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用gitPage和Hexo创建独立的个人博客（一）</div>
-      <strong class="article-nav-caption">></strong>
+    <a href="/2015/06/11/利用gitPage和Hexo创建独立的个人博客(一)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          利用gitPage和Hexo创建独立的个人博客（一）
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -274,7 +288,7 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="云计算大会2015参与感悟" data-title="IOS开发之利用AsyncSocket实现即时通信" data-url="http://www.coderqi.com/2015/06/11/云计算大会2015参与感悟/"></div>
+	<div class="ds-thread" data-thread-key="利用gitPage和Hexo创建独立的个人博客(二)" data-title="利用gitPage和Hexo创建独立的个人博客（二）" data-url="http://www.coderqi.com/2015/06/11/利用gitPage和Hexo创建独立的个人博客(二)/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -308,9 +322,6 @@ AsyncSocket简介AsyncSocket是一套开源的网络访问类库。 i">
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-
 
 <script src="/js/mobile.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>

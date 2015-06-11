@@ -30,7 +30,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img lazy-src="" class="js-avatar">
+			<img lazy-src="http://d.pcs.baidu.com/thumbnail/90bd37d43be55db0d5a513ccd77d5ccb?fid=1832792545-250528-12105641702858&amp;time=1434002400&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lmQ%2Fo3SR6HosXwsQDyNKBL9ozkY%3D&amp;rt=sh&amp;expires=2h&amp;r=119641469&amp;sharesign=unknown&amp;size=c710_u500&amp;quality=100" class="js-avatar">
 		</a>
 
 		<hgroup>
@@ -38,7 +38,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">life need patient</p>
+		<p class="header-subtitle">simple life,easy life</p>
 		
 
 		
@@ -98,9 +98,9 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="/#" title="github">github</a>
+								<a class="github" target="_blank" href="/“https://github.com/honourcoder”" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+								<a class="weibo" target="_blank" href="http://weibo.com/petCatCorner/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
 					        
 								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
 					        
@@ -142,7 +142,7 @@
 				
 				<section class="switch-part switch-part4">
 				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+					<div id="js-aboutme">不要问我从哪里来，也不要问我要到哪里去。我就是我，是颜色不一样的吃货…</div>
 				</section>
 				
 			</div>
@@ -159,13 +159,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="" class="js-avatar">
+				<img lazy-src="http://d.pcs.baidu.com/thumbnail/90bd37d43be55db0d5a513ccd77d5ccb?fid=1832792545-250528-12105641702858&amp;time=1434002400&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lmQ%2Fo3SR6HosXwsQDyNKBL9ozkY%3D&amp;rt=sh&amp;expires=2h&amp;r=119641469&amp;sharesign=unknown&amp;size=c710_u500&amp;quality=100" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">coder_qi</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">life need patient</p>
+			<p class="header-subtitle">simple life,easy life</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -180,9 +180,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="/#" title="github">github</a>
+						<a class="github" target="_blank" href="/“https://github.com/honourcoder”" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="http://weibo.com/petCatCorner/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
 			        
 						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
 			        
@@ -195,24 +195,22 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-云计算大会2015参与感悟" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-IOS开发之利用AsyncSocket实现即时通信" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/11/云计算大会2015参与感悟/" class="article-date">
-  	<time datetime="2015-06-11T04:13:34.000Z" itemprop="datePublished">2015-06-11</time>
+      <a href="/2015/06/11/IOS开发之利用AsyncSocket实现即时通信/" class="article-date">
+  	<time datetime="2015-06-11T08:40:53.000Z" itemprop="datePublished">2015-06-11</time>
 </a>
     </div>
   
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/11/云计算大会2015参与感悟/">IOS开发之利用AsyncSocket实现即时通信</a>
+      <a class="article-title" href="/2015/06/11/IOS开发之利用AsyncSocket实现即时通信/">IOS开发之利用AsyncSocket实现即时通信</a>
     </h1>
   
 
@@ -221,10 +219,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。<br><br>实现即时通信的方式很多，可以利用融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，GCDAsyncSocket，AsyncSocket等等，他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br></p>
-<h3 id="AsyncSocket简介">AsyncSocket简介</h3><p>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
-<h3 id="AsyncSocket使用">AsyncSocket使用</h3><h6 id="在项目引入ASyncSocket库">在项目引入ASyncSocket库</h6><p>1.下载ASyncSocket库源码<br><br>2.把ASyncSocket库源码加入项目：<br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。<br><br>3.在项目增加CFNetwork框架 <br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework</p>
-<h6 id="连接服务器">连接服务器</h6><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下：<br><br><code>import &quot;AsyncSocket.h&quot;</code><br><br>然后就与服务器建立链接了<br></p>
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br></p>
+<h3 id="AsyncSocket简介">AsyncSocket简介</h3><p>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。<br><br>实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br><br>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
+<h3 id="AsyncSocket的基本使用">AsyncSocket的基本使用</h3><h6 id="在项目引入ASyncSocket库">在项目引入ASyncSocket库</h6><p>1.下载ASyncSocket库源码<br><br>2.把ASyncSocket库源码加入项目：<br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。<br><br>3.在项目增加CFNetwork框架 <br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework</p>
+<h6 id="连接服务器">连接服务器</h6><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下：<br><br><br>import “AsyncSocket.h”<br><br><br>然后就是与服务器建立链接了<br><br>// socket连接<br><br>-(void)socketConnectHost{<br><br>    self.socket = [[AsyncSocket alloc] initWithDelegate:self];<br><br>    NSError *error = nil;<br><br>    [self.socket connectToHost:self.socketHost onPort:self.socketPort withTimeout:3 error:&amp;error];<br><br>}<br><br>与Java中的客户端部分代码相似，AsyncSocket代码也需要指定服务端地址和服务端口.</p>
+<h6 id="发送数据">发送数据</h6><p>发送数据的代码很简单<br>NSString <em>longConnect = @”longConnect”;<br><br>NSData   </em>dataStream  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];<br><br>[self.socket writeData:dataStream withTimeout:1 tag:1];<br><br>AsyncSocket向服务器发送数据都是先将数据转换生成二进制的data数据，再向服务端进行发送的。<br><br></p>
+<h6 id="接收数据">接收数据</h6><p>为了收到socket的消息，我们在长连接方法中进行读取数据<br><br>[self.socket readDataWithTimeout:30 tag:0];<br><br>如果得到数据，会调用回调方法<br><br>-(void)onSocket:(AsyncSocket <em>)sock didReadData:(NSData </em>)data withTag:(long)tag<br><br>{<br><br>    // 对得到的data值进行解析与转换即可<br><br>}<br></p>
+<h3 id="AsyncSocket的中级使用">AsyncSocket的中级使用</h3><p>在进行通信的时候经常会遇到一些不可抗力的因素，例如：服务端崩溃，手机端App闪退，手机断网了等等各种导致连接断开，而一个优秀的App是不应该允许这些情况影响用户体验的。<br><br>这个时候可以采取的一种方式是：创建一个类，继承AsyncSocket，重写他的下列方法。<br><br>// Disconnect Implementation<br></p>
+<ul>
+<li>(void)closeWithError:(NSError *)err;<br></li>
+<li>(void)recoverUnreadData;<br></li>
+<li>(void)emptyQueues;<br></li>
+<li>(void)close;<br><br>在对应的方法中进行相应的容错处理就可以了。</li>
+</ul>
 
       
     </div>
@@ -250,21 +257,19 @@
     <article id="post-利用gitPage和Hexo创建独立的个人博客(一)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/10/利用gitPage和Hexo创建独立的个人博客(一)/" class="article-date">
-  	<time datetime="2015-06-10T06:37:56.000Z" itemprop="datePublished">2015-06-10</time>
+      <a href="/2015/06/11/利用gitPage和Hexo创建独立的个人博客(一)/" class="article-date">
+  	<time datetime="2015-06-11T08:40:25.000Z" itemprop="datePublished">2015-06-11</time>
 </a>
     </div>
   
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/10/利用gitPage和Hexo创建独立的个人博客(一)/">利用gitPage和Hexo创建独立的个人博客（一）</a>
+      <a class="article-title" href="/2015/06/11/利用gitPage和Hexo创建独立的个人博客(一)/">利用gitPage和Hexo创建独立的个人博客（一）</a>
     </h1>
   
 
@@ -278,18 +283,10 @@
 <h3 id="gitPage+Hexo">gitPage+Hexo</h3><p>gitPage是github推出一个可以显示静态网页的服务。而对于我们的博客来说，基本除了评论的模块之外，剩下的都是静态网页，所以完全可以满足我们的需求，我们将我们的博客做成静态网页传到gitPage上就行，然后我们就可以在浏览器里访问到我们的网站了。<br>但是对于我们来说，一套简洁大方的静态网页的编写也是一件相对费时费力的工作。于是一些人找到了一些静态网页生成工具，这样我们只需要编写内容即可，剩下的事儿就交给工具了，工具会根据你选择的模板和你写的内容生成静态网页，于是，静态网页我们也有了。<br>那么思路很明显了，想要实现拥有一个独立的私有博客，我们需要两个东西，一个是可供浏览器访问的静态网页存储空间，这个我们选择gitPage，一个是一个静态网页生成工具，Octopress也好，Hexo也罢，这里我选择的是Hexo。</p>
 <h3 id="环境搭建">环境搭建</h3><h5 id="Hexo环境搭建">Hexo环境搭建</h5><p>在安装Hexo之前，还需要一些环境的搭建。需要安装NodeJS。</p>
 <h6 id="##安装NodeJS">##安装NodeJS</h6><p>安装NodeJS有两种方式<br><br>1 安装包的方式<br><br>直接去官网也好，百度也罢，下载一个安装包，安装就行，简便快捷，这也是我比较推荐的方式。</p>
-<p>2 命令行方式<br><br>如果用命令行安装，推荐通过homebrew安装，简单、高效、靠谱。<br><br>homebrew的安装一条指令就可以了<br><br><code>bash
-$ ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</code><br></p>
-<p>安装完homebrew，接下来该安装nvm，否则在安装hexo的时候会报错<br><code>bash
-git clone git://github.com/creationix/nvm.git ~/nvm
-echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; ~/.bash_profile</code><br><br>然后关掉终端再打开。<br><br><code>bash
-nvm install v2.2.3
-nvm use v2.2.3
-nvm alias default v2.2.3</code><br><br>这里我安装的时2.2.3，安装的时候可以通过list命令查看一下列表把版本号换成最新的即可。<br></p>
-<p>现在我们可以安装NodeJS了<br><br><code>bash
-sudo brew install nodejs</code><br></p>
-<h6 id="##安装hexo">##安装hexo</h6><p>到现在了，安装Hexo就很简单了<br><br><br><code>bash
-sudo npm install -g hexo</code><br></p>
+<p>2 命令行方式<br><br>如果用命令行安装，推荐通过homebrew安装，简单、高效、靠谱。<br><br>homebrew的安装一条指令就可以了<br><br>$ ruby -e “$(curl -fsSL <a href="https://raw.github.com/Homebrew/homebrew/go/install" target="_blank" rel="external">https://raw.github.com/Homebrew/homebrew/go/install</a>)”<br><br></p>
+<p>安装完homebrew，接下来该安装nvm，否则在安装hexo的时候会报错<br><br><br>git clone git://github.com/creationix/nvm.git ~/nvm<br><br>echo “. ~/.nvm/nvm.sh” &gt;&gt; ~/.bash_profile<br><br><br><br>然后关掉终端再打开。<br><br>nvm install v2.2.3<br><br>nvm use v2.2.3<br><br>nvm alias default v2.2.3<br><br><br><br>这里我安装的时2.2.3，安装的时候可以通过list命令查看一下列表把版本号换成最新的即可。<br></p>
+<p>现在我们可以安装NodeJS了<br><br>sudo brew install nodejs<br><br></p>
+<h6 id="##安装hexo">##安装hexo</h6><p>到现在了，安装Hexo就很简单了<br><br><br>sudo npm install -g hexo<br><br></p>
 <h5 id="Git环境搭建">Git环境搭建</h5><p>这个，还是去参考百度吧，一大堆。</p>
 <p>到这里环境就搭建完了。下一篇讲解如何用这个环境发布博客。</p>
 
@@ -317,21 +314,19 @@ sudo npm install -g hexo</code><br></p>
     <article id="post-利用gitPage和Hexo创建独立的个人博客(二)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/09/利用gitPage和Hexo创建独立的个人博客(二)/" class="article-date">
-  	<time datetime="2015-06-09T10:14:21.000Z" itemprop="datePublished">2015-06-09</time>
+      <a href="/2015/06/11/利用gitPage和Hexo创建独立的个人博客(二)/" class="article-date">
+  	<time datetime="2015-06-11T08:37:38.000Z" itemprop="datePublished">2015-06-11</time>
 </a>
     </div>
   
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/09/利用gitPage和Hexo创建独立的个人博客(二)/">利用gitPage和Hexo创建独立的个人博客（二）</a>
+      <a class="article-title" href="/2015/06/11/利用gitPage和Hexo创建独立的个人博客(二)/">利用gitPage和Hexo创建独立的个人博客（二）</a>
     </h1>
   
 
@@ -352,7 +347,7 @@ hexo new &quot;新博客的标题&quot;</code><br><br>这样在source/_posts文�
 <h4 id="生成静态网页">生成静态网页</h4><p>写完内容之后，我们就要利用hexo的主题样式模板生成静态网页了，执行下列指令<br><br><code>bash
 hexo g</code><br><br>这时候，在hexo的根目录下的public文件夹下会新生成一个index.html和一些文件夹。</p>
 <h4 id="上传文件">上传文件</h4><p>然后我们通过命令行也好，通过客户端工具也罢，只要把这些文件上传的到之前建立好的那个github仓库里就可以了。</p>
-<h4 id="查看结果">查看结果</h4><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。</p>
+<h4 id="查看结果">查看结果</h4><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。<br>至于username，可以在github里面进行设置</p>
 
       
     </div>
@@ -391,9 +386,6 @@ hexo g</code><br><br>这时候，在hexo的根目录下的public文件夹下会�
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-
 
 <script src="/js/mobile.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
