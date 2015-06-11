@@ -122,17 +122,11 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://onevcat.com/#blog">王巍的博客</a>
 			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lidaze.com">李大泽的博客</a>
 			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家的博客</a>
 			        
 			        </div>
 				</section>
@@ -199,7 +193,7 @@
   
     <div class="article-meta">
       <a href="/2015/06/11/IOS开发之利用AsyncSocket实现即时通信/" class="article-date">
-  	<time datetime="2015-06-11T08:40:53.000Z" itemprop="datePublished">2015-06-11</time>
+  	<time datetime="2015-06-11T09:33:11.000Z" itemprop="datePublished">2015-06-11</time>
 </a>
     </div>
   
@@ -222,7 +216,7 @@
         <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br></p>
 <h3 id="AsyncSocket简介">AsyncSocket简介</h3><p>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。<br><br>实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br><br>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
 <h3 id="AsyncSocket的基本使用">AsyncSocket的基本使用</h3><h6 id="在项目引入ASyncSocket库">在项目引入ASyncSocket库</h6><p>1.下载ASyncSocket库源码<br><br>2.把ASyncSocket库源码加入项目：<br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。<br><br>3.在项目增加CFNetwork框架 <br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework</p>
-<h6 id="连接服务器">连接服务器</h6><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下：<br><br><br>import “AsyncSocket.h”<br><br><br>然后就是与服务器建立链接了<br><br>// socket连接<br><br>-(void)socketConnectHost{<br><br>    self.socket = [[AsyncSocket alloc] initWithDelegate:self];<br><br>    NSError *error = nil;<br><br>    [self.socket connectToHost:self.socketHost onPort:self.socketPort withTimeout:3 error:&amp;error];<br><br>}<br><br>与Java中的客户端部分代码相似，AsyncSocket代码也需要指定服务端地址和服务端口.</p>
+<h6 id="连接服务器">连接服务器</h6><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下:<br><br>import “AsyncSocket.h”<br><br>然后就是与服务器建立链接了<br><br>// socket连接<br><br>-(void)socketConnectHost{<br><br>    self.socket = [[AsyncSocket alloc] initWithDelegate:self];<br><br>    NSError *error = nil;<br><br>    [self.socket connectToHost:self.socketHost onPort:self.socketPort withTimeout:3 error:&amp;error];<br><br>}<br><br>与Java中的客户端部分代码相似，AsyncSocket代码也需要指定服务端地址和服务端口.</p>
 <h6 id="发送数据">发送数据</h6><p>发送数据的代码很简单<br>NSString <em>longConnect = @”longConnect”;<br><br>NSData   </em>dataStream  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];<br><br>[self.socket writeData:dataStream withTimeout:1 tag:1];<br><br>AsyncSocket向服务器发送数据都是先将数据转换生成二进制的data数据，再向服务端进行发送的。<br><br></p>
 <h6 id="接收数据">接收数据</h6><p>为了收到socket的消息，我们在长连接方法中进行读取数据<br><br>[self.socket readDataWithTimeout:30 tag:0];<br><br>如果得到数据，会调用回调方法<br><br>-(void)onSocket:(AsyncSocket <em>)sock didReadData:(NSData </em>)data withTag:(long)tag<br><br>{<br><br>    // 对得到的data值进行解析与转换即可<br><br>}<br></p>
 <h3 id="AsyncSocket的中级使用">AsyncSocket的中级使用</h3><p>在进行通信的时候经常会遇到一些不可抗力的因素，例如：服务端崩溃，手机端App闪退，手机断网了等等各种导致连接断开，而一个优秀的App是不应该允许这些情况影响用户体验的。<br><br>这个时候可以采取的一种方式是：创建一个类，继承AsyncSocket，重写他的下列方法。<br><br>// Disconnect Implementation<br></p>
