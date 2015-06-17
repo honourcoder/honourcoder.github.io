@@ -13,7 +13,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
 <meta property="og:site_name" content="coderqi">
 <meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
 AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSo">
-<meta property="og:updated_time" content="2015-06-15T07:44:02.000Z">
+<meta property="og:updated_time" content="2015-06-15T09:19:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS开发之利用AsyncSocket实现即时通信">
 <meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
@@ -34,7 +34,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img lazy-src="http://d.pcs.baidu.com/thumbnail/90bd37d43be55db0d5a513ccd77d5ccb?fid=1832792545-250528-12105641702858&amp;time=1434351600&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ivvZuTXKHFWYTJf9wz6JoN8Ra0k%3D&amp;rt=sh&amp;expires=2h&amp;r=256449698&amp;sharesign=unknown&amp;size=c710_u500&amp;quality=100" class="js-avatar">
+			<img lazy-src="http://ww1.sinaimg.cn/large/005KqbSEgw1et6sxqnwvpj30f60fqtai.jpg" class="js-avatar">
 		</a>
 
 		<hgroup>
@@ -157,7 +157,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="http://d.pcs.baidu.com/thumbnail/90bd37d43be55db0d5a513ccd77d5ccb?fid=1832792545-250528-12105641702858&amp;time=1434351600&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ivvZuTXKHFWYTJf9wz6JoN8Ra0k%3D&amp;rt=sh&amp;expires=2h&amp;r=256449698&amp;sharesign=unknown&amp;size=c710_u500&amp;quality=100" class="js-avatar">
+				<img lazy-src="http://ww1.sinaimg.cn/large/005KqbSEgw1et6sxqnwvpj30f60fqtai.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">coder_qi</h1>
@@ -195,7 +195,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
   
     <div class="article-meta">
       <a href="/2015/06/15/IOS开发之利用AsyncSocket实现即时通信/" class="article-date">
-  	<time datetime="2015-06-15T07:44:02.000Z" itemprop="datePublished">2015-06-15</time>
+  	<time datetime="2015-06-15T09:19:22.000Z" itemprop="datePublished">2015-06-15</time>
 </a>
     </div>
   
@@ -223,8 +223,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
     <div class="article-entry" itemprop="articleBody">
       
         <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br></p>
-<h3 id="AsyncSocket简介">AsyncSocket简介</h3><p>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。<br><br>实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br><br>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
-<a id="more"></a>
+<h3 id="AsyncSocket简介">AsyncSocket简介</h3><p>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。<br><br>实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br><br><a id="more"></a><br>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
 <h3 id="AsyncSocket的基本使用">AsyncSocket的基本使用</h3><h6 id="在项目引入ASyncSocket库">在项目引入ASyncSocket库</h6><p>1.下载ASyncSocket库源码<br><br>2.把ASyncSocket库源码加入项目：<br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。<br><br>3.在项目增加CFNetwork框架 <br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework</p>
 <h6 id="连接服务器">连接服务器</h6><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下:<br><br>import “AsyncSocket.h”<br><br>然后就是与服务器建立链接了<br><br>// socket连接<br><br>-(void)socketConnectHost{<br><br>    self.socket = [[AsyncSocket alloc] initWithDelegate:self];<br><br>    NSError *error = nil;<br><br>    [self.socket connectToHost:self.socketHost onPort:self.socketPort withTimeout:3 error:&amp;error];<br><br>}<br><br>与Java中的客户端部分代码相似，AsyncSocket代码也需要指定服务端地址和服务端口.</p>
 <h6 id="发送数据">发送数据</h6><p>发送数据的代码很简单<br>NSString <em>longConnect = @”longConnect”;<br><br>NSData   </em>dataStream  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];<br><br>[self.socket writeData:dataStream withTimeout:1 tag:1];<br><br>AsyncSocket向服务器发送数据都是先将数据转换生成二进制的data数据，再向服务端进行发送的。<br><br></p>
