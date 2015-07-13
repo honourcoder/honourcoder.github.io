@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IOS开发之利用AsyncSocket实现即时通信 | coder_qi</title>
+  <title>利用gitpage和Hexo创建独立博客(一) | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.comAsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。
-实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSo">
+  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IOS开发之利用AsyncSocket实现即时通信">
-<meta property="og:url" content="http://yoursite.com/2015/07/08/IOS开发之利用AsyncSocket实现即时通信/index.html">
+<meta property="og:title" content="利用gitpage和Hexo创建独立博客(一)">
+<meta property="og:url" content="http://yoursite.com/2015/07/09/利用gitpage和Hexo创建独立博客(一)/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.comAsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。
-实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSo">
-<meta property="og:updated_time" content="2015-07-07T16:55:26.000Z">
+<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com">
+<meta property="og:updated_time" content="2015-07-09T01:44:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOS开发之利用AsyncSocket实现即时通信">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.comAsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。
-实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSo">
+<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(一)">
+<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
   
@@ -184,11 +181,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-IOS开发之利用AsyncSocket实现即时通信" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-利用gitpage和Hexo创建独立博客(一)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/08/IOS开发之利用AsyncSocket实现即时通信/" class="article-date">
-  	<time datetime="2015-07-07T16:55:26.000Z" itemprop="datePublished">2015-07-08</time>
+      <a href="/2015/07/09/利用gitpage和Hexo创建独立博客(一)/" class="article-date">
+  	<time datetime="2015-07-09T01:44:45.000Z" itemprop="datePublished">2015-07-09</time>
 </a>
     </div>
   
@@ -201,7 +198,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      IOS开发之利用AsyncSocket实现即时通信
+      利用gitpage和Hexo创建独立博客(一)
     </h1>
   
 
@@ -217,20 +214,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br>AsyncSocket简介<br>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。</p>
-<p>实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。</p>
-<p>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.<br>AsyncSocket的基本使用<br>在项目引入ASyncSocket库<br>1.下载ASyncSocket库源码</p>
-<p>2.把ASyncSocket库源码加入项目：<br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。</p>
-<p>3.在项目增加CFNetwork框架<br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework<br>连接服务器<br>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下:</p>
-<p>import “AsyncSocket.h”</p>
-<p>然后就是与服务器建立链接了<br>// socket连接<br>-(void)socketConnectHost{<br>    self.socket = [[AsyncSocket alloc] initWithDelegate:self];<br>    NSError *error = nil;<br>    [self.socket connectToHost:self.socketHost onPort:self.socketPort withTimeout:3 error:&amp;error];<br>}<br>与Java中的客户端部分代码相似，AsyncSocket代码也需要指定服务端地址和服务端口.<br>发送数据<br>发送数据的代码很简单<br>NSString longConnect = @”longConnect”;<br>NSData   dataStream  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];<br>[self.socket writeData:dataStream withTimeout:1 tag:1];</p>
-<p>AsyncSocket向服务器发送数据都是先将数据转换生成二进制的data数据，再向服务端进行发送的。</p>
-<p>接收数据<br>为了收到socket的消息，我们需要在长连接方法中进行读取数据</p>
-<p>[self.socket readDataWithTimeout:30 tag:0];</p>
-<p>如果得到数据，会调用回调方法<br>-(void)onSocket:(AsyncSocket )sock didReadData:(NSData )data withTag:(long)tag<br>{<br>    // 对得到的data值进行解析与转换即可<br>}<br>AsyncSocket的中级使用<br>在进行通信的时候经常会遇到一些不可抗力的因素，例如：服务端崩溃，手机端App闪退，手机断网了等等各种导致连接断开，而一个优秀的App是不应该允许这些情况影响用户体验的。</p>
-<p>这个时候可以采取的一种方式是：创建一个类，继承AsyncSocket，重写他的下列方法。</p>
-<p>// Disconnect Implementation<br>(void)closeWithError:(NSError *)err;<br>(void)recoverUnreadData;<br>(void)emptyQueues;<br>(void)close;</p>
-<p>在对应的方法中进行相应的容错处理就可以了。</p>
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br><a id="more"></a></p>
+<h3 id="独立博客">独立博客</h3><p>很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方式。</p>
+<h3 id="gitPage+Hexo">gitPage+Hexo</h3><p>gitPage是github推出一个可以显示静态网页的服务。而对于我们的博客来说，基本除了评论的模块之外，剩下的都是静态网页，所以完全可以满足我们的需求，我们将我们的博客做成静态网页传到gitPage上就行，然后我们就可以在浏览器里访问到我们的网站了。</p><br>但是对于我们来说，一套简洁大方的静态网页的编写也是一件相对费时费力的工作。于是一些人找到了一些静态网页生成工具，这样我们只需要编写内容即可，剩下的事儿就交给工具了，工具会根据你选择的模板和你写的内容生成静态网页，于是，静态网页我们也有了。/p&gt;<br>那么思路很明显了，想要实现拥有一个独立的私有博客，我们需要两个东西，一个是可供浏览器访问的静态网页存储空间，这个我们选择gitPage，一个是一个静态网页生成工具，Octopress也好，Hexo也罢，这里我选择的是Hexo。<p></p>
+<h3 id="环境搭建">环境搭建</h3><h4 id="Hexo环境搭建">Hexo环境搭建</h4><p>在安装Hexo之前，还需要一些环境的搭建。需要安装NodeJS。<br>安装NodeJS<br>安装NodeJS有两种方式</p>
+<h5 id="1_安装包的方式">1 安装包的方式</h5><p>直接去官网也好，百度也罢，下载一个安装包，安装就行，简便快捷，这也是我比较推荐的方式。</p>
+<h5 id="2_命令行方式">2 命令行方式</h5><p>如果用命令行安装，推荐通过homebrew安装，简单、高效、靠谱。</p>
+<p>homebrew的安装一条指令就可以了</p>
+<p><pre>$ ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”<br></pre><br>安装完homebrew，接下来该安装nvm，否则在安装hexo的时候会报错<br>接下来要从github上下载nvm，指令如下。</p>
+<p><pre>git clone git://github.com/creationix/nvm.git ~/nvm<br></pre><br>从Finder中进入新生成的nvm文件夹里，把install.sh拖到命令行里，按下回车即可安装，然后关掉终端再打开。如果提示已经安装了nvm，那么OK，我们可以进行下一步了。这里之所以会进行这一步是因为有的人电脑可能没有安装nvm，或者因为某些原因卸载掉了，如果是这样的话，后面会出现各种错误，所以我的建议是在源头就进行遏制，确保这里不会出岔子</p><br>接下来就是查看一下远程服务器上的nvm都有哪些版本，指令如下<p></p>
+<p><pre>nvm ls-remote<br></pre><br>选择一个比较新的版本，将下列指令的版本号替换成最新的版本号</p>
+<p><pre>nvm install iojs-v2.2.1</pre><br>然后是设定使用刚才安装的版本的nvm。</p>
+<p><pre>nvm use v2.2.3</pre><br>然后还需要一个设定，就是指定当前系统的默认版本是我们刚才安装的版本。</p>
+<p><pre>nvm alias default v2.2.3</pre><br>现在我们可以安装NodeJS了,安装非常简单明了，只一行代码，如下：</p>
+<p><pre>sudo brew install nodejs</pre></p>
+<h4 id="安装hexo">安装hexo</h4><p>到现在了，安装Hexo就很简单了</p>
+<p><pre>sudo npm install -g hexo</pre></p>
+<h3 id="Git环境搭建">Git环境搭建</h3><p>git的搭建，首先需要申请一个github账号。</p>
+<p>有了账号之后，登陆进去，new一个repository,仓库的名字必须是[用户名.github.io]<br>然后，下载一个github客户端，用于将我们的静态网页上传到刚才创建的代码仓库中。</p>
+<p>这里解释一下，github上传代码和文件有两种，条条大路通罗马，不论用何种办法，能把东西传到github上的方法就是好方法。这里我采用的是客户端上传的方法，我个人觉得这样在使用的过程中清晰明了，操作快捷一些，这个依个人看法吧。</p>
 
       
     </div>
@@ -240,11 +242,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/08/利用gitpage和Hexo创建独立博客(一)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/09/利用gitpage和Hexo创建独立博客(二)/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          利用gitpage和Hexo创建独立博客(一)
+          利用gitpage和Hexo创建独立博客(二)
         
       </div>
     </a>
@@ -275,7 +277,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="IOS开发之利用AsyncSocket实现即时通信" data-title="IOS开发之利用AsyncSocket实现即时通信" data-url="http://yoursite.com/2015/07/08/IOS开发之利用AsyncSocket实现即时通信/"></div>
+	<div class="ds-thread" data-thread-key="利用gitpage和Hexo创建独立博客(一)" data-title="利用gitpage和Hexo创建独立博客(一)" data-url="http://yoursite.com/2015/07/09/利用gitpage和Hexo创建独立博客(一)/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
