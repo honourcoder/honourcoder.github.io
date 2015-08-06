@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IOS开发之利用AsyncSocket实现即时通信(一) | coder_qi</title>
+  <title>swift入门(一) | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。
-实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncS">
+  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
+Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IOS开发之利用AsyncSocket实现即时通信(一)">
-<meta property="og:url" content="http://yoursite.com/2015/07/27/IOS开发之利用AsyncSocket实现即时通信/index.html">
+<meta property="og:title" content="swift入门(一)">
+<meta property="og:url" content="http://yoursite.com/2015/08/07/Swift基础入门(一)/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。
-实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncS">
-<meta property="og:updated_time" content="2015-07-26T16:40:25.000Z">
+<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
+Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完">
+<meta property="og:updated_time" content="2015-08-06T18:49:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOS开发之利用AsyncSocket实现即时通信(一)">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，也就是即时通信。
-实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncS">
+<meta name="twitter:title" content="swift入门(一)">
+<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
+Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
   
@@ -189,11 +186,11 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-IOS开发之利用AsyncSocket实现即时通信" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Swift基础入门(一)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/27/IOS开发之利用AsyncSocket实现即时通信/" class="article-date">
-  	<time datetime="2015-07-26T16:40:25.000Z" itemprop="datePublished">2015-07-27</time>
+      <a href="/2015/08/07/Swift基础入门(一)/" class="article-date">
+  	<time datetime="2015-08-06T18:49:27.000Z" itemprop="datePublished">2015-08-07</time>
 </a>
     </div>
   
@@ -206,7 +203,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
         
   
     <h1 class="article-title" itemprop="name">
-      IOS开发之利用AsyncSocket实现即时通信(一)
+      swift入门(一)
     </h1>
   
 
@@ -216,7 +213,7 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
         
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Socket通信/">Socket通信</a>
+	<a class="article-category-link" href="/categories/Swift基础/">Swift基础</a>
 	</div>
 
 
@@ -226,41 +223,40 @@ AsyncSocket简介在实现App的时候经常需要进行实时的网络通信，
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
-<p>AsyncSocket简介<br>在实现App的时候经常需要进行实时的网络通信，也就是即时通信。</p>
-<p>实现即时通信的方式很多，可以利用极光、融云等即时通信平台进行通信，也可以利用一些打包类进行简单的即时通信。这些打包类也有很多，例如GCDAsyncSocket，AsyncSocket等等，但他们的使用方法都是共通的。这里以AsyncSocket为例，讲解一下其使用过程。<br><a id="more"></a></p>
-<p>AsyncSocket是一套开源的网络访问类库。 iphone的标准推荐CFNetwork C库编程.但是编程比较麻烦。在其它OS往往用类来封装的对Socket函数的处理。比如MFC的CAsysncSocket，Java里面的Socket和SocketServer.在iphone也有类似于开源项目，就是AsyncSocket库, 官方网站:<a href="http://code.google.com/p/cocoaasyncsocket/" target="_blank" rel="external">http://code.google.com/p/cocoaasyncsocket/</a> 它用来简化CFnetwork的调用.</p>
-<h3 id="AsyncSocket的基本使用">AsyncSocket的基本使用</h3><h4 id="在项目引入ASyncSocket库">在项目引入ASyncSocket库</h4><p>1.下载ASyncSocket库源码</p><br>2.把ASyncSocket库源码加入项目：<p></p><br>只需要增加RunLoop目录中的AsyncSocket.h、AsyncSocket.m、AsyncUdpSocket.h和AsyncUdpSocket.m四个文件。<p></p>
-<p>3.在项目增加CFNetwork框架<br>在Framework目录右健,选择Add—&gt;Existing Files…, 选择 CFNetwork.framework</p>
-<h4 id="连接服务器">连接服务器</h4><p>首先引入头文件，声明一个AsyncSocket对象，再调用connection与服务器建立连接，代码如下:</p>
-<pre>import “AsyncSocket.h”</pre>
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.</p>
+<h4 id="Swift简介">Swift简介</h4><p>作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完善中,但是,其日后很有可能成为IOS和MAC OS开发的主流.<br><a id="more"></a></p>
+<h5 id="swift和OC的几处不同">swift和OC的几处不同</h5><p>在具体学习swift之前,总会好奇swift和OC的区别都有哪些,于是我查找了一些资料,大概有以下几处不同.</p>
+<p>1 类型推断</p>
+<p>swift采用的了类型推断,编译器可以在运行时自动判断,也可以在声明的时候进行指定.代码如下:</p>
+<pre>var a = 123;
+或者
+var a:Int = 123;</pre>
+swift编译器相比于OC编译器来说,有一个很强大的特性就是编译器完全知道所有的类型信息,而这是OC编译器的动态调用所达不到的.这样做的一个好处就是可以做到类型安全.
 
-<p>然后就是与服务器建立链接了</p>
-<pre>// socket连接
--(void)socketConnectHost{
-    self.socket = [[AsyncSocket alloc] initWithDelegate:self];
-    NSError *error = nil;
-    [self.socket connectToHost:self.socketHost onPort:self.socketPort withTimeout:3 error:&error];
-}</pre>
-与Java中的客户端部分代码相似，AsyncSocket代码也需要指定服务端地址和服务端口.
-####发送数据
-发送数据的代码很简单
-<pre>NSString longConnect = @”longConnect”;
-NSData   dataStream  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];
-[self.socket writeData:dataStream withTimeout:1 tag:1];
+2 泛型
+
+泛型,允许swift可以像Java那样将数据类型参数化,从而实现方法在参数类型不同的情况下的通用.即如果两个方法只是参数类型上的不同,其他的具体实现都是一样的,那么久可以通过泛型传递一个数据类型作为参数,在方法调用的时候,会根据参数传递的类型进行处理.示例代码如下:
+<pre>
+struct testStruct<t: equatable="">{
+    let a:T;
+    let b:T;
+}</t:></pre>
+
+<p>3 数组和字典</p>
+<p>不像OC中的字典和数组,swift中let声明的字典和数组都是不可变的,但是,通过var声明的都是可变的.</p>
+<p>另外,在swift的数组和字典中,同样可以在创建的时候显式的指定里面存放的数据类型,那么该数组和字典中就不会出现其他类型的数据,也是一种类型安全的表现.</p>
+<pre>let array: Int[] = [1,2,3,4]</pre>
+
+<p>4 字符串<br>与OC相比,swift的字符串最大的变化是,对于字符串的拼接不用再通过调用方法来实现了,可以像Java一样直接用”+”标识符来实现字符串的连接.代码如下:</p>
+<pre>
+let string1 = "hi ";
+let string2 = "coder qi";
+var string3 = string1 + string2;
 </pre>
-AsyncSocket向服务器发送数据都是先将数据转换生成二进制的data数据，再向服务端进行发送的。
 
-####接收数据
-为了收到socket的消息，我们需要在长连接方法中进行读取数据
-<pre>[self.socket readDataWithTimeout:30 tag:0];</pre>
-
-<p>如果得到数据，会调用回调方法</p>
-<p><pre>-(void)onSocket:(AsyncSocket )sock didReadData:(NSData )data withTag:(long)tag<br>{<br>    // 对得到的data值进行解析与转换即可<br>}</pre></p>
-<h4 id="AsyncSocket的中级使用">AsyncSocket的中级使用</h4><p>在进行通信的时候经常会遇到一些不可抗力的因素，例如：服务端崩溃，手机端App闪退，手机断网了等等各种导致连接断开，而一个优秀的App是不应该允许这些情况影响用户体验的。</p>
-<p>这个时候可以采取的一种方式是：创建一个类，继承AsyncSocket，重写他的下列方法。</p>
-<p>// Disconnect Implementation<br>(void)closeWithError:(NSError *)err;<br>(void)recoverUnreadData;<br>(void)emptyQueues;<br>(void)close;</p>
-<p>在对应的方法中进行相应的容错处理就可以了。</p>
+<p>5 switch</p>
+<p>最后,还有一个swift和OC比较明显的区别:switch的每个分支不必再显式的去用break标记分支结束了.swift会自动在执行完本分支之后结束分支,不会出现像C,OC中switch中出现的那种分支贯穿现象.</p>
+<p>另外,switch中支持的匹配数据类型也比OC多了许多.</p>
 
       
     </div>
@@ -270,18 +266,9 @@ AsyncSocket向服务器发送数据都是先将数据转换生成二进制的dat
     
 <nav id="article-nav">
   
-    <a href="/2015/08/07/Swift基础入门(一)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          swift入门(一)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/09/利用gitpage和Hexo创建独立博客(二)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用gitpage和Hexo创建独立博客(二)</div>
+    <a href="/2015/07/27/IOS开发之利用AsyncSocket实现即时通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IOS开发之利用AsyncSocket实现即时通信(一)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -310,7 +297,7 @@ AsyncSocket向服务器发送数据都是先将数据转换生成二进制的dat
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="IOS开发之利用AsyncSocket实现即时通信" data-title="IOS开发之利用AsyncSocket实现即时通信(一)" data-url="http://yoursite.com/2015/07/27/IOS开发之利用AsyncSocket实现即时通信/"></div>
+	<div class="ds-thread" data-thread-key="Swift基础入门(一)" data-title="swift入门(一)" data-url="http://yoursite.com/2015/08/07/Swift基础入门(一)/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
