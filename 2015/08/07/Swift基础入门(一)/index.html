@@ -13,7 +13,7 @@ Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹�
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
 Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完">
-<meta property="og:updated_time" content="2015-08-06T19:38:40.000Z">
+<meta property="og:updated_time" content="2015-08-06T19:43:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift入门(一)">
 <meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
@@ -190,7 +190,7 @@ Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹�
   
     <div class="article-meta">
       <a href="/2015/08/07/Swift基础入门(一)/" class="article-date">
-  	<time datetime="2015-08-06T19:38:40.000Z" itemprop="datePublished">2015-08-07</time>
+  	<time datetime="2015-08-06T19:43:24.000Z" itemprop="datePublished">2015-08-07</time>
 </a>
     </div>
   
@@ -226,31 +226,31 @@ Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹�
         <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.</p>
 <h4 id="Swift简介">Swift简介</h4><p>作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完善中,但是,其日后很有可能成为IOS和MAC OS开发的主流.<br><a id="more"></a></p>
 <h4 id="swift和OC的几处不同">swift和OC的几处不同</h4><p>在具体学习swift之前,总会好奇swift和OC的区别都有哪些,于是我查找了一些资料,大概有以下几处不同.</p>
-<h5 id="1_类型推断">1 类型推断</h5><p>swift采用的了类型推断,编译器可以在运行时自动判断,也可以在声明的时候进行指定.代码如下:</p>
+<h5 id="1_类型推断">1 类型推断</h5><p>swift采用的了类型推断,编译器可以在运行时根据赋值自动进行判断数据的类型是什么,也可以在声明的时候进行指定.代码如下:</p>
 <pre>var a = 123;
 或者
 var a:Int = 123;</pre>
-swift编译器相比于OC编译器来说,有一个很强大的特性就是编译器完全知道所有的类型信息,而这是OC编译器的动态调用所达不到的.这样做的一个好处就是可以做到类型安全.
+swift编译器相比于OC编译器来说,有一个很强大的特性就是编译器完全知道所有的类型信息,而这是OC编译器的动态调用所达不到的.swift这样做的一个好处就是可以做到类型安全.
 <br>
 <h5>2 泛型</h5>
-泛型,允许swift可以像Java那样将数据类型参数化,从而实现方法在参数类型不同的情况下的通用.即如果两个方法只是参数类型上的不同,其他的具体实现都是一样的,那么久可以通过泛型传递一个数据类型作为参数,在方法调用的时候,会根据参数传递的类型进行处理.示例代码如下:
+泛型,允许swift可以像Java那样将数据类型参数化,从而实现方法在参数类型不同的情况下的通用.即如果两个方法只是参数类型上的不同,其他的具体实现都是一样的,那么就可以通过泛型传递一个数据类型作为参数,在方法调用的时候,会根据参数传递的类型进行处理.示例代码如下:
 <pre>struct testStruct< T :  Equatable>{
     let a:T;
     let b:T;
 }</pre>
 
 <h5 id="3_数组和字典">3 数组和字典</h5><p>不像OC中的字典和数组,swift中let声明的字典和数组都是不可变的,但是,通过var声明的都是可变的.</p>
-<p>另外,在swift的数组和字典中,同样可以在创建的时候显式的指定里面存放的数据类型,那么该数组和字典中就不会出现其他类型的数据,也是一种类型安全的表现.</p>
+<p>另外,在swift的数组和字典中,同样可以在创建的时候显式的指定里面存放的数据类型,那么该数组和字典中就不会出现其他类型的数据,这也是一种类型安全的表现.</p>
 <pre>let array: Int[] = [1,2,3,4]</pre>
 
-<h5 id="4_字符串">4 字符串</h5><p>与OC相比,swift的字符串最大的变化是,对于字符串的拼接不用再通过调用方法来实现了,可以像Java一样直接用”+”标识符来实现字符串的连接.代码如下:</p>
+<h5 id="4_字符串">4 字符串</h5><p>与OC相比,swift的字符串最大的变化是,对于字符串的拼接不用再通过调用方法来实现了,可以像Java一样直接用”+”语法来实现字符串的连接.代码如下:</p>
 <pre>
 let string1 = "hi ";
 let string2 = "coder qi";
 var string3 = string1 + string2;
 </pre>
 
-<h5 id="5_switch">5 switch</h5><p>最后,还有一个swift和OC比较明显的区别:switch的每个分支不必再显式的去用break标记分支结束了.swift会自动在执行完本分支之后结束分支,不会出现像C,OC中switch中出现的那种分支贯穿现象.</p>
+<h5 id="5_switch">5 switch</h5><p>最后,还有一个swift和OC比较明显的区别:switch的每个分支不必再显式的去用break标记分支结束了.swift会自动在执行完本分支之后结束分支,不会出现像C,OC中switch出现的那种分支贯穿现象.</p>
 <p>另外,switch中支持的匹配数据类型也比OC多了许多.</p>
 
       
