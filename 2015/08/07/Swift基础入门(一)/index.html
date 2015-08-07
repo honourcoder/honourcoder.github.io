@@ -13,7 +13,7 @@ Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹�
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
 Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹果宣布在今年九月之后将自家应用全部换成swift编写之后,更有必要掌握swift这门语言了.swift语法更简洁,效率更高,虽然现在还不是非常的完善,一些API还处在修改完">
-<meta property="og:updated_time" content="2015-08-06T19:43:24.000Z">
+<meta property="og:updated_time" content="2015-08-07T12:41:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift入门(一)">
 <meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
@@ -190,7 +190,7 @@ Swift简介作为一个IOS开发者,swift的学习是必然的,尤其是在苹�
   
     <div class="article-meta">
       <a href="/2015/08/07/Swift基础入门(一)/" class="article-date">
-  	<time datetime="2015-08-06T19:43:24.000Z" itemprop="datePublished">2015-08-07</time>
+  	<time datetime="2015-08-07T12:41:00.000Z" itemprop="datePublished">2015-08-07</time>
 </a>
     </div>
   
@@ -237,13 +237,18 @@ swift编译器相比于OC编译器来说,有一个很强大的特性就是编译
 <pre>struct testStruct< T :  Equatable>{
     let a:T;
     let b:T;
+    func MAX() -> Bool{
+        return a>b?a:b;
+    }
 }</pre>
 
-<h5 id="3_数组和字典">3 数组和字典</h5><p>不像OC中的字典和数组,swift中let声明的字典和数组都是不可变的,但是,通过var声明的都是可变的.</p>
+<h5>3 数组和字典</h5>
+
+<p>不像OC中的字典和数组,swift中let声明的字典和数组都是不可变的,但是,通过var声明的都是可变的.</p>
 <p>另外,在swift的数组和字典中,同样可以在创建的时候显式的指定里面存放的数据类型,那么该数组和字典中就不会出现其他类型的数据,这也是一种类型安全的表现.</p>
 <pre>let array: Int[] = [1,2,3,4]</pre>
 
-<h5 id="4_字符串">4 字符串</h5><p>与OC相比,swift的字符串最大的变化是,对于字符串的拼接不用再通过调用方法来实现了,可以像Java一样直接用”+”语法来实现字符串的连接.代码如下:</p>
+<p></p><h5>4 字符串</h5><br>与OC相比,swift的字符串最大的变化是,对于字符串的拼接不用再通过调用方法来实现了,可以像Java一样直接用”+”语法来实现字符串的连接.代码如下:<p></p>
 <pre>
 let string1 = "hi ";
 let string2 = "coder qi";
