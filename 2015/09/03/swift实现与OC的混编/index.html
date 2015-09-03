@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>swift常用语法 | coder_qi</title>
+  <title>swift实现与OC的混编 | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
-基础语法语言是共通的,在编程思想层次上来说,各个语言可以说是基本相同,只是在用到的时候具体的语法可能会有所不同.那么想要掌握swift,对其语法的熟悉是第一步.">
+  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 
+swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift常用语法">
-<meta property="og:url" content="http://yoursite.com/2015/08/08/swift常用语法/index.html">
+<meta property="og:title" content="swift实现与OC的混编">
+<meta property="og:url" content="http://yoursite.com/2015/09/03/swift实现与OC的混编/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
-基础语法语言是共通的,在编程思想层次上来说,各个语言可以说是基本相同,只是在用到的时候具体的语法可能会有所不同.那么想要掌握swift,对其语法的熟悉是第一步.">
-<meta property="og:updated_time" content="2015-08-07T16:42:32.000Z">
+<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 
+swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo2a8e5aj314s0o2dla.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0062YVJrjw1evpodz8njoj30ps0aodia.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo9sf2wkj30wc06ytaj.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpoft4eljj317y0jydr4.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/0062YVJrjw1evposxm2m0j313g07omye.jpg">
+<meta property="og:updated_time" content="2015-09-03T15:54:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift常用语法">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.
-基础语法语言是共通的,在编程思想层次上来说,各个语言可以说是基本相同,只是在用到的时候具体的语法可能会有所不同.那么想要掌握swift,对其语法的熟悉是第一步.">
+<meta name="twitter:title" content="swift实现与OC的混编">
+<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 
+swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
   
@@ -186,11 +191,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-swift常用语法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-swift实现与OC的混编" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/08/swift常用语法/" class="article-date">
-  	<time datetime="2015-08-07T16:42:32.000Z" itemprop="datePublished">2015-08-08</time>
+      <a href="/2015/09/03/swift实现与OC的混编/" class="article-date">
+  	<time datetime="2015-09-03T15:54:59.000Z" itemprop="datePublished">2015-09-03</time>
 </a>
     </div>
   
@@ -203,7 +208,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      swift常用语法
+      swift实现与OC的混编
     </h1>
   
 
@@ -213,7 +218,7 @@
         
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Swift基础/">Swift基础</a>
+	<a class="article-category-link" href="/categories/swift基础/">swift基础</a>
 	</div>
 
 
@@ -223,63 +228,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 本系列博客是本人作为一个IOS入门者学习swift的总结,如有错误,欢迎指正.</p>
-<h2 id="基础语法">基础语法</h2><p>语言是共通的,在编程思想层次上来说,各个语言可以说是基本相同,只是在用到的时候具体的语法可能会有所不同.那么想要掌握swift,对其语法的熟悉是第一步.</p>
-<a id="more"></a>
-<h2 id="常量和变量">常量和变量</h2><pre><code>let(var) 常量名 : 类型  =  表达式</code></pre>
-let用于声明常量  
-var用于声明变量  
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. </p>
+<h2 id="swift与OC的混编">swift与OC的混编</h2><p>现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.<br><a id="more"></a></p>
+<p></p><h2>swift中使用OC</h2><br>在OC中,如果我们要使用某个类,我们只需要使用import指令将那个类的头文件引入进来就行,但是在.swift文件中使用import指令的时候,发现这样并不行.那么在swift中引入OC文件该怎么做呢?<p></p>
+<p>swift中想要使用其他类文件中的类是不需要引用就可以直接使用的,所以不存在引入头文件情况,那么引用头文件的语法当然是不好用的.但是,想引入OC的头文件也不是没有办法,那就是通过OC-Swift桥的方式.这里就那使用sqlite数据库的方法作为例子吧,至于引入sqlite数据库的库文件就不说了,直接从引入头文件开始</p>
+<p>具体做法:</p>
+<p>1 创建桥文件<br>command + N选择创建头文件,输入一个自己喜欢的名字即可.<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo2a8e5aj314s0o2dla.jpg"></p>
+<p>2 将要引入的文件在这个桥文件里进行引入就行,即将import 语句写在这里<br><img src="http://ww3.sinaimg.cn/large/0062YVJrjw1evpodz8njoj30ps0aodia.jpg"></p>
+<p>3 配置桥接文件<br>打开工程配置文件,build setting标签搜索框里输入bridge就会出现Objective-C Bridging Header选项.在选项中配置好刚才创建的头文件的路径即可.<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo9sf2wkj30wc06ytaj.jpg"></p>
+<p></p><br>OK,这个时候再去appDelegate.swift文件中输入sqlite,发现提示已经出现了.证明swift中混编OC成功<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpoft4eljj317y0jydr4.jpg"><br><p></p><br><p></p><p></p>
+<p></p><h2>OC中使用swift类</h2><br>OC中想要使用一个类,必须引入这个类的头文件,可是,可是swift中没有头文件啊!!!这怎么办呢?<p></p>
+<p>其实swift中是有头文件的,只是被隐藏了.那么想要使用的话具体要怎么做呢?</p>
+<p>1 查看module名字</p>
+<p>这个module名字比较重要,swift的头文件就是根据这个名字命名的.还是去工程的配置文件的build setting标签搜索框里输入”product mod”,就会显示下面的图,记住module名字<br><img src="http://ww4.sinaimg.cn/large/0062YVJrjw1evposxm2m0j313g07omye.jpg"></p>
+<p>2 在想要使用的类上面引入swift的module头文件即可</p>
+<p>只是这里的名字是统一的.必须是module名字加上”-swift.h”</p>
+<ima src="http://ww4.sinaimg.cn/large/0062YVJrjw1evpp7fc5s0j30s60fs79i.jpg">
 
-注意:swift允许使用任何Unicode字符作为变量和常量的名字,包括那些不属于ASCII编码的字符(不过貌似然并卵).  <br>
-swift中分号的书写是可选的了,默认一行结束就是一个语句的结束,但是如果你想写上当然是最好的.  
 
-#####字符串
-swift对字符串进行了显著的加强,前面也提到了.主要有以下几个改进的地方. <br>
-1 @前缀省略掉了<br>
-2  占位符直接写在了字符串的相应的位置中,示例代码如下:
-<pre><code>let year = 2015
-let string = "今年是\(year),明年是\(year+1)"</code></pre>
 
-<p>3 字符串比较<br>swift中对字符串比较做了代码优化,只需像int类型一样直接双等号进行判断即可.  </p>
-<p>4 字符串拼接<br>如上篇所言,swift的字符串可以直接通过加号实现两个字符串的拼接.</p>
-<h2 id="类型转换">类型转换</h2><p>在swift中相乘和相除的两个操作数必须是一致的,在OC和C中的类型隐式转换被取消了,不同类型的操作数之间进行操作必须进行类型强制转换</p>
-<h2 id="区间">区间</h2><p>swift中对区间的定义进行了改进</p>
-<pre><code>var range = 1..<5; 上面的代码等同于="" var="" range="Range(start:" 1,="" end:="" 5);<="" code=""></5;></code></pre>
-上述代码创建的Range是1到5,不包括5.是半闭区间
-<br>
-全闭区间
-<pre><code>var range = 1...5;
-</code></pre>
-创建的是1到5,包含5.  
-
-<h2>元组</h2>
-元组是swift中新引入的一种数据类型,很像swift中的字典,但是,元组中存放的值可以是任意类型,并不要求是相同类型  
-
-<br>1 元组的声明:
-<pre><code>var pek = ("name","coder_qi");
-或者
-var pek = (key:"name",value:"coder_qi");
-</code></pre>
-该元组将两个String类型的值组合起来表示一组属性和他的值  
-
-<br>2 元组的调用
-<br>
-元组的调用通过".元素所在的索引"来访问对应的成员
-<pre><code>println("属性是:\(pek.0),对应的值是:\(pek.1)");
-或者
-println("属性是:\(pek.key),对应的值是:\(pek.value)");
-</code></pre>
-3 元组的分解
-<br>
-可以通过分解将一个元组分解成多个变量
-<pre><code>let (name_key , name_value) = pek;
-println("name是\(name_value)");
-</code></pre>
-
-<h2 id="switch">switch</h2><p>相比于OC,swift的switch支持的匹配类型新增了许多,有整型,浮点,区间,字符串,元组,还可以合并分支选项.还有一个很大的改变是,break不用再显式的去标注了,swift会自动判断当前分支是否执行结束,执行结束之后自动跳出整个分支</p>
-<p><pre><code>var i = 10;<br>switch i%9{<br>case 1,2,3:<br>    println(“1”);<br>case 4,5,6:<br>    println(“4”);<br>case 7,8,9:<br>    println(“7”);<br>default:<br>}<br></code></pre><br>还有一个很重要的变革是支持where子句</p>
-<p><pre><code>case let (x,y) where abs(x)==abs(y):<br>    println(“(x),(y)位于对角线上”);<br></code></pre><br>有点sql语句的味道了,第一感觉就是条件的控制更灵活了,能够控制到更细.</p>
-
+<p></p><h2>注意!!!</h2><br>凡是用Swift写的类，如果不继成自NSObject或NSObject 的派生类，哪么编译后将不会生成对应的转换类。从而使得OC 中找不到相应的声明。<p></p>
+</ima>
       
     </div>
     
@@ -288,18 +257,9 @@ println("name是\(name_value)");
     
 <nav id="article-nav">
   
-    <a href="/2015/08/18/Swift中的类/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          swift中的类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/08/07/Swift基础入门(一)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">swift入门(一)</div>
+    <a href="/2015/08/18/Swift中的类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">swift中的类</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -328,7 +288,7 @@ println("name是\(name_value)");
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="swift常用语法" data-title="swift常用语法" data-url="http://yoursite.com/2015/08/08/swift常用语法/"></div>
+	<div class="ds-thread" data-thread-key="swift实现与OC的混编" data-title="swift实现与OC的混编" data-url="http://yoursite.com/2015/09/03/swift实现与OC的混编/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
