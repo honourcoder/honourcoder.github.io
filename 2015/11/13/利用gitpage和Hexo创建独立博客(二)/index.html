@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>利用gitpage和Hexo创建独立博客(一) | coder_qi</title>
+  <title>利用gitpage和Hexo创建独立博客(二) | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用gitpage和Hexo创建独立博客(一)">
-<meta property="og:url" content="http://yoursite.com/2015/07/09/利用gitpage和Hexo创建独立博客(一)/index.html">
+<meta property="og:title" content="利用gitpage和Hexo创建独立博客(二)">
+<meta property="og:url" content="http://yoursite.com/2015/11/13/利用gitpage和Hexo创建独立博客(二)/index.html">
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com">
-<meta property="og:updated_time" content="2015-07-09T01:44:45.000Z">
+<meta property="og:updated_time" content="2015-11-13T05:11:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(一)">
+<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(二)">
 <meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
@@ -183,11 +183,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-利用gitpage和Hexo创建独立博客(一)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-利用gitpage和Hexo创建独立博客(二)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/09/利用gitpage和Hexo创建独立博客(一)/" class="article-date">
-  	<time datetime="2015-07-09T01:44:45.000Z" itemprop="datePublished">2015-07-09</time>
+      <a href="/2015/11/13/利用gitpage和Hexo创建独立博客(二)/" class="article-date">
+  	<time datetime="2015-11-13T05:11:57.000Z" itemprop="datePublished">2015-11-13</time>
 </a>
     </div>
   
@@ -200,7 +200,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      利用gitpage和Hexo创建独立博客(一)
+      利用gitpage和Hexo创建独立博客(二)
     </h1>
   
 
@@ -209,6 +209,10 @@
       <div class="article-info article-info-post">
         
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/善事利器/">善事利器</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -216,25 +220,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br><a id="more"></a></p>
-<h3 id="独立博客">独立博客</h3><p>很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方式。</p>
-<h3 id="gitPage+Hexo">gitPage+Hexo</h3><p>gitPage是github推出一个可以显示静态网页的服务。而对于我们的博客来说，基本除了评论的模块之外，剩下的都是静态网页，所以完全可以满足我们的需求，我们将我们的博客做成静态网页传到gitPage上就行，然后我们就可以在浏览器里访问到我们的网站了。</p><br>但是对于我们来说，一套简洁大方的静态网页的编写也是一件相对费时费力的工作。于是一些人找到了一些静态网页生成工具，这样我们只需要编写内容即可，剩下的事儿就交给工具了，工具会根据你选择的模板和你写的内容生成静态网页，于是，静态网页我们也有了。/p&gt;<br>那么思路很明显了，想要实现拥有一个独立的私有博客，我们需要两个东西，一个是可供浏览器访问的静态网页存储空间，这个我们选择gitPage，一个是一个静态网页生成工具，Octopress也好，Hexo也罢，这里我选择的是Hexo。<p></p>
-<h3 id="环境搭建">环境搭建</h3><h4 id="Hexo环境搭建">Hexo环境搭建</h4><p>在安装Hexo之前，还需要一些环境的搭建。需要安装NodeJS。<br>安装NodeJS<br>安装NodeJS有两种方式</p>
-<h5 id="1_安装包的方式">1 安装包的方式</h5><p>直接去官网也好，百度也罢，下载一个安装包，安装就行，简便快捷，这也是我比较推荐的方式。</p>
-<h5 id="2_命令行方式">2 命令行方式</h5><p>如果用命令行安装，推荐通过homebrew安装，简单、高效、靠谱。</p>
-<p>homebrew的安装一条指令就可以了</p>
-<p><pre>$ ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”<br></pre><br>安装完homebrew，接下来该安装nvm，否则在安装hexo的时候会报错<br>接下来要从github上下载nvm，指令如下。</p>
-<p><pre>git clone git://github.com/creationix/nvm.git ~/nvm<br></pre><br>从Finder中进入新生成的nvm文件夹里，把install.sh拖到命令行里，按下回车即可安装，然后关掉终端再打开。如果提示已经安装了nvm，那么OK，我们可以进行下一步了。这里之所以会进行这一步是因为有的人电脑可能没有安装nvm，或者因为某些原因卸载掉了，如果是这样的话，后面会出现各种错误，所以我的建议是在源头就进行遏制，确保这里不会出岔子</p><br>接下来就是查看一下远程服务器上的nvm都有哪些版本，指令如下<p></p>
-<p><pre>nvm ls-remote<br></pre><br>选择一个比较新的版本，将下列指令的版本号替换成最新的版本号</p>
-<p><pre>nvm install iojs-v2.2.1</pre><br>然后是设定使用刚才安装的版本的nvm。</p>
-<p><pre>nvm use v2.2.3</pre><br>然后还需要一个设定，就是指定当前系统的默认版本是我们刚才安装的版本。</p>
-<p><pre>nvm alias default v2.2.3</pre><br>现在我们可以安装NodeJS了,安装非常简单明了，只一行代码，如下：</p>
-<p><pre>sudo brew install nodejs</pre></p>
-<h4 id="安装hexo">安装hexo</h4><p>到现在了，安装Hexo就很简单了</p>
-<p><pre>sudo npm install -g hexo</pre></p>
-<h3 id="Git环境搭建">Git环境搭建</h3><p>git的搭建，首先需要申请一个github账号。</p>
-<p>有了账号之后，登陆进去，new一个repository,仓库的名字必须是[用户名.github.io]<br>然后，下载一个github客户端，用于将我们的静态网页上传到刚才创建的代码仓库中。</p>
-<p>这里解释一下，github上传代码和文件有两种，条条大路通罗马，不论用何种办法，能把东西传到github上的方法就是好方法。这里我采用的是客户端上传的方法，我个人觉得这样在使用的过程中清晰明了，操作快捷一些，这个依个人看法吧。</p>
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br><a id="more"></a><br>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。</p>
+<h3 id="gitPage设置">gitPage设置</h3><p>想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io<br>注意这里必须是上面的名字，然后只要在这里面上传一个index.html,我们就可以通过再浏览器里输入<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io来访问index.html.<br>注意：这里仓库的根目录下必须要有一个index.html,否则访问会显示404.</p>
+<h3 id="初始化Hexo文件夹">初始化Hexo文件夹</h3><p>有了存放并显示网页的地方，剩下的就是利用Hexo生成静态网页了。</p>
+<p>创建一个文件夹，然后对这个文件夹进行初始化，创建一些hexo的基本文件,从命令行里进入文件夹之后，执行下列指令<br>hexo init<br>执行完指令后，发现文件夹下面多了五个文件夹和几个文件。如下图：<br>安装Hexo依赖包<br>接下来，再安装hexo的一些依赖包，执行</p>
+<p><pre>sudo npm install</pre><br>创建新的博客<br>hexo可以通过指令新建一个模板博客，执行下列指令</p>
+<p><pre>hexo new “新博客的标题”</pre><br>这样在source/_posts文件夹下面就会生成一个“新博客的标题.md”文件，这就是生成的静态网页文件，我们可以参照默认的那个hello world.md中得内容的格式编写我们的博客，一些语法都可以在hello world.md中找到。</p>
+<h3 id="编写软件">编写软件</h3><p>这里给大家推荐一个软件，这个软件叫Mou，也就是原先大名鼎鼎的markdown。他实现的是界面分为两部分，左半部分是代码，右半部分就是左边代码生成的网页效果，也就是说可以实时的查看我们所修改的静态网页的显示效果。这里就不提供传送门了，请各位自行百度然后下载。</p>
+<h3 id="生成静态网页">生成静态网页</h3><p>写完内容之后，我们就要利用hexo的主题样式模板生成静态网页了，执行下列指令。</p>
+<p><pre>hexo g</pre><br>这时候，在hexo的根目录下的public文件夹下会新生成一个index.html和一些文件夹。</p>
+<h3 id="上传文件">上传文件</h3><p>然后我们通过命令行也好，通过客户端工具也罢，只要把public文件夹下面的这些文件上传的到之前建立好的那个github仓库里就可以了。</p>
+<h3 id="查看结果">查看结果</h3><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。<br>至于username，可以在github里面进行设置.</p>
 
       
     </div>
@@ -244,15 +240,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/09/利用gitpage和Hexo创建独立博客(二)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/13/swift实现与OC的混编/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          利用gitpage和Hexo创建独立博客(二)
+          swift实现与OC的混编
         
       </div>
     </a>
   
+  
+    <a href="/2015/11/13/利用gitpage和Hexo创建独立博客(一)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用gitpage和Hexo创建独立博客(一)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -279,7 +280,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="利用gitpage和Hexo创建独立博客(一)" data-title="利用gitpage和Hexo创建独立博客(一)" data-url="http://yoursite.com/2015/07/09/利用gitpage和Hexo创建独立博客(一)/"></div>
+	<div class="ds-thread" data-thread-key="利用gitpage和Hexo创建独立博客(二)" data-title="利用gitpage和Hexo创建独立博客(二)" data-url="http://yoursite.com/2015/11/13/利用gitpage和Hexo创建独立博客(二)/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

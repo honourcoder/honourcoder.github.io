@@ -5,23 +5,23 @@
   
   <title>swift实现与OC的混编 | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 
+  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  
 swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift实现与OC的混编">
-<meta property="og:url" content="http://yoursite.com/2015/11/09/swift实现与OC的混编/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/11/13/swift实现与OC的混编/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 
+<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  
 swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo2a8e5aj314s0o2dla.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/0062YVJrjw1evpodz8njoj30ps0aodia.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo9sf2wkj30wc06ytaj.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpoft4eljj317y0jydr4.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/0062YVJrjw1evposxm2m0j313g07omye.jpg">
-<meta property="og:updated_time" content="2015-09-04T01:52:50.000Z">
+<meta property="og:updated_time" content="2015-11-13T05:12:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift实现与OC的混编">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. 
+<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  
 swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
@@ -194,8 +194,8 @@ swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三
       <div class="body-wrap"><article id="post-swift实现与OC的混编" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/09/swift实现与OC的混编/" class="article-date">
-  	<time datetime="2015-11-09T13:52:06.000Z" itemprop="datePublished">2015-11-09</time>
+      <a href="/2015/11/13/swift实现与OC的混编/" class="article-date">
+  	<time datetime="2015-11-13T05:12:12.000Z" itemprop="datePublished">2015-11-13</time>
 </a>
     </div>
   
@@ -228,10 +228,10 @@ swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com. </p>
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  </p>
 <h2 id="swift与OC的混编">swift与OC的混编</h2><p>现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.<br><a id="more"></a></p>
 <p></p><h2>swift中使用OC</h2><br>在OC中,如果我们要使用某个类,我们只需要使用import指令将那个类的头文件引入进来就行,但是在.swift文件中使用import指令的时候,发现这样并不行.那么在swift中引入OC文件该怎么做呢?<p></p>
-<p>swift中想要使用其他类文件中的类是不需要引用就可以直接使用的,所以不存在引入头文件情况,那么引用头文件的语法当然是不好用的.但是,想引入OC的头文件也不是没有办法,那就是通过OC-Swift桥的方式.这里就那使用sqlite数据库的方法作为例子吧,至于引入sqlite数据库的库文件就不说了,直接从引入头文件开始</p>
+<p>swift中想要使用其他类文件中的类是不需要引用就可以直接使用的,所以不存在引入头文件情况,那么引用头文件的语法当然是不好用的.但是,想引入OC的头文件也不是没有办法,那就是通过OC-Swift桥的方式.这里就那使用sqlite数据库的方法作为例子吧,至于引入sqlite数据库的库文件就不说了,直接从引入头文件开始 </p>
 <p>具体做法:</p>
 <p>1 创建桥文件<br>command + N选择创建头文件,输入一个自己喜欢的名字即可.<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo2a8e5aj314s0o2dla.jpg"></p>
 <p>2 将要引入的文件在这个桥文件里进行引入就行,即将import 语句写在这里<br><img src="http://ww3.sinaimg.cn/large/0062YVJrjw1evpodz8njoj30ps0aodia.jpg"></p>
@@ -258,7 +258,7 @@ swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三
 <nav id="article-nav">
   
   
-    <a href="/2015/07/09/利用gitpage和Hexo创建独立博客(二)/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/11/13/利用gitpage和Hexo创建独立博客(二)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">利用gitpage和Hexo创建独立博客(二)</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -288,7 +288,7 @@ swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="swift实现与OC的混编" data-title="swift实现与OC的混编" data-url="http://yoursite.com/2015/11/09/swift实现与OC的混编/"></div>
+	<div class="ds-thread" data-thread-key="swift实现与OC的混编" data-title="swift实现与OC的混编" data-url="http://yoursite.com/2015/11/13/swift实现与OC的混编/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
