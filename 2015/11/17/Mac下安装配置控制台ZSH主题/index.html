@@ -3,22 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>利用gitpage和Hexo创建独立博客(二) | coder_qi</title>
+  <title>Mac下安装配置终端的zsh主题 | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
+  <meta name="description" content="俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用gitpage和Hexo创建独立博客(二)">
-<meta property="og:url" content="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/index.html">
+<meta property="og:title" content="Mac下安装配置终端的zsh主题">
+<meta property="og:url" content="http://yoursite.com/2015/11/17/Mac下安装配置控制台ZSH主题/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1ey2op4qnhfj316y0ocaef.jpg">
-<meta property="og:updated_time" content="2015-11-16T07:47:01.000Z">
+<meta property="og:description" content="俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1ey402wl3mgj30dh07s74f.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1ey43itf9srj30vk0lgn51.jpg">
+<meta property="og:updated_time" content="2015-11-17T10:03:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(二)">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
+<meta name="twitter:title" content="Mac下安装配置终端的zsh主题">
+<meta name="twitter:description" content="俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
   
@@ -187,11 +185,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-利用gitpage和Hexo创建独立博客(二)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Mac下安装配置控制台ZSH主题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(二)/" class="article-date">
-  	<time datetime="2015-11-16T07:47:01.000Z" itemprop="datePublished">2015-11-16</time>
+      <a href="/2015/11/17/Mac下安装配置控制台ZSH主题/" class="article-date">
+  	<time datetime="2015-11-17T10:03:55.000Z" itemprop="datePublished">2015-11-17</time>
 </a>
     </div>
   
@@ -204,7 +202,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      利用gitpage和Hexo创建独立博客(二)
+      Mac下安装配置终端的zsh主题
     </h1>
   
 
@@ -224,21 +222,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
-<p>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。<br><a id="more"></a></p>
-<h3 id="gitPage设置">gitPage设置</h3><p>想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io<br>注意这里必须是上面的名字，然后只要在这里面上传一个index.html,我们就可以通过再浏览器里输入<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io来访问index.html.<br>注意：这里仓库的根目录下必须要有一个index.html,否则访问会显示404.</p>
-<h3 id="初始化Hexo文件夹">初始化Hexo文件夹</h3><p>有了存放并显示网页的地方，剩下的就是利用Hexo生成静态网页了。</p>
-<p>创建一个文件夹，然后对这个文件夹进行初始化，创建一些hexo的基本文件,从命令行里进入文件夹之后，执行下列指令</p>
-<p><pre>hexo init</pre><br>执行完指令后，发现文件夹下面多了五个文件夹和几个文件。如下图：<br><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1ey2op4qnhfj316y0ocaef.jpg"><br></p><p></p>
-<p></p><h3>安装Hexo依赖包</h3><br>接下来，再安装hexo的一些依赖包，执行下面的代码,这里控制台也会提示我们要执行下面的代码.<br><br>//这里的sudo是获取系统的权限,如果控制台提示已经是最高用户登录,不需要再获取权限了,那么就讲下面的sudo去掉就是了<p></p>
-<p><pre>sudo npm install</pre></p>
-<p></p><h3>创建新的博客</h3><br>hexo可以通过指令新建一个模板博客，执行下列指令<p></p>
-<p><pre>hexo new “新博客的标题”</pre><br>这样在source/_posts文件夹下面就会生成一个“新博客的标题.md”文件，这就是生成的静态网页文件，我们可以参照默认的那个hello world.md中得内容的格式编写我们的博客，一些语法都可以在hello world.md中找到。</p>
-<h3 id="编写软件">编写软件</h3><p>这里给大家推荐一个软件，这个软件叫Mou，也就是原先大名鼎鼎的markdown。他实现的是界面分为两部分，左半部分是代码，右半部分就是左边代码生成的网页效果，也就是说可以实时的查看我们所修改的静态网页的显示效果。这里是<a href="http://mouapp.com/download/Mou.zip" target="_blank" rel="external">传送门</a>，请各位自行百度然后下载。</p>
-<h3 id="生成静态网页">生成静态网页</h3><p>写完内容之后，我们就要利用hexo的主题样式模板生成静态网页了，执行下列指令。</p>
-<p><pre>hexo g</pre><br>这时候，在hexo的根目录下的public文件夹下会新生成一个index.html和一些文件夹。</p>
-<h3 id="上传文件">上传文件</h3><p>然后我们通过命令行也好，通过客户端工具也罢，只要把public文件夹下面的所有文件上传的到之前建立好的那个github仓库里就可以了。</p>
-<h3 id="查看结果">查看结果</h3><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。<br>至于username，可以在github里面进行设置.</p>
+        <p><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey402wl3mgj30dh07s74f.jpg"></p>
+<p>俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.<br><a id="more"></a></p>
+<h2>zsh是何物</h2><br>zsh是一款终端插件.终端最常是用来执行命令,而zsh的作用就是进行命令补全,让我们能够更加快速的编写命令和执行命令.<br>其实Mac系统的终端bash也是支持命令补全的,只是没有zsh那么强大和齐全.<br><br><h4>ZSH的优点</h4><br>1 zsh兼容bash,所有的bash指令在zsh中都是可以使用的<br><br>2 zsh具有更强大的命令补全功能.<br><br>3 zsh有着丰富多彩的命令提示符.<br><br><h2>安装zsh</h2>
+
+<p>安装zsh有两种方式:</p>
+<p></p><h3>自动安装</h3><br>自动安装比较简单,只需要执行下面的一行代码就可以了.<p></p>
+<pre>wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</pre>
+这里不多做介绍.
+<h3>手动安装</h3>
+1 利用git将项目clone到本地
+直接执行下面的代码
+<pre>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</pre>
+上面的代码是将zsh的项目克隆到本地的用户目录下的"oh-my-zsh"文件夹下,只是这个文件夹是隐藏的文件夹.
+
+2 创建一个zsh的配置文件
+
+注意:如果你已经有一个~/.zshrc文件的话，建议你先做备份。
+
+使用以下命令进行备份
+<pre>cp ~/.zshrc ~/.zshrc.orig</pre>
+然后开始创建zsh的配置文件
+<pre>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</pre>
+
+<p>3 设置zsh为你的默认的shell主题</p>
+<pre>chsh -s /bin/zsh</pre>
+
+<p>4 重启并开始使用你的zsh (打开一个新的终端窗口便可…)</p>
+<p>到这里,zsh的安装就结束了,但是发现一个问题,就是zsh并不是特别的好看啊,外貌协会的孩子表示很不满啊.这个时候,我们可以考虑一下设置zsh的主题风格</p>
+<p></p><h2>更换zsh主题</h2><br>zsh支持主题设置,以完成在不同的情况下的不同的提示.<p></p>
+<p>下面罗列的是zsh官方提供的主题的名字及其样式</p>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes" target="_blank" rel="external">zsh官方主题传送门</a></p>
+<p>记住名字之后就是设置zsh的主题了.zsh的默认配置文件是.zshrc,就放在用户的根目录下.我们只要修改一下它就可以了</p>
+<p>设置方法:</p>
+<p>1 打开终端,应该默认的位置就是在用户的根目录下,如果不是,请切换到根目录下.</p>
+<p>2 利用vi编辑器打开.zshrc文件,指令如下</p>
+<p><pre>vi .zshrc</pre><br>执行之后可能会提示选择打开的类型,选择可读可写类型.结果如下:</p>
+<p><br><br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey43itf9srj30vk0lgn51.jpg"><br><br><br>里面有两个属性,</p>
+<p>第一个是zsh的默认文件路径,就是我们git下来的文件路径,</p>
+<p>第二个就是zsh的主题,我从上面的传送门里找了一个我比较喜欢的样式.直接”i”命令编辑,将刚才记住的名字写在双引号中间即可.</p>
+<p>这个时候”:wq”保存退出就可以了.然后就会发现终端的显示样式已经改变了.</p>
+<p>至此,大功告成.</p>
 
       
     </div>
@@ -248,18 +272,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(三)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          利用gitpage和Hexo创建独立博客(三)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(一)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用gitpage和Hexo创建独立博客(一)</div>
+    <a href="/2015/11/16/swift实现与OC的混编/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">swift实现与OC的混编</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -288,7 +303,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="利用gitpage和Hexo创建独立博客(二)" data-title="利用gitpage和Hexo创建独立博客(二)" data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/"></div>
+	<div class="ds-thread" data-thread-key="Mac下安装配置控制台ZSH主题" data-title="Mac下安装配置终端的zsh主题" data-url="http://yoursite.com/2015/11/17/Mac下安装配置控制台ZSH主题/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
