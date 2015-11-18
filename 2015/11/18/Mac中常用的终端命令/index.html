@@ -51,20 +51,16 @@
 
 
 
-<meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
+<meta name="description" content="Mac系统是基于BSD类型操作系统完善修改的,和Linux有着很近的血缘关系,所以很多的Linux指令在MacOS的终端中都是有效且快捷的.下面给大家介绍一些基本的终端指令.这是作为编程开发者的基本必修课.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用gitpage和Hexo创建独立博客(二)">
-<meta property="og:url" content="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/index.html">
+<meta property="og:title" content="Mac中常用的终端命令">
+<meta property="og:url" content="http://yoursite.com/2015/11/18/Mac中常用的终端命令/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1ey2op4qnhfj316y0ocaef.jpg">
-<meta property="og:updated_time" content="2015-11-16T07:47:01.000Z">
+<meta property="og:description" content="Mac系统是基于BSD类型操作系统完善修改的,和Linux有着很近的血缘关系,所以很多的Linux指令在MacOS的终端中都是有效且快捷的.下面给大家介绍一些基本的终端指令.这是作为编程开发者的基本必修课.">
+<meta property="og:updated_time" content="2015-11-18T06:18:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(二)">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
+<meta name="twitter:title" content="Mac中常用的终端命令">
+<meta name="twitter:description" content="Mac系统是基于BSD类型操作系统完善修改的,和Linux有着很近的血缘关系,所以很多的Linux指令在MacOS的终端中都是有效且快捷的.下面给大家介绍一些基本的终端指令.这是作为编程开发者的基本必修课.">
 
 
 
@@ -76,7 +72,7 @@
   };
 </script>
 
-  <title> 利用gitpage和Hexo创建独立博客(二) | coder_qi </title>
+  <title> Mac中常用的终端命令 | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -224,7 +220,7 @@
             
             
               
-                利用gitpage和Hexo创建独立博客(二)
+                Mac中常用的终端命令
               
             
           </h1>
@@ -233,8 +229,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-16T15:47:01+08:00" content="2015-11-16">
-              2015-11-16
+            <time itemprop="dateCreated" datetime="2015-11-18T14:18:22+08:00" content="2015-11-18">
+              2015-11-18
             </time>
           </span>
 
@@ -243,8 +239,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/善事利器/" itemprop="url" rel="index">
-                    <span itemprop="name">善事利器</span>
+                  <a href="/categories/必修课/" itemprop="url" rel="index">
+                    <span itemprop="name">必修课</span>
                   </a>
                 </span>
 
@@ -259,8 +255,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(二)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(二)/" itemprop="commentsCount"></span>
+                <a href="/2015/11/18/Mac中常用的终端命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/Mac中常用的终端命令/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -279,21 +275,27 @@
       
 
       
-        <span itemprop="articleBody"><p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
-<p>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。<br><a id="more"></a></p>
-<h3 id="gitPage设置">gitPage设置</h3><p>想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io<br>注意这里必须是上面的名字，然后只要在这里面上传一个index.html,我们就可以通过再浏览器里输入<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io来访问index.html.<br>注意：这里仓库的根目录下必须要有一个index.html,否则访问会显示404.</p>
-<h3 id="初始化Hexo文件夹">初始化Hexo文件夹</h3><p>有了存放并显示网页的地方，剩下的就是利用Hexo生成静态网页了。</p>
-<p>创建一个文件夹，然后对这个文件夹进行初始化，创建一些hexo的基本文件,从命令行里进入文件夹之后，执行下列指令</p>
-<p><pre>hexo init</pre><br>执行完指令后，发现文件夹下面多了五个文件夹和几个文件。如下图：<br><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1ey2op4qnhfj316y0ocaef.jpg"><br></p><p></p>
-<p></p><h3>安装Hexo依赖包</h3><br>接下来，再安装hexo的一些依赖包，执行下面的代码,这里控制台也会提示我们要执行下面的代码.<br><br>//这里的sudo是获取系统的权限,如果控制台提示已经是最高用户登录,不需要再获取权限了,那么就讲下面的sudo去掉就是了<p></p>
-<p><pre>sudo npm install</pre></p>
-<p></p><h3>创建新的博客</h3><br>hexo可以通过指令新建一个模板博客，执行下列指令<p></p>
-<p><pre>hexo new “新博客的标题”</pre><br>这样在source/_posts文件夹下面就会生成一个“新博客的标题.md”文件，这就是生成的静态网页文件，我们可以参照默认的那个hello world.md中得内容的格式编写我们的博客，一些语法都可以在hello world.md中找到。</p>
-<h3 id="编写软件">编写软件</h3><p>这里给大家推荐一个软件，这个软件叫Mou，也就是原先大名鼎鼎的markdown。他实现的是界面分为两部分，左半部分是代码，右半部分就是左边代码生成的网页效果，也就是说可以实时的查看我们所修改的静态网页的显示效果。这里是<a href="http://mouapp.com/download/Mou.zip" target="_blank" rel="external">传送门</a>，请各位自行百度然后下载。</p>
-<h3 id="生成静态网页">生成静态网页</h3><p>写完内容之后，我们就要利用hexo的主题样式模板生成静态网页了，执行下列指令。</p>
-<p><pre>hexo g</pre><br>这时候，在hexo的根目录下的public文件夹下会新生成一个index.html和一些文件夹。</p>
-<h3 id="上传文件">上传文件</h3><p>然后我们通过命令行也好，通过客户端工具也罢，只要把public文件夹下面的所有文件上传的到之前建立好的那个github仓库里就可以了。</p>
-<h3 id="查看结果">查看结果</h3><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。<br>至于username，可以在github里面进行设置.</p>
+        <span itemprop="articleBody"><p>Mac系统是基于BSD类型操作系统完善修改的,和Linux有着很近的血缘关系,所以很多的Linux指令在MacOS的终端中都是有效且快捷的.下面给大家介绍一些基本的终端指令.这是作为编程开发者的基本必修课.<br><a id="more"></a></p>
+<p></p><h2>文件相关指令</h2><br>下面列举一些常用的命令<br>1  ls<br>显示所有的子文件及文件夹<br>参数 -w 显示中文，-l 详细信息， -a 包括隐藏文件<br>示例:<p></p>
+<p><pre> ls -l</pre>2 cd<br>进入指定目录<br>例如:进入到桌面文件夹下</p>
+<p><pre>cd Desktop</pre>3   mkdir<br>建立新目录<br>例如:在当前文件夹下创建一个文件夹,名字叫”backup”</p>
+<p><pre>mkdir backup</pre>4 touch<br>创建文件<br>例如:在当前文件夹下创建一个名字是”test”文本文件</p>
+<p><pre>touch test.txt</pre>5 cp<br>拷贝文件<br>例如：想把桌面的drivers 拷贝到驱动目录中 </p>
+<p><pre>cp -R /User/用户名/Desktop/drivers  /System/Library/Extensions</pre>参数R表示对目录进行递归操作,递归进行,把文件夹中的所有东西全部拷贝<br>再例如:把驱动目录下的所有文件备份到桌面backup</p>
+<p><pre><code>cp -R /System/Library/Extensions/*   /User/用户名/Desktop/backup</code></pre>6 mv<br>移动文件<br>例如：想把test.txt 移到桌面</p>
+<p><pre>mv test.txt /User/coderqi/Desktop</pre>7 rm<br>删除文件<br>例：想删除桌面的backup文件夹       </p>
+<p><pre>rm -rf/User/coderqi/Desktop/backup</pre>参数－rf 表示递归和强制.<br>注意:!!!!千万要小心使用，如果执行了 “rm -rf /“ 你的系统就全没了8 chmod<br>更改文件权限<br>例：把驱动目录下所有文件设定到root读写，其他用户只读</p>
+<p><pre>chmod -R 755 /System/Library/Extensions</pre>参数R 表示递归，755表示各用户的权限<br>7 = 1 + 2 + 4<br>1 -r 代表读<br>2 -w 代表写<br>3 -x 代表运行</p>
+<p>9 sudo<br>sudo命令：任何命令前都可以加上sudo，sudo表示是获取用户权限，通常是管理员权限.可直接管理系统中较重要的文件，一般使用需要询问密码。输入用户密码后，才能完成操作。<br>例如:执行关机</p>
+<p><pre>sudo shutdown -h now</pre></p>
+<p></p><h2>利用Vi编辑器编辑文件</h2><br>Vi是*inux自带的一个强大的文本编辑器,采用命令行的方式进行文本的编辑和保存.<p></p>
+<p>Vi编辑器常用的命令有三个.</p>
+<p>1 打开文件</p>
+<p>例如:打开names.txt文件</p>
+<p><pre>vi names.txt</pre><br>这个指令是以只读的形式打开文件的,这个时候按键盘上的大部分按键都是无效的.如果想编写文件,需要下面的指令.</p>
+<p>2 编写文件</p>
+<p>开始编写的指令有两个,实现的效果是一样的.直接按键盘上的”i”或者”a”,这两个指令的作用都是让编辑器进入对文件的编辑状态</p>
+<p>3 保存退出<br>在编辑状态按Esc键,会回到打开文件的状态,这个时候输入”:wq”(就是write And quite的意思)就会保存并退出Vi编辑器.</p>
 </span>
       
     </div>
@@ -305,17 +307,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(一)/" rel="next" title="利用gitpage和Hexo创建独立博客(一)">
-                <i class="fa fa-chevron-left"></i> 利用gitpage和Hexo创建独立博客(一)
+              <a href="/2015/11/17/Mac下安装配置控制台ZSH主题/" rel="next" title="Mac下安装配置终端的zsh主题">
+                <i class="fa fa-chevron-left"></i> Mac下安装配置终端的zsh主题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(三)/" rel="prev" title="利用gitpage和Hexo创建独立博客(三)">
-                利用gitpage和Hexo创建独立博客(三) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -330,10 +328,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(二)/"
-     data-title="利用gitpage和Hexo创建独立博客(二)"
+        <div class="ds-share flat" data-thread-key="2015/11/18/Mac中常用的终端命令/"
+     data-title="Mac中常用的终端命令"
      data-content=""
-     data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/">
+     data-url="http://yoursite.com/2015/11/18/Mac中常用的终端命令/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -361,8 +359,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(二)/"
-           data-title="利用gitpage和Hexo创建独立博客(二)" data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/">
+      <div class="ds-thread" data-thread-key="2015/11/18/Mac中常用的终端命令/"
+           data-title="Mac中常用的终端命令" data-url="http://yoursite.com/2015/11/18/Mac中常用的终端命令/">
       </div>
     
   </div>
@@ -452,7 +450,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gitPage设置"><span class="nav-number">1.</span> <span class="nav-text">gitPage设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Hexo文件夹"><span class="nav-number">2.</span> <span class="nav-text">初始化Hexo文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">创建新的博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写软件"><span class="nav-number">5.</span> <span class="nav-text">编写软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态网页"><span class="nav-number">6.</span> <span class="nav-text">生成静态网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件"><span class="nav-number">7.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看结果"><span class="nav-number">8.</span> <span class="nav-text">查看结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">文件相关指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">利用Vi编辑器编辑文件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
