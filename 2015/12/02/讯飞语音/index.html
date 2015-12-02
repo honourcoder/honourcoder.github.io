@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="IOS,科大讯飞,语音合成,语音识别," />
 
 
 
@@ -51,19 +51,19 @@
 
 
 
-<meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-独立博客很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方">
+<meta name="description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用gitpage和Hexo创建独立博客(一)">
-<meta property="og:url" content="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(一)/index.html">
+<meta property="og:title" content="使用讯飞开放平台实现语音识别合成">
+<meta property="og:url" content="http://yoursite.com/2015/12/02/讯飞语音/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-独立博客很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方">
-<meta property="og:updated_time" content="2015-11-16T07:46:41.000Z">
+<meta property="og:description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEgw1eyle52fn2gj31kw0etaev.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/005KqbSEgw1eylebbmst7j30f20fy772.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1eylfoseamhj307i0dcmx5.jpg">
+<meta property="og:updated_time" content="2015-12-02T09:49:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(一)">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-独立博客很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方">
+<meta name="twitter:title" content="使用讯飞开放平台实现语音识别合成">
+<meta name="twitter:description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
 
 
 
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title> 利用gitpage和Hexo创建独立博客(一) | coder_qi </title>
+  <title> 使用讯飞开放平台实现语音识别合成 | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -233,7 +233,7 @@
             
             
               
-                利用gitpage和Hexo创建独立博客(一)
+                使用讯飞开放平台实现语音识别合成
               
             
           </h1>
@@ -242,8 +242,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-16T15:46:41+08:00" content="2015-11-16">
-              2015-11-16
+            <time itemprop="dateCreated" datetime="2015-12-02T17:49:41+08:00" content="2015-12-02">
+              2015-12-02
             </time>
           </span>
 
@@ -252,8 +252,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/善事利器/" itemprop="url" rel="index">
-                    <span itemprop="name">善事利器</span>
+                  <a href="/categories/能者善借他人之力/" itemprop="url" rel="index">
+                    <span itemprop="name">能者善借他人之力</span>
                   </a>
                 </span>
 
@@ -268,8 +268,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(一)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(一)/" itemprop="commentsCount"></span>
+                <a href="/2015/12/02/讯飞语音/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/02/讯飞语音/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,70 +288,145 @@
       
 
       
-        <span itemprop="articleBody"><p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
-<h3 id="独立博客">独立博客</h3><p>很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方式。<br><a id="more"></a></p>
-<h3 id="gitPage+Hexo">gitPage+Hexo</h3><p>gitPage是github推出一个可以显示静态网页的服务。而对于我们的博客来说，基本除了评论的模块之外，剩下的都是静态网页，所以完全可以满足我们的需求，我们将我们的博客做成静态网页传到gitPage上就行，然后我们就可以在浏览器里访问到我们的网站了。</p><br>但是对于我们来说，一套简洁大方的静态网页的编写也是一件相对费时费力的工作。于是一些人找到了一些静态网页生成工具，这样我们只需要编写内容即可，剩下的事儿就交给工具了，工具会根据你选择的模板和你写的内容生成静态网页，于是，静态网页我们也有了。/p&gt;<br>那么思路很明显了，想要实现拥有一个独立的私有博客，我们需要两个东西，一个是可供浏览器访问的静态网页存储空间，这个我们选择gitPage，一个是一个静态网页生成工具，Octopress也好，Hexo也罢，这里我选择的是Hexo。<p></p>
-<h3 id="环境搭建">环境搭建</h3><h4 id="Hexo环境搭建">Hexo环境搭建</h4><p>在安装Hexo之前，还需要一些环境的搭建。需要安装NodeJS。<br>安装NodeJS<br>安装NodeJS有两种方式</p>
-<h5 id="1_安装包的方式">1 安装包的方式</h5><p>直接去官网也好，百度也罢，下载一个安装包，安装就行，简便快捷，这也是我比较推荐的方式。</p>
-<h5 id="2_命令行方式">2 命令行方式</h5><p>如果用命令行安装，推荐通过homebrew安装，简单、高效、靠谱。</p>
-<p>homebrew的安装一条指令就可以了</p>
-<pre>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        <span itemprop="articleBody"><p>社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?<br><a id="more"></a><br>一个比较简单智能的实现方法就是在输入的地方加上语音识别,在输出显示的时候加上语音合成,直接进行语音播报,那么是不是对于司机等来说就是一个智能的体现呢?</p>
+<p>现在做语音识别有一些不错的开放平台可以给我们直接提供使用,一家是科大讯飞开放平台,一家是百度语音开放平台.我个人比较喜欢讯飞,因为讯飞的优势是在大段文字的识别上,准确率比较高.这正好符合我的需求,这篇博客也主要讲的是讯飞语音SDK的使用.还是惯例,将科大讯飞的开放平台地址奉上.另外还有讯飞的SDK开发API和教程地址奉上</p>
+<p><a href="http://www.xfyun.cn" target="_blank" rel="external">讯飞开放平台传送门</a><br><a href="http://www.xfyun.cn/doccenter/iOS" target="_blank" rel="external">讯飞开发API文档传送门</a></p>
+<p></p><h2>讯飞开发步骤</h2><br>讯飞开发教程上写的比较清楚也比较啰嗦,并不是一个最简洁的Demo.所以我在这篇博客里进行了一些适当的删减,争取做一个最简单的demo.<p></p>
+<p></p><h4>1 申请账号ID</h4>登陆到讯飞开放平台上,在用户菜单栏里就有创建我的应用.这里的登陆也可以采用第三方的方式.在创建应用的界面填写相关的信息即可.然后就会有一个SDK下载的链接.如果没有,直接去SDK下载中心按照三步选项去进行新的下载即可.这里不做过多的描述.<p></p>
+<p></p><h4>2 导入讯飞SDK框架</h4>下载下来的SDK包解压出来有三个文件夹,第一个市doc文件夹,不多说,肯定是开发文档,还有相关的作者信息什么的.最重要的是剩下的两个文件夹,一个是lib文件夹,这里存放的是讯飞SDK的类库文件,我们导入SDK就是导入的这里的文件.第三个文件夹是一个IOS的Demo演示工程.<br>1 添加静态库<br>新建一个IOS工程,将lib文件夹下的”iflyMSC.framework”文件拷贝到工程目录下,然后在工程配置文件的[Build Phases]-[Link Binary With Libraries]中通过[AddOther]<br>2 确认SDK路径<br>在配置文件中搜索”head”找到[Framework Search Paths],点开查看SDK的路径是不是绝对路径,如果是如下图的样子,那就没问题了.这一步主要是确保SDK的路径为相对路径,防止工程换了文件夹位置就无法运行的情况的发生.<br><img src="http://ww3.sinaimg.cn/large/005KqbSEgw1eyle52fn2gj31kw0etaev.jpg"><br>3 添加框架<br>按照下图依次将图中的所有的框架添加到工程里面.讯飞官网API中给出的截图是XCode7以前的,XCode7之后一些动态链接库的后缀名发生了改变,Xcode7中添加完毕之后如下图:<br><img src="http://ww4.sinaimg.cn/large/005KqbSEgw1eylebbmst7j30f20fy772.jpg"><p></p>
+<p></p><h4>语音识别</h4><br>语音识别分两种,分别用在不同的场合,一个是界面提示的语音识别,一个是无界面提示的语音识别,这里以有界面提示的语音识别为例子.<p></p>
+<h5>有界面提示的语音识别</h5>
+
+<p>1 导入头文件</p>
+<pre>//将讯飞SDK中的所有类都导入进来
+#import < iflyMSC/iflyMSC.h >
 </pre>
-安装完homebrew，现在我们可以安装NodeJS了,安装非常简单明了，只一行代码，如下：
-<pre>sudo brew install nodejs</pre>
-如果这里出现error,请往下反翻倒最底下看问题1.
-####安装hexo
-到现在了，安装Hexo就很简单了
-<pre>sudo npm install -g hexo</pre>
-###Git环境搭建
-git的搭建，首先需要申请一个github账号。
 
-有了账号之后，登陆进去，new一个repository,仓库的名字必须是[用户名.github.io],注意,这里的名字是固定的,主要作用是限制每个账号只能有一恶搞GitPage主页.
-然后，下载一个github客户端，用于将我们的静态网页上传到刚才创建的代码仓库中。
-
-
-这里解释一下，github上传代码和文件有两种，条条大路通罗马，不论用何种办法，能把东西传到github上的方法就是好方法。这里我采用的是客户端上传的方法，我个人觉得这样在使用的过程中清晰明了，操作快捷一些。部分网友喜欢使用命令行的方式操作git,我也是比较支持的,看个人爱好吧.
-
-
-
----------------------------我是分割线啊我是分割线-----------------------------------
-
-<h3>问题1</h3>
-这里可能会出现error,原因可能是环境没有安装好,有两种解决办法:
-第一种:强行安装Hexo
-<pre>sudo npm install –unsafe-perm –verbose -g hexo</pre>
-
-<p>第二种:安装前置环境<br>接下来该安装nvm，否则在安装hexo的时候会报错<br>接下来要从github上下载nvm，指令如下。</p>
-<pre>git clone git://github.com/creationix/nvm.git ~/nvm
+<p>2 登陆讯飞服务器<br>在使用讯飞的语音解析之前,需要进行用户身份验证,即登陆讯飞服务器,这个在viewDidLoad()方法中添加两行代码即可.后面的ID数字就是之前我们在开放平台创建按自己应用时给的APPID,在下载的SDK中也是有的.</p>
+<pre>NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"565e4dd9"];
+[IFlySpeechUtility createUtility:initString];
 </pre>
-从Finder中进入新生成的nvm文件夹里，把install.sh拖到命令行里，按下回车即可安装，然后关掉终端再打开。如果提示已经安装了nvm，那么OK，我们可以进行下一步了。这里之所以会进行这一步是因为有的人电脑可能没有安装nvm，或者因为某些原因卸载掉了，如果是这样的话，后面会出现各种错误，所以我的建议是在源头就进行遏制，确保这里不会出岔子<p></p>
-接下来就是查看一下远程服务器上的nvm都有哪些版本，指令如下
-<pre>nvm ls-remote
+
+<p>3 创建有界面提示的语音识别对象<br>创建一个讯飞语音识别对象,可以对他进行一系列的调用<br><pre>@property (nonatomic, strong) IFlyRecognizerView *iflyRecognizerView;//带界面的识别对象<br></pre></p>
+<p>4 初始化带界面的识别对象<br>前面声明了一个带界面的语音识别对象,现在需要对这个识别对象进行初始化,同样是在ViewDidLoad()方法中进行就行.</p>
+<pre>#pragma mark ------ 进行有界面的语音识别的初始化
+_iflyRecognizerView = [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+_iflyRecognizerView.delegate = self;
+[_iflyRecognizerView setParameter: @"iat" forKey: [IFlySpeechConstant IFLY_DOMAIN]];
+//asr_audio_path保存录音文件名，如不再需要，设置value为nil表示取消，默认目录是documents
+[_iflyRecognizerView setParameter:@"asrview.pcm " forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
 </pre>
-选择一个比较新的版本，将下列指令的版本号替换成最新的版本号
-<pre>nvm install iojs-v2.2.1</pre>
-然后是设定使用刚才安装的版本的nvm。
-<pre>nvm use v2.2.3</pre>
-然后还需要一个设定，就是指定当前系统的默认版本是我们刚才安装的版本。
-<pre>nvm alias default v2.2.3</pre>
-</span>
+
+<p>5 实现代理方法<br>讯飞对识别结果的处理采用的代理回调的方法,实现IFlySpeechSynthesizerDelegate协议的onResult:isLast:方法.<br>注意!!!!这里的是onResult,不是onResults,后者是无界面提示的语音解析的结果回调函数.</p>
+<pre>- (void)onResult: (NSArray *)resultArray isLast:(BOOL) isLast
+{
+    NSMutableString *result = [[NSMutableString alloc] init];
+    NSDictionary *dic = [resultArray objectAtIndex:0];
+    for (NSString *key in dic) {
+        [result appendFormat:@"%@",key];
+    }
+    NSString * resu = [ISRDataHelper stringFromJson:result];
+    //将结果显示在界面的Label上
+    _text.text = [NSString stringWithFormat:@"%@%@",_text.text,resu];
+}
+</pre>
+这里默认的传回来的是Json字符串,需要对字符串进行解析.当然,讯飞还是比较良心的,在demo中给提供了一个解析类,就是上面用到的ISRDataHelper.用它来进行解析就可以了.
+
+6 触发开始语音识别
+拖动一个Button,给一个响应事件,用于开始监听语音识别
+<pre>//启动识别服务
+[_iflyRecognizerView start];</pre>
+
+<p>这个时候运行App,就可以进行语音识别了,运行的结果应该如下图:<br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1eylfoseamhj307i0dcmx5.jpg"></p>
+<p></p><h5>无界面提示的语音识别</h5><br>无界面提示的语音识别适合将语音识别放在后台,这个看具体的使用场景.<p></p>
+<p></p><h4>语音合成</h4><br>语音合成和语音识别的过程差不多<br>1 导入头文件<p></p>
+<pre>//将讯飞SDK中的所有类都导入进来
+#import < iflyMSC/iflyMSC.h >
+#import "PcmPlayer.h"
+#import "TTSConfig.h"
+</pre>
+
+<p>2 登陆讯飞服务器<br>在使用讯飞的语音解析之前,需要进行用户身份验证,即登陆讯飞服务器,这个在viewDidLoad()方法中添加两行代码即可.后面的ID数字就是之前我们在开放平台创建按自己应用时给的APPID,在下载的SDK中也是有的.</p>
+<pre>NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"565e4dd9"];
+[IFlySpeechUtility createUtility:initString];
+</pre>
+
+<p>3 创建有界面提示的语音识别对象<br>创建一个讯飞语音识别对象,可以对他进行一系列的调用</p>
+<pre>
+typedef NS_OPTIONS(NSInteger, SynthesizeType) {
+    NomalType           = 5,//普通合成
+    UriType             = 6, //uri合成
+};
+@property (nonatomic, strong) IFlySpeechSynthesizer * iFlySpeechSynthesizer;//语音合成对象
+@property (nonatomic, strong) PcmPlayer *audioPlayer;//用于播放音频的
+@property (nonatomic, assign) SynthesizeType synType;//是何种合成方式
+@property (nonatomic, assign) BOOL hasError;//将诶西过程中是否出现错误
+</pre>
+
+<p>4 对象初始化<br>前面声明了一些在语音合成的时候会用到的对象,现在需要对前面的对象进行初始化.还是在ViewDidLoad()里面进行就可以了.</p>
+<pre>TTSConfig *instance = [TTSConfig sharedInstance];
+if (instance == nil) {
+    return;
+}
+//合成服务单例
+if (_iFlySpeechSynthesizer == nil) {
+    _iFlySpeechSynthesizer = [IFlySpeechSynthesizer sharedInstance];
+}    
+_iFlySpeechSynthesizer.delegate = self;    
+//设置语速1-100
+[_iFlySpeechSynthesizer setParameter:instance.speed forKey:[IFlySpeechConstant SPEED]];    
+//设置音量1-100
+[_iFlySpeechSynthesizer setParameter:instance.volume forKey:[IFlySpeechConstant VOLUME]];    
+//设置音调1-100
+[_iFlySpeechSynthesizer setParameter:instance.pitch forKey:[IFlySpeechConstant PITCH]];   
+ //设置采样率
+ [_iFlySpeechSynthesizer setParameter:instance.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];
+//设置发音人
+ [_iFlySpeechSynthesizer setParameter:instance.vcnName forKey:[IFlySpeechConstant VOICE_NAME]];
+</pre>
+
+<p>5 触发语音合成<br>添加一个输入框,一个button,button的响应时间是将输入框中的文本内容读出来.</p>
+<pre>if ([self.VoiceText.text isEqualToString:@""]) {
+    return;
+}
+if (_audioPlayer != nil && _audioPlayer.isPlaying == YES) {
+    [_audioPlayer stop];
+    }
+_synType = NomalType;
+self.hasError = NO;
+[NSThread sleepForTimeInterval:0.05];
+_iFlySpeechSynthesizer.delegate = self;
+[_iFlySpeechSynthesizer startSpeaking:self.VoiceText.text];
+</pre></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IOS/" rel="tag">#IOS</a>
+          
+            <a href="/tags/科大讯飞/" rel="tag">#科大讯飞</a>
+          
+            <a href="/tags/语音合成/" rel="tag">#语音合成</a>
+          
+            <a href="/tags/语音识别/" rel="tag">#语音识别</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/11/19/MAC中使用GCC进行文件编译/" rel="next" title="Mac中常用的GCC文件编译指令">
+                <i class="fa fa-chevron-left"></i> Mac中常用的GCC文件编译指令
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(二)/" rel="prev" title="利用gitpage和Hexo创建独立博客(二)">
-                利用gitpage和Hexo创建独立博客(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -366,10 +441,10 @@ git的搭建，首先需要申请一个github账号。
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(一)/"
-     data-title="利用gitpage和Hexo创建独立博客(一)"
+        <div class="ds-share flat" data-thread-key="2015/12/02/讯飞语音/"
+     data-title="使用讯飞开放平台实现语音识别合成"
      data-content=""
-     data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(一)/">
+     data-url="http://yoursite.com/2015/12/02/讯飞语音/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -397,8 +472,8 @@ git的搭建，首先需要申请一个github账号。
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(一)/"
-           data-title="利用gitpage和Hexo创建独立博客(一)" data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(一)/">
+      <div class="ds-thread" data-thread-key="2015/12/02/讯飞语音/"
+           data-title="使用讯飞开放平台实现语音识别合成" data-url="http://yoursite.com/2015/12/02/讯飞语音/">
       </div>
     
   </div>
@@ -488,7 +563,7 @@ git的搭建，首先需要申请一个github账号。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#独立博客"><span class="nav-number">1.</span> <span class="nav-text">独立博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitPage+Hexo"><span class="nav-number">2.</span> <span class="nav-text">gitPage+Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">3.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo环境搭建"><span class="nav-number">3.1.</span> <span class="nav-text">Hexo环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1_安装包的方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">1 安装包的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2_命令行方式"><span class="nav-number">3.1.2.</span> <span class="nav-text">2 命令行方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">问题1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">讯飞开发步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">1 申请账号ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">2 导入讯飞SDK框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">语音识别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">有界面提示的语音识别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">无界面提示的语音识别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">语音合成</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
