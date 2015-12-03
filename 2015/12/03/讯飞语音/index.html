@@ -54,13 +54,13 @@
 <meta name="description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用讯飞开放平台实现语音识别合成">
-<meta property="og:url" content="http://yoursite.com/2015/12/02/讯飞语音/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/12/03/讯飞语音/index.html">
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEgw1eyle52fn2gj31kw0etaev.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/005KqbSEgw1eylebbmst7j30f20fy772.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1eylfoseamhj307i0dcmx5.jpg">
-<meta property="og:updated_time" content="2015-12-02T09:49:41.000Z">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1eymahpu0z2g309g0go0zo.gif">
+<meta property="og:updated_time" content="2015-12-03T03:57:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用讯飞开放平台实现语音识别合成">
 <meta name="twitter:description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
@@ -242,8 +242,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-02T17:49:41+08:00" content="2015-12-02">
-              2015-12-02
+            <time itemprop="dateCreated" datetime="2015-12-03T11:57:47+08:00" content="2015-12-03">
+              2015-12-03
             </time>
           </span>
 
@@ -268,8 +268,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/02/讯飞语音/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/02/讯飞语音/" itemprop="commentsCount"></span>
+                <a href="/2015/12/03/讯飞语音/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/03/讯飞语音/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,8 +337,81 @@ _iflyRecognizerView.delegate = self;
 <pre>//启动识别服务
 [_iflyRecognizerView start];</pre>
 
-<p>这个时候运行App,就可以进行语音识别了,运行的结果应该如下图:<br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1eylfoseamhj307i0dcmx5.jpg"></p>
-<p></p><h5>无界面提示的语音识别</h5><br>无界面提示的语音识别适合将语音识别放在后台,这个看具体的使用场景.<p></p>
+<p>这个时候运行App,就可以进行语音识别了,运行的结果应该如下图:<br><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1eymahpu0z2g309g0go0zo.gif"></p>
+<p></p><h5>无界面提示的语音识别</h5><br>无界面提示的语音识别适合将语音识别放在后台,这个看具体的使用场景.无界面的方式相对来说简洁大方,可制定性高.<br>1 导入头文件<p></p>
+<pre>//将讯飞SDK中的所有类都导入进来
+#import < iflyMSC/iflyMSC.h >
+</pre>
+
+<p>2 登陆讯飞服务器<br>在使用讯飞的语音解析之前,需要进行用户身份验证,即登陆讯飞服务器,这个在viewDidLoad()方法中添加两行代码即可.后面的ID数字就是之前我们在开放平台创建按自己应用时给的APPID,在下载的SDK中也是有的.</p>
+<pre>NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"565e4dd9"];
+[IFlySpeechUtility createUtility:initString];
+</pre>
+
+<p>3 创建无界面提示的语音识别对象<br>创建一个讯飞语音识别对象,可以对他进行一系列的调用<br><pre>@property (nonatomic, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;//不带界面的识别对象<br></pre></p>
+<p>4 对象初始化<br>前面声明了一些在语音合成的时候会用到的对象,现在需要对前面的对象进行初始化.还是在ViewDidLoad()里面进行就可以了.这里的初始化内容比较多,是进行一些语音的设置,所以单独做成了一个方法,在ViewDidLoad()中进行调用即可.</p>
+<pre>-(void)initRecognizer{
+//单例模式，无UI的实例
+if (_iFlySpeechRecognizer == nil) {
+   _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];            [_iFlySpeechRecognizer setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+   //设置听写模式
+   [_iFlySpeechRecognizer setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+}
+_iFlySpeechRecognizer.delegate = self;    
+if (_iFlySpeechRecognizer != nil) {
+   IATConfig *instance = [IATConfig sharedInstance];     
+   //设置最长录音时间
+   [_iFlySpeechRecognizer setParameter:instance.speechTimeout forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
+   //设置后端点
+   [_iFlySpeechRecognizer setParameter:instance.vadEos forKey:[IFlySpeechConstant VAD_EOS]];
+    //设置前端点
+    [_iFlySpeechRecognizer setParameter:instance.vadBos forKey:[IFlySpeechConstant VAD_BOS]];
+    //网络等待时间
+    [_iFlySpeechRecognizer setParameter:@"20000" forKey:[IFlySpeechConstant NET_TIMEOUT]];    
+    //设置采样率，推荐使用16K
+    [_iFlySpeechRecognizer setParameter:instance.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];    
+    if ([instance.language isEqualToString:[IATConfig chinese]]) {
+        //设置语言
+        [_iFlySpeechRecognizer setParameter:instance.language forKey:[IFlySpeechConstant LANGUAGE]];
+        //设置方言
+        [_iFlySpeechRecognizer setParameter:instance.accent forKey:[IFlySpeechConstant ACCENT]];
+    }else if ([instance.language isEqualToString:[IATConfig english]]) {
+        [_iFlySpeechRecognizer setParameter:instance.language forKey:[IFlySpeechConstant LANGUAGE]];
+    }
+    //设置是否返回标点符号
+    [_iFlySpeechRecognizer setParameter:instance.dot forKey:[IFlySpeechConstant ASR_PTT]];    
+}
+}
+</pre>
+
+<p>5 实现代理方法<br>讯飞对识别结果的处理采用的代理回调的方法,实现IFlySpeechSynthesizerDelegate协议的onResult:isLast:方法.<br>注意!!!!这里的是onResults,不是onResult,前者是有界面提示的语音识别的结果回调函数.</p>
+<pre>- (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
+    NSMutableString *result = [[NSMutableString alloc] init];
+    NSDictionary *dic = [results objectAtIndex:0];
+    for (NSString *key in dic) {
+        [result appendFormat:@"%@",key];
+    }
+    NSString * resu = [ISRDataHelper stringFromJson:result];
+    _text.text = [NSString stringWithFormat:@"%@%@",_text.text,resu];
+}</pre>
+
+<p>6 触发语音合成<br>添加一个输入框,一个button,button的响应时间是将输入框中的文本内容读出来.</p>
+<pre>if(_iFlySpeechRecognizer == nil)
+{
+    [self initRecognizer];
+}
+[_iFlySpeechRecognizer cancel];
+//设置音频来源为麦克风
+[_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:@"audio_source"];
+//设置听写结果格式为json
+[_iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
+//保存录音文件，保存在sdk工作路径中，如未设置工作路径，则默认保存在library/cache下
+[_iFlySpeechRecognizer setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+[_iFlySpeechRecognizer setDelegate:self];
+BOOL ret = [_iFlySpeechRecognizer startListening];
+</pre>
+
+
 <p></p><h4>语音合成</h4><br>语音合成和语音识别的过程差不多<br>1 导入头文件<p></p>
 <pre>//将讯飞SDK中的所有类都导入进来
 #import < iflyMSC/iflyMSC.h >
@@ -360,7 +433,7 @@ typedef NS_OPTIONS(NSInteger, SynthesizeType) {
 @property (nonatomic, strong) IFlySpeechSynthesizer * iFlySpeechSynthesizer;//语音合成对象
 @property (nonatomic, strong) PcmPlayer *audioPlayer;//用于播放音频的
 @property (nonatomic, assign) SynthesizeType synType;//是何种合成方式
-@property (nonatomic, assign) BOOL hasError;//将诶西过程中是否出现错误
+@property (nonatomic, assign) BOOL hasError;//解析过程中是否出现错误
 </pre>
 
 <p>4 对象初始化<br>前面声明了一些在语音合成的时候会用到的对象,现在需要对前面的对象进行初始化.还是在ViewDidLoad()里面进行就可以了.</p>
@@ -441,10 +514,10 @@ _iFlySpeechSynthesizer.delegate = self;
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/02/讯飞语音/"
+        <div class="ds-share flat" data-thread-key="2015/12/03/讯飞语音/"
      data-title="使用讯飞开放平台实现语音识别合成"
      data-content=""
-     data-url="http://yoursite.com/2015/12/02/讯飞语音/">
+     data-url="http://yoursite.com/2015/12/03/讯飞语音/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -472,8 +545,8 @@ _iFlySpeechSynthesizer.delegate = self;
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/02/讯飞语音/"
-           data-title="使用讯飞开放平台实现语音识别合成" data-url="http://yoursite.com/2015/12/02/讯飞语音/">
+      <div class="ds-thread" data-thread-key="2015/12/03/讯飞语音/"
+           data-title="使用讯飞开放平台实现语音识别合成" data-url="http://yoursite.com/2015/12/03/讯飞语音/">
       </div>
     
   </div>
