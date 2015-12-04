@@ -52,19 +52,20 @@
 
 
 <meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
+上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用gitpage和Hexo创建独立博客(二)">
-<meta property="og:url" content="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/index.html">
+<meta property="og:title" content="利用gitpage和Hexo创建独立博客(三)">
+<meta property="og:url" content="http://yoursite.com/2015/11/24/利用gitpage和Hexo创建独立博客(三)/index.html">
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1ey2op4qnhfj316y0ocaef.jpg">
-<meta property="og:updated_time" content="2015-11-16T07:47:01.000Z">
+上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1ey2t0ltuvjj31kw05sdhf.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/005KqbSEgw1ey2t3ez1vdj31fq0a640h.jpg">
+<meta property="og:updated_time" content="2015-11-24T05:57:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(二)">
+<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(三)">
 <meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
-上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。">
+上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。">
 
 
 
@@ -76,7 +77,7 @@
   };
 </script>
 
-  <title> 利用gitpage和Hexo创建独立博客(二) | coder_qi </title>
+  <title> 利用gitpage和Hexo创建独立博客(三) | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -224,7 +225,7 @@
             
             
               
-                利用gitpage和Hexo创建独立博客(二)
+                利用gitpage和Hexo创建独立博客(三)
               
             
           </h1>
@@ -233,8 +234,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-16T15:47:01+08:00" content="2015-11-16">
-              2015-11-16
+            <time itemprop="dateCreated" datetime="2015-11-24T13:57:49+08:00" content="2015-11-24">
+              2015-11-24
             </time>
           </span>
 
@@ -259,8 +260,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(二)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(二)/" itemprop="commentsCount"></span>
+                <a href="/2015/11/24/利用gitpage和Hexo创建独立博客(三)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/24/利用gitpage和Hexo创建独立博客(三)/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -280,20 +281,29 @@
 
       
         <span itemprop="articleBody"><p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
-<p>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境。<br><a id="more"></a></p>
-<h3 id="gitPage设置">gitPage设置</h3><p>想要gitPage显示自己网页，需要登陆github，创建一个代码仓库，仓库的名字是，[github username].github.io<br>注意这里必须是上面的名字，然后只要在这里面上传一个index.html,我们就可以通过再浏览器里输入<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io来访问index.html.<br>注意：这里仓库的根目录下必须要有一个index.html,否则访问会显示404.</p>
-<h3 id="初始化Hexo文件夹">初始化Hexo文件夹</h3><p>有了存放并显示网页的地方，剩下的就是利用Hexo生成静态网页了。</p>
-<p>创建一个文件夹，然后对这个文件夹进行初始化，创建一些hexo的基本文件,从命令行里进入文件夹之后，执行下列指令</p>
-<p><pre>hexo init</pre><br>执行完指令后，发现文件夹下面多了五个文件夹和几个文件。如下图：<br><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1ey2op4qnhfj316y0ocaef.jpg"><br></p><p></p>
-<p></p><h3>安装Hexo依赖包</h3><br>接下来，再安装hexo的一些依赖包，执行下面的代码,这里控制台也会提示我们要执行下面的代码.<br><br>//这里的sudo是获取系统的权限,如果控制台提示已经是最高用户登录,不需要再获取权限了,那么就讲下面的sudo去掉就是了<p></p>
-<p><pre>sudo npm install</pre></p>
-<p></p><h3>创建新的博客</h3><br>hexo可以通过指令新建一个模板博客，执行下列指令<p></p>
-<p><pre>hexo new “新博客的标题”</pre><br>这样在source/_posts文件夹下面就会生成一个“新博客的标题.md”文件，这就是生成的静态网页文件，我们可以参照默认的那个hello world.md中得内容的格式编写我们的博客，一些语法都可以在hello world.md中找到。</p>
-<h3 id="编写软件">编写软件</h3><p>这里给大家推荐一个软件，这个软件叫Mou，也就是原先大名鼎鼎的markdown。他实现的是界面分为两部分，左半部分是代码，右半部分就是左边代码生成的网页效果，也就是说可以实时的查看我们所修改的静态网页的显示效果。这里是<a href="http://mouapp.com/download/Mou.zip" target="_blank" rel="external">传送门</a>，请各位自行百度然后下载。</p>
-<h3 id="生成静态网页">生成静态网页</h3><p>写完内容之后，我们就要利用hexo的主题样式模板生成静态网页了，执行下列指令。</p>
-<p><pre>hexo g</pre><br>这时候，在hexo的根目录下的public文件夹下会新生成一个index.html和一些文件夹。</p>
-<h3 id="上传文件">上传文件</h3><p>然后我们通过命令行也好，通过客户端工具也罢，只要把public文件夹下面的所有文件上传的到之前建立好的那个github仓库里就可以了。</p>
-<h3 id="查看结果">查看结果</h3><p>上传完成，稍等片刻，通过<a href="http://[github" target="_blank" rel="external">http://[github</a> username].github.io即可访问到我们刚才生成的网页。<br>至于username，可以在github里面进行设置.</p>
+<p>上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。<br><a id="more"></a></p>
+<p></p><h3>配置博主信息</h3><br>在Hexo根目录下面有一个文件:_config.yml,这是Hexo的配置文件.关于生成的网站的主体信息都是在这里进行的设置.主要有下面的几个属性.<p></p>
+<p>title: 博客网站的标题</p>
+<p>subtitle: 子标题</p>
+<p>description: 描述</p>
+<p>author: 作者名字</p>
+<p>还有一个就是靠近最底下的一个属性</p>
+<p>theme: 设置生成样式的主题模板</p>
+<p></p><h3>更换主题</h3><br>Hexo中所有的网站样式文件都是根据”主题”生成的,默认的是LandSpace主题,主题是一个外太空的图片,有些难看.想要一个自己独特风格的网站可以更换一个自己喜欢的主题.这个主题也是别人造好轮子的,网上比较多,我给大家推荐知乎上的一个问答,提问加回答基本罗列了所有的样式,传送门在下面.或者自行百度”Hexo 主题”,第一个选项就是.<p></p>
+<p><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">知乎传送门</a></p>
+<p>选择自己中意的主题模板下载下来之后,放在Hexo根目录下的themes目录下放好.然后再到Hexo根目录下的_config.yml文件,找到theme属性,将刚才下载的文件夹的名字写在后面.</p>
+<p>这里要注意一下,如果名字和 冒号之间没有空格,Hexo开启服务是回失败的,因为Hexo默认的是冒号后面必须加空格.</p>
+<p></p><h3>关联域名</h3><br>到目前为止,虽然看起来整体上还过得去,但是还是有一个问题,就是访问的时候需要输入[用户名].github.io,这样看起来比较怪异.其实GitPage是支持关联域名的,就像这个博客,就是关联一个域名,这样大家就可以直接输入网址来访问我的博客了.<p></p>
+<p>想要关联首先要拥有一个域名,推荐去<a href="http://wanwang.aliyun.com" target="_blank" rel="external">万网</a>上购买,想购买什么样的域名,就随大家的意了,只是注意:不要购买带汉字的域名.我这里购买的就是www.coderqi.com</p>
+<p>接着就是给这个域名实名认证.这个按照万网的要求申请就是了,很快就会通过.</p>
+<p>下一步就是给这个域名添加解析记录.添加一个CNAME类型的,记录值就是[用户名].github.io,剩下的参数按照默认的即可.示例如下<br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey2t0ltuvjj31kw05sdhf.jpg"></p>
+<p>还有一步:在github对应的那个仓库中添加一个文件:CNAME文件.没有后缀名,名字就是CNAME.</p>
+<p>CNAME文件的内容就是之前注册的那个域名,如下:<br><img src="http://ww4.sinaimg.cn/large/005KqbSEgw1ey2t3ez1vdj31fq0a640h.jpg"></p>
+<p></p><h3>显示图片</h3><br>博客当中难免会需要显示图片.这个时候该怎么办呢?如果使用百度云,360等网盘来存储图片,会发现第二天图片就失效了.<p></p>
+<p>这里我给大家推荐一个插件,叫微博图床,他可以将我们的图片存放到新浪微博的网络空间上,并提供一个稳定的不变的图片Url.</p>
+<p>下载下来之后安装,发现在浏览器的地址栏旁边多了一个小框,点开之后提示拖动一个图片到图框上.然后,登陆自己的新浪微博,将要用到的图片拖到图床上,会显示一个URL,这个就是我们图片的公网地址.</p>
+<p>Hexo的.md文件是支持HTML语言的,我们可以直接利用img标签显示图片了</p>
+<p></p><h3>大功告成</h3><br>OK ,到这里,在浏览器里直接输入你的域名就可以访问你的博客了.<p></p>
 </span>
       
     </div>
@@ -305,16 +315,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/16/利用gitpage和Hexo创建独立博客(一)/" rel="next" title="利用gitpage和Hexo创建独立博客(一)">
-                <i class="fa fa-chevron-left"></i> 利用gitpage和Hexo创建独立博客(一)
+              <a href="/2015/11/19/MAC中使用GCC进行文件编译/" rel="next" title="Mac中常用的GCC文件编译指令">
+                <i class="fa fa-chevron-left"></i> Mac中常用的GCC文件编译指令
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/16/swift实现与OC的混编/" rel="prev" title="swift实现与OC的混编">
-                swift实现与OC的混编 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/03/讯飞语音/" rel="prev" title="使用讯飞开放平台实现语音识别合成">
+                使用讯飞开放平台实现语音识别合成 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -330,10 +340,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(二)/"
-     data-title="利用gitpage和Hexo创建独立博客(二)"
+        <div class="ds-share flat" data-thread-key="2015/11/24/利用gitpage和Hexo创建独立博客(三)/"
+     data-title="利用gitpage和Hexo创建独立博客(三)"
      data-content=""
-     data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/">
+     data-url="http://yoursite.com/2015/11/24/利用gitpage和Hexo创建独立博客(三)/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -361,8 +371,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/16/利用gitpage和Hexo创建独立博客(二)/"
-           data-title="利用gitpage和Hexo创建独立博客(二)" data-url="http://yoursite.com/2015/11/16/利用gitpage和Hexo创建独立博客(二)/">
+      <div class="ds-thread" data-thread-key="2015/11/24/利用gitpage和Hexo创建独立博客(三)/"
+           data-title="利用gitpage和Hexo创建独立博客(三)" data-url="http://yoursite.com/2015/11/24/利用gitpage和Hexo创建独立博客(三)/">
       </div>
     
   </div>
@@ -452,7 +462,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gitPage设置"><span class="nav-number">1.</span> <span class="nav-text">gitPage设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Hexo文件夹"><span class="nav-number">2.</span> <span class="nav-text">初始化Hexo文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">创建新的博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写软件"><span class="nav-number">5.</span> <span class="nav-text">编写软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态网页"><span class="nav-number">6.</span> <span class="nav-text">生成静态网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件"><span class="nav-number">7.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看结果"><span class="nav-number">8.</span> <span class="nav-text">查看结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">配置博主信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">关联域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">显示图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">大功告成</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

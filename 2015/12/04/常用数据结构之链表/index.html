@@ -51,16 +51,16 @@
 
 
 
-<meta name="description" content="在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.">
+<meta name="description" content="在进行数据的处理的时候,包括一些系统类的理解的时候会需要一些基本的数据结构的只是,最常见的就是线性表中的链表,下面我们就来看看线性表和链表是何许人也.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用GitHub进行文件的版本控制">
-<meta property="og:url" content="http://yoursite.com/2015/12/03/利用GitHub进行文件的版本控制/index.html">
+<meta property="og:title" content="常用数据结构之链表">
+<meta property="og:url" content="http://yoursite.com/2015/12/04/常用数据结构之链表/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.">
-<meta property="og:updated_time" content="2015-12-03T10:07:15.000Z">
+<meta property="og:description" content="在进行数据的处理的时候,包括一些系统类的理解的时候会需要一些基本的数据结构的只是,最常见的就是线性表中的链表,下面我们就来看看线性表和链表是何许人也.">
+<meta property="og:updated_time" content="2015-12-04T02:39:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用GitHub进行文件的版本控制">
-<meta name="twitter:description" content="在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.">
+<meta name="twitter:title" content="常用数据结构之链表">
+<meta name="twitter:description" content="在进行数据的处理的时候,包括一些系统类的理解的时候会需要一些基本的数据结构的只是,最常见的就是线性表中的链表,下面我们就来看看线性表和链表是何许人也.">
 
 
 
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title> 利用GitHub进行文件的版本控制 | coder_qi </title>
+  <title> 常用数据结构之链表 | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -135,16 +135,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-categories fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -156,7 +146,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
@@ -230,7 +220,7 @@
             
             
               
-                利用GitHub进行文件的版本控制
+                常用数据结构之链表
               
             
           </h1>
@@ -239,8 +229,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-03T18:07:15+08:00" content="2015-12-03">
-              2015-12-03
+            <time itemprop="dateCreated" datetime="2015-12-04T10:40:48+08:00" content="2015-12-04">
+              2015-12-04
             </time>
           </span>
 
@@ -265,8 +255,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/03/利用GitHub进行文件的版本控制/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/03/利用GitHub进行文件的版本控制/" itemprop="commentsCount"></span>
+                <a href="/2015/12/04/常用数据结构之链表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/04/常用数据结构之链表/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,19 +275,8 @@
       
 
       
-        <span itemprop="articleBody"><p>在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.<br>他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.<br><a id="more"></a><br>SVN与Git的最主要的区别？</p>
-<p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快:那如果在互联网下，网速又很慢的话，就郁闷了。</p>
-<p>Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
-<p>这里介绍一下如何利用github进行代码的版本控制.</p>
-<p></p><h2>使用终端命令来进行git管理</h2><p></p>
-<h3>常用命令</h3><br>1 初始化Git仓库<br>对当前的文件夹进行git信息关联,形成一个git仓库.<br>指令是:  git init<br><br>2 将文件添加到版本控制中<br>将文件添加到git的版本控制内,这样文件的修改也就会被监测.<br>指令是: git add read.txt<br><br>3 将修改提交到本地仓库<br>将所有的文件修改记录提交到本地的仓库.<br>指令是:git commit.<br>这里要注意一下,敲完指令,回车之后,显示的是一个Vi编辑的内容,里面的内容都是用”#”注释起来的.git将所有的修改都在文件中列出来了,你只要将需要提交的文件打开注释,git就会将其提交到本地仓库.<br><br>4 提交的服务器<br>将本地仓库和服务器的仓库进行同步提交<br>指令是: git push origin master<br><br>5 查看目前的提交状态<br>查看目前所有在控制目录内的文件的修改及提交情况.<br>指令是: git status<br><br>6 查看一个文件的修改内容<br>指令是:git diff read.txt<br><br><br><h3>版本回退</h3>
-
-<p>1 查看最近的提交<br>指令是: git log</p>
-<p>2 显示简单的版本介绍<br>指令是: git log –-pretty=oneline </p>
-<p>3 回退到上一个版本<br>指令是: git reset —hard HEAD^</p>
-<p>4 回退到上上个版本<br>指令是: git reset —hard HEAD^^</p>
-<p>5 显示所有的版本号<br>指令是: git reflog</p>
-<p>6 根据版本号进行回退<br>指令是: git reset —hard 6fcfc89</p>
+        <span itemprop="articleBody"><p>在进行数据的处理的时候,包括一些系统类的理解的时候会需要一些基本的数据结构的只是,最常见的就是线性表中的链表,下面我们就来看看线性表和链表是何许人也.<br><a id="more"></a></p>
+<p></p><h2>线性表</h2><br>线性表（亦作顺序表）是最基本、最简单、也是最常用的一种数据结构。<br>线性表中数据元素之间的关系是一对一的关系，即除了第一个和最后一个数据元素之外，其它数据元素都是首尾相接的。<br>线性表的逻辑结构简单，便于实现和操作。因此，线性表这种数据结构在实际应用中是广泛采用的一种数据结构。<p></p>
 </span>
       
     </div>
@@ -309,8 +288,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/03/讯飞语音/" rel="next" title="使用讯飞开放平台实现语音识别合成">
-                <i class="fa fa-chevron-left"></i> 使用讯飞开放平台实现语音识别合成
+              <a href="/2015/12/04/利用GitHub进行文件的版本控制/" rel="next" title="利用GitHub进行文件的版本控制">
+                <i class="fa fa-chevron-left"></i> 利用GitHub进行文件的版本控制
               </a>
             
           </div>
@@ -330,10 +309,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/03/利用GitHub进行文件的版本控制/"
-     data-title="利用GitHub进行文件的版本控制"
+        <div class="ds-share flat" data-thread-key="2015/12/04/常用数据结构之链表/"
+     data-title="常用数据结构之链表"
      data-content=""
-     data-url="http://yoursite.com/2015/12/03/利用GitHub进行文件的版本控制/">
+     data-url="http://yoursite.com/2015/12/04/常用数据结构之链表/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -361,8 +340,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/03/利用GitHub进行文件的版本控制/"
-           data-title="利用GitHub进行文件的版本控制" data-url="http://yoursite.com/2015/12/03/利用GitHub进行文件的版本控制/">
+      <div class="ds-thread" data-thread-key="2015/12/04/常用数据结构之链表/"
+           data-title="常用数据结构之链表" data-url="http://yoursite.com/2015/12/04/常用数据结构之链表/">
       </div>
     
   </div>
@@ -406,21 +385,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            <a href="/archives">
+            
               <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分类</span>
-              </a>
+              
           </div>
 
           <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">8</span>
+            <a href="/tags/">
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -452,7 +431,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">使用终端命令来进行git管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">版本回退</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">线性表</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
