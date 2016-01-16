@@ -49,18 +49,21 @@
 
 
 
-<meta name="description" content="一个趁手的App是离不开网络请求的.而一个APP与服务器之间进行通信分为两种,一种是请求响应机制的,即HTTP请求的.这个大家比较常用.这里不细说了.另外一种就是即时通信.也就是socket.下面我们就来看看socket是何物.">
+<meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
+上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="socket通信实现">
-<meta property="og:url" content="http://yoursite.com/2015/12/22/socket通信实现/index.html">
+<meta property="og:title" content="利用gitpage和Hexo创建独立博客(三)">
+<meta property="og:url" content="http://yoursite.com/2016/01/16/利用gitpage和Hexo创建独立博客(三)/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="一个趁手的App是离不开网络请求的.而一个APP与服务器之间进行通信分为两种,一种是请求响应机制的,即HTTP请求的.这个大家比较常用.这里不细说了.另外一种就是即时通信.也就是socket.下面我们就来看看socket是何物.">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEjw1ez7rpa1d5tj30dm07iwez.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEjw1ez7sl7oo22j311c0butc3.jpg">
-<meta property="og:updated_time" content="2016-01-04T07:35:56.000Z">
+<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
+上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1ey2t0ltuvjj31kw05sdhf.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/005KqbSEgw1ey2t3ez1vdj31fq0a640h.jpg">
+<meta property="og:updated_time" content="2015-11-24T05:57:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="socket通信实现">
-<meta name="twitter:description" content="一个趁手的App是离不开网络请求的.而一个APP与服务器之间进行通信分为两种,一种是请求响应机制的,即HTTP请求的.这个大家比较常用.这里不细说了.另外一种就是即时通信.也就是socket.下面我们就来看看socket是何物.">
+<meta name="twitter:title" content="利用gitpage和Hexo创建独立博客(三)">
+<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com
+上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。">
 
 
 
@@ -72,7 +75,7 @@
   };
 </script>
 
-  <title> socket通信实现 | coder_qi </title>
+  <title> 利用gitpage和Hexo创建独立博客(三) | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -211,7 +214,7 @@
             
             
               
-                socket通信实现
+                利用gitpage和Hexo创建独立博客(三)
               
             
           </h1>
@@ -220,8 +223,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-22T11:52:23+08:00" content="2015-12-22">
-              2015-12-22
+            <time itemprop="dateCreated" datetime="2016-01-16T15:27:05+08:00" content="2016-01-16">
+              2016-01-16
             </time>
           </span>
 
@@ -230,8 +233,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/即时通信/" itemprop="url" rel="index">
-                    <span itemprop="name">即时通信</span>
+                  <a href="/categories/善事利器/" itemprop="url" rel="index">
+                    <span itemprop="name">善事利器</span>
                   </a>
                 </span>
 
@@ -246,8 +249,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/22/socket通信实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/22/socket通信实现/" itemprop="commentsCount"></span>
+                <a href="/2016/01/16/利用gitpage和Hexo创建独立博客(三)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/16/利用gitpage和Hexo创建独立博客(三)/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -266,16 +269,30 @@
       
 
       
-        <span itemprop="articleBody"><p>一个趁手的App是离不开网络请求的.而一个APP与服务器之间进行通信分为两种,一种是请求响应机制的,即HTTP请求的.这个大家比较常用.这里不细说了.另外一种就是即时通信.也就是socket.下面我们就来看看socket是何物.<br><a id="more"></a></p>
-<p></p><h2>TCP和UDP</h2><br>先抛开两种IOS中常用的通信方式,我们来看一下计算机网络中的数据包的通信.在网络中两个主机之间进行通信有两种选择:UDP标准,TCP/IP标准.<br>UDP标准:<br>即将数据包拆成多个小的数据包经由不同的多个交换机和路由器发送到指定的主机上.这里的交换机的路线和经过的路由器都是看当时的设备的网络繁忙状况的.所以路线也是不一定的,也会出现后发先至的情况,当然,这自然都是有解决办法的,加个顺序标记就好了嘛.当然,因为在转发的过程中可能会出现丢包的现象,所以这种方式也是一种不可靠的方式.<br>这里给插一个理解图<br><img src="http://ww3.sinaimg.cn/large/005KqbSEjw1ez7rpa1d5tj30dm07iwez.jpg"><br>TCP/IP标准:<br>这种方式采用的在两台主机之间建立一个稳定的持久的长连接,两条读写的管道,数据在这两条管道之间进行稳定的数据读写.所以这种标准相比前面的UDP来说,稳定而可靠,但是,因为要保持稳定的长连接,所以对网络资源的消耗也是比较大的.现在用的比较广的也是TCP/IP协议.这里给大家推荐本书.《TCP/IP协议详解》–分上下两卷,是对TCP/IP协议的完美解释,万变不离其宗.我们这里浅层的去理解使用以下TCP/IP协议.<p></p>
-<p></p><h2>TCP协议</h2><br>TCP协议比较复杂,这里不能详细介绍,我们依旧是肤浅的来看一下.首先给大家简单介绍两个概念<br>服务器地址和端口号.通俗上来理解,服务器地址(IP)就是可以确定是哪一台主机的标识.每台主机有唯一的一个IP地址.用于其他主机的访问.而端口就是数据进出计算机的门口.只不过这个门口有很多.端口号的范围从0到65535,但是有一些常用的端口已经成为了默认的端口.例如用于浏览网页服务的80端口，用于FTP服务的21端口,常用于tomacat的8080端口等,当然还有3389端口,大家可以自行百度”3389爆破”,有惊喜哟.<br>接下来我们来看看代码,在代码实现上,各种语言都实现了TCP协议的方法,相关的API网络上也比较多,我这里整理了一下,给大家看看.<p></p>
-<p></p><h2>C语言实现的网络通信</h2><br>C语言也是实现了TCP/IP协议的.用起来也是比较简单的,这里将API的使用步骤总结罗列了一下.<br>1 导入头文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#import</span> &lt;sys/types.h&gt;</span><br><span class="line"><span class="id">#import</span> &lt;sys/socket.h&gt;</span><br><span class="line"><span class="id">#import</span> &lt;netinet/<span class="keyword">in</span>.h&gt;</span><br><span class="line"><span class="id">#import</span> &lt;arpa/inet.h&gt;</span><br></pre></td></tr></table></figure><p></p>
-<p>2 创建IP和端口对象<br>使用TCP/IP协议需要绑定IP地址和端口,但是在C语言里面,他的结构体又有些不同.<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//创建<span class="literal">IP</span>结构体变量,用于绑定服务器</span><br><span class="line"><span class="label">static</span> <span class="keyword">struct </span>sockaddr_in <span class="keyword">addr;</span><br><span class="line"></span><span class="keyword">addr.sin_addr.s_addr </span>= inet_addr(<span class="string">"127.0.0.1"</span>)<span class="comment">;</span></span><br><span class="line"><span class="keyword">addr.sin_port </span>= htons(<span class="number">8880</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>这里用到了一个sockaddr结构体,他里面的每个变量的含义在下面的表中.<img src="http://ww3.sinaimg.cn/large/005KqbSEjw1ez7sl7oo22j311c0butc3.jpg"></p>
-<p>3 创建一个socketClient变量<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个socketClient,指定为TCP协议,采用流的形式.</span></span><br><span class="line"><span class="keyword">int</span> clientSocket = socket(AF_INET,SOCK_STREAM, <span class="number">0</span>);</span><br><span class="line"><span class="comment">//根据socketClient创建与服务器的链接</span></span><br><span class="line"><span class="keyword">int</span> flag = connect(clientSocket, (<span class="keyword">struct</span> sockaddr*)&amp;addr, <span class="keyword">sizeof</span>(addr));</span><br></pre></td></tr></table></figure></p>
-<p>4 发送消息<br>发送消息是调用的send方法<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sendstring[<span class="number">255</span>] = <span class="string">"服务器你好啊,吃饭了没?"</span>;</span><br><span class="line"><span class="comment">//通过socketClient想服务器发送指定长度的字符串流,最后的是保留参数</span></span><br><span class="line">send(clientSocket, sendstring, <span class="built_in">strlen</span>(sendstring) + <span class="number">1</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
-<p>5 接收消息<br>接收消息是调用的recv方法<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个缓冲池,用于从流中读取数据</span></span><br><span class="line"><span class="keyword">char</span> buff[<span class="number">255</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="comment">//利用socketClient接收指定长度的流.</span></span><br><span class="line"><span class="keyword">long</span> len = recv(clientSocket, buff, <span class="number">255</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">//输出打印</span></span><br><span class="line"><span class="keyword">if</span> (len &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>,buff);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>作业1<br>HTTP是属于哪一种标准TCP?UDP?why?</p>
+        <span itemprop="articleBody"><p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
+<p>上一篇讲述了如何使用一个gitPage+Hexo的系统环境。现在来说一下如何完善这套博客系统。<br><a id="more"></a></p>
+<p></p><h3>配置博主信息</h3><br>在Hexo根目录下面有一个文件:_config.yml,这是Hexo的配置文件.关于生成的网站的主体信息都是在这里进行的设置.主要有下面的几个属性.<p></p>
+<p>title: 博客网站的标题</p>
+<p>subtitle: 子标题</p>
+<p>description: 描述</p>
+<p>author: 作者名字</p>
+<p>还有一个就是靠近最底下的一个属性</p>
+<p>theme: 设置生成样式的主题模板</p>
+<p></p><h3>更换主题</h3><br>Hexo中所有的网站样式文件都是根据”主题”生成的,默认的是LandSpace主题,主题是一个外太空的图片,有些难看.想要一个自己独特风格的网站可以更换一个自己喜欢的主题.这个主题也是别人造好轮子的,网上比较多,我给大家推荐知乎上的一个问答,提问加回答基本罗列了所有的样式,传送门在下面.或者自行百度”Hexo 主题”,第一个选项就是.<p></p>
+<p><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">知乎传送门</a></p>
+<p>选择自己中意的主题模板下载下来之后,放在Hexo根目录下的themes目录下放好.然后再到Hexo根目录下的_config.yml文件,找到theme属性,将刚才下载的文件夹的名字写在后面.</p>
+<p>这里要注意一下,如果名字和 冒号之间没有空格,Hexo开启服务是回失败的,因为Hexo默认的是冒号后面必须加空格.</p>
+<p></p><h3>关联域名</h3><br>到目前为止,虽然看起来整体上还过得去,但是还是有一个问题,就是访问的时候需要输入[用户名].github.io,这样看起来比较怪异.其实GitPage是支持关联域名的,就像这个博客,就是关联一个域名,这样大家就可以直接输入网址来访问我的博客了.<p></p>
+<p>想要关联首先要拥有一个域名,推荐去<a href="http://wanwang.aliyun.com" target="_blank" rel="external">万网</a>上购买,想购买什么样的域名,就随大家的意了,只是注意:不要购买带汉字的域名.我这里购买的就是www.coderqi.com</p>
+<p>接着就是给这个域名实名认证.这个按照万网的要求申请就是了,很快就会通过.</p>
+<p>下一步就是给这个域名添加解析记录.添加一个CNAME类型的,记录值就是[用户名].github.io,剩下的参数按照默认的即可.示例如下<br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey2t0ltuvjj31kw05sdhf.jpg"></p>
+<p>还有一步:在github对应的那个仓库中添加一个文件:CNAME文件.没有后缀名,名字就是CNAME.</p>
+<p>CNAME文件的内容就是之前注册的那个域名,如下:<br><img src="http://ww4.sinaimg.cn/large/005KqbSEgw1ey2t3ez1vdj31fq0a640h.jpg"></p>
+<p></p><h3>显示图片</h3><br>博客当中难免会需要显示图片.这个时候该怎么办呢?如果使用百度云,360等网盘来存储图片,会发现第二天图片就失效了.<p></p>
+<p>这里我给大家推荐一个插件,叫微博图床,他可以将我们的图片存放到新浪微博的网络空间上,并提供一个稳定的不变的图片Url.</p>
+<p>下载下来之后安装,发现在浏览器的地址栏旁边多了一个小框,点开之后提示拖动一个图片到图框上.然后,登陆自己的新浪微博,将要用到的图片拖到图床上,会显示一个URL,这个就是我们图片的公网地址.</p>
+<p>Hexo的.md文件是支持HTML语言的,我们可以直接利用img标签显示图片了</p>
+<p></p><h3>大功告成</h3><br>OK ,到这里,在浏览器里直接输入你的域名就可以访问你的博客了.<p></p>
 </span>
       
     </div>
@@ -287,12 +304,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/01/16/利用gitpage和Hexo创建独立博客(一)/" rel="next" title="利用gitpage和Hexo创建独立博客(一)">
+                <i class="fa fa-chevron-left"></i> 利用gitpage和Hexo创建独立博客(一)
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/16/MAC中使用GCC进行文件编译/" rel="prev" title="Mac中常用的GCC文件编译指令">
-                Mac中常用的GCC文件编译指令 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/01/16/利用gitpage和Hexo创建独立博客(二)/" rel="prev" title="利用gitpage和Hexo创建独立博客(二)">
+                利用gitpage和Hexo创建独立博客(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -308,10 +329,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/22/socket通信实现/"
-     data-title="socket通信实现"
+        <div class="ds-share flat" data-thread-key="2016/01/16/利用gitpage和Hexo创建独立博客(三)/"
+     data-title="利用gitpage和Hexo创建独立博客(三)"
      data-content=""
-     data-url="http://yoursite.com/2015/12/22/socket通信实现/">
+     data-url="http://yoursite.com/2016/01/16/利用gitpage和Hexo创建独立博客(三)/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -339,8 +360,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/22/socket通信实现/"
-           data-title="socket通信实现" data-url="http://yoursite.com/2015/12/22/socket通信实现/">
+      <div class="ds-thread" data-thread-key="2016/01/16/利用gitpage和Hexo创建独立博客(三)/"
+           data-title="利用gitpage和Hexo创建独立博客(三)" data-url="http://yoursite.com/2016/01/16/利用gitpage和Hexo创建独立博客(三)/">
       </div>
     
   </div>
@@ -430,7 +451,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">TCP和UDP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">TCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">C语言实现的网络通信</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">配置博主信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">关联域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">显示图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">大功告成</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
