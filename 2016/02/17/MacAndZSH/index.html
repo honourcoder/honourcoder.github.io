@@ -49,16 +49,18 @@
 
 
 
-<meta name="description" content="在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.">
+<meta name="description" content="俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用GitHub进行版本控制">
-<meta property="og:url" content="http://yoursite.com/2016/02/18/使用GitHub进行版本控制/index.html">
+<meta property="og:title" content="MAC下安装配置终端ZSH主题">
+<meta property="og:url" content="http://yoursite.com/2016/02/17/MacAndZSH/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.">
-<meta property="og:updated_time" content="2016-02-23T01:14:35.000Z">
+<meta property="og:description" content="俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1ey402wl3mgj30dh07s74f.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1ey43itf9srj30vk0lgn51.jpg">
+<meta property="og:updated_time" content="2016-02-23T01:53:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用GitHub进行版本控制">
-<meta name="twitter:description" content="在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.">
+<meta name="twitter:title" content="MAC下安装配置终端ZSH主题">
+<meta name="twitter:description" content="俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.">
 
 
 
@@ -70,7 +72,7 @@
   };
 </script>
 
-  <title> 使用GitHub进行版本控制 | coder_qi </title>
+  <title> MAC下安装配置终端ZSH主题 | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -209,7 +211,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
             
             
               
-                使用GitHub进行版本控制
+                MAC下安装配置终端ZSH主题
               
             
           </h1>
@@ -218,19 +220,34 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-02-18T09:13:12+08:00" content="2016-02-18">
-              2016-02-18
+            <time itemprop="dateCreated" datetime="2016-02-17T09:16:30+08:00" content="2016-02-17">
+              2016-02-17
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/善事利器/" itemprop="url" rel="index">
+                    <span itemprop="name">善事利器</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/18/使用GitHub进行版本控制/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/18/使用GitHub进行版本控制/" itemprop="commentsCount"></span>
+                <a href="/2016/02/17/MacAndZSH/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/17/MacAndZSH/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -249,10 +266,19 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
       
 
       
-        <span itemprop="articleBody"><p>在开发中版本控制主要使用的是SVN和Git,如今,Git也是越来越流行.<br>他们都是版本管理的工具,都是以方便多人合作为目的的,当然也是一名程序员的必修课.<br><a id="more"></a><br>SVN与Git的最主要的区别？<br>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快:那如果在互联网下，网速又很慢的话，就郁闷了。<br>Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。<br>这里介绍一下如何利用github进行代码的版本控制.</p>
-<p></p><h2>使用终端命令来进行git管理</h2><p></p>
-<p></p><h3>常用命令</h3><br>1 初始化Git仓库<br>对当前的文件夹进行git信息关联,形成一个git仓库.<br>指令是:  git init<br>2 将文件添加到版本控制中<br>将文件添加到git的版本控制内,这样文件的修改也就会被监测.<br>指令是: git add read.txt<br>3 将修改提交到本地仓库<br>将所有的文件修改记录提交到本地的仓库.<br>指令是:git commit.<br>这里要注意一下,敲完指令,回车之后,显示的是一个Vi编辑的内容,里面的内容都是用”#”注释起来的.git将所有的修改都在文件中列出来了,你只要将需要提交的文件打开注释,git就会将其提交到本地仓库.<br>4 提交的服务器<br>将本地仓库和服务器的仓库进行同步提交<br>指令是: git push origin master<br>5 查看目前的提交状态<br>查看目前所有在控制目录内的文件的修改及提交情况.<br>指令是: git status<br>6 查看一个文件的修改内容<br>指令是:git diff read.txt<p></p>
-<p></p><h3>版本回退</h3><br>1 查看最近的提交<br>指令是: git log<br>2 显示简单的版本介绍<br>指令是: git log –-pretty=oneline<br>3 回退到上一个版本<br>指令是: git reset –hard HEAD^<br>4 回退到上上个版本<br>指令是: git reset –hard HEAD^^<br>5 显示所有的版本号<br>指令是: git reflog<br>6 根据版本号进行回退<br>指令是: git reset –hard 6fcfc89<p></p>
+        <span itemprop="articleBody"><p><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey402wl3mgj30dh07s74f.jpg"><br>俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.<br><a id="more"></a></p>
+<p></p><h2>zsh是何物</h2><br>zsh是一款终端插件.终端最常是用来执行命令,而zsh的作用就是进行命令补全,让我们能够更加快速的编写命令和执行命令.<br>其实Mac系统的终端bash也是支持命令补全的,只是没有zsh那么强大和齐全.<p></p>
+<p></p><h4>ZSH的优点</h4><br>1 zsh兼容bash,所有的bash指令在zsh中都是可以使用的<br>2 zsh具有更强大的命令补全功能.<br>3 zsh有着丰富多彩的命令提示符.<p></p>
+<p></p><h2>安装zsh</h2><br>安装zsh有两种方式:<p></p>
+<p></p><h3>自动安装</h3><br>自动安装比较简单,只需要执行下面的一行代码就可以了.<p></p>
+<p><pre>wget <a href="https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh</a> -O - | sh</pre><br>这里不多做介绍.</p>
+<p></p><h3>手动安装</h3><br>1 利用git将项目clone到本地<br>直接执行下面的代码<p></p>
+<p><pre>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</pre><br>上面的代码是将zsh的项目克隆到本地的用户目录下的”oh-my-zsh”文件夹下,只是这个文件夹是隐藏的文件夹.<br>2 创建一个zsh的配置文件<br>注意:如果你已经有一个~/.zshrc文件的话，建议你先做备份。<br>使用以下命令进行备份</p>
+<p><pre>cp ~/.zshrc ~/.zshrc.orig</pre><br>然后开始创建zsh的配置文件</p>
+<p><pre>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</pre><br>3 设置zsh为你的默认的shell主题</p>
+<p><pre>chsh -s /bin/zsh</pre><br>4 重启并开始使用你的zsh (打开一个新的终端窗口便可…)<br>到这里,zsh的安装就结束了,但是发现一个问题,就是zsh并不是特别的好看啊,外貌协会的孩子表示很不满啊.这个时候,我们可以考虑一下设置zsh的主题风格</p>
+<p></p><h2>更换zsh主题</h2><br>zsh支持主题设置,以完成在不同的情况下的不同的提示.<br>下面罗列的是zsh官方提供的主题的名字及其样式<br><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes" target="_blank" rel="external">zsh官方主题传送门</a><br>记住名字之后就是设置zsh的主题了.zsh的默认配置文件是.zshrc,就放在用户的根目录下.我们只要修改一下它就可以了<br>设置方法:<br>1 打开终端,应该默认的位置就是在用户的根目录下,如果不是,请切换到根目录下.<br>2 利用vi编辑器打开.zshrc文件,指令如下<p></p>
+<p><pre>vi .zshrc</pre><br>执行之后可能会提示选择打开的类型,选择可读可写类型.结果如下:<br><br><br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey43itf9srj30vk0lgn51.jpg"><br><br><br>里面有两个属性,<br>第一个是zsh的默认文件路径,就是我们git下来的文件路径,<br>第二个就是zsh的主题,我从上面的传送门里找了一个我比较喜欢的样式.直接”i”命令编辑,将刚才记住的名字写在双引号中间即可.<br>这个时候”:wq”保存退出就可以了.然后就会发现终端的显示样式已经改变了.<br>至此,大功告成.</p>
 </span>
       
     </div>
@@ -264,16 +290,16 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/17/MAC下安装配置终端ZSH主题/" rel="next" title="MAC下安装配置终端ZSH主题">
-                <i class="fa fa-chevron-left"></i> MAC下安装配置终端ZSH主题
+              <a href="/2016/02/06/2016newyear/" rel="next" title="2016年是新的一年，也是新的开篇">
+                <i class="fa fa-chevron-left"></i> 2016年是新的一年，也是新的开篇
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/02/19/MAC使用GCC进行文件编译/" rel="prev" title="MAC使用GCC进行文件编译">
-                MAC使用GCC进行文件编译 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/02/18/github12/" rel="prev" title="使用GitHub进行版本控制">
+                使用GitHub进行版本控制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -289,10 +315,10 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/18/使用GitHub进行版本控制/"
-     data-title="使用GitHub进行版本控制"
+        <div class="ds-share flat" data-thread-key="2016/02/17/MacAndZSH/"
+     data-title="MAC下安装配置终端ZSH主题"
      data-content=""
-     data-url="http://yoursite.com/2016/02/18/使用GitHub进行版本控制/">
+     data-url="http://yoursite.com/2016/02/17/MacAndZSH/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -320,8 +346,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/18/使用GitHub进行版本控制/"
-           data-title="使用GitHub进行版本控制" data-url="http://yoursite.com/2016/02/18/使用GitHub进行版本控制/">
+      <div class="ds-thread" data-thread-key="2016/02/17/MacAndZSH/"
+           data-title="MAC下安装配置终端ZSH主题" data-url="http://yoursite.com/2016/02/17/MacAndZSH/">
       </div>
     
   </div>
@@ -429,7 +455,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">使用终端命令来进行git管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">版本回退</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">zsh是何物</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">ZSH的优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">自动安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">手动安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">更换zsh主题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
