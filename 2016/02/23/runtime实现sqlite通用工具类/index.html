@@ -49,24 +49,16 @@
 
 
 
-<meta name="description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  
-##swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
+<meta name="description" content="项目中经常会用到sqlite去存储model，但是基本都是将model单存为一个表，然后将所有的属性作为表中的字段存储。怎么看都是无脑的重复性的工作，既然是无脑的重复性的工作，干嘛不让工具类来写呢？OK,既然定下来要用工具类，那就要这个工具类具有通用性，不能每一个Model都写一个工具类，那么问题来了，能适配不同的未知类型的Model来处理的最好的方式就是通过Runtime了。那么现在的思路就很明">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift实现与OC的混编">
-<meta property="og:url" content="http://yoursite.com/2016/02/21/swift实现与OC的混编/index.html">
+<meta property="og:title" content="Runtime实现sqlite通用工具类">
+<meta property="og:url" content="http://yoursite.com/2016/02/23/runtime实现sqlite通用工具类/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  
-##swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo2a8e5aj314s0o2dla.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/0062YVJrjw1evpodz8njoj30ps0aodia.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo9sf2wkj30wc06ytaj.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0062YVJrjw1evpoft4eljj317y0jydr4.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/0062YVJrjw1evposxm2m0j313g07omye.jpg">
-<meta property="og:updated_time" content="2016-02-23T01:25:04.000Z">
+<meta property="og:description" content="项目中经常会用到sqlite去存储model，但是基本都是将model单存为一个表，然后将所有的属性作为表中的字段存储。怎么看都是无脑的重复性的工作，既然是无脑的重复性的工作，干嘛不让工具类来写呢？OK,既然定下来要用工具类，那就要这个工具类具有通用性，不能每一个Model都写一个工具类，那么问题来了，能适配不同的未知类型的Model来处理的最好的方式就是通过Runtime了。那么现在的思路就很明">
+<meta property="og:updated_time" content="2016-02-23T06:52:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift实现与OC的混编">
-<meta name="twitter:description" content="这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  
-##swift与OC的混编现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.">
+<meta name="twitter:title" content="Runtime实现sqlite通用工具类">
+<meta name="twitter:description" content="项目中经常会用到sqlite去存储model，但是基本都是将model单存为一个表，然后将所有的属性作为表中的字段存储。怎么看都是无脑的重复性的工作，既然是无脑的重复性的工作，干嘛不让工具类来写呢？OK,既然定下来要用工具类，那就要这个工具类具有通用性，不能每一个Model都写一个工具类，那么问题来了，能适配不同的未知类型的Model来处理的最好的方式就是通过Runtime了。那么现在的思路就很明">
 
 
 
@@ -78,7 +70,7 @@
   };
 </script>
 
-  <title> swift实现与OC的混编 | coder_qi </title>
+  <title> Runtime实现sqlite通用工具类 | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -217,7 +209,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
             
             
               
-                swift实现与OC的混编
+                Runtime实现sqlite通用工具类
               
             
           </h1>
@@ -226,8 +218,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-02-21T09:09:47+08:00" content="2016-02-21">
-              2016-02-21
+            <time itemprop="dateCreated" datetime="2016-02-23T09:50:44+08:00" content="2016-02-23">
+              2016-02-23
             </time>
           </span>
 
@@ -236,8 +228,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
+                  <a href="/categories/深入浅出/" itemprop="url" rel="index">
+                    <span itemprop="name">深入浅出</span>
                   </a>
                 </span>
 
@@ -252,8 +244,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/21/swift实现与OC的混编/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/21/swift实现与OC的混编/" itemprop="commentsCount"></span>
+                <a href="/2016/02/23/runtime实现sqlite通用工具类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/runtime实现sqlite通用工具类/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -272,12 +264,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
       
 
       
-        <span itemprop="articleBody"><p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com.  </p>
-<p>##swift与OC的混编<br>现在写swift,很多的类库还不是很全,很多的第三方还是只有OC版的,这个时候swift想用,通常都是采用的swift和OC混编的方式.这里给大家演示一下混编是如何做的.<br><a id="more"></a></p>
-<p></p><h2>swift中使用OC</h2><br>在OC中,如果我们要使用某个类,我们只需要使用import指令将那个类的头文件引入进来就行,但是在.swift文件中使用import指令的时候,发现这样并不行.那么在swift中引入OC文件该怎么做呢?<br>swift中想要使用其他类文件中的类是不需要引用就可以直接使用的,所以不存在引入头文件情况,那么引用头文件的语法当然是不好用的.但是,想引入OC的头文件也不是没有办法,那就是通过OC-Swift桥的方式.这里就那使用sqlite数据库的方法作为例子吧,至于引入sqlite数据库的库文件就不说了,直接从引入头文件开始<br>具体做法:<br>1 创建桥文件<br>command + N选择创建头文件,输入一个自己喜欢的名字即可.<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo2a8e5aj314s0o2dla.jpg"><br>2 将要引入的文件在这个桥文件里进行引入就行,即将import 语句写在这里<br><img src="http://ww3.sinaimg.cn/large/0062YVJrjw1evpodz8njoj30ps0aodia.jpg"><br>3 配置桥接文件<br>打开工程配置文件,build setting标签搜索框里输入bridge就会出现Objective-C Bridging Header选项.在选项中配置好刚才创建的头文件的路径即可.<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpo9sf2wkj30wc06ytaj.jpg"><br>OK,这个时候再去appDelegate.swift文件中输入sqlite,发现提示已经出现了.证明swift中混编OC成功<br><img src="http://ww1.sinaimg.cn/large/0062YVJrjw1evpoft4eljj317y0jydr4.jpg"><p></p>
-<p></p><h2>OC中使用swift类</h2><br>OC中想要使用一个类,必须引入这个类的头文件,可是,可是swift中没有头文件啊!!!这怎么办呢?<br>其实swift中是有头文件的,只是被隐藏了.那么想要使用的话具体要怎么做呢?<br>1 查看module名字<br>这个module名字比较重要,swift的头文件就是根据这个名字命名的.还是去工程的配置文件的build setting标签搜索框里输入”product mod”,就会显示下面的图,记住module名字<br><img src="http://ww4.sinaimg.cn/large/0062YVJrjw1evposxm2m0j313g07omye.jpg"><br>2 在想要使用的类上面引入swift的module头文件即可<br>只是这里的名字是统一的.必须是module名字加上”-swift.h”<p></p>
-<p><ima src="http://ww4.sinaimg.cn/large/0062YVJrjw1evpp7fc5s0j30s60fs79i.jpg"></ima></p>
-<p></p><h2>注意!!!</h2><br>凡是用Swift写的类，如果不继成自NSObject或NSObject 的派生类，哪么编译后将不会生成对应的转换类。从而使得OC 中找不到相应的声明。<p></p>
+        <span itemprop="articleBody"><p>项目中经常会用到sqlite去存储model，但是基本都是将model单存为一个表，然后将所有的属性作为表中的字段存储。怎么看都是无脑的重复性的工作，既然是无脑的重复性的工作，干嘛不让工具类来写呢？<br>OK,既然定下来要用工具类，那就要这个工具类具有通用性，不能每一个Model都写一个工具类，那么问题来了，能适配不同的未知类型的Model来处理的最好的方式就是通过Runtime了。<br>那么现在的思路就很明确了：就是利用Runtime读取类名作为表名，当然可以通过参数设置。然后取到属性列表，并将每一个属性作为字段添加到表中。就是这样。实现代码已经传到github上，传送门在下边。<br><a href="https://github.com/honourcoder/CQDB" target="_blank" rel="external">github传送门</a></p>
 </span>
       
     </div>
@@ -289,17 +276,13 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/20/利用gitpage和Hexo创建独立博客（二）/" rel="next" title="利用gitpage和Hexo创建独立博客（二）">
-                <i class="fa fa-chevron-left"></i> 利用gitpage和Hexo创建独立博客（二）
+              <a href="/2016/02/21/可用讯飞平台实现语音识别/" rel="next" title="利用讯飞平台实现语音识别">
+                <i class="fa fa-chevron-left"></i> 利用讯飞平台实现语音识别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/02/21/可用讯飞平台实现语音识别/" rel="prev" title="利用讯飞平台实现语音识别">
-                利用讯飞平台实现语音识别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -314,10 +297,10 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/21/swift实现与OC的混编/"
-     data-title="swift实现与OC的混编"
+        <div class="ds-share flat" data-thread-key="2016/02/23/runtime实现sqlite通用工具类/"
+     data-title="Runtime实现sqlite通用工具类"
      data-content=""
-     data-url="http://yoursite.com/2016/02/21/swift实现与OC的混编/">
+     data-url="http://yoursite.com/2016/02/23/runtime实现sqlite通用工具类/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -345,8 +328,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/21/swift实现与OC的混编/"
-           data-title="swift实现与OC的混编" data-url="http://yoursite.com/2016/02/21/swift实现与OC的混编/">
+      <div class="ds-thread" data-thread-key="2016/02/23/runtime实现sqlite通用工具类/"
+           data-title="Runtime实现sqlite通用工具类" data-url="http://yoursite.com/2016/02/23/runtime实现sqlite通用工具类/">
       </div>
     
   </div>
@@ -454,7 +437,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">swift中使用OC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">OC中使用swift类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">注意!!!</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
