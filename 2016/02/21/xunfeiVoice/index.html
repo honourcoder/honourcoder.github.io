@@ -58,10 +58,11 @@
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEgw1eyle52fn2gj31kw0etaev.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/005KqbSEgw1eylebbmst7j30f20fy772.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1eymahpu0z2g309g0go0zo.gif">
-<meta property="og:updated_time" content="2016-05-24T03:33:55.000Z">
+<meta property="og:updated_time" content="2016-05-24T03:33:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用讯飞平台实现语音识别">
 <meta name="twitter:description" content="社会和产品的发展总是向着便利和智能的方法发展,对于手机的App来说也是如此.所以,现在的App都在缩减流程,优化使用体验,为的就是让用户用起来更加便利,提高App的入手度和用户粘性.那么另一方面的智能呢?">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/005KqbSEgw1eyle52fn2gj31kw0etaev.jpg">
 
 
 
@@ -414,7 +415,7 @@ typedef NS_OPTIONS(NSInteger, SynthesizeType) {
 @property (nonatomic, assign) BOOL hasError;//解析过程中是否出现错误
 </pre>
 
-<p>4 对象初始化<br>前面声明了一些在语音合成的时候会用到的对象,现在需要对前面的对象进行初始化.还是在ViewDidLoad()里面进行就可以了.<br><figure class="highlight"><figcaption><span>*instance = [TTSConfig sharedInstance];</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (instance == nil) &#123;&#10;    return;&#10;&#125;&#10;//&#21512;&#25104;&#26381;&#21153;&#21333;&#20363;&#10;if (_iFlySpeechSynthesizer == nil) &#123;&#10;    _iFlySpeechSynthesizer = [IFlySpeechSynthesizer sharedInstance];&#10;&#125;    &#10;_iFlySpeechSynthesizer.delegate = self;    &#10;//&#35774;&#32622;&#35821;&#36895;1-100&#10;[_iFlySpeechSynthesizer setParameter:instance.speed forKey:[IFlySpeechConstant SPEED]];    &#10;//&#35774;&#32622;&#38899;&#37327;1-100&#10;[_iFlySpeechSynthesizer setParameter:instance.volume forKey:[IFlySpeechConstant VOLUME]];    &#10;//&#35774;&#32622;&#38899;&#35843;1-100&#10;[_iFlySpeechSynthesizer setParameter:instance.pitch forKey:[IFlySpeechConstant PITCH]];   &#10; //&#35774;&#32622;&#37319;&#26679;&#29575;&#10; [_iFlySpeechSynthesizer setParameter:instance.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];&#10;//&#35774;&#32622;&#21457;&#38899;&#20154;&#10; [_iFlySpeechSynthesizer setParameter:instance.vcnName forKey:[IFlySpeechConstant VOICE_NAME]];</span><br></pre></td></tr></table></figure></p>
+<p>4 对象初始化<br>前面声明了一些在语音合成的时候会用到的对象,现在需要对前面的对象进行初始化.还是在ViewDidLoad()里面进行就可以了.<br><figure class="highlight plain"><figcaption><span>*instance = [TTSConfig sharedInstance];</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">if (instance == nil) &#123;</div><div class="line">    return;</div><div class="line">&#125;</div><div class="line">//合成服务单例</div><div class="line">if (_iFlySpeechSynthesizer == nil) &#123;</div><div class="line">    _iFlySpeechSynthesizer = [IFlySpeechSynthesizer sharedInstance];</div><div class="line">&#125;    </div><div class="line">_iFlySpeechSynthesizer.delegate = self;    </div><div class="line">//设置语速1-100</div><div class="line">[_iFlySpeechSynthesizer setParameter:instance.speed forKey:[IFlySpeechConstant SPEED]];    </div><div class="line">//设置音量1-100</div><div class="line">[_iFlySpeechSynthesizer setParameter:instance.volume forKey:[IFlySpeechConstant VOLUME]];    </div><div class="line">//设置音调1-100</div><div class="line">[_iFlySpeechSynthesizer setParameter:instance.pitch forKey:[IFlySpeechConstant PITCH]];   </div><div class="line"> //设置采样率</div><div class="line"> [_iFlySpeechSynthesizer setParameter:instance.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];</div><div class="line">//设置发音人</div><div class="line"> [_iFlySpeechSynthesizer setParameter:instance.vcnName forKey:[IFlySpeechConstant VOICE_NAME]];</div></pre></td></tr></table></figure></p>
 <p>5 触发语音合成<br>添加一个输入框,一个button,button的响应时间是将输入框中的文本内容读出来.</p>
 <pre>if ([self.VoiceText.text isEqualToString:@""]) {
     return;
@@ -542,21 +543,21 @@ _iFlySpeechSynthesizer.delegate = self;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags/">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
