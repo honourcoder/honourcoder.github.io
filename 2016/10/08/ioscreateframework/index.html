@@ -49,19 +49,24 @@
 
 
 
-<meta name="description" content="原因XCode8安装上之后很多的不适应，第一个小问题就是注释快捷键无效了，设置也没有用。这个是因为苹果为了解决xcode ghost漏洞把插件屏蔽了。
-解决方法命令运行：  sudo /usr/libexec/xpccachectl然后必须重启电脑后才能生效。">
+<meta name="description" content="闲篇之前，iOS是只支持创建静态库文件的，不支持使用framework文件的，如果工程中使用了framework文件，会上线被拒。但是呢，在iOS 8的时候就已经开放iOS的静态库文件支持了。之前自己尝试跟着几篇博客做过framework文件，有不少的错误。这次又要再做一个framework，思索再三，还是自己写篇博客替后人扫清点石子吧。本篇博客以XCode8.1—beta为例子，演示如何创建一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xcode8升级后注释快捷键不能使用解决办法">
-<meta property="og:url" content="http://yoursite.com/2016/09/20/xcode8notused/index.html">
+<meta property="og:title" content="iOS创建framework">
+<meta property="og:url" content="http://yoursite.com/2016/10/08/ioscreateframework/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="原因XCode8安装上之后很多的不适应，第一个小问题就是注释快捷键无效了，设置也没有用。这个是因为苹果为了解决xcode ghost漏洞把插件屏蔽了。
-解决方法命令运行：  sudo /usr/libexec/xpccachectl然后必须重启电脑后才能生效。">
-<meta property="og:updated_time" content="2016-09-28T01:52:58.000Z">
+<meta property="og:description" content="闲篇之前，iOS是只支持创建静态库文件的，不支持使用framework文件的，如果工程中使用了framework文件，会上线被拒。但是呢，在iOS 8的时候就已经开放iOS的静态库文件支持了。之前自己尝试跟着几篇博客做过framework文件，有不少的错误。这次又要再做一个framework，思索再三，还是自己写篇博客替后人扫清点石子吧。本篇博客以XCode8.1—beta为例子，演示如何创建一个">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1f8kn4h62j2j314u0t20ys.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEgw1f8knqo7397j31fg15an5e.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/005KqbSEgw1f8knula9u5j31fk0fgn1r.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1f8koalrgqbj31fc0jktcv.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1f8kol4n2n3j30s00e4jvn.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1f8kom4bwmgj314o0swdju.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/005KqbSEgw1f8konf516dj31fc0lagrl.jpg">
+<meta property="og:updated_time" content="2016-10-08T03:25:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xcode8升级后注释快捷键不能使用解决办法">
-<meta name="twitter:description" content="原因XCode8安装上之后很多的不适应，第一个小问题就是注释快捷键无效了，设置也没有用。这个是因为苹果为了解决xcode ghost漏洞把插件屏蔽了。
-解决方法命令运行：  sudo /usr/libexec/xpccachectl然后必须重启电脑后才能生效。">
+<meta name="twitter:title" content="iOS创建framework">
+<meta name="twitter:description" content="闲篇之前，iOS是只支持创建静态库文件的，不支持使用framework文件的，如果工程中使用了framework文件，会上线被拒。但是呢，在iOS 8的时候就已经开放iOS的静态库文件支持了。之前自己尝试跟着几篇博客做过framework文件，有不少的错误。这次又要再做一个framework，思索再三，还是自己写篇博客替后人扫清点石子吧。本篇博客以XCode8.1—beta为例子，演示如何创建一个">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005KqbSEgw1f8kn4h62j2j314u0t20ys.jpg">
 
 
 
@@ -73,7 +78,7 @@
   };
 </script>
 
-  <title> xcode8升级后注释快捷键不能使用解决办法 | coder_qi </title>
+  <title> iOS创建framework | coder_qi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -212,7 +217,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
             
             
               
-                xcode8升级后注释快捷键不能使用解决办法
+                iOS创建framework
               
             
           </h1>
@@ -221,8 +226,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-09-20T09:49:23+08:00" content="2016-09-20">
-              2016-09-20
+            <time itemprop="dateCreated" datetime="2016-10-08T17:14:59+08:00" content="2016-10-08">
+              2016-10-08
             </time>
           </span>
 
@@ -232,8 +237,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/20/xcode8notused/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/xcode8notused/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/ioscreateframework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/ioscreateframework/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -252,8 +257,64 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
       
 
       
-        <span itemprop="articleBody"><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>XCode8安装上之后很多的不适应，第一个小问题就是注释快捷键无效了，设置也没有用。这个是因为苹果为了解决xcode ghost漏洞把插件屏蔽了。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>命令运行：  sudo /usr/libexec/xpccachectl<br>然后必须重启电脑后才能生效。</p>
+        <span itemprop="articleBody"><h3 id="闲篇"><a href="#闲篇" class="headerlink" title="闲篇"></a>闲篇</h3><p>之前，iOS是只支持创建静态库文件的，不支持使用framework文件的，如果工程中使用了framework文件，会上线被拒。但是呢，在iOS 8的时候就已经开放iOS的静态库文件支持了。之前自己尝试跟着几篇博客做过framework文件，有不少的错误。这次又要再做一个framework，思索再三，还是自己写篇博客替后人扫清点石子吧。本篇博客以XCode8.1—beta为例子，演示如何创建一个framework。<br><a id="more"></a></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h5 id="1-打开XCode，创建工程"><a href="#1-打开XCode，创建工程" class="headerlink" title="1 打开XCode，创建工程"></a>1 打开XCode，创建工程</h5><p><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1f8kn4h62j2j314u0t20ys.jpg"></p>
+<h5 id="2-创建一个功能类"><a href="#2-创建一个功能类" class="headerlink" title="2 创建一个功能类"></a>2 创建一个功能类</h5><p>利用功能类模拟framework中的文件的功能。这里写一个简单的获取frame信息的宏定义。</p>
+<ul>
+<li>CQDefine.h</li>
+</ul>
+<pre>
+#ifndef CQDefine_h
+#define CQDefine_h
+
+//关于界面坐标和宽高的获取
+#define CQMinY(A) CGRectGetMinY(A.frame)
+#define CQMaxY(A) CGRectGetMaxY(A.frame)
+#define CQMinX(A) CGRectGetMinX(A.frame)
+#define CQMaxX(A) CGRectGetMaxX(A.frame)
+
+#define CQGetWidth(v)                (v).frame.size.width
+#define CQGetHeight(v)               (v).frame.size.height
+
+#endif /* SystemDefine_h */
+</pre>
+
+<p>这里如果是想创建功能类，那么就按照正常的套路创建.h和.m文件就可以了。</p>
+<h5 id="3-设置Build-Setting"><a href="#3-设置Build-Setting" class="headerlink" title="3 设置Build Setting"></a>3 设置Build Setting</h5><p>文件创建完了需要在工程的配置文件中更改几个参数。直接看图吧.<br><img src="http://ww3.sinaimg.cn/large/005KqbSEgw1f8knqo7397j31fg15an5e.jpg"><br>在Architectures下增加armv7s，并选中。将Build Active Architecture Only 设置为NO。<br><img src="http://ww3.sinaimg.cn/large/005KqbSEgw1f8knula9u5j31fk0fgn1r.jpg"></p>
+<h5 id="4-设置对外公开的Header"><a href="#4-设置对外公开的Header" class="headerlink" title="4 设置对外公开的Header"></a>4 设置对外公开的Header</h5><p>将对外公开的头文件放到public里，需要隐藏的文件放在private下。 公开的头文件可以被引用，隐藏的头文件则无法引用。<br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1f8koalrgqbj31fc0jktcv.jpg"></p>
+<p>为了方便，通常在CQSDK.h中将所有的公开头文件都引入进去，这就和Fundation框架的做法一样，引入一个就把整个SDK都引入进去了。</p>
+<h5 id="5-打包SDK"><a href="#5-打包SDK" class="headerlink" title="5 打包SDK"></a>5 打包SDK</h5><p>打包SDK有两种方式，第一种是将真机测试包和模拟器测试包合并。这种方式看官可以自行百度，鄙人就不进行多余描述了，以为我推荐第二种方式。</p>
+<p>选中TARGETS下的工程，点击上方的Editor,选择Add Target创建一个Aggregate.<br><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1f8kol4n2n3j30s00e4jvn.jpg"></p>
+<p>选择Other下的Aggregate，点击Next创建。<br><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1f8kom4bwmgj314o0swdju.jpg"><br>选中刚刚创建的Aggregate,我这里起的名字是FrameAutoRun,然后选中右侧的Build Phases,点击左下方加号，选择New Run Script Phase.<br><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1f8konf516dj31fc0lagrl.jpg"><br>把下面的这段脚本复制进去。</p>
+<pre> 
+# Sets the target folders and the final framework product.# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME
+# 例如: FMK_NAME = "CQSDK"
+FMK_NAME=${PROJECT_NAME}
+# Install dir will be the final output to the framework.
+# The following line create it in the root folder of the current project.
+INSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework
+# Working dir will be deleted after the framework creation.
+WRK_DIR=build
+DEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework
+SIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework
+# -configuration ${CONFIGURATION}
+# Clean and Building both architectures.
+xcodebuild -configuration "Release" -target "${FMK_NAME}" -sdk iphoneos clean build
+xcodebuild -configuration "Release" -target "${FMK_NAME}" -sdk iphonesimulator clean build
+# Cleaning the oldest.
+if [-d "${INSTALL_DIR}"]
+then
+rm -rf "${INSTALL_DIR}"
+fi
+mkdir -p "${INSTALL_DIR}"
+cp -R "${DEVICE_DIR}/" "${INSTALL_DIR}/"
+# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.
+lipo -create "${DEVICE_DIR}/${FMK_NAME}" "${SIMULATOR_DIR}/${FMK_NAME}" -output "${INSTALL_DIR}/${FMK_NAME}"
+rm -r "${WRK_DIR}"
+open "${INSTALL_DIR}"
+</pre>
+
+<p>编译运行刚刚创建的FrameAutoRun标签，设备选择Generic iOS Device。<br>其实上面就是用指令的方式将第一种方法运行起来。一次写完再也不用写指令了。</p>
 </span>
       
     </div>
@@ -273,10 +334,6 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/27/ioscreateframework/" rel="prev" title="iOS创建framework">
-                iOS创建framework <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -290,10 +347,10 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/20/xcode8notused/"
-     data-title="xcode8升级后注释快捷键不能使用解决办法"
+        <div class="ds-share flat" data-thread-key="2016/10/08/ioscreateframework/"
+     data-title="iOS创建framework"
      data-content=""
-     data-url="http://yoursite.com/2016/09/20/xcode8notused/">
+     data-url="http://yoursite.com/2016/10/08/ioscreateframework/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -321,8 +378,8 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/20/xcode8notused/"
-           data-title="xcode8升级后注释快捷键不能使用解决办法" data-url="http://yoursite.com/2016/09/20/xcode8notused/">
+      <div class="ds-thread" data-thread-key="2016/10/08/ioscreateframework/"
+           data-title="iOS创建framework" data-url="http://yoursite.com/2016/10/08/ioscreateframework/">
       </div>
     
   </div>
@@ -366,7 +423,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -430,7 +487,7 @@ _st('install','3WzMTDmaFs74M4QARQUu','2.0.0');
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闲篇"><span class="nav-number">1.</span> <span class="nav-text">闲篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-打开XCode，创建工程"><span class="nav-number">2.0.1.</span> <span class="nav-text">1 打开XCode，创建工程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-创建一个功能类"><span class="nav-number">2.0.2.</span> <span class="nav-text">2 创建一个功能类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-设置Build-Setting"><span class="nav-number">2.0.3.</span> <span class="nav-text">3 设置Build Setting</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-设置对外公开的Header"><span class="nav-number">2.0.4.</span> <span class="nav-text">4 设置对外公开的Header</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-打包SDK"><span class="nav-number">2.0.5.</span> <span class="nav-text">5 打包SDK</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
