@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/一个程序员的臆想/" style="font-size: 10px;">一个程序员的臆想</a> <a href="/tags/前人栽树/" style="font-size: 15px;">前人栽树</a> <a href="/tags/实用开发/" style="font-size: 10px;">实用开发</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a>
+						<a href="/tags/前人栽树/" style="font-size: 15px;">前人栽树</a> <a href="/tags/实用开发/" style="font-size: 10px;">实用开发</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a>
 					</div>
 				</section>
 				
@@ -209,28 +209,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一个项目工程前期搭建的好坏直接决定了后期项目开发和迭代的工作量，近期项目刚刚结束，所以花点时间总结下项目搭建的坑点和心得。</p>
-<p><strong><h2>工程目录</h2></strong><br>工程目录的作用在于当项目比较大之后，能够通过分组目录快速的找到对应的文件，所以不论如何拆分，按照何种标准拆分能达到目的就可以了，这里推荐一种分类方式。<br><img src="http://ww1.sinaimg.cn/large/0060lm7Tly1fksaekxqrsj30ki0zwn9r.jpg"><br>简单创了个目录，如图，</p>
-<ul>
-<li>Controllers分组下按照模块分组，每个分组又分为这个模块界面的基类和实现类，还可以在Controllers下再加一个分组，创建所有页面的基类。</li>
-<li>Views分组下存放所有公用的View，将常用的cell和HeaderView单独再分组</li>
-</ul>
-<p><strong><h2>类的整理</h2></strong><br>除了直观上的类目录的整理外，内容上的提炼才是最核心的部分，对后期项目开发的影响也最大。</p>
-<p></p><h3>基类的提取</h3><br>只有一层基类的工程绝对不是什么好工程。在进行基类的提取之前，肯定要对现有原型的所有页面进行统一的分析。<p></p>
-<ul>
-<li>有哪些页面是同一类型的，这些页面之间的共性部分是哪些，将这些共性部分的页面和数据提取出来。</li>
-<li>存在某一些共性的页面的部分页面在某一模块可能还有一些共性，那么这些页面可再提取出来一个基类，如果其中的部分页面还有共性，就再提取出一个子基类，如此重复，方便后期的统一修改和维护。只有一层的基类的提取是毫无意义的。</li>
-</ul>
-<p></p><h3>服务类的提取</h3><br>在app的开发中常避免不了使用定位、页面数据本地存储等服务。这些常用功能抽取成单例的服务类，会在使用的时候提供很大的便利。<p></p>
-<p></p><h3>工厂类的的提取</h3><br>在项目中会有很多零碎的重复的但是很频繁的小东西，这些每次都去手写是很浪费时间的。例如导航栏的返回按钮、界面上的一些UIToolBar、一些文字性的label、Button、做线用的UIView等, 这些完全可以抽取成工厂类，在进行界面铺建的时候快速的创建，然后关联。而且这些类具有很高的通用性。<p></p>
-<p></p><h3>工具类的提取</h3><br>项目中也常会有很多重复的频繁的功能性的代码，例如日期转换、空值判断、空值默认处理、数字转换、正则判断、页面信息统计、网络请求处理等功能，这些都可以提取成工具类，在需要的时候直接调用即可，也方便进行工程间的通用和迁移。<p></p>
-<p><strong><h2>项目细节整理</h2></strong><br>在项目开发中的一些细节也能影响很大的工作量</p>
-<ul>
-<li>类命名添加统一的前缀。添加完统一的前缀，不论是在类代码的查看还是后期生成项目类文件API的时候，都会方便和明确许多</li>
-<li>注释采用标准注释。注释标准之后，在方法的调用和合作开发者阅读代码、解决问题的时候都会快速许多，时间成本是值得的。另外，注释标准了之后，在生成API的时候，也会清晰许多。</li>
-<li>利用指令注释。 熟练使用#pragm指令注释可以精准记录下遗留的BUG的位置，也可以方便在大量的代码中快速的找到指定的方法。</li>
-<li>在分支情况下，多使用枚举和宏定义替换可以更好的理清和表达出逻辑</li>
-</ul>
-
       
     </div>
     
@@ -243,6 +221,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/10/25/iosconstruct/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -433,11 +415,11 @@
 
 
   
-    <article id="post-forCoder123" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-githubHexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/25/forCoder123/" class="article-date">
-  	<time datetime="2016-02-25T06:07:55.000Z" itemprop="datePublished">2016-02-25</time>
+      <a href="/2016/02/20/githubHexo/" class="article-date">
+  	<time datetime="2016-02-20T04:13:16.000Z" itemprop="datePublished">2016-02-20</time>
 </a>
     </div>
   
@@ -450,7 +432,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/forCoder123/">刑马山小战</a>
+      <a class="article-title" href="/2016/02/20/githubHexo/">利用gitpage和Hexo创建独立博客（二）</a>
     </h1>
   
 
@@ -459,7 +441,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境来展示自己的博客。<br>
       
     </div>
     
@@ -467,11 +449,15 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/一个程序员的臆想/">一个程序员的臆想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
 	</div>
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/20/githubHexo/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
