@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS项目前期搭建总结 | coder_qi</title>
+  <title>iOS内存检查之MLeaksFinder | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个项目工程前期搭建的好坏直接决定了后期项目开发和迭代的工作量，近期项目刚刚结束，所以花点时间总结下项目。">
+  <meta name="description" content="项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS项目前期搭建总结">
-<meta property="og:url" content="http://yoursite.com/2017/10/25/iosconstruct/index.html">
+<meta property="og:title" content="iOS内存检查之MLeaksFinder">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/iosleaksfind/index.html">
 <meta property="og:site_name" content="coder_qi">
-<meta property="og:description" content="一个项目工程前期搭建的好坏直接决定了后期项目开发和迭代的工作量，近期项目刚刚结束，所以花点时间总结下项目。">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0060lm7Tly1fksaekxqrsj30ki0zwn9r.jpg">
-<meta property="og:updated_time" content="2017-10-24T01:06:05.000Z">
+<meta property="og:description" content="项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。">
+<meta property="og:updated_time" content="2017-10-24T01:43:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS项目前期搭建总结">
-<meta name="twitter:description" content="一个项目工程前期搭建的好坏直接决定了后期项目开发和迭代的工作量，近期项目刚刚结束，所以花点时间总结下项目。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/0060lm7Tly1fksaekxqrsj30ki0zwn9r.jpg">
+<meta name="twitter:title" content="iOS内存检查之MLeaksFinder">
+<meta name="twitter:description" content="项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。">
   
     <link rel="alternative" href="/atom.xml" title="coder_qi" type="application/atom+xml">
   
@@ -111,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/前人栽树/" style="font-size: 15px;">前人栽树</a> <a href="/tags/实用开发/" style="font-size: 10px;">实用开发</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a>
+						<a href="/tags/BUG记录/" style="font-size: 10px;">BUG记录</a> <a href="/tags/前人栽树/" style="font-size: 15px;">前人栽树</a> <a href="/tags/实用开发/" style="font-size: 10px;">实用开发</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a>
 					</div>
 				</section>
 				
@@ -183,11 +181,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-iosconstruct" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iosleaksfind" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/25/iosconstruct/" class="article-date">
-  	<time datetime="2017-10-25T09:07:55.000Z" itemprop="datePublished">2017-10-25</time>
+      <a href="/2017/10/24/iosleaksfind/" class="article-date">
+  	<time datetime="2017-10-24T09:07:55.000Z" itemprop="datePublished">2017-10-24</time>
 </a>
     </div>
   
@@ -200,7 +198,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS项目前期搭建总结
+      iOS内存检查之MLeaksFinder
     </h1>
   
 
@@ -209,7 +207,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前人栽树/">前人栽树</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BUG记录/">BUG记录</a></li></ul>
 	</div>
 
         
@@ -220,29 +218,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一个项目工程前期搭建的好坏直接决定了后期项目开发和迭代的工作量，近期项目刚刚结束，所以花点时间总结下项目。</p>
-<a id="more"></a>
-<p><strong><h2>工程目录</h2></strong><br>工程目录的作用在于当项目比较大之后，能够通过分组目录快速的找到对应的文件，所以不论如何拆分，按照何种标准拆分能达到目的就可以了，这里推荐一种分类方式。简单创建了个示例分组，先上个图。<br><img src="http://ww1.sinaimg.cn/large/0060lm7Tly1fksaekxqrsj30ki0zwn9r.jpg"><br>如图，</p>
+        <p>项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。<br><a id="more"></a><br></p><br>内存泄漏的主要原因是形成了引用循环，必须是双方强持有。这里总结一下情况，目前遇到的有一下两种<p></p>
 <ul>
-<li>Controllers分组下按照模块分组，每个分组又分为这个模块界面的基类和实现类，还可以在Controllers下再加一个分组，创建所有页面的基类。</li>
-<li>Views分组下存放所有公用的View，将常用的cell和HeaderView单独再分组</li>
+<li>属性中声明了block类型的变量，block中使用了self关键字。</li>
+<li>回调block中使用了self关键字或者[_属性名]调用属性（如cell中的某个视图的点击回调、ActionSheetPicker等第三方类的点击事件回调）</li>
 </ul>
-<p><strong><h2>类的整理</h2></strong><br>除了直观上的类目录的整理外，内容上的提炼才是最核心的部分，对后期项目开发的影响也最大。</p>
-<p></p><h3>基类的提取</h3><br>只有一层基类的工程绝对不是什么好工程。在进行基类的提取之前，肯定要对现有原型的所有页面进行统一的分析。考虑到可能的后续页面修改和添加，在设计的时候也要尽可能的灵活和。<p></p>
-<ul>
-<li>有哪些页面是同一类型的，这些页面之间的共性部分是哪些，将这些共性部分的页面和数据提取出来。</li>
-<li>存在某一些共性的页面的部分页面在某一模块可能还有一些共性，那么这些页面可再提取出来一个基类，如果其中的部分页面还有共性，就再提取出一个子基类，如此重复，方便后期的统一修改和维护。只有一层的基类的提取是毫无意义的。</li>
-</ul>
-<p></p><h3>服务类的提取</h3><br>在app的开发中常避免不了使用定位、页面数据本地存储等服务。这些常用功能抽取成单例的服务类，会在使用的时候提供很大的便利。<p></p>
-<p></p><h3>工厂类的的提取</h3><br>在项目中会有很多零碎的重复的但是很频繁的小东西，这些每次都去手写是很浪费时间的。例如导航栏的自定义返回按钮、界面上的一些UIToolBar、一些文字性的label、Button、做线用的UIView等, 这些完全可以抽取成工厂类，在进行界面铺建的时候快速的创建，然后关联。而且这些类具有很高的通用性。<p></p>
-<p></p><h3>工具类的提取</h3><br>项目中也常会有很多重复的频繁的功能性的代码，例如日期转换、空值判断、空值默认处理、数字转换、正则判断、页面信息统计、网络请求处理等功能，这些都可以提取成工具类，在需要的时候直接调用即可，也方便进行工程间的通用和迁移。<p></p>
-<p><strong><h2>项目细节整理</h2></strong><br>在项目开发中的一些细节也能影响很大的工作量</p>
-<ul>
-<li>类命名添加统一的前缀。添加完统一的前缀，不论是在类代码的查看还是后期生成项目类文件API的时候，都会方便和明确许多</li>
-<li>注释采用标准注释。注释标准之后，在方法的调用和合作开发者阅读代码、解决问题的时候都会快速许多，时间成本是值得的。另外，注释标准了之后，在生成API的时候，也会清晰许多。</li>
-<li>利用指令注释。 熟练使用#pragm指令注释可以精准记录下遗留的BUG的位置，也可以方便在大量的代码中快速的找到指定的方法。</li>
-<li>在分支情况下，多使用枚举和宏定义替换可以更好的理清和表达出逻辑</li>
-</ul>
+<p></p><br>解决方法也很简单，一句话：__weak typeof(self) weakSelf = self;<br>然后用weakSelf替换掉block中的所有的self关键字即可。<p></p>
 
       
     </div>
@@ -253,8 +234,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2016/10/11/macinstallmyeclipse/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mac上简单搭建一个JavaWeb开发环境</div>
+    <a href="/2017/10/23/iosconstruct/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS项目前期搭建总结</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -283,7 +264,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iosconstruct" data-title="iOS项目前期搭建总结" data-url="http://yoursite.com/2017/10/25/iosconstruct/"></div>
+	<div class="ds-thread" data-thread-key="iosleaksfind" data-title="iOS内存检查之MLeaksFinder" data-url="http://yoursite.com/2017/10/24/iosleaksfind/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
