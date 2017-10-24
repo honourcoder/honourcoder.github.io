@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/24/iosleaksfind/index.html">
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。">
-<meta property="og:updated_time" content="2017-10-24T01:43:29.000Z">
+<meta property="og:updated_time" content="2017-10-24T03:01:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS内存检查之MLeaksFinder">
 <meta name="twitter:description" content="项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。">
@@ -218,12 +218,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。<br><a id="more"></a><br></p><br>内存泄漏的主要原因是形成了引用循环，必须是双方强持有。这里总结一下情况，目前遇到的有一下两种<p></p>
+        <p>项目中常使用MLeaksFinder来进行项目中内存泄漏检查。可以循环引用的路径。<br><a id="more"></a><br><br><br>内存泄漏的主要原因是形成了引用循环，必须是双方强持有。这里总结一下情况，目前遇到的有一下两种</p>
 <ul>
 <li>属性中声明了block类型的变量，block中使用了self关键字。</li>
-<li>回调block中使用了self关键字或者[_属性名]调用属性（如cell中的某个视图的点击回调、ActionSheetPicker等第三方类的点击事件回调）</li>
+<li>回调block中使用了self关键字或者[_属性名]调用属性（如cell中的某个视图的点击回调、ActionSheetPicker等第三方类的点击事件回调）<br><br><br>解决方法也很简单，一句话：__weak typeof(self) weakSelf = self;<br>然后用weakSelf替换掉block中的所有的self关键字即可。</li>
 </ul>
-<p></p><br>解决方法也很简单，一句话：__weak typeof(self) weakSelf = self;<br>然后用weakSelf替换掉block中的所有的self关键字即可。<p></p>
+<p>注： UIView的动画回调block中必须使用self，而且不会引起循环引用的问题。</p>
 
       
     </div>
