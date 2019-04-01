@@ -88,9 +88,15 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">主页</a></li>
+							<li><a href="/">回到最初</a></li>
 				        
 							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/环境搭建">环境搭建</a></li>
+				        
+							<li><a href="/tags/前人栽树">前人栽树</a></li>
+				        
+							<li><a href="/tags/视频处理">视频处理</a></li>
 				        
 						</ul>
 					</nav>
@@ -108,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BUG记录/" style="font-size: 10px;">BUG记录</a> <a href="/tags/前人栽树/" style="font-size: 15px;">前人栽树</a> <a href="/tags/实用开发/" style="font-size: 10px;">实用开发</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a> <a href="/tags/臆想/" style="font-size: 15px;">臆想</a>
+						<a href="/tags/BUG/" style="font-size: 15px;">BUG</a> <a href="/tags/前人栽树/" style="font-size: 10px;">前人栽树</a> <a href="/tags/开发笔记/" style="font-size: 10px;">开发笔记</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a> <a href="/tags/视频处理-huajnj/" style="font-size: 10px;">视频处理 huajnj</a>
 					</div>
 				</section>
 				
@@ -161,9 +167,15 @@
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">主页</a></li>
+					<li><a href="/">回到最初</a></li>
 		        
 					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/环境搭建">环境搭建</a></li>
+		        
+					<li><a href="/tags/前人栽树">前人栽树</a></li>
+		        
+					<li><a href="/tags/视频处理">视频处理</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -182,11 +194,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-vampire2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00011_FFmpegenviromentconstruct" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/09/vampire2/" class="article-date">
-  	<time datetime="2017-11-09T06:27:55.000Z" itemprop="datePublished">2017-11-09</time>
+      <a href="/2019/02/12/00011_FFmpegenviromentconstruct/" class="article-date">
+  	<time datetime="2019-02-12T08:36:55.000Z" itemprop="datePublished">2019-02-12</time>
 </a>
     </div>
   
@@ -199,7 +211,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/vampire2/">圣魔 思路简章续</a>
+      <a class="article-title" href="/2019/02/12/00011_FFmpegenviromentconstruct/">Mac系统搭建FFmpeg环境并生成静态文件库</a>
     </h1>
   
 
@@ -208,16 +220,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>天色暗，月黄昏，</p>
-<p>寂静的夜只有风和树在沙沙作响</p>
-<p></br></p>
-<p>推开盖，坐起身，</p>
-<p>干枯的双手轻轻摸了一下胸口的刀伤</p>
-<p></br></p>
-<p>今夜依旧没有勇士造访，</p>
-<p>天还没亮，弯月依旧在上，</p>
-<p>人类那技艺精湛的勇士身在何方？</p>
-<p></br></p>
+        <p>目前客户端对于视频的深度编辑处理，无论是视频编辑还是流媒体播放，基本都是采用的FFmpeg来进行。<br>FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的。<br>FFmpeg的名称来自MPEG视频编码标准，前面的“FF”代表“Fast Forward”，FFmpeg是一套可以用来记录、转换数字音频、视频，并能将其转化为流的开源计算机程序。可以轻易地实现多种视频格式之间的相互转换。</p>
+<h2 id="MAC安装FFmpeg环境"><a href="#MAC安装FFmpeg环境" class="headerlink" title="MAC安装FFmpeg环境"></a>MAC安装FFmpeg环境</h2><h4 id="1-安装homebrew"><a href="#1-安装homebrew" class="headerlink" title="1 安装homebrew"></a>1 安装homebrew</h4><p>如果已安装，可以跳过此步骤。<br>homebrew类似maven和cocoapods,是一个安装包管理工具，方便MAC用户对于软件包的安装。<br>安装方式：终端输入下列指令</p>
+<blockquote>
+<p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”</p>
+</blockquote>
+<h4 id="2-安装FFmpeg"><a href="#2-安装FFmpeg" class="headerlink" title="2 安装FFmpeg"></a>2 安装FFmpeg</h4><p>终端输入下列指令</p>
+<blockquote>
+<p>brew install ffmpeg</p>
+</blockquote>
+<p>安装之后可在终端输入一下指令查看安装信息，安装无误会显示ffmpeg的相关安装信息</p>
+<blockquote>
+<p>brew info ffmpeg</p>
+</blockquote>
+<h4 id="3-下载FFmpeg的脚本"><a href="#3-下载FFmpeg的脚本" class="headerlink" title="3 下载FFmpeg的脚本"></a>3 下载FFmpeg的脚本</h4><p>要生成静态文件库需要预先下载FFmpeg的运行脚本，<br>这里是iOS库文件脚本<a href="https://github.com/kewlbear/FFmpeg-iOS-build-script" target="_blank" rel="noopener">传送门</a> </p>
+<p>传送门是github地址，目前是4.1版本<br>终端输入 cd 进到下载的文件夹内，然后执行以下指令</p>
+<blockquote>
+<p>./build-ffmpeg.sh<br>或者，直接将这个文件拖到终端内，按回车。</p>
+</blockquote>
+<h4 id="4-注意点"><a href="#4-注意点" class="headerlink" title="4 注意点"></a>4 注意点</h4><h5 id="注1-这里的指令编译会耗时较长，需要下载依赖基础类库，需要网络，耐心等待即可"><a href="#注1-这里的指令编译会耗时较长，需要下载依赖基础类库，需要网络，耐心等待即可" class="headerlink" title="注1:这里的指令编译会耗时较长，需要下载依赖基础类库，需要网络，耐心等待即可"></a>注1:这里的指令编译会耗时较长，需要下载依赖基础类库，需要网络，耐心等待即可</h5><h5 id="注2-这里在安装的时候可能会失败，报错如下："><a href="#注2-这里在安装的时候可能会失败，报错如下：" class="headerlink" title="注2:这里在安装的时候可能会失败，报错如下："></a>注2:这里在安装的时候可能会失败，报错如下：</h5><blockquote>
+<p>xcrun -sdk iphoneos clang is unable to create an executable file.<br>C compiler test failed.<br>If you think configure made a mistake, make sure you are using the latest<br>version from Git. If the latest version fails, report the problem to the<br>ffmpeg-user@ffmpeg.org mailing list or IRC #ffmpeg on irc.freenode.net.<br>Include the log file “config.log” produced by configure as this will help<br>solve the problem.</p>
+</blockquote>
+<p>这个时候执行以下指令即可</p>
+<blockquote>
+<p>sudo xcode-select –switch /Applications/Xcode.app</p>
+</blockquote>
+
       
     </div>
     
@@ -225,15 +253,11 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/臆想/">臆想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/视频处理-huajnj/">视频处理 huajnj</a></li></ul>
 	</div>
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/2017/11/09/vampire2/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -249,11 +273,11 @@
 
 
   
-    <article id="post-vampire" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00010_iOS11Bugs" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/07/vampire/" class="article-date">
-  	<time datetime="2017-11-07T06:27:55.000Z" itemprop="datePublished">2017-11-07</time>
+      <a href="/2017/11/16/00010_iOS11Bugs/" class="article-date">
+  	<time datetime="2017-11-16T02:13:34.000Z" itemprop="datePublished">2017-11-16</time>
 </a>
     </div>
   
@@ -266,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/vampire/">圣魔 思路简章</a>
+      <a class="article-title" href="/2017/11/16/00010_iOS11Bugs/">iOS11Bug</a>
     </h1>
   
 
@@ -275,15 +299,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>暮气沉，夜色降，</p>
-<p>苏醒的身躯慢慢的在棺柩中作响。</p>
-<p></br></p>
-<p>深呼吸，轻抬头，</p>
-<p>仿佛生命正在逐渐恢复身上。</p>
-<p></br></p>
-<p>不再红润的身躯却充满力量，</p>
-<p>这不是赐予，而是诅咒，</p>
-<p>时刻面对无数狩猎者的造访。<br>
+        <h3 id="UITableView-进行reloadData出现闪屏或者漂移"><a href="#UITableView-进行reloadData出现闪屏或者漂移" class="headerlink" title="UITableView 进行reloadData出现闪屏或者漂移"></a>UITableView 进行reloadData出现闪屏或者漂移</h3><p>视图漂移或者闪动原因：<br>因为iOS 11后系统默认开启Self-Sizing，首先要知道Self-Sizing是个什么东东。官方文档是这样解释的：大概就是说我们不用再自己去计算cell的高度了，只要设置好这两个属性，约束好布局，系统会自动计算好cell的高度。<br>IOS11以后，Self-Sizing默认开启，包括Headers, footers。如果项目中没使用estimatedRowHeight属性，在IOS11下会有奇奇怪怪的现象，因为IOS11之前，estimatedRowHeight默认为0，Self-Sizing自动打开后，contentSize和contentOffset都可能发生改变。<br>所以可以通过以下方式禁用：</p>
+<p>在tableView初始化的地方加入下面代码</p>
+<blockquote>
+<p>self.tableView.estimatedRowHeight = 0;<br>self.tableView.estimatedSectionHeaderHeight = 0;<br>self.tableView.estimatedSectionFooterHeight = 0;</p>
+</blockquote>
+<p>现在在reloadData视图漂移或者闪动就没有了 </p>
+
       
     </div>
     
@@ -291,15 +313,11 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/臆想/">臆想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BUG/">BUG</a></li></ul>
 	</div>
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/2017/11/07/vampire/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -315,10 +333,10 @@
 
 
   
-    <article id="post-iosleaksfind" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00009_iosleaksfind" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/24/iosleaksfind/" class="article-date">
+      <a href="/2017/10/24/00009_iosleaksfind/" class="article-date">
   	<time datetime="2017-10-24T09:07:55.000Z" itemprop="datePublished">2017-10-24</time>
 </a>
     </div>
@@ -332,7 +350,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/24/iosleaksfind/">iOS内存检查之MLeaksFinder</a>
+      <a class="article-title" href="/2017/10/24/00009_iosleaksfind/">iOS内存检查之MLeaksFinder</a>
     </h1>
   
 
@@ -349,14 +367,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BUG记录/">BUG记录</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BUG/">BUG</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2017/10/24/iosleaksfind/#more">more >></a>
+          <a  href="/2017/10/24/00009_iosleaksfind/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -373,11 +391,11 @@
 
 
   
-    <article id="post-iosconstruct" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00006_ioscreateframework" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/23/iosconstruct/" class="article-date">
-  	<time datetime="2017-10-23T09:07:55.000Z" itemprop="datePublished">2017-10-23</time>
+      <a href="/2016/10/08/00006_ioscreateframework/" class="article-date">
+  	<time datetime="2016-10-08T09:14:59.000Z" itemprop="datePublished">2016-10-08</time>
 </a>
     </div>
   
@@ -390,7 +408,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/23/iosconstruct/">iOS项目前期搭建总结</a>
+      <a class="article-title" href="/2016/10/08/00006_ioscreateframework/">iOS创建framework</a>
     </h1>
   
 
@@ -399,7 +417,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一个项目工程前期搭建的好坏直接决定了后期项目开发和迭代的工作量，近期项目刚刚结束，所以花点时间总结下项目。</p>
+        <h3 id="闲篇"><a href="#闲篇" class="headerlink" title="闲篇"></a>闲篇</h3><p>之前，iOS是只支持创建静态库文件的，不支持使用framework文件的，如果工程中使用了framework文件，会上线被拒。但是呢，在iOS 8的时候就已经开放iOS的静态库文件支持了。之前自己尝试跟着几篇博客做过framework文件，有不少的错误。这次又要再做一个framework，思索再三，还是自己写篇博客替后人扫清点石子吧。本篇博客以XCode8.1—beta为例子，演示如何创建一个framework。<br>
       
     </div>
     
@@ -414,7 +432,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/10/23/iosconstruct/#more">more >></a>
+          <a  href="/2016/10/08/00006_ioscreateframework/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -431,11 +449,11 @@
 
 
   
-    <article id="post-macinstallmyeclipse" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00005_AppPay" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/11/macinstallmyeclipse/" class="article-date">
-  	<time datetime="2016-10-11T02:13:34.000Z" itemprop="datePublished">2016-10-11</time>
+      <a href="/2016/02/25/00005_AppPay/" class="article-date">
+  	<time datetime="2016-02-25T06:07:55.000Z" itemprop="datePublished">2016-02-25</time>
 </a>
     </div>
   
@@ -448,7 +466,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/macinstallmyeclipse/">mac上简单搭建一个JavaWeb开发环境</a>
+      <a class="article-title" href="/2016/02/25/00005_AppPay/">APP支付之使用ApplePay支付开发步骤</a>
     </h1>
   
 
@@ -457,8 +475,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>JavaWeb最基本的还是Java运行环境，包括后面的MyEclipse也是必须在Java的环境下运行，首先奉上Java的安装包传送门。<br>Java安装包传送门：<a href="/../sourceFile/Java/javaforosx.dmg">传送门</a></p>
-<h3 id="MyEclipse"><a href="#MyEclipse" class="headerlink" title="MyEclipse"></a>MyEclipse</h3><p>说到JavaWeb，MyEclipse是不得不提的一个工具，虽然现在也有IDEA比较好用，但我还是感觉用MyEclipse比较顺手。但是有一点，Mac系统安装MyEclipse比较费劲。尤其是MyEclipse 10在安装的时候需要电脑有虚拟内存，而Macbook Pro内存足够大，基本很难启动虚拟内存（小生之前试过同时开虚拟机和魔兽世界，依旧没有启用虚拟内存），所以一直安装不成功。
+        <p><img src="http://ww3.sinaimg.cn/large/005KqbSEgw1f1bkh5yqkkj30i70a90sr.jpg"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发笔记/">开发笔记</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/25/00005_AppPay/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-00004_githubHexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/20/00004_githubHexo/" class="article-date">
+  	<time datetime="2016-02-20T04:13:16.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/00004_githubHexo/">利用gitpage和Hexo创建独立博客（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com<br>上一篇讲述了如何搭建一个gitPage+Hexo的系统环境。现在来说一下如何使用这个环境来展示自己的博客。<br>
       
     </div>
     
@@ -473,7 +548,240 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/10/11/macinstallmyeclipse/#more">more >></a>
+          <a  href="/2016/02/20/00004_githubHexo/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-00003_githubHexo0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/19/00003_githubHexo0/" class="article-date">
+  	<time datetime="2016-02-19T04:06:43.000Z" itemprop="datePublished">2016-02-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/19/00003_githubHexo0/">利用gitpage和Hexo创建独立博客（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我的个人博客，欢迎大家常来围观。网址是：www.coderqi.com</p>
+<p></p><h3>独立博客</h3><br>很多人已经养成了坚持写博客的习惯，但是论坛博客总有兴盛和衰落，而且最悲剧的是，通常不会持续几年，而我们做一件事是会做很久的，所以最后的结果就是不停地搬博客，博主有过这样的惨痛的经历，深知其中的苦与泪。于是一些优秀的程序猿开始找寻简便快捷长久而不失水准的发布博客的方法，于是便有了gitPage+Hexo的发布博客的方式。之前总结过了，但是随着版本变更有一些失效了，重新确认一遍又发布出来了。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/19/00003_githubHexo0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-00002_MACAndGCC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/19/00002_MACAndGCC/" class="article-date">
+  	<time datetime="2016-02-19T01:19:02.000Z" itemprop="datePublished">2016-02-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/19/00002_MACAndGCC/">MAC使用GCC进行文件编译</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww2.sinaimg.cn/large/005KqbSEgw1ey60ru1ro4j30dw08naag.jpg"><br>GCC的意思也只是GNU C Compiler而已。经过了这么多年的发展，GCC已经不仅仅能支持C语言；它现在还支持Ada语言、C++语言、Java语言、Objective-C语言、Pascal语言等等很多语言.他是*inux系统中默认继承安装的.他的本意是让GNU系统彻底的自由软件,即用户有充分的软件自由.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/19/00002_MACAndGCC/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-00001_MacAndZSH" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/17/00001_MacAndZSH/" class="article-date">
+  	<time datetime="2016-02-17T01:16:30.000Z" itemprop="datePublished">2016-02-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/17/00001_MacAndZSH/">MAC下安装配置终端ZSH主题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww1.sinaimg.cn/large/005KqbSEgw1ey402wl3mgj30dh07s74f.jpg"><br>俗话说:工欲善其事,必先利其器.好的刀客必定也是一名优秀的鉴刀师.今天与大家分享一个非常优秀的终端插件,能让你的控制台炫起来.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/17/00001_MacAndZSH/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-00000_2016newyear" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/06/00000_2016newyear/" class="article-date">
+  	<time datetime="2016-02-06T13:05:02.000Z" itemprop="datePublished">2016-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/06/00000_2016newyear/">2016年是新的一年，也是新的开篇</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>感谢一直关注我的各位朋友的支持和关心，新的一年我将博客推翻更新，期望给各位分享一个新的自我和不一样的视界。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开篇寄语/">开篇寄语</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/06/00000_2016newyear/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -491,16 +799,12 @@
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 coder_qi
+    		&copy; 2019 coder_qi
     	</div>
       	<div class="footer-right">
           <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
