@@ -6,13 +6,13 @@
   <title>Mac系统搭建FFmpeg环境并生成静态文件库 | coder_qi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="目前客户端对于视频的深度编辑处理，无论是视频编辑还是流媒体播放，基本都是采用的FFmpeg来进行。FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的">
-<meta name="keywords" content="视频处理 huajnj">
+<meta name="keywords" content="环境搭建,视频处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac系统搭建FFmpeg环境并生成静态文件库">
-<meta property="og:url" content="http://yoursite.com/2019/02/12/00011_FFmpegenviromentconstruct/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/12/00009_FFmpegenviromentconstruct/index.html">
 <meta property="og:site_name" content="coder_qi">
 <meta property="og:description" content="目前客户端对于视频的深度编辑处理，无论是视频编辑还是流媒体播放，基本都是采用的FFmpeg来进行。FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的">
-<meta property="og:updated_time" content="2019-04-01T07:01:24.764Z">
+<meta property="og:updated_time" content="2019-04-01T08:10:43.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac系统搭建FFmpeg环境并生成静态文件库">
 <meta name="twitter:description" content="目前客户端对于视频的深度编辑处理，无论是视频编辑还是流媒体播放，基本都是采用的FFmpeg来进行。FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的">
@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BUG/" style="font-size: 15px;">BUG</a> <a href="/tags/前人栽树/" style="font-size: 10px;">前人栽树</a> <a href="/tags/开发笔记/" style="font-size: 10px;">开发笔记</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a> <a href="/tags/视频处理-huajnj/" style="font-size: 10px;">视频处理 huajnj</a>
+						<a href="/tags/BUG/" style="font-size: 15px;">BUG</a> <a href="/tags/前人栽树/" style="font-size: 10px;">前人栽树</a> <a href="/tags/开发笔记/" style="font-size: 15px;">开发笔记</a> <a href="/tags/开篇寄语/" style="font-size: 10px;">开篇寄语</a> <a href="/tags/环境搭建/" style="font-size: 20px;">环境搭建</a> <a href="/tags/视频处理/" style="font-size: 10px;">视频处理</a>
 					</div>
 				</section>
 				
@@ -194,10 +194,10 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-00011_FFmpegenviromentconstruct" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-00009_FFmpegenviromentconstruct" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/12/00011_FFmpegenviromentconstruct/" class="article-date">
+      <a href="/2019/02/12/00009_FFmpegenviromentconstruct/" class="article-date">
   	<time datetime="2019-02-12T08:36:55.000Z" itemprop="datePublished">2019-02-12</time>
 </a>
     </div>
@@ -220,7 +220,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/视频处理-huajnj/">视频处理 huajnj</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/视频处理/">视频处理</a></li></ul>
 	</div>
 
         
@@ -232,6 +232,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>目前客户端对于视频的深度编辑处理，无论是视频编辑还是流媒体播放，基本都是采用的FFmpeg来进行。<br>FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的。<br>FFmpeg的名称来自MPEG视频编码标准，前面的“FF”代表“Fast Forward”，FFmpeg是一套可以用来记录、转换数字音频、视频，并能将其转化为流的开源计算机程序。可以轻易地实现多种视频格式之间的相互转换。</p>
+<a id="more"></a>
 <h2 id="MAC安装FFmpeg环境"><a href="#MAC安装FFmpeg环境" class="headerlink" title="MAC安装FFmpeg环境"></a>MAC安装FFmpeg环境</h2><h4 id="1-安装homebrew"><a href="#1-安装homebrew" class="headerlink" title="1 安装homebrew"></a>1 安装homebrew</h4><p>如果已安装，可以跳过此步骤。<br>homebrew类似maven和cocoapods,是一个安装包管理工具，方便MAC用户对于软件包的安装。<br>安装方式：终端输入下列指令</p>
 <blockquote>
 <p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”</p>
@@ -265,8 +266,17 @@
     
 <nav id="article-nav">
   
+    <a href="/2019/04/01/00010_setFontToLabel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iOS设置字体的三种方式
+        
+      </div>
+    </a>
   
-    <a href="/2017/11/16/00010_iOS11Bugs/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/11/16/00008_iOS11Bugs/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">iOS11Bug</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -296,7 +306,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="00011_FFmpegenviromentconstruct" data-title="Mac系统搭建FFmpeg环境并生成静态文件库" data-url="http://yoursite.com/2019/02/12/00011_FFmpegenviromentconstruct/"></div>
+	<div class="ds-thread" data-thread-key="00009_FFmpegenviromentconstruct" data-title="Mac系统搭建FFmpeg环境并生成静态文件库" data-url="http://yoursite.com/2019/02/12/00009_FFmpegenviromentconstruct/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
