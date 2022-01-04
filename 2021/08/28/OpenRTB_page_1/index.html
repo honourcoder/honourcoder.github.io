@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>OpenRTB详解 | 齐小胖之家</title>
+  <title>OpenRTB详解（一） | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="OpenRTB详解">
+<meta property="og:title" content="OpenRTB详解（一）">
 <meta property="og:url" content="http://www.coderqi.com/2021/08/28/OpenRTB_page_1/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
 <meta property="og:image" content="http://www.coderqi.com/img/open_rtb_logo_line.jpeg">
 <meta property="article:published_time" content="2021-08-28T11:23:14.000Z">
-<meta property="article:modified_time" content="2021-11-30T09:05:37.595Z">
+<meta property="article:modified_time" content="2021-11-30T10:12:22.439Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="实时竞价">
 <meta property="article:tag" content="商业化">
@@ -150,7 +150,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      OpenRTB详解
+      OpenRTB详解（一）
     </h1>
   
 
@@ -424,13 +424,13 @@
 </tr>
 <tr>
 <td>btype</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>限制的banner类型。参考表5.2</td>
 </tr>
 <tr>
 <td>battr</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>限制的物料属性， 参考表5.3</td>
 </tr>
@@ -442,7 +442,7 @@
 </tr>
 <tr>
 <td>mimes</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>支持的内容mime-type. 常用的mime-type包括application/x-shockwave-flash, image/jpg以及 image/gif.</td>
 </tr>
@@ -454,13 +454,13 @@
 </tr>
 <tr>
 <td>expdir</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>banner可以扩展的方向，参考表5.5</td>
 </tr>
 <tr>
 <td>api</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>本次展示支持的API框架列表， 参考表5.6. 如果一个API没有被显式在列表中指明，则表示不支持</td>
 </tr>
@@ -484,7 +484,7 @@
 </thead>
 <tbody><tr>
 <td>mimes</td>
-<td>string array</td>
+<td>array</td>
 <td>required</td>
 <td>支持的内容mime-type， 常用的类型包括用于windows媒体的video/x-ms-wmv以及用于Flash视频的video/x-flv.</td>
 </tr>
@@ -508,7 +508,7 @@
 </tr>
 <tr>
 <td>protocols</td>
-<td>integer array</td>
+<td>array</td>
 <td>recommended</td>
 <td>支持的视频竞价响应协议数组。参考表5.8.至少一个支持的协议必须在protocol或者protocols属性中被指定</td>
 </tr>
@@ -544,7 +544,7 @@
 </tr>
 <tr>
 <td>battr</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>限制的物料属性，参考表5.3</td>
 </tr>
@@ -574,13 +574,13 @@
 </tr>
 <tr>
 <td>playbackmethod</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>允许的播放方式， 如果没有指定，表示支持全部，参考表5.9</td>
 </tr>
 <tr>
 <td>delivery</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>支持的传输方式 （例如流式传输，逐步传输），如果没有指定，表示全部支持，参考表5.13</td>
 </tr>
@@ -592,19 +592,19 @@
 </tr>
 <tr>
 <td>companionad</td>
-<td>object array</td>
+<td>array</td>
 <td></td>
 <td>如果支持复合广告，表示一组Banner对象</td>
 </tr>
 <tr>
 <td>api</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>本次展示支持的API框架列表， 参考表5.6. 如果一个API没有被显式在列表中指明，则表示不支持</td>
 </tr>
 <tr>
 <td>companiontype</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>支持的VAST companion 广告类型， 参考表5.12。 如果在companionad中填充了Banner对象则推荐使用</td>
 </tr>
@@ -641,13 +641,13 @@
 </tr>
 <tr>
 <td>api</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>本次展示支持的API框架列表， 参考表5.6. 如果一个API没有被显式在列表中指明，则表示不支持</td>
 </tr>
 <tr>
 <td>battr</td>
-<td>integer array</td>
+<td>array</td>
 <td></td>
 <td>限制的物料属性，参考表5.3</td>
 </tr>
@@ -688,19 +688,19 @@
 </tr>
 <tr>
 <td>cat</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>站点的一组IAB 内容类型，参考表5.1</td>
 </tr>
 <tr>
 <td>sectioncat</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>描述站点当前部分的一组IAB内容类型，参考表5.1</td>
 </tr>
 <tr>
 <td>pagecat</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>描述站点当前视图的一组IAB内容类型，参考表5.1</td>
 </tr>
@@ -760,106 +760,6 @@
 </tr>
 </tbody></table>
 <h5 id="BidRequest的App对象"><a href="#BidRequest的App对象" class="headerlink" title="BidRequest的App对象"></a><strong>BidRequest的App对象</strong></h5><p>如果广告载体是非浏览器应用（通常是移动设备）时应该包含该对象， 网站则不需要包含。一个竞价请求一定不能同时包含Site对象和App对象。 提供一个App标识或者bundle是很有用的， 但是不是严格必须的。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string;</td>
-<td>recommended</td>
-<td>交易特定的应用标识</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-<td>应用名称 （可以在展示者请求中作为别名标识）</td>
-</tr>
-<tr>
-<td>bundle</td>
-<td>string</td>
-<td></td>
-<td>应用信息或者包名（例如， com.foo.mygame); 需要是在整个交易过程中唯一的标识</td>
-</tr>
-<tr>
-<td>domain</td>
-<td>string</td>
-<td></td>
-<td>应用的域名（例如， “mygame.foo.com” )</td>
-</tr>
-<tr>
-<td>storeurl</td>
-<td>string</td>
-<td></td>
-<td>应用的商店地址， 遵循AQG 1.5</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>string array</td>
-<td></td>
-<td>应用的IAB内容类型数组， 参考表5.1</td>
-</tr>
-<tr>
-<td>sectioncat</td>
-<td>string array</td>
-<td></td>
-<td>应用当前部分的IAB内容类型数组，参考表5.1</td>
-</tr>
-<tr>
-<td>pagecat</td>
-<td>string array</td>
-<td></td>
-<td>应用当前视图的IAB内容类型数组，参考表5.1</td>
-</tr>
-<tr>
-<td>ver</td>
-<td>string</td>
-<td></td>
-<td>应用版本号</td>
-</tr>
-<tr>
-<td>privacypolicy</td>
-<td>integer</td>
-<td></td>
-<td>表示该应用是否有隐私策略， 0表示没有， 1表示有</td>
-</tr>
-<tr>
-<td>paid</td>
-<td>integer</td>
-<td></td>
-<td>应用是否需要付费， 0表示免费， 1表示付费</td>
-</tr>
-<tr>
-<td>publisher</td>
-<td>Object</td>
-<td></td>
-<td>Publisher对象， 应用发布者的详细信息</td>
-</tr>
-<tr>
-<td>content</td>
-<td>Object</td>
-<td></td>
-<td>Content对象， 该应用内容的详细信息</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>string</td>
-<td></td>
-<td>逗号分隔的应用的关键字信息</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位</td>
-</tr>
-</tbody></table>
 <h5 id="BidRequest的Publisher对象"><a href="#BidRequest的Publisher对象" class="headerlink" title="BidRequest的Publisher对象"></a><strong>BidRequest的Publisher对象</strong></h5><p>用于描述展示广告的媒体的发布者。通常发布者就是OpenRTB事务中的卖方。</p>
 <table>
 <thead>
@@ -872,7 +772,7 @@
 </thead>
 <tbody><tr>
 <td>id</td>
-<td>string;</td>
+<td>string</td>
 <td>recommended</td>
 <td>交易特定的发布者标识</td>
 </tr>
@@ -884,7 +784,7 @@
 </tr>
 <tr>
 <td>cat</td>
-<td>string array</td>
+<td>array</td>
 <td>发布者的IAB内容类型数组， 参考表5.1</td>
 <td></td>
 </tr>
@@ -954,7 +854,7 @@
 </tr>
 <tr>
 <td>cat</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>内容生产者的IAB内容类型数组， 参考表5.1</td>
 </tr>
@@ -1055,7 +955,7 @@
 </tr>
 <tr>
 <td>cat</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>内容提供者的IAB内容类型数组， 参考表5.1</td>
 </tr>
@@ -1084,25 +984,25 @@
 </thead>
 <tbody><tr>
 <td>ua</td>
-<td>string;</td>
+<td>string</td>
 <td>recommended</td>
 <td>浏览器User-Agent字符串</td>
 </tr>
 <tr>
 <td>geo</td>
-<td>object;</td>
+<td>object</td>
 <td>recommended</td>
 <td>Geo对象，用用户当前位置表示设备位置</td>
 </tr>
 <tr>
 <td>dnt</td>
-<td>integer;</td>
+<td>integer</td>
 <td>recommended</td>
 <td>浏览器在HTTP头中设置的标准的 “Do Not Track”标识， 0表示不限制追踪， 1表示限制（不允许）追踪</td>
 </tr>
 <tr>
 <td>ip</td>
-<td>string;</td>
+<td>string</td>
 <td>recommended</td>
 <td>最接近设备的IPv4地址</td>
 </tr>
@@ -1341,13 +1241,13 @@
 </thead>
 <tbody><tr>
 <td>id</td>
-<td>string;</td>
+<td>string</td>
 <td>recommended</td>
 <td>交易特定的用户标识， 推荐id和buyeruid中至少提供一个。</td>
 </tr>
 <tr>
 <td>buyeruid</td>
-<td>string;</td>
+<td>string</td>
 <td>recommended</td>
 <td>买方为用户指定的ID，由交易平台为买方映射。推荐id和buyeruid中至少提供一个。</td>
 </tr>
@@ -1383,7 +1283,7 @@
 </tr>
 <tr>
 <td>data</td>
-<td>object array</td>
+<td>array</td>
 <td></td>
 <td>附加的用户信息， 每个 Data对象表示一个不同的数据源</td>
 </tr>
@@ -1418,7 +1318,7 @@
 </tr>
 <tr>
 <td>segment</td>
-<td>object array</td>
+<td>array</td>
 <td></td>
 <td>包含数据内容的一组Segment对象</td>
 </tr>
@@ -1430,7 +1330,40 @@
 </tr>
 </tbody></table>
 <h5 id="BidRequest的Segment对象"><a href="#BidRequest的Segment对象" class="headerlink" title="BidRequest的Segment对象"></a><strong>BidRequest的Segment对象</strong></h5><p>数据字段， 描述用户信息数据的键值对。 其父对象Data是某个给定数据提供者的数据字段的集合。交易平台必须优先将字段的名称和值传递给竞拍者。</p>
-<p>属性    类型    描述<br>id    string    数据提供者的特定数据段的ID<br>name    string    数据提供者的特定数据段的名称<br>value    string    表示数据字段值的字符串<br>ext    object    特定交易的OpenRTB协议的扩展信息占位符</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必要性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>数据提供者的特定数据段的ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td>数据提供者的特定数据段的名称</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td></td>
+<td>表示数据字段值的字符串</td>
+</tr>
+<tr>
+<td>ext</td>
+<td>object</td>
+<td></td>
+<td>特定交易的OpenRTB协议的扩展信息占位符</td>
+</tr>
+</tbody></table>
 <h5 id="BidRequest的Regs对象"><a href="#BidRequest的Regs对象" class="headerlink" title="BidRequest的Regs对象"></a><strong>BidRequest的Regs对象</strong></h5><p>描述任何适用于该请求的法律，政府或者工业管控条例。 coppa(Children’s Online Privacy Protection Act)标志着是否该请求是否符合美国联邦贸易委员会颁布的美国儿童在线隐私保护法案，详情可参考7.1节。  </p>
 <table>
 <thead>
@@ -1472,7 +1405,7 @@
 </tr>
 <tr>
 <td>deals</td>
-<td>object array</td>
+<td>array</td>
 <td></td>
 <td>一组Deal对象， 用于传输适用于本次展示的交易信息</td>
 </tr>
@@ -1495,19 +1428,19 @@
 </thead>
 <tbody><tr>
 <td>id</td>
-<td>string;</td>
+<td>string</td>
 <td>required</td>
 <td>直接交易的唯一ID</td>
 </tr>
 <tr>
 <td>bidfloor</td>
-<td>float;</td>
+<td>float</td>
 <td></td>
 <td>default 0    本次展示的最低竞价，以CPM为单位</td>
 </tr>
 <tr>
 <td>bidfloorcur</td>
-<td>string;</td>
+<td>string</td>
 <td></td>
 <td>default ‘USD’    使用ISO-4217码表指定的货币。 如果交易平台允许，这可能与竞价者返回的竞价货币类型不一致</td>
 </tr>
@@ -1519,13 +1452,13 @@
 </tr>
 <tr>
 <td>wseat</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>允许参与本次交易竞价的买方席位白名单。 席位ID需要交易平台和竞拍者提前协商， 忽略本属性标示没有席位限制</td>
 </tr>
 <tr>
 <td>wadomain</td>
-<td>string array</td>
+<td>array</td>
 <td></td>
 <td>允许参与本次交易竞价的广告主域名列表（例如， advertiser.com). 忽略本属性标示没有广告主限制。</td>
 </tr>
@@ -1536,7 +1469,6 @@
 <td>特定交易的OpenRTB协议的扩展信息占位符</td>
 </tr>
 </tbody></table>
-<p><strong>OpenRTB的Response模型</strong></p>
 
       
 
@@ -1659,6 +1591,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/08/29/OpenRTB_page_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OpenRTB详解（二）
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/08/15/OpenRTB_page_0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">实时竞价RTB</div>
@@ -1704,7 +1645,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 CoderQi
+    		&copy; 2022 CoderQi
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1796,6 +1737,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">广告</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">iOS基本功</a>
               </li>
             
             <div class="clearfix"></div>
