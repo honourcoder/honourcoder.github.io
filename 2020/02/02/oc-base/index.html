@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>Archives: 2022 | 齐小胖之家</title>
+  <title>iOS面试题-OC基础语法 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="齐小胖之家">
-<meta property="og:url" content="http://www.coderqi.com/archives/2022/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="iOS面试题-OC基础语法">
+<meta property="og:url" content="http://www.coderqi.com/2020/02/02/oc-base/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.coderqi.com/img/topic_oc.jpg">
+<meta property="article:published_time" content="2020-02-02T07:36:03.000Z">
+<meta property="article:modified_time" content="2022-01-06T06:59:51.397Z">
 <meta property="article:author" content="CoderQi">
+<meta property="article:tag" content="iOS基本功">
+<meta property="article:tag" content="iOS面试题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.coderqi.com/img/topic_oc.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -136,36 +142,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-oc-base" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/04/interview/" class="archive-article-date">
-  	<time datetime="2022-01-04T02:58:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/04/interview/">面试题收集-网络协议相关</a>
+    <h1 class="article-title" itemprop="name">
+      iOS面试题-OC基础语法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/02/oc-base/" class="archive-article-date">
+  	<time datetime="2020-02-02T07:36:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div align=center>
+<img src="/img/topic_oc.jpg"/>
+</div>
+
+<span id="more"></span>
+
+<h2 id="1-class和struct的区别"><a href="#1-class和struct的区别" class="headerlink" title="1 class和struct的区别"></a><strong>1 class和struct的区别</strong></h2><h2 id="iOS-OC-中-load-amp-initialize-调用时机与规则"><a href="#iOS-OC-中-load-amp-initialize-调用时机与规则" class="headerlink" title="iOS OC 中 load &amp; initialize 调用时机与规则"></a><strong>iOS OC 中 load &amp; initialize 调用时机与规则</strong></h2><h2 id="instancetype-和-id-的区别"><a href="#instancetype-和-id-的区别" class="headerlink" title="instancetype 和 id 的区别"></a><strong>instancetype 和 id 的区别</strong></h2><h2 id="静态库和动态库"><a href="#静态库和动态库" class="headerlink" title="静态库和动态库"></a><strong>静态库和动态库</strong></h2><h2 id="KVC和KVO区别"><a href="#KVC和KVO区别" class="headerlink" title="KVC和KVO区别"></a><strong>KVC和KVO区别</strong></h2><h2 id="KVO原理"><a href="#KVO原理" class="headerlink" title="KVO原理"></a><strong>KVO原理</strong></h2><p>在Foundation/NSKeyValueObserving.h可以找到下面的方法，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)willChangeValueForKey:(NSString *)key;</span><br><span class="line">- (void)didChangeValueForKey:(NSString *)key;</span><br><span class="line">+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key;</span><br></pre></td></tr></table></figure>
+<p>+(BOOL)automaticallyNotifiesObserversForKey:(NSString *)key控制是否自动发送通知<br>如果set方法是自己实现的，那KVO是无法运作的，但是，如果把上面的前两个方法加到set方法里面，如下，KVO也会跑起来，哪怕方法名不是正规的set方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (void)changeValue:(NSString *)value &#123;</span><br><span class="line">    [self willChangeValueForKey:@&quot;value&quot;];</span><br><span class="line">    _value = value;</span><br><span class="line">    [self didChangeValueForKey:@&quot;value&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a><strong>泛型</strong></h2><h2 id="block-原理"><a href="#block-原理" class="headerlink" title="block 原理"></a><strong>block 原理</strong></h2><h2 id="iOS事件传递、响应者链"><a href="#iOS事件传递、响应者链" class="headerlink" title="iOS事件传递、响应者链"></a><strong>iOS事件传递、响应者链</strong></h2><p><strong>hitTest</strong><br><strong>pointInside</strong></p>
+<h2 id="Weak和unowned有啥区别"><a href="#Weak和unowned有啥区别" class="headerlink" title="Weak和unowned有啥区别"></a><strong>Weak和unowned有啥区别</strong></h2><h2 id="NSCache和NSDictionary区别"><a href="#NSCache和NSDictionary区别" class="headerlink" title="NSCache和NSDictionary区别"></a><strong>NSCache和NSDictionary区别</strong></h2><h2 id="NSMutableArray的机制-Capacity的机制"><a href="#NSMutableArray的机制-Capacity的机制" class="headerlink" title="NSMutableArray的机制,Capacity的机制"></a><strong>NSMutableArray的机制,Capacity的机制</strong></h2><h2 id="怎么理解NSArray的头文件的定义"><a href="#怎么理解NSArray的头文件的定义" class="headerlink" title="怎么理解NSArray的头文件的定义"></a><strong>怎么理解NSArray的头文件的定义</strong></h2><h2 id="常用的property的关键字"><a href="#常用的property的关键字" class="headerlink" title="常用的property的关键字"></a><strong>常用的property的关键字</strong></h2><h2 id="NSMutableDictionary-setValue-forKey-setObject-forKey-的区别"><a href="#NSMutableDictionary-setValue-forKey-setObject-forKey-的区别" class="headerlink" title="NSMutableDictionary setValue:forKey: setObject:forKey:的区别"></a><strong>NSMutableDictionary setValue:forKey: setObject:forKey:的区别</strong></h2><h2 id="OC中Bridge是什么"><a href="#OC中Bridge是什么" class="headerlink" title="OC中Bridge是什么"></a><strong>OC中Bridge是什么</strong></h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的每一份肯定 都是对我最大的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/code_picture_alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/code_picture_wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -173,23 +220,118 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS基本功</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS面试题</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2020/02/02/oc-base/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/02/04/internet_delegate/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS面试题-网络协议
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -212,8 +354,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
@@ -295,6 +437,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">iOS基本功</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">iOS面试题</a>
               </li>
             
             <div class="clearfix"></div>
