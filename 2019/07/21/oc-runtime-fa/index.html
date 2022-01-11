@@ -6,22 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>OpenRTB详解（一） | 齐小胖之家</title>
+  <title>iOS基本功-Runtime专题 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="OpenRTB详解（一）">
-<meta property="og:url" content="http://www.coderqi.com/2021/08/28/OpenRTB_page_1/index.html">
+<meta property="og:title" content="iOS基本功-Runtime专题">
+<meta property="og:url" content="http://www.coderqi.com/2019/07/21/oc-runtime-fa/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.coderqi.com/img/open_rtb_logo_line.jpeg">
-<meta property="article:published_time" content="2021-08-28T11:23:14.000Z">
-<meta property="article:modified_time" content="2021-11-30T10:12:22.439Z">
+<meta property="og:image" content="http://www.coderqi.com/img/logo_runtime.png">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime_pic1.png">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime_pic2.png">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime_pic3.png">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime_pic4.png">
+<meta property="article:published_time" content="2019-07-21T07:46:49.000Z">
+<meta property="article:modified_time" content="2022-01-08T07:52:45.999Z">
 <meta property="article:author" content="CoderQi">
-<meta property="article:tag" content="实时竞价">
-<meta property="article:tag" content="商业化">
-<meta property="article:tag" content="广告">
+<meta property="article:tag" content="iOS基本功">
+<meta property="article:tag" content="Runtime">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.coderqi.com/img/open_rtb_logo_line.jpeg">
+<meta name="twitter:image" content="http://www.coderqi.com/img/logo_runtime.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -143,20 +146,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-OpenRTB_page_1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-oc-runtime-fa" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      OpenRTB详解（一）
+      iOS基本功-Runtime专题
     </h1>
   
 
         
-        <a href="/2021/08/28/OpenRTB_page_1/" class="archive-article-date">
-  	<time datetime="2021-08-28T11:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2019/07/21/oc-runtime-fa/" class="archive-article-date">
+  	<time datetime="2019-07-21T07:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
 </a>
         
       </header>
@@ -164,1311 +167,72 @@
     <div class="article-entry" itemprop="articleBody">
       
         <div align=center>
-<img src="/img/open_rtb_logo_line.jpeg"/>
+<img src="/img/logo_runtime.png"/>
 </div>
 
 <span id="more"></span>
 
-<h3 id="OpenRTB的业务流程"><a href="#OpenRTB的业务流程" class="headerlink" title="OpenRTB的业务流程"></a>OpenRTB的业务流程</h3><p>一个完整的OpenRTB业务，所包含的角色，主要有以下几个：<br>流量主（Publisher）<br>ADX （AD Exchange）<br>Bidder（DSP）<br>广告主（Buyer）<br>他们之间的关系和完整的业务流程如下图：<br>1 广告主可通过DSP添加广告投放订单。<br>2 用户打开媒体的页面，页面中设有展示广告的位置，这个时候，媒体作为一个Publisher会向RTB交易服务平台，也就是ADX发起广告请求<br>3 ADX会向自己的多个竞价渠道平台（Bidder）发起竞价请求，在发起竞价请求的时候会附带一些信息，例如媒体网站、用户设备、用户相关行为数据等等，<br>4 竞价渠道Bidder根据步骤2附带的信息返回本Bidder的出价信息，例如：竞价的价格、广告素材、广告片段等等<br>5 ADX根据算法，从多个Bidder中决出胜者，给予成功反馈，如果第三步的返回中没有包含广告片段，需要Bidder再次提供<br>6 有些ADX会在成功反馈中附带成交账单信息，但不是所有的ADX都带<br>7 如果Bidder竞价没有成功，有的ADX是会是失败反馈中附带<br>失败原因的，但是这个不是必须的<br>8 ADX会将胜出的Bidder的广告返回给媒体，并通过媒体展示给用户</p>
-<h3 id="OpenRTB的对象模型"><a href="#OpenRTB的对象模型" class="headerlink" title="OpenRTB的对象模型"></a>OpenRTB的对象模型</h3><p>在OpenRTB的对象模型体系中，主要分为两大类对象模型，一类是请求用的Request模型，一类是响应用Response模型。</p>
-<h5 id="OpenRTB的BidRequest模型"><a href="#OpenRTB的BidRequest模型" class="headerlink" title="OpenRTB的BidRequest模型"></a><strong>OpenRTB的BidRequest模型</strong></h5><p>BidRequest的各个对象之间的关系如下图：<br>在OpenRTB的请求对象体系中，BidRequest是最外层的顶级对象。他下面包含了十五个子对象</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>required</td>
-<td>竞价请求的唯一ID, 由广告交易平台提供</td>
-</tr>
-<tr>
-<td>imp</td>
-<td>array</td>
-<td>required</td>
-<td>代表提供的展示信息的数组， 要求至少有一个</td>
-</tr>
-<tr>
-<td>site</td>
-<td>object</td>
-<td>recommended</td>
-<td>Site对象，表示发布者站点相关的详细信息， 仅仅对站点适用且推荐填充</td>
-</tr>
-<tr>
-<td>app</td>
-<td>object</td>
-<td>recommended</td>
-<td>App对象，表示发布应用的详细信息。仅对应用适用且推荐填充</td>
-</tr>
-<tr>
-<td>device</td>
-<td>object</td>
-<td>recommended</td>
-<td>Device对象， 表示展示将要被发送到的用户设备的信息</td>
-</tr>
-<tr>
-<td>user</td>
-<td>object</td>
-<td>recommended</td>
-<td>User对象， 表示使用设备的对象， 广告的受众</td>
-</tr>
-<tr>
-<td>test</td>
-<td>integer</td>
-<td></td>
-<td>标识测试模式，拍卖不计价。 0表示实况（非测试）模式，1表示测试模式，default 0</td>
-</tr>
-<tr>
-<td>at</td>
-<td>integer</td>
-<td></td>
-<td>拍卖类型（胜出策略）1表示第一价格 ，2标识第二价格。交易特定的拍卖类型可以用大于500的值定义， default 2</td>
-</tr>
-<tr>
-<td>tmax</td>
-<td>integer</td>
-<td></td>
-<td>用于在提交竞价请求时避免超时的最大时间，以毫秒为单位，这个值通常是线下沟通的</td>
-</tr>
-<tr>
-<td>wseat</td>
-<td>array</td>
-<td></td>
-<td>允许在本次展现上进行竞拍的买家白Seat名单。 交易平台和竞拍者必须提前协商好Seat IDs</td>
-</tr>
-<tr>
-<td>allimps</td>
-<td>integer</td>
-<td></td>
-<td>用于标识交易平台是否可以验证当前的展示列表包含了当前上下文中所有展示。（例如，一个页面上的所有广告位，所有的视频广告点（视频前，视频中，时候后））用于支持路由封锁。 0表示不支持或未知， 1表示提供的展示列表代表所有可用的展示。 default 0</td>
-</tr>
-<tr>
-<td>cur</td>
-<td>array</td>
-<td></td>
-<td>本次竞价请求允许的货币列表， 使用ISO-4217 字母码。 仅在交易平台接收多种货币的时候推荐填充。</td>
-</tr>
-<tr>
-<td>bcat</td>
-<td>array</td>
-<td></td>
-<td>被封锁的广告主类别，使用IAB 内容类别，参考列表5.1。</td>
-</tr>
-<tr>
-<td>badv</td>
-<td>array</td>
-<td></td>
-<td>域名封锁列表（比如 ford.com)</td>
-</tr>
-<tr>
-<td>regs</td>
-<td>object</td>
-<td></td>
-<td>Reg对象， 指明对本次请求有效的工业，法律或政府条例</td>
-</tr>
-</tbody></table>
-<p>在BidRequest中一些子对象用于提供潜在买家的详细信息，这些对象是强烈推荐使用的。<br>在这些对象中，Site和App对象，用于描述展示广告的发布媒体的类型。 但是每个竞价请求中只能使用一个，这取决于发起广告请求的是基于浏览器的页面内容或者APP应用内部内容。<br>接下来，再依次看看BidRequest的各个子对象的信息</p>
-<h5 id="BidRequest的Imp对象"><a href="#BidRequest的Imp对象" class="headerlink" title="BidRequest的Imp对象"></a><strong>BidRequest的Imp对象</strong></h5><p>Imp对象描述了一个广告位或者将要参与竞拍的广告展现。一个竞价请求可以包含多个Imp 对象，这种状况的一个示例是一个交易平台支持售卖一个页面的所有广告位。 为了便于竞拍者区分， 每一个Imp对象都要有一个唯一标识（ID).</p>
-<p>Banner, Video以及Native对象都属于Imp对象，只是限定了自己的展示类型。 广告展示方可以选择其中的一种类型或者混合使用多种类型。 但是，对于一个BidRequest的展示必须属于提供的指定类型之一。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>required</td>
-<td>在当前竞价请求上下文中唯一标识本次展示的标识（通常从1开始并以此递增)</td>
-</tr>
-<tr>
-<td>banner</td>
-<td>object</td>
-<td></td>
-<td>Banner对象， 如果展示需要以banner的形式提供则需要填充</td>
-</tr>
-<tr>
-<td>video</td>
-<td>object</td>
-<td></td>
-<td>Video对象， 如果展示需要以视频的形式提供则需要填充</td>
-</tr>
-<tr>
-<td>native</td>
-<td>object</td>
-<td></td>
-<td>Native对象， 如果展示需要以Native广告的形式提供则需要填充</td>
-</tr>
-<tr>
-<td>displaymanager</td>
-<td>string</td>
-<td></td>
-<td>广告媒体合作伙伴的名字， 用于渲染广告的SDK技术或者播放器（通常是视频或者移动广告）某些广告服务需要根据合作伙伴定制广告代码， 推荐在视频广告或应用广告中填充</td>
-</tr>
-<tr>
-<td>displaymanagerver</td>
-<td>string</td>
-<td></td>
-<td>广告媒体合作伙伴， 用于渲染广告的SDK技术或者播放器（通常是视频或者移动广告）的版本号。 某些广告服务需要根据合作伙伴定制广告代码， 推荐在视频广告或应用广告中填充</td>
-</tr>
-<tr>
-<td>instl</td>
-<td>integer</td>
-<td></td>
-<td>1标识广告是插屏或者全屏广告， 0表示不是插屏广告，default 0</td>
-</tr>
-<tr>
-<td>tagid</td>
-<td>string</td>
-<td></td>
-<td>某个特定广告位或者广告标签的标识，用于发起竞拍。 为了方便调试问题或者进行买方优化</td>
-</tr>
-<tr>
-<td>bidfloor</td>
-<td>float</td>
-<td></td>
-<td>本次展示的最低竞拍价格， 以CPM表示，default 0</td>
-</tr>
-<tr>
-<td>bidfloorcur</td>
-<td>string</td>
-<td></td>
-<td>ISO-4217规定的字母码表标识的货币类型。 如果交易平台允许，可能与从竞拍者返回的竞价货币不同。 default “USD”</td>
-</tr>
-<tr>
-<td>secure</td>
-<td>integer</td>
-<td></td>
-<td>b标识展示请求是否需要使用HTTPS加密物料信息以及markup以保证安全， 0标识不需要使用安全链路， 1标识需要使用安全链路， 如果不填充，则表示未知， 可以认为是不需要使用安全链路。</td>
-</tr>
-<tr>
-<td>iframebuster</td>
-<td>array</td>
-<td></td>
-<td>特定交易支持的iframe buster的名字数组</td>
-</tr>
-<tr>
-<td>pmp</td>
-<td>object</td>
-<td></td>
-<td>Pmp对象， 包含对本次展示生效的任何私有市场交易</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="Imp的Banner对象"><a href="#Imp的Banner对象" class="headerlink" title="Imp的Banner对象"></a><strong>Imp的Banner对象</strong></h5><p>Banner是最常见的展示类型。 虽然“banner”这个名词在其他的场景有很特别的意思， 在这里它可以是包括静态图像， 可扩展的广告单元或者一个在banner中播放的视频在内的很多东西。一组Banner对象可以出现在Video对象中来描述可选择在VAST贵方中定义的附加广告。</p>
-<p>Banner作为Imp的子对象出现表示它是一个具有banner类型的展示对象. 同样的展示也可以是一个视频或者Native广告， 只要包含Video对象或者Native对象。然而， 任何为展示给定的竞价请求必须符合提供类型中的一个。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>w</td>
-<td>integer</td>
-<td>recommended</td>
-<td>展示的宽度，以像素为单位，如果没有指定wmin以及wmax, 这个值指的就是需要的展示宽度，否则指的是一个期望宽度</td>
-</tr>
-<tr>
-<td>h</td>
-<td>integer</td>
-<td>recommended</td>
-<td>展示的高度，以像素为党委，如果没有指定hmin以及hmax, 这个值指的就是需要的展示高度， 否则指的是一个期望高度</td>
-</tr>
-<tr>
-<td>wmax</td>
-<td>integer</td>
-<td></td>
-<td>展示宽度的最大值，以像素为单位， 如果和w一起出现， 则w应该被解释为推荐宽度或者期望宽度</td>
-</tr>
-<tr>
-<td>wmin</td>
-<td>integer</td>
-<td></td>
-<td>展示宽度的最小值，以像素为单位， 如果和w一起出现， 则w应该被解释为推荐宽度或者期望宽度</td>
-</tr>
-<tr>
-<td>hmax</td>
-<td>integer</td>
-<td></td>
-<td>展示高度的最大值，以像素为单位， 如果和h一起出现， 则h应该被解释为推荐宽度或者期望宽度</td>
-</tr>
-<tr>
-<td>hmin</td>
-<td>integer</td>
-<td></td>
-<td>展示高度的最小值，以像素为单位， 如果和h一起出现， 则h应该被解释为推荐宽度或者期望宽度</td>
-</tr>
-<tr>
-<td>id</td>
-<td>string</td>
-<td></td>
-<td>banner对象的唯一标识。在一个Ad中包含Banner与Video的时候使用。值往往从1开始并依次递增，在依次展示中应当是唯一的</td>
-</tr>
-<tr>
-<td>btype</td>
-<td>array</td>
-<td></td>
-<td>限制的banner类型。参考表5.2</td>
-</tr>
-<tr>
-<td>battr</td>
-<td>array</td>
-<td></td>
-<td>限制的物料属性， 参考表5.3</td>
-</tr>
-<tr>
-<td>pos</td>
-<td>integer</td>
-<td></td>
-<td>广告在屏幕上的位置，参考表5.4</td>
-</tr>
-<tr>
-<td>mimes</td>
-<td>array</td>
-<td></td>
-<td>支持的内容mime-type. 常用的mime-type包括application/x-shockwave-flash, image/jpg以及 image/gif.</td>
-</tr>
-<tr>
-<td>topframe</td>
-<td>integer</td>
-<td></td>
-<td>banner是在顶层frame中而不是iframe中， 0表示不是， 1表示是</td>
-</tr>
-<tr>
-<td>expdir</td>
-<td>array</td>
-<td></td>
-<td>banner可以扩展的方向，参考表5.5</td>
-</tr>
-<tr>
-<td>api</td>
-<td>array</td>
-<td></td>
-<td>本次展示支持的API框架列表， 参考表5.6. 如果一个API没有被显式在列表中指明，则表示不支持</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="Imp的Video对象"><a href="#Imp的Video对象" class="headerlink" title="Imp的Video对象"></a><strong>Imp的Video对象</strong></h5><p>这个对象表示一个流式视频展示。 许多属性对于最小可用功能不是必须的，但是为了在需要的时候提供更好的控制能力会被使用。OpenRTB中的视频通常都是与标准一致的，复合广告的概念也是支持的， 可以包含用于定义复合广告的一组Banner对象。</p>
-<p>Video作为Imp的子对象出现表示它是一个具有视频类型的展示对象。 同样的展示也可以是一个Banner或者Native广告， 只要包含Banner对象或者Native对象。然而， 任何为展示给定的竞价请求必须符合提供类型中的一个。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mimes</td>
-<td>array</td>
-<td>required</td>
-<td>支持的内容mime-type， 常用的类型包括用于windows媒体的video/x-ms-wmv以及用于Flash视频的video/x-flv.</td>
-</tr>
-<tr>
-<td>minduration</td>
-<td>integer</td>
-<td>recommended</td>
-<td>最小的视频长度， 以秒为单位</td>
-</tr>
-<tr>
-<td>maxduration</td>
-<td>integer</td>
-<td>recommended</td>
-<td>最大的视频长度， 以秒为单位</td>
-</tr>
-<tr>
-<td>protocol</td>
-<td>integer</td>
-<td>DEPRECATED</td>
-<td>注意，使用protocols是高度推荐的。 支持的视频竞价响应协议。参考表5.8.至少一个支持的协议必须在protocol或者protocols属性中被指定</td>
-</tr>
-<tr>
-<td>protocols</td>
-<td>array</td>
-<td>recommended</td>
-<td>支持的视频竞价响应协议数组。参考表5.8.至少一个支持的协议必须在protocol或者protocols属性中被指定</td>
-</tr>
-<tr>
-<td>w</td>
-<td>integer</td>
-<td>recommeded</td>
-<td>视频播放器的宽度，像素为单位</td>
-</tr>
-<tr>
-<td>h</td>
-<td>integer</td>
-<td>recommeded</td>
-<td>视频播放器的高度，像素为单位</td>
-</tr>
-<tr>
-<td>startdelay</td>
-<td>integer</td>
-<td>recommended</td>
-<td>视频前，中及之后的广告位中视频广告的启动延时，以秒为单位, 参考表5.10</td>
-</tr>
-<tr>
-<td>linearity</td>
-<td>integer</td>
-<td></td>
-<td>展示是否必须是线性的， 如果没有指定，则标识都是被允许的，参考表5.11</td>
-</tr>
-<tr>
-<td>sequence</td>
-<td>integer</td>
-<td></td>
-<td>如果在同一个竞价请求中提供了多个展示， 则需要考虑多个物料传输的顺序</td>
-</tr>
-<tr>
-<td>battr</td>
-<td>array</td>
-<td></td>
-<td>限制的物料属性，参考表5.3</td>
-</tr>
-<tr>
-<td>maxextended</td>
-<td>integer</td>
-<td></td>
-<td>最大的视频广告延长时间长度（如果支持延长）。如果为空或者0，表示不允许延长， 如果为-1，表示允许延时，且没有时间限制， 如果为大于0的数字， 则表示可以延长的时间长度比maxduration大的值</td>
-</tr>
-<tr>
-<td>minbitrate</td>
-<td>integer</td>
-<td></td>
-<td>最小的比特率，以Kbps为单位。交易平台可以动态的设置这个值或者为所有发布者统一设置该值</td>
-</tr>
-<tr>
-<td>maxbitrate</td>
-<td>integer</td>
-<td></td>
-<td>最大的比特率，以Kbps为单位。交易平台可以动态的设置这个值或者为所有发布者统一设置该值</td>
-</tr>
-<tr>
-<td>boxingallowed</td>
-<td>integer</td>
-<td></td>
-<td>default 1    是否允许将4：3的内容展示在16：9的窗口， 0表示不允许，1表示允许</td>
-</tr>
-<tr>
-<td>playbackmethod</td>
-<td>array</td>
-<td></td>
-<td>允许的播放方式， 如果没有指定，表示支持全部，参考表5.9</td>
-</tr>
-<tr>
-<td>delivery</td>
-<td>array</td>
-<td></td>
-<td>支持的传输方式 （例如流式传输，逐步传输），如果没有指定，表示全部支持，参考表5.13</td>
-</tr>
-<tr>
-<td>pos</td>
-<td>integer</td>
-<td></td>
-<td>广告在屏幕上的位置，参考表5.4</td>
-</tr>
-<tr>
-<td>companionad</td>
-<td>array</td>
-<td></td>
-<td>如果支持复合广告，表示一组Banner对象</td>
-</tr>
-<tr>
-<td>api</td>
-<td>array</td>
-<td></td>
-<td>本次展示支持的API框架列表， 参考表5.6. 如果一个API没有被显式在列表中指明，则表示不支持</td>
-</tr>
-<tr>
-<td>companiontype</td>
-<td>array</td>
-<td></td>
-<td>支持的VAST companion 广告类型， 参考表5.12。 如果在companionad中填充了Banner对象则推荐使用</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="Imp的Native对象"><a href="#Imp的Native对象" class="headerlink" title="Imp的Native对象"></a><strong>Imp的Native对象</strong></h5><p>表示一个Native类型的展示。Native广告单元需要无缝的插入其周围的内容中（例如， 一个对Twitter或Facebook赞助）。 因此，响应必须具有良好的结构， 让展示者能够在细粒度上控制渲染过程。</p>
-<p>Native小组委员会为OpenRTB开发了一个组合规范，名为Native Ad规范。 定义了Native广告的请求参数以及响应结构。这个对象以字符串的形式提供请求参数， 这样的话具体的请求参数就可以按照Native Ad规范独立演进。同样的， 广告markup也会按照该文档指定的结构提供。</p>
-<p>Native作为Imp的子对象出现表示它是一个具有native类型的展示对象。 同样的展示也可以是一个Banner或者Video广告， 只要包含Banner对象或者Video对象。然而， 任何为展示给定的竞价请求必须符合提供类型中的一个。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>request</td>
-<td>string</td>
-<td>required</td>
-<td>遵守Native Ad规范的请求体</td>
-</tr>
-<tr>
-<td>ver</td>
-<td>string</td>
-<td>recommended</td>
-<td>Native Ad规范的版本， 为了高效解析强烈推荐</td>
-</tr>
-<tr>
-<td>api</td>
-<td>array</td>
-<td></td>
-<td>本次展示支持的API框架列表， 参考表5.6. 如果一个API没有被显式在列表中指明，则表示不支持</td>
-</tr>
-<tr>
-<td>battr</td>
-<td>array</td>
-<td></td>
-<td>限制的物料属性，参考表5.3</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Site对象"><a href="#BidRequest的Site对象" class="headerlink" title="BidRequest的Site对象"></a><strong>BidRequest的Site对象</strong></h5><p>如果广告载体是一个网站时应该包含这个对象，如果是非浏览器应用时则不需要。 一个竞价请求一定不能同时包含Site对象和App对象。 提供一个站点标识或者页面地址是很有用的， 但是不是严格必须的。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>recommended</td>
-<td>交易特定的站点标识</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-<td>站点名称 （可以在展示者请求中作为别名标识）</td>
-</tr>
-<tr>
-<td>domain</td>
-<td>string</td>
-<td></td>
-<td>站点的域名 （例如，”mysite.foo.com”)</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>array</td>
-<td></td>
-<td>站点的一组IAB 内容类型，参考表5.1</td>
-</tr>
-<tr>
-<td>sectioncat</td>
-<td>array</td>
-<td></td>
-<td>描述站点当前部分的一组IAB内容类型，参考表5.1</td>
-</tr>
-<tr>
-<td>pagecat</td>
-<td>array</td>
-<td></td>
-<td>描述站点当前视图的一组IAB内容类型，参考表5.1</td>
-</tr>
-<tr>
-<td>page</td>
-<td>string</td>
-<td></td>
-<td>展示广告将要被展示的页面地址</td>
-</tr>
-<tr>
-<td>ref</td>
-<td>string</td>
-<td></td>
-<td>引导到当前页面的referrer地址</td>
-</tr>
-<tr>
-<td>search</td>
-<td>string</td>
-<td></td>
-<td>引导到当前页面的搜索字符串</td>
-</tr>
-<tr>
-<td>mobile</td>
-<td>integer</td>
-<td></td>
-<td>移动优化标志， 0表示否，1表示是</td>
-</tr>
-<tr>
-<td>privacypolicy</td>
-<td>integer</td>
-<td></td>
-<td>表示该站点是否有隐私策略， 0表示没有， 1表示有</td>
-</tr>
-<tr>
-<td>publisher</td>
-<td>Object</td>
-<td></td>
-<td>Publisher对象， 站点发布者的详细信息</td>
-</tr>
-<tr>
-<td>content</td>
-<td>Object</td>
-<td></td>
-<td>Content对象， 该站点内容的详细信息</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>string</td>
-<td></td>
-<td>逗号分隔的站点的关键字信息</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的App对象"><a href="#BidRequest的App对象" class="headerlink" title="BidRequest的App对象"></a><strong>BidRequest的App对象</strong></h5><p>如果广告载体是非浏览器应用（通常是移动设备）时应该包含该对象， 网站则不需要包含。一个竞价请求一定不能同时包含Site对象和App对象。 提供一个App标识或者bundle是很有用的， 但是不是严格必须的。  </p>
-<h5 id="BidRequest的Publisher对象"><a href="#BidRequest的Publisher对象" class="headerlink" title="BidRequest的Publisher对象"></a><strong>BidRequest的Publisher对象</strong></h5><p>用于描述展示广告的媒体的发布者。通常发布者就是OpenRTB事务中的卖方。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>recommended</td>
-<td>交易特定的发布者标识</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-<td>发布者名称 （可以在展示者请求中作为别名标识）</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>array</td>
-<td>发布者的IAB内容类型数组， 参考表5.1</td>
-<td></td>
-</tr>
-<tr>
-<td>domain</td>
-<td>string</td>
-<td>发布者的顶级域名（例如， “publisher.com” )</td>
-<td></td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Content对象"><a href="#BidRequest的Content对象" class="headerlink" title="BidRequest的Content对象"></a><strong>BidRequest的Content对象</strong></h5><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td></td>
-<td>内容唯一标识</td>
-</tr>
-<tr>
-<td>episode</td>
-<td>integer</td>
-<td></td>
-<td>情节数目（通常用于视频内容）</td>
-</tr>
-<tr>
-<td>title</td>
-<td>string</td>
-<td></td>
-<td>内容标题。 视频示例： “Search Committee”(电视）， ”A New Hope”(电影), “Endgame”(为网络制作） 非视频示例： “Why an Antarctic Glacier is Melting So Quickly”(时报杂志文章）</td>
-</tr>
-<tr>
-<td>series</td>
-<td>string</td>
-<td></td>
-<td>内容系列。 视频示例：“The Office”(电视）， ”Start Wars”(电影,”Arby ‘N’ The Chief”(为网络制作） 非视频示例： “Ecocentric”(时报杂志博客）</td>
-</tr>
-<tr>
-<td>season</td>
-<td>string</td>
-<td></td>
-<td>内容季数， 通常用于视频内容（例如，“第三季”）</td>
-</tr>
-<tr>
-<td>producer</td>
-<td>object</td>
-<td></td>
-<td>内容提供者的详细信息</td>
-</tr>
-<tr>
-<td>url</td>
-<td>string</td>
-<td></td>
-<td>内容的url, 用于买方了解使用的上下文或者审查</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>array</td>
-<td></td>
-<td>内容生产者的IAB内容类型数组， 参考表5.1</td>
-</tr>
-<tr>
-<td>videoquality</td>
-<td>integer</td>
-<td></td>
-<td>视频质量，按照IAB的分类，参考表5.11</td>
-</tr>
-<tr>
-<td>context</td>
-<td>integer</td>
-<td></td>
-<td>内容类型（游戏，视频，文本等）， 参考表5.14</td>
-</tr>
-<tr>
-<td>contentrating</td>
-<td>string</td>
-<td></td>
-<td>内容分级（例如， MPAA美国电影分级制度)</td>
-</tr>
-<tr>
-<td>userrating</td>
-<td>string</td>
-<td></td>
-<td>内容的用户评分（比如，星数，点赞数等）</td>
-</tr>
-<tr>
-<td>qagmediarating</td>
-<td>integer</td>
-<td></td>
-<td>媒体评分，按照QAG规范。参考表5.15</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>string</td>
-<td></td>
-<td>逗号分隔的内容的关键字信息</td>
-</tr>
-<tr>
-<td>livestream</td>
-<td>integer</td>
-<td></td>
-<td>0表示不是实时，1表示实时</td>
-</tr>
-<tr>
-<td>sourcerelationship</td>
-<td>integer</td>
-<td></td>
-<td>0表示间接源， 1表示直接源</td>
-</tr>
-<tr>
-<td>len</td>
-<td>integer</td>
-<td></td>
-<td>内容长度， 用于音频或者视频</td>
-</tr>
-<tr>
-<td>language</td>
-<td>string</td>
-<td></td>
-<td>内容语言， 使用ISO-639-1-alpha-2</td>
-</tr>
-<tr>
-<td>embeddable</td>
-<td>integer</td>
-<td></td>
-<td>表示内容是否可嵌套（例如一个可嵌套的视频播放器）， 0表示不可以， 1表示可以</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Producer对象"><a href="#BidRequest的Producer对象" class="headerlink" title="BidRequest的Producer对象"></a><strong>BidRequest的Producer对象</strong></h5><p>定义内容的提供者， 广告会在这些内容中展示。 当内容会被多个发布者展示时是对于区分发布者和生产者是否是同一实体是有用的。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td></td>
-<td>内容生产者标识， 当内容会被多个发布者展示且可能使用嵌套标签展示在一个站点的时候有用</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-<td>内容提供者名称 （例如， “Warner Bros”）</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>array</td>
-<td></td>
-<td>内容提供者的IAB内容类型数组， 参考表5.1</td>
-</tr>
-<tr>
-<td>domain</td>
-<td>string</td>
-<td></td>
-<td>内容提供者的顶级域名（例如， “producer.com” )</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Device对象"><a href="#BidRequest的Device对象" class="headerlink" title="BidRequest的Device对象"></a><strong>BidRequest的Device对象</strong></h5><p>提供用户使用的设备的详细信息。设备信息包括硬件，平台以及附加信息。设备可以是一部移动手机， 桌面电脑，机顶盒或者其他数码设备。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ua</td>
-<td>string</td>
-<td>recommended</td>
-<td>浏览器User-Agent字符串</td>
-</tr>
-<tr>
-<td>geo</td>
-<td>object</td>
-<td>recommended</td>
-<td>Geo对象，用用户当前位置表示设备位置</td>
-</tr>
-<tr>
-<td>dnt</td>
-<td>integer</td>
-<td>recommended</td>
-<td>浏览器在HTTP头中设置的标准的 “Do Not Track”标识， 0表示不限制追踪， 1表示限制（不允许）追踪</td>
-</tr>
-<tr>
-<td>ip</td>
-<td>string</td>
-<td>recommended</td>
-<td>最接近设备的IPv4地址</td>
-</tr>
-<tr>
-<td>ipv6</td>
-<td>string</td>
-<td></td>
-<td>最接近设备的IPV6地址</td>
-</tr>
-<tr>
-<td>devicetype</td>
-<td>integer</td>
-<td></td>
-<td>设备类型，参考被5.17</td>
-</tr>
-<tr>
-<td>make</td>
-<td>string</td>
-<td></td>
-<td>设备制造商，例如 “Apple”</td>
-</tr>
-<tr>
-<td>model</td>
-<td>string</td>
-<td></td>
-<td>设备型号，例如 “iphone”</td>
-</tr>
-<tr>
-<td>os</td>
-<td>string</td>
-<td></td>
-<td>设备操作系统， 例如 “ios”</td>
-</tr>
-<tr>
-<td>osv</td>
-<td>string</td>
-<td></td>
-<td>设备操作系统版本号， 例如 “3.1.2”</td>
-</tr>
-<tr>
-<td>hwv</td>
-<td>string</td>
-<td></td>
-<td>设备硬件版本， 例如 “5S”</td>
-</tr>
-<tr>
-<td>h</td>
-<td>integer</td>
-<td></td>
-<td>屏幕的物理高度， 以像素为单位</td>
-</tr>
-<tr>
-<td>w</td>
-<td>integer</td>
-<td></td>
-<td>屏幕的物理宽度，以像素为单位</td>
-</tr>
-<tr>
-<td>ppi</td>
-<td>integer</td>
-<td></td>
-<td>以像素每英寸表示的屏幕尺寸</td>
-</tr>
-<tr>
-<td>pxratio</td>
-<td>float</td>
-<td></td>
-<td>设备物理像素与设备无关像素的比率</td>
-</tr>
-<tr>
-<td>js</td>
-<td>integer</td>
-<td></td>
-<td>支持javascript, 0表示不支持， 1表示支持</td>
-</tr>
-<tr>
-<td>flashver</td>
-<td>string</td>
-<td></td>
-<td>浏览器支持的Flash版本</td>
-</tr>
-<tr>
-<td>language</td>
-<td>string</td>
-<td></td>
-<td>浏览器语言，使用ISO-639-1-alpha-2</td>
-</tr>
-<tr>
-<td>carrier</td>
-<td>string</td>
-<td></td>
-<td>ISP的附带信息（如版本号）。“WIFI”通常在移动设备中表示高带宽。（例如,video freendly vs. cellular).</td>
-</tr>
-<tr>
-<td>connectiontype</td>
-<td>integer</td>
-<td></td>
-<td>网络连接类型， 参考表5.18</td>
-</tr>
-<tr>
-<td>ifa</td>
-<td>string</td>
-<td></td>
-<td>广告主标识， 明文表示</td>
-</tr>
-<tr>
-<td>didsha1</td>
-<td>string</td>
-<td></td>
-<td>硬件设备ID(例如 IMEI),使用SHA1哈希算法</td>
-</tr>
-<tr>
-<td>didmd5</td>
-<td>string</td>
-<td></td>
-<td>硬件设备ID(例如 IMEI),使用md5哈希算法</td>
-</tr>
-<tr>
-<td>dpidsha1</td>
-<td>string</td>
-<td></td>
-<td>设备平台ID(例如 Android ID),使用SHA1哈希算法</td>
-</tr>
-<tr>
-<td>dpidmd5</td>
-<td>string</td>
-<td></td>
-<td>设备平台ID(例如 Android ID),使用md5哈希算法</td>
-</tr>
-<tr>
-<td>macidsha1</td>
-<td>string</td>
-<td></td>
-<td>设备mac地址,使用SHA1哈希算法</td>
-</tr>
-<tr>
-<td>macidmd5</td>
-<td>string</td>
-<td></td>
-<td>设备mac地址,使用md5哈希算法</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<p>最佳实践: 当前没有关于设备生产商，型号，操作系统或其他附加信息的有效的开源列表。 交易平台通常使用商业产品或者其他专有列表来填充这些属性。 在适当的开放标准可用之前， 推荐交易平台向竞拍者发布他们支持的设备生产商， 型号，操作系统以及附加信息。<br>最佳实践: 对于移动设备的IP合理的检测方式不是去直接检测的，通常存在于HTTP 的x-forwarded-for头中， 跳过私有的网络（例如10.x.x.x或者192.x.x.x), 扫描出已知的IP. 当交易平台向竞拍者传递设备的IP地址的时候， 要求交易平台仔细的研究并实现该属性。</p>
-<h5 id="BidRequest的Geo对象"><a href="#BidRequest的Geo对象" class="headerlink" title="BidRequest的Geo对象"></a><strong>BidRequest的Geo对象</strong></h5><p>用于封装一个地理位置信息的多种不同属性。 当作为Device对象的子节点的时候，标识设备的地理位置或者用户当前的地理位置。 当作为User的子节点的时候，标识用户家的位置（也就是说，不必是用户的当前位置）。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>lat</td>
-<td>float</td>
-<td></td>
-<td>纬度信息，取值范围-90.0到+90.0， 负值表示南方</td>
-</tr>
-<tr>
-<td>lon</td>
-<td>float</td>
-<td></td>
-<td>经度信息， 取值返回-180.0到+180.0， 负值表示西方</td>
-</tr>
-<tr>
-<td>type</td>
-<td>integer</td>
-<td></td>
-<td>位置信息的源， 当传递lat/lon的时候推荐填充， 参考表5.16</td>
-</tr>
-<tr>
-<td>country</td>
-<td>string</td>
-<td></td>
-<td>国家码， 使用 ISO-3166-1-alpha-3</td>
-</tr>
-<tr>
-<td>region</td>
-<td>string</td>
-<td></td>
-<td>区域码， 使用ISO-3166-2; 如果美国则使用2字母区域码</td>
-</tr>
-<tr>
-<td>regionfips104</td>
-<td>string</td>
-<td></td>
-<td>国家的区域，使用 FIPS 10-4 表示。 虽然OpenRTB支持这个属性，它已经与2008年被NIST撤销了</td>
-</tr>
-<tr>
-<td>metro</td>
-<td>string</td>
-<td></td>
-<td>谷歌metro code; 与Nielsen DMA相似但不完全相同， 参见附录A</td>
-</tr>
-<tr>
-<td>city</td>
-<td>string</td>
-<td></td>
-<td>城市名，使用联合国贸易与运输位置码， 参见附录A</td>
-</tr>
-<tr>
-<td>zip</td>
-<td>string</td>
-<td></td>
-<td>邮政编码或者邮递区号</td>
-</tr>
-<tr>
-<td>utcoffset</td>
-<td>integer</td>
-<td></td>
-<td>使用UTC加或者减分钟数的方式表示的本地时间</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的User对象"><a href="#BidRequest的User对象" class="headerlink" title="BidRequest的User对象"></a><strong>BidRequest的User对象</strong></h5><p>描述了解或者持有设备的用户的信息（也就是广告的受众）。 用户id是一个exchange artifact, 可能随着屏幕旋转或者其他的隐私策略改变。 尽管如此，用户id必须在足够长的一段时间内保持不变，以为目标用户定向和用户访问频率限制提供合理的服务。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>recommended</td>
-<td>交易特定的用户标识， 推荐id和buyeruid中至少提供一个。</td>
-</tr>
-<tr>
-<td>buyeruid</td>
-<td>string</td>
-<td>recommended</td>
-<td>买方为用户指定的ID，由交易平台为买方映射。推荐id和buyeruid中至少提供一个。</td>
-</tr>
-<tr>
-<td>yob</td>
-<td>integer</td>
-<td></td>
-<td>生日年份，使用4位数字表示</td>
-</tr>
-<tr>
-<td>gender</td>
-<td>strnig</td>
-<td></td>
-<td>性别， M表示男性， F表示女性， O标识其他类型，不填充表示未知</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>string</td>
-<td></td>
-<td>逗号分隔的关键字， 兴趣或者意向列表</td>
-</tr>
-<tr>
-<td>customdata</td>
-<td>string</td>
-<td></td>
-<td>可选特性， 用于传递给竞拍者信息，在交易平台的cookie中设置。字符串必须使用base85编码的 cookie，可以是任意格式。 JSON加密的时候必须包括转义的引号。</td>
-</tr>
-<tr>
-<td>geo</td>
-<td>object</td>
-<td></td>
-<td>Geo对象， 用户家的位置信息。不必是用户的当前位置</td>
-</tr>
-<tr>
-<td>data</td>
-<td>array</td>
-<td></td>
-<td>附加的用户信息， 每个 Data对象表示一个不同的数据源</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Data对象"><a href="#BidRequest的Data对象" class="headerlink" title="BidRequest的Data对象"></a><strong>BidRequest的Data对象</strong></h5><p>Data和Segment对象一起允许指定用户附加信息。数据可能来自多个数据源， 可能来自交易平台自身或者第三方提供的信息， 可以使用id属性区分。 一个竞价请求可以混合来自多个提供者的数据信息。 交易平台应该优先提供正在使用的数据提供者的信息。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td></td>
-<td>交易特定的数据提供者标识</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-<td>交易特定的数据提供者名称</td>
-</tr>
-<tr>
-<td>segment</td>
-<td>array</td>
-<td></td>
-<td>包含数据内容的一组Segment对象</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Segment对象"><a href="#BidRequest的Segment对象" class="headerlink" title="BidRequest的Segment对象"></a><strong>BidRequest的Segment对象</strong></h5><p>数据字段， 描述用户信息数据的键值对。 其父对象Data是某个给定数据提供者的数据字段的集合。交易平台必须优先将字段的名称和值传递给竞拍者。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td></td>
-<td>数据提供者的特定数据段的ID</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-<td>数据提供者的特定数据段的名称</td>
-</tr>
-<tr>
-<td>value</td>
-<td>string</td>
-<td></td>
-<td>表示数据字段值的字符串</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Regs对象"><a href="#BidRequest的Regs对象" class="headerlink" title="BidRequest的Regs对象"></a><strong>BidRequest的Regs对象</strong></h5><p>描述任何适用于该请求的法律，政府或者工业管控条例。 coppa(Children’s Online Privacy Protection Act)标志着是否该请求是否符合美国联邦贸易委员会颁布的美国儿童在线隐私保护法案，详情可参考7.1节。  </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>coppa</td>
-<td>integer</td>
-<td></td>
-<td>标志着该请求是否遵从COPPA法案， 0表示不遵从， 1表示遵从</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Pmp对象"><a href="#BidRequest的Pmp对象" class="headerlink" title="BidRequest的Pmp对象"></a><strong>BidRequest的Pmp对象</strong></h5><p>包含本展示涉及的买卖双方的直接交易相关的私有市场信息。 真实的交易信息使用一组Deal对象表示， 详情可参考7.2节。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>private_auction</td>
-<td>integer</td>
-<td></td>
-<td>标识在Deal对象中指明的席位的竞拍合格标准， 0标识接受所有竞拍， 1标识竞拍受deals属性中描述的规则的限制</td>
-</tr>
-<tr>
-<td>deals</td>
-<td>array</td>
-<td></td>
-<td>一组Deal对象， 用于传输适用于本次展示的交易信息</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
-<h5 id="BidRequest的Deal对象"><a href="#BidRequest的Deal对象" class="headerlink" title="BidRequest的Deal对象"></a><strong>BidRequest的Deal对象</strong></h5><p>描述限制买卖双方之间交易的一些条款。 它在Pmp集合中的出现表示该展示符合交易描述的条款。详情参考7.2节。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>类型</th>
-<th>必要性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>required</td>
-<td>直接交易的唯一ID</td>
-</tr>
-<tr>
-<td>bidfloor</td>
-<td>float</td>
-<td></td>
-<td>default 0    本次展示的最低竞价，以CPM为单位</td>
-</tr>
-<tr>
-<td>bidfloorcur</td>
-<td>string</td>
-<td></td>
-<td>default ‘USD’    使用ISO-4217码表指定的货币。 如果交易平台允许，这可能与竞价者返回的竞价货币类型不一致</td>
-</tr>
-<tr>
-<td>at</td>
-<td>integer</td>
-<td></td>
-<td>可选的覆盖竞价请求中的竞拍类型， 1表示第一价格竞拍，2标识第二价格竞拍， 3表示使用bidfloor可以作为交易价格</td>
-</tr>
-<tr>
-<td>wseat</td>
-<td>array</td>
-<td></td>
-<td>允许参与本次交易竞价的买方席位白名单。 席位ID需要交易平台和竞拍者提前协商， 忽略本属性标示没有席位限制</td>
-</tr>
-<tr>
-<td>wadomain</td>
-<td>array</td>
-<td></td>
-<td>允许参与本次交易竞价的广告主域名列表（例如， advertiser.com). 忽略本属性标示没有广告主限制。</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>object</td>
-<td></td>
-<td>特定交易的OpenRTB协议的扩展信息占位符</td>
-</tr>
-</tbody></table>
+<h2 id="Runtime是何物"><a href="#Runtime是何物" class="headerlink" title="Runtime是何物"></a><strong>Runtime是何物</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objective-C 是一个动态语言，这意味着它不仅需要一个编译器，也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。理解 Objective-C 的 Runtime 机制可以帮我们更好的了解这个语言，适当的时候还能对语言进行扩展，从系统层面解决项目中的一些设计或技术问题。</span><br></pre></td></tr></table></figure>
+<p>简而言之，<strong>OC的最底层是C语言来实现的，在OC和C语言之间，苹果用C语言和汇编架构出了一层转换层，这个转换层的核心就是Runtime</strong>。  </p>
+<h2 id="Runtime中的结构体"><a href="#Runtime中的结构体" class="headerlink" title="Runtime中的结构体"></a><strong>Runtime中的结构体</strong></h2><p>Runtime中有两个的结构体需要点一下，一个是Category结构体，一个是类结构体</p>
+<h3 id="Categoty结构体"><a href="#Categoty结构体" class="headerlink" title="Categoty结构体"></a><strong>Categoty结构体</strong></h3><p>Category结构体代码如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">category_t</span> &#123;</span> </span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name; </span><br><span class="line">    <span class="keyword">classref_t</span> cls; </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">instanceMethods</span>;</span> </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">classMethods</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">protocol_list_t</span> *<span class="title">protocols</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *<span class="title">instanceProperties</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>name</strong>：是指 class_name 而不是 category_name。<br><strong>cls</strong>：要扩展的类对象，编译期间是不会定义的，而是在Runtime阶段通过name对 应到对应的类对象。<br><strong>instanceMethods</strong>：category中所有给类添加的实例方法的列表。<br><strong>classMethods</strong>：category中所有添加的类方法的列表。<br><strong>protocols</strong>：category实现的所有协议的列表。<br><strong>instanceProperties</strong>：表示Category里所有的properties，这就是我们可以通过objc_setAssociatedObject和objc_getAssociatedObject增加实例变量的原因，不过这个和一般的实例变量是不一样的。<br>从上面的的结构体中可以看出，<strong>分类中可以添加实例方法，类方法，甚至可以实现协议，添加属性，不可以添加成员变量</strong>。</p>
+<h3 id="类结构体"><a href="#类结构体" class="headerlink" title="类结构体"></a><strong>类结构体</strong></h3><p>类结构的代码如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//类</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">objc_class</span> &#123;</span></span><br><span class="line">    Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> !__OBJC2__</span></span><br><span class="line">    Class super_class                                        OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name                                         OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">objc_ivar_list</span> *<span class="title">ivars</span>                             <span class="title">OBJC2_UNAVAILABLE</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">objc_method_list</span> **<span class="title">methodLists</span>                    <span class="title">OBJC2_UNAVAILABLE</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">objc_cache</span> *<span class="title">cache</span>                                 <span class="title">OBJC2_UNAVAILABLE</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">objc_protocol_list</span> *<span class="title">protocols</span>                     <span class="title">OBJC2_UNAVAILABLE</span>;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="comment">//方法列表</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">objc_method_list</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">objc_method_list</span> *<span class="title">obsolete</span>                        <span class="title">OBJC2_UNAVAILABLE</span>;</span></span><br><span class="line">    <span class="keyword">int</span> method_count                                         OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __LP64__</span></span><br><span class="line">    <span class="keyword">int</span> space                                                OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">/* variable length structure */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">objc_method</span> <span class="title">method_list</span>[1]                        <span class="title">OBJC2_UNAVAILABLE</span>;</span></span><br><span class="line">&#125;                                                            OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="comment">//方法</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">objc_method</span> &#123;</span></span><br><span class="line">    SEL method_name                                          OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">char</span> *method_types                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    IMP method_imp                                           OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面的代码可以看出，一个类结构体包含以下几个部分:<br>1 <strong>isa</strong> 指向他的meta class<br>2 <strong>super_class</strong> 指向这个实例的父类实例<br>3 <strong>name</strong> 存储类的类名<br>4 <strong>instace_size</strong> 实例对象的内存大小<br>5 <strong>ivars</strong> 属性信息列表<br>6 <strong>methodLists</strong> 方法信息列表<br>7 <strong>cache</strong> 缓存信息列表<br>8 <strong>protocols</strong> 代理信息列表<br>9 <strong>version</strong><br>10 <strong>info</strong>  </p>
+<h2 id="元类"><a href="#元类" class="headerlink" title="元类"></a><strong>元类</strong></h2><p>元类(Meta Class)是一个类对象的类。所有的类自身也是一个对象，我们可以向这个对象发送消息(即调用类方法)。<br>为了调用类方法，这个类的isa指针必须指向一个包含这些类方法的一个objc_class结构体。这就引出了meta-class的概念，元类中保存了创建类对象以及类方法所需的所有信息。我们看下图：</p>
+<div align=center>
+<img src="/img/runtime_pic1.png"/>
+</div>
+
+<h2 id="iOS的消息发送处理流程"><a href="#iOS的消息发送处理流程" class="headerlink" title="iOS的消息发送处理流程"></a><strong>iOS的消息发送处理流程</strong></h2><p>假设，现在我们创建了一个Person对象，向这个对象的work方法发送消息，那么这个时候系统是一个怎样的处理流程呢？<br>1 系统首先找到Person对象，然后通过对象的isa，找到他的类<br>2 在他的类中查找cache，是否有work方法<br>3 没有找到则查找methodLists。<br>4 再没有则查找super_class的cache、methodLists<br>5 再没有则继续查找该类的super_class的cache、methodLists…<br>6 找到对应的method，执行它的IMP<br>7 转发IMP的return值<br>8 如果最终也没有找到对应的method，那么执行doesNotRecognizeSelector:方法报unrecognized selector Exception</p>
+<h2 id="在没找到方法和报unrecognized-selector-Exception之间，系统做了什么？"><a href="#在没找到方法和报unrecognized-selector-Exception之间，系统做了什么？" class="headerlink" title="在没找到方法和报unrecognized selector Exception之间，系统做了什么？"></a><strong>在没找到方法和报unrecognized selector Exception之间，系统做了什么？</strong></h2><p>上一个问题前5步执行完毕之后，到最后抛出Exception之间系统提供给我们三次挽救的机会</p>
+<div align=center>
+<img src="/img/runtime_pic2.png"/>
+</div>
+
+
+<h3 id="1-动态方法解析"><a href="#1-动态方法解析" class="headerlink" title="1 动态方法解析"></a><strong>1 动态方法解析</strong></h3><p>如上图，在找不到方法后，首先OC会调用 +resolveInstanceMethod:或者 +resolveClassMethod:，让你有机会提供一个函数实现。如果你添加了函数并返回YES， 那运行时系统就会重新启动一次消息发送的过程。可以在这里通过Runtime的class_addMethod方法动态添加一个方法以供调用。<br>示例代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    <span class="comment">//执行fool函数</span></span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(fool:)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line">    <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(fool:)) &#123;<span class="comment">//如果是执行fool函数，就动态解析，指定新的IMP</span></span><br><span class="line">        class_addMethod([<span class="keyword">self</span> <span class="keyword">class</span>], sel, (IMP)foolMethod, <span class="string">&quot;v@:&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> foolMethod(<span class="keyword">id</span> obj, SEL _cmd) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;Doing fool&quot;</span>);<span class="comment">//新的fool函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果resolveInstanceMethod方法返回 YES ，运行时就会移到下一步：</p>
+<h3 id="备用接收者"><a href="#备用接收者" class="headerlink" title="备用接收者"></a><strong>备用接收者</strong></h3><p>如果目标对象实现了-forwardingTargetForSelector:，Runtime 这时就会调用这个方法，给你把这个消息转发给其他对象的机会。<br>代码示例：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;<span class="comment">//返回YES，进入下一步转发</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)forwardingTargetForSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">if</span> (aSelector == <span class="keyword">@selector</span>(foo)) &#123;</span><br><span class="line">        <span class="keyword">return</span> [Person new];<span class="comment">//返回Person对象，让Person对象接收这个消息</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> forwardingTargetForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整消息转发"><a href="#完整消息转发" class="headerlink" title="完整消息转发"></a><strong>完整消息转发</strong></h3><p>如果在上一步还不能处理未知消息，则唯一能做的就是启用完整的消息转发机制了。<br>首先它会发送-methodSignatureForSelector:消息获得函数的参数和返回值类型。如果-methodSignatureForSelector:返回nil ，Runtime则会发出 -doesNotRecognizeSelector: 消息，程序这时也就挂掉了。如果返回了一个函数签名，Runtime就会创建一个NSInvocation 对象并发送 -forwardInvocation:消息给目标对象,可以在这个方法里面对消息进行最后的拯救。<br>代码示例：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;<span class="comment">//返回YES，进入下一步转发</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)forwardingTargetForSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;<span class="comment">//返回nil，进入下一步转发</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="built_in">NSStringFromSelector</span>(aSelector) isEqualToString:<span class="string">@&quot;fool&quot;</span>]) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSMethodSignature</span> signatureWithObjCTypes:<span class="string">&quot;v@:&quot;</span>];<span class="comment">//签名，进入forwardInvocation</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> methodSignatureForSelector:aSelector];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)anInvocation &#123;</span><br><span class="line">    SEL sel = anInvocation.selector;</span><br><span class="line">    Person *p = [Person new];</span><br><span class="line">    <span class="keyword">if</span>([p respondsToSelector:sel]) &#123;</span><br><span class="line">        [anInvocation invokeWithTarget:p];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self</span> doesNotRecognizeSelector:sel];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Runtime的常用方法"><a href="#Runtime的常用方法" class="headerlink" title="Runtime的常用方法"></a><strong>Runtime的常用方法</strong></h2><h3 id="获取类名-class-getName-Class"><a href="#获取类名-class-getName-Class" class="headerlink" title="获取类名 class_getName(Class)"></a><strong>获取类名 class_getName(Class)</strong></h3><p>class_getName()函数返回的是一个char类型的指针，也就是C语言的字符串类型，所以我们要将其转换成NSString类型，然后再返回出去。</p>
+<h3 id="获取成员变量"><a href="#获取成员变量" class="headerlink" title="获取成员变量"></a><strong>获取成员变量</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class_copyIvarList(class, &amp;count) 获取成员变量列表</span><br><span class="line">ivar_getTypeEncoding() 获取成员变量类型</span><br><span class="line">ivar_getName() 获取成员变量名字</span><br></pre></td></tr></table></figure>
+<p>在OC中的给类添加成员属性其实就是添加了一个成员变量和getter以及setter方法。所以获取的成员列表中肯定带有成员属性，不过成员属性的名称前方添加了下划线来与成员变量进行区分。我们也可以获取成员变量的类型，下方的_var1是NSInteger类型，动态获取到的是q字母，其实是NSInteger的符号。而i就表示int类型，c表示Bool类型，d表示double类型，f则就表示float类型。当然这些基本类型都是由一个字母代替的，如果是引用类型的话，则直接就是一个字符串了，比如NSArray类型就是”@NSArray”。<br>当然， 获取成员属性也有一个专有的方法： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class_copyPropertyList(class,&amp;count)</span><br></pre></td></tr></table></figure>
+<h3 id="获取类的实例方法"><a href="#获取类的实例方法" class="headerlink" title="获取类的实例方法"></a><strong>获取类的实例方法</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class_copyMethodList(class,&amp;count) 获取方法列表</span><br><span class="line">method_getName() 获取方法名字</span><br><span class="line">method_getImplementation() 获取方法实现</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取协议"><a href="#获取协议" class="headerlink" title="获取协议"></a><strong>获取协议</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class_copyProtocolList() 获取协议列表</span><br><span class="line">protocol_getName() 获取协议名字</span><br><span class="line">protocol_getImplementation() 获取协议实现</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态添加方法"><a href="#动态添加方法" class="headerlink" title="动态添加方法"></a><strong>动态添加方法</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class_addMethod(Class, SEL, IMP, <span class="keyword">const</span> <span class="keyword">char</span> *);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div align=center>
+<img src="/img/runtime_pic3.png"/>
+</div>
+
+<h3 id="方法实现交换"><a href="#方法实现交换" class="headerlink" title="方法实现交换"></a><strong>方法实现交换</strong></h3><div align=center>
+<img src="/img/runtime_pic4.png"/>
+</div>
+
+<h2 id="Runtime的使用场景"><a href="#Runtime的使用场景" class="headerlink" title="Runtime的使用场景"></a><strong>Runtime的使用场景</strong></h2><p>知道了Runtime的方法API，那么他的使用场景就可以开始自由发挥了。这里列举几个：<br>1 实现字典和模型的自动转换(MJExtension)<br>2 关联对象(Objective-C Associated Objects)给分类增加属性<br>3 KVO实现<br>4 实现NSCoding的自动归档和自动解档<br>5 页面路径的收集</p>
+<h2 id="关联对象"><a href="#关联对象" class="headerlink" title="关联对象"></a><strong>关联对象</strong></h2><p><strong>什么是关联对象？</strong></p>
+<p>关联对象是指给某个OC对象通过一个唯一的key将另一个类的实例关联到自身上，那另一个类的实例就是这个类的关联对象。当然一个类可以有多个关联对象。<br>举个例子，关联对象就像是你放风筝时手中牵的风筝，自然，也是可以同时牵多只风筝的。</p>
+<p><strong>关联对象主要操作API</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//关联对象</span></span><br><span class="line"><span class="keyword">void</span> objc_setAssociatedObject(<span class="keyword">id</span> object, <span class="keyword">const</span> <span class="keyword">void</span> *key, <span class="keyword">id</span> value, objc_AssociationPolicy policy)</span><br><span class="line"><span class="comment">//获取关联的对象</span></span><br><span class="line"><span class="keyword">id</span> objc_getAssociatedObject(<span class="keyword">id</span> object, <span class="keyword">const</span> <span class="keyword">void</span> *key)</span><br><span class="line"><span class="comment">//移除关联的对象</span></span><br><span class="line"><span class="keyword">void</span> objc_removeAssociatedObjects(<span class="keyword">id</span> object)</span><br></pre></td></tr></table></figure>
+
+<p>还是看代码比较容易理解，一段示例代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSObject</span> *)property &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(property));</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)setProperty:(<span class="built_in">NSObject</span> *)value &#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(property), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来解释一下上面的代码，<br>objc_setAssociatedObject的意思就是 给当前这个类（self）添加一个 叫value的关联属性，而且属性的唯一Id叫 @selector(property)。关联策略是 retain_nonatomic<br>然后objc_getAssociatedObject 是根据唯一的key也就是@selector(property)来获取objc_setAssociatedObject 设置的东西，也就是value。<br>这样做就是给当前类，也就是self添加了一个属性了，这个类可以是系统类，也可以是自定义的类，当然也可以是分类，这段代码就是面试题如何给一个分类添加属性的答案。<br>上面提到的关联策略，是指该对象释放后对它的关联对象的内存管理策略，是个枚举。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> &#123;</span><br><span class="line">    OBJC_ASSOCIATION_ASSIGN = <span class="number">0</span>,</span><br><span class="line">    OBJC_ASSOCIATION_RETAIN_NONATOMIC = <span class="number">1</span>, </span><br><span class="line">    OBJC_ASSOCIATION_COPY_NONATOMIC = <span class="number">3</span>,</span><br><span class="line">    OBJC_ASSOCIATION_RETAIN = <span class="number">01401</span>,</span><br><span class="line">    OBJC_ASSOCIATION_COPY = <span class="number">01403</span> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>关于Category的一个问题</p>
+<h2 id="关于Category的重名方法调用顺序的几个问题"><a href="#关于Category的重名方法调用顺序的几个问题" class="headerlink" title="关于Category的重名方法调用顺序的几个问题"></a><strong>关于Category的重名方法调用顺序的几个问题</strong></h2><p>最近和人聊起过一个问题，就是关于Category方面的处理。<br>1 如果在Category中写了一个和原类中名字一样的方法，在调用这个方法的时候会调用Category的方法，而不调用原类的方法，这是为什么呢？<br>乍一看，像是方法名覆盖，其实不然，在Runtime层的处理方式是将Catogory的方法添加到methodLists里面，但是在查找的时候，会优先从后向前查找，在找到Category中的那个方法后就执行后续流程了，原类里的那个同名方法就没有执行的机会了<br>2 如果有多个Category都实现了和原类同一个方法名字一样的方法，也都引入了，这个时候，如果调用这个方法，会是哪一个有效呢？<br>关于这个问题，在load的时候，就把分类加载上来，加载到类的class_rw_t中，会遍历加载，当判断有分类要加载的时候，用了内存级别的操作，memmove和memcopy，。在调用的时候，还是会优先从后向前查找，既然是这样，那么就是由XCode工程的配置文件[Build Phases] - [Complie Sources]中的顺序决定的，顺序靠后的那个会生效。</p>
 
       
 
@@ -1513,15 +277,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实时竞价</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS基本功</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">商业化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">广告</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Runtime</a>
         		</li>
       		
 		</ul>
@@ -1577,7 +337,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2021/08/28/OpenRTB_page_1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2019/07/21/oc-runtime-fa/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -1591,20 +351,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/29/OpenRTB_page_2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/02/oc-base/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          OpenRTB详解（二）
+          iOS面试题-OC基础语法
         
       </div>
     </a>
   
-  
-    <a href="/2021/08/15/OpenRTB_page_0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">实时竞价RTB</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
