@@ -6,10 +6,10 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>iOS基本功-Runtime专题 | 齐小胖之家</title>
+  <title>iOS基本功-Runtime基础知识 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="iOS基本功-Runtime专题">
+<meta property="og:title" content="iOS基本功-Runtime基础知识">
 <meta property="og:url" content="http://www.coderqi.com/2019/07/21/oc-runtime-fa/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://www.coderqi.com/img/runtime_pic3.png">
 <meta property="og:image" content="http://www.coderqi.com/img/runtime_pic4.png">
 <meta property="article:published_time" content="2019-07-21T07:46:49.000Z">
-<meta property="article:modified_time" content="2022-01-08T07:52:45.999Z">
+<meta property="article:modified_time" content="2022-01-08T10:52:02.636Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="iOS基本功">
 <meta property="article:tag" content="Runtime">
@@ -153,7 +153,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS基本功-Runtime专题
+      iOS基本功-Runtime基础知识
     </h1>
   
 
@@ -172,8 +172,12 @@
 
 <span id="more"></span>
 
-<h2 id="Runtime是何物"><a href="#Runtime是何物" class="headerlink" title="Runtime是何物"></a><strong>Runtime是何物</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objective-C 是一个动态语言，这意味着它不仅需要一个编译器，也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。理解 Objective-C 的 Runtime 机制可以帮我们更好的了解这个语言，适当的时候还能对语言进行扩展，从系统层面解决项目中的一些设计或技术问题。</span><br></pre></td></tr></table></figure>
+<h2 id="Runtime是何物"><a href="#Runtime是何物" class="headerlink" title="Runtime是何物"></a><strong>Runtime是何物</strong></h2><blockquote>
+<p>Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。</p>
+</blockquote>
+<blockquote>
+<p>Objective-C 是一个动态语言，这意味着它不仅需要一个编译器，也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。理解 Objective-C 的 Runtime 机制可以帮我们更好的了解这个语言，适当的时候还能对语言进行扩展，从系统层面解决项目中的一些设计或技术问题。</p>
+</blockquote>
 <p>简而言之，<strong>OC的最底层是C语言来实现的，在OC和C语言之间，苹果用C语言和汇编架构出了一层转换层，这个转换层的核心就是Runtime</strong>。  </p>
 <h2 id="Runtime中的结构体"><a href="#Runtime中的结构体" class="headerlink" title="Runtime中的结构体"></a><strong>Runtime中的结构体</strong></h2><p>Runtime中有两个的结构体需要点一下，一个是Category结构体，一个是类结构体</p>
 <h3 id="Categoty结构体"><a href="#Categoty结构体" class="headerlink" title="Categoty结构体"></a><strong>Categoty结构体</strong></h3><p>Category结构体代码如下</p>
@@ -231,8 +235,7 @@
 <p>来解释一下上面的代码，<br>objc_setAssociatedObject的意思就是 给当前这个类（self）添加一个 叫value的关联属性，而且属性的唯一Id叫 @selector(property)。关联策略是 retain_nonatomic<br>然后objc_getAssociatedObject 是根据唯一的key也就是@selector(property)来获取objc_setAssociatedObject 设置的东西，也就是value。<br>这样做就是给当前类，也就是self添加了一个属性了，这个类可以是系统类，也可以是自定义的类，当然也可以是分类，这段代码就是面试题如何给一个分类添加属性的答案。<br>上面提到的关联策略，是指该对象释放后对它的关联对象的内存管理策略，是个枚举。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> &#123;</span><br><span class="line">    OBJC_ASSOCIATION_ASSIGN = <span class="number">0</span>,</span><br><span class="line">    OBJC_ASSOCIATION_RETAIN_NONATOMIC = <span class="number">1</span>, </span><br><span class="line">    OBJC_ASSOCIATION_COPY_NONATOMIC = <span class="number">3</span>,</span><br><span class="line">    OBJC_ASSOCIATION_RETAIN = <span class="number">01401</span>,</span><br><span class="line">    OBJC_ASSOCIATION_COPY = <span class="number">01403</span> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>关于Category的一个问题</p>
-<h2 id="关于Category的重名方法调用顺序的几个问题"><a href="#关于Category的重名方法调用顺序的几个问题" class="headerlink" title="关于Category的重名方法调用顺序的几个问题"></a><strong>关于Category的重名方法调用顺序的几个问题</strong></h2><p>最近和人聊起过一个问题，就是关于Category方面的处理。<br>1 如果在Category中写了一个和原类中名字一样的方法，在调用这个方法的时候会调用Category的方法，而不调用原类的方法，这是为什么呢？<br>乍一看，像是方法名覆盖，其实不然，在Runtime层的处理方式是将Catogory的方法添加到methodLists里面，但是在查找的时候，会优先从后向前查找，在找到Category中的那个方法后就执行后续流程了，原类里的那个同名方法就没有执行的机会了<br>2 如果有多个Category都实现了和原类同一个方法名字一样的方法，也都引入了，这个时候，如果调用这个方法，会是哪一个有效呢？<br>关于这个问题，在load的时候，就把分类加载上来，加载到类的class_rw_t中，会遍历加载，当判断有分类要加载的时候，用了内存级别的操作，memmove和memcopy，。在调用的时候，还是会优先从后向前查找，既然是这样，那么就是由XCode工程的配置文件[Build Phases] - [Complie Sources]中的顺序决定的，顺序靠后的那个会生效。</p>
+<h2 id="关于Category的重名方法调用顺序的几个问题"><a href="#关于Category的重名方法调用顺序的几个问题" class="headerlink" title="关于Category的重名方法调用顺序的几个问题"></a><strong>关于Category的重名方法调用顺序的几个问题</strong></h2><p>最近和人聊起过一个问题，就是关于Category方面的处理。<br>1 如果在Category中写了一个和原类中名字一样的方法，在调用这个方法的时候会调用Category的方法，而不调用原类的方法，这是为什么呢？<br>乍一看，像是方法名覆盖，其实不然，在Runtime层的处理方式是将Catogory的方法添加到methodLists里面，在添加的时候是倒序的添加的，查找的时候是从上往下查找的，一旦找到Category中的那个方法后就执行后续流程了，原类里的那个同名方法就没有执行的机会了<br>2 如果有多个Category都实现了和原类同一个方法名字一样的方法，也都引入了，这个时候，如果调用这个方法，会是哪一个有效呢？<br>关于这个问题，在load的时候，就把分类加载上来，加载到类的class_rw_t中，会遍历加载，当判断有分类要加载的时候，用了内存级别的操作，memmove和memcopy，。依旧是倒序添加，从上往下查找，既然是这样，那么就是由XCode工程的配置文件[Build Phases] - [Complie Sources]中的顺序决定的，顺序靠后的那个会生效。</p>
 
       
 
@@ -500,6 +503,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Runtime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">

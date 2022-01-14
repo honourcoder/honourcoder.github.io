@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>Tag: iOS面试题 | 齐小胖之家</title>
+  <title>iOS面试题-Runtime | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="齐小胖之家">
-<meta property="og:url" content="http://www.coderqi.com/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="iOS面试题-Runtime">
+<meta property="og:url" content="http://www.coderqi.com/2020/02/04/oc-runtime-interview/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime基础知识/Runtime_logo.png">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime面试题/runtime_p2.png">
+<meta property="og:image" content="http://www.coderqi.com/img/runtime面试题/runtime_p1.png">
+<meta property="article:published_time" content="2020-02-04T07:46:49.000Z">
+<meta property="article:modified_time" content="2022-01-08T11:06:19.624Z">
 <meta property="article:author" content="CoderQi">
+<meta property="article:tag" content="iOS基本功">
+<meta property="article:tag" content="Runtime">
+<meta property="article:tag" content="iOS面试题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.coderqi.com/img/runtime基础知识/Runtime_logo.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -136,78 +145,110 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-oc-runtime-interview" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/10/async-thread-01/" class="archive-article-date">
-  	<time datetime="2020-02-10T03:24:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/async-thread-01/">iOS面试题-多线程</a>
+    <h1 class="article-title" itemprop="name">
+      iOS面试题-Runtime
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS面试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/04/oc-runtime-interview/" class="archive-article-date">
+        
+        <a href="/2020/02/04/oc-runtime-interview/" class="archive-article-date">
   	<time datetime="2020-02-04T07:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/04/oc-runtime-interview/">iOS面试题-Runtime</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div align=center>
+<img src="/img/runtime基础知识/Runtime_logo.png"/>
+</div>
 
-        <div class="article-info info-on-right">
-          
+<span id="more"></span>
+
+<h2 id="objc实例对象的isa指针指向什么？有什么作用？"><a href="#objc实例对象的isa指针指向什么？有什么作用？" class="headerlink" title="objc实例对象的isa指针指向什么？有什么作用？"></a><strong>objc实例对象的isa指针指向什么？有什么作用？</strong></h2><p>实例对象的isa指向他的类对象，实例对象可以从他的类对象上找到实例对象所包含的实例方法、属性、代理等信息。<br>类对象的isa指向他的元类对象，类对象可以从元类对象中找到类对象所包含的类方法等信息。</p>
+<h2 id="一个-NSObject-对象占用多少内存空间"><a href="#一个-NSObject-对象占用多少内存空间" class="headerlink" title="一个 NSObject 对象占用多少内存空间"></a><strong>一个 NSObject 对象占用多少内存空间</strong></h2><p>在XCode中创建一个NSObject对象，按住Command查看NSObject的定义的时候，就会发现，一个NSObject对象的大小就是一个isa指针的大小。一个isa的指针应该是8字节，但是实际使用malloc_size()去验证的时候却都是16字节。这是因为，对象在分配内存空间的时候，会进行内存对齐，在iOS中，分配的内存空间都是16字节的整数倍，所以这里是分配的16字节。</p>
+<h2 id="说一下对-class-rw-t-的理解"><a href="#说一下对-class-rw-t-的理解" class="headerlink" title="说一下对 class_rw_t 的理解?"></a><strong>说一下对 class_rw_t 的理解?</strong></h2><p>rw 代表可读可写。<br>ObjC 类中的属性、方法还有遵循的协议等信息都保存在 class_rw_t 中</p>
+<h2 id="说一下对-class-ro-t-的理解"><a href="#说一下对-class-ro-t-的理解" class="headerlink" title="说一下对 class_ro_t 的理解?"></a><strong>说一下对 class_ro_t 的理解?</strong></h2><p>存储了当前类在编译期就已经确定的属性、方法以及遵循的协议。</p>
+<h2 id="说一下对-isa-指针的理解"><a href="#说一下对-isa-指针的理解" class="headerlink" title="说一下对 isa 指针的理解"></a><strong>说一下对 isa 指针的理解</strong></h2><p><strong>isa 可以简单的用一句话来代替，&lt;是一种&gt;</strong><br>1 实例对象 isa 指向类对象<br>2 类对象指 isa 向元类对象<br>3 元类对象的 isa 指向元类的基类<br><strong>isa 有两种类型</strong><br>1 纯指针，指向内存地址<br>2 NON_POINTER_ISA，除了内存地址，还存有一些其他信息</p>
+<div align=center>
+<img src="/img/runtime面试题/runtime_p2.png"/>
+</div>
+<div align=center>
+<img src="/img/runtime面试题/runtime_p1.png"/>
+</div>
+
+<p>从上面的代码可以看出，isa_t对象除了包含内存地址还包含了一些扩展信息</p>
+<h2 id="说一下-Runtime-的方法缓存-存储的形式、数据结构以及查找的过程"><a href="#说一下-Runtime-的方法缓存-存储的形式、数据结构以及查找的过程" class="headerlink" title="说一下 Runtime 的方法缓存?存储的形式、数据结构以及查找的过程?"></a><strong>说一下 Runtime 的方法缓存?存储的形式、数据结构以及查找的过程?</strong></h2><p>cache_t 增量扩展的哈希表结构。哈希表内部存储的 bucket_t。<br>bucket_t 中存储的是 SEL 和 IMP 的键值对。</p>
+<h2 id="使用runtime-Associate方法关联的对象，需要在主对象dealloc的时候释放么"><a href="#使用runtime-Associate方法关联的对象，需要在主对象dealloc的时候释放么" class="headerlink" title="使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么?"></a><strong>使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么?</strong></h2><p>无论在MRC下还是ARC下均不需要，被关联的对象在生命周期内要比对象本身释放的晚很多，它们会在被NSObject的dealloc调用的object_dispose()方法中释放。</p>
+<h2 id="实例对象的数据结构"><a href="#实例对象的数据结构" class="headerlink" title="实例对象的数据结构?"></a><strong>实例对象的数据结构?</strong></h2><p>NSObject在Runtime中只有isa一个私有属性，指向类对象的内存地址，剩下的全是public方法</p>
+<h2 id="什么是method-swizzling"><a href="#什么是method-swizzling" class="headerlink" title="什么是method swizzling"></a><strong>什么是method swizzling</strong></h2><p>OC中的函数调用机制叫消息发送机制，是向一个对象的方法发送消息，去调用这个方法，而查找这个方法的唯一依据就是selector的名字，根据selector找到对应的方法实现（IMP），对其调用。而Runtime提供了一种可能，就是修改selector和IMP的对应关系，从而实现方法调用的交换。<br>这种改变对应关系的API有三个：<br>1 method_exchangeImplementations 直接交换两个方法的实现<br>2 class_replaceMethod 替换方法的实现<br>3 method_setImplementation 直接设置某个方法的IMP</p>
+<h2 id="能否向编译后得到的类中增加实例变量-能否向运行时创建的类中添加实例变量-为什么"><a href="#能否向编译后得到的类中增加实例变量-能否向运行时创建的类中添加实例变量-为什么" class="headerlink" title="能否向编译后得到的类中增加实例变量?能否向运行时创建的类中添加实例变量? 为什么?"></a><strong>能否向编译后得到的类中增加实例变量?能否向运行时创建的类中添加实例变量? 为什么?</strong></h2><p>不能向编译后得到的类中增加实例变量;<br>能向运行时创建的类中添加实例变量;<br>1.因为编译后的类已经注册在runtime中,类结构体中的objc_ivar_list实例变量的链表和instance_size实例变量的内存大小已经确定，同时runtime会调用 class_setVarLayout或class_setWeakIvarLayout来处理strong和weak引用.所以不能向存在的类中添加实例变量。<br>2.运行时创建的类是可以添加实例变量，调用 class_addIvar 函数. 但是的在调用 objc_allocateClassPair 之后，objc_registerClassPair 之前,原因同上.</p>
+<h2 id="类对象的数据结构"><a href="#类对象的数据结构" class="headerlink" title="类对象的数据结构?"></a><strong>类对象的数据结构?</strong></h2><p>类对象就是 objc_class。<br>它的结构相对丰富一些。继承自 objc_object 结构体，所以包含 isa 指针   <strong>isa</strong>:指向元类<br><strong>superClass</strong>: 指向父类<br><strong>Cache</strong>: 方法的缓存列表<br><strong>data</strong>: 顾名思义，就是数据。是一个被封装好的 class_rw_t 。</p>
+<h2 id="runtime-如何通过-selector-找到对应的-IMP-地址"><a href="#runtime-如何通过-selector-找到对应的-IMP-地址" class="headerlink" title="runtime 如何通过 selector 找到对应的 IMP 地址?"></a><strong>runtime 如何通过 selector 找到对应的 IMP 地址?</strong></h2><p>每一个类对象中都一个方法列表,方法列表中记录着方法的名称,方法实现,以及参数类型,其实 selector 本质 就是方法名称,通过这个方法名称就可以在方法列表中找到对应的方法实现.</p>
+<h2 id="runtime-如何实现-weak-变量的自动置-nil-知道-SideTable-吗"><a href="#runtime-如何实现-weak-变量的自动置-nil-知道-SideTable-吗" class="headerlink" title="runtime 如何实现 weak 变量的自动置 nil?知道 SideTable 吗?"></a><strong>runtime 如何实现 weak 变量的自动置 nil?知道 SideTable 吗?</strong></h2><p>runtime 对注册的类会进行布局，对于 weak 修饰的对象会放入一个 hash 表中。 用 weak 指向的对象内 存地址作为 key，当此对象的引用计数为 0 的时候会 dealloc，假如 weak 指向的对象内存地址是 a，那么就 会以 a 为键， 在这个 weak 表中搜索，找到所有以 a 为键的 weak 对象，从而设置为 nil。</p>
+<p>SideTable 这个结构体，我给他起名引用计数和弱引用依赖表，因为它主要用于管理对象的引用计数和 weak 表。在 NSObject.mm 中声明其数据结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SideTable</span> &#123;</span></span><br><span class="line"><span class="comment">// 保证原子操作的自旋锁</span></span><br><span class="line">    <span class="keyword">spinlock_t</span> slock;</span><br><span class="line">    <span class="comment">// 引用计数的 hash 表</span></span><br><span class="line">    RefcountMap refcnts;</span><br><span class="line">    <span class="comment">// weak 引用全局 hash 表</span></span><br><span class="line">    <span class="keyword">weak_table_t</span> weak_table;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于 slock 和 refcnts 两个成员不用多说，第一个是为了防止竞争选择的自旋锁，第二个是协助对象的 isa 指针的 extra_rc 共同引用计数的变量（对于对象结果，在今后的文中提到）。这里主要看 weak 全局 hash 表的结构与作用。</p>
+<h2 id="当weak引用指向的对象被释放时，又是如何去处理weak指针的呢"><a href="#当weak引用指向的对象被释放时，又是如何去处理weak指针的呢" class="headerlink" title="当weak引用指向的对象被释放时，又是如何去处理weak指针的呢?"></a><strong>当weak引用指向的对象被释放时，又是如何去处理weak指针的呢?</strong></h2><p>当释放对象时，其基本流程如下:<br>1.调用 objc_release<br>2.因为对象的引用计数为0，所以执行 dealloc<br>3.在dealloc中，调用了_objc_rootDealloc函数<br>4.在_objc_rootDealloc中，调用了object_disponse函数<br>5.调用objc_destructinstance函数<br>6.最后调用objc_clear_deallocating  </p>
+<p>对象被释放时调用的 objc_clear_deallocating 函数:<br>1.从 weak 表中获取废弃对象的地址为键值的记录<br>2.将包含在记录中的所有附有 weak 修饰符变量的地址，赋值为 nil<br>3.将 weak 表中该记录删除<br>4.从引用计数表中删除废弃对象的地址为键值的记录</p>
+<h2 id="十六、objc-中向一个-nil-对象发送消息将会发生什么"><a href="#十六、objc-中向一个-nil-对象发送消息将会发生什么" class="headerlink" title="十六、objc 中向一个 nil 对象发送消息将会发生什么?"></a><strong>十六、objc 中向一个 nil 对象发送消息将会发生什么?</strong></h2><p>如果向一个 nil 对象发送消息，首先在寻找对象的 isa 指针时就是 0 地址返回了，所以不会出现任何错误。 也不会崩溃。</p>
+<h2 id="isKindOfClass-与-isMemberOfClass"><a href="#isKindOfClass-与-isMemberOfClass" class="headerlink" title="isKindOfClass 与 isMemberOfClass"></a><strong>isKindOfClass 与 isMemberOfClass</strong></h2><p>1、isKindOfClass可用于判断对象是否是一个类的成员，或者是该派生类的成员<br>2、isMemberOfClass可用于判断对象是否是当前类<br>一句话就是, isKindOfClass 判断是否是自己或者父类, isMemberOfClass 判断是否是自己</p>
+<h2 id="Category-在编译过后，是在什么时机与原有的类合并到一起的"><a href="#Category-在编译过后，是在什么时机与原有的类合并到一起的" class="headerlink" title="Category 在编译过后，是在什么时机与原有的类合并到一起的?"></a><strong>Category 在编译过后，是在什么时机与原有的类合并到一起的?</strong></h2><ol>
+<li>程序启动后，通过编译之后，Runtime 会进行初始化，调用 _objc_init。</li>
+<li>然后会map_images.</li>
+<li>接下来调用map_images_nolock.</li>
+<li>再然后就是read_images,这个方法会读取所有的类的相关信息。</li>
+<li>最后是调用reMethodizeClass:，这个方法是重新方法化的意思。  </li>
+<li>在reMethodizeClass: 方法内部会调用 attachCategories: ，这个方法会传入 Class ，会将方法列表，协议列表等与原有的类合并。最后加入到 class_rw_t 结构体</li>
+</ol>
+<h2 id="Category-的实现原理"><a href="#Category-的实现原理" class="headerlink" title="Category 的实现原理?"></a><strong>Category 的实现原理?</strong></h2><p>Category是被添加在了 class_rw_t 的对应结构里。<br>Category 实际上是Category_t的结构体，在运行时，新添加的方法，都被以倒序插入到原有方法列表的最前面，所以不同的Category，添加了同一个方法，执行的实际上是最后一个。<br>拿方法列表举例，实际上是一个二维的数组。<br>Category 如果翻看源码的话就会知道实际上是一个 _catrgory_t 的结构体。<br>–<br>例如我们在程序中写了一个 Nsobject+Tools 的分类，那么被编译为 C++ 之后，实际上是:<br>Category在刚刚编译完的时候，和原来的类是分开的，只有在程序运行起来后，通过 Runtime ，Category和原来的类才会合并到一起。<br>mememove，memcpy:这俩方法是位移、复制，简单理解就是原有的方法移动到最后，同时新开辟的空间，把前面的位置留给分类，然后分类中的方法，按照倒序依次插入，可以得出的结论就就是，越晚参与编译 的分类，里面的方法才是生效的那个。</p>
+<h2 id="self-class-与-super-class"><a href="#self-class-与-super-class" class="headerlink" title="[self class] 与 [super class]"></a><strong>[self class] 与 [super class]</strong></h2><p>下面的参考文档最后的23题面试题，简而言之就是：<br>如果是在实例对象里面调用，这两个结果都是son。<br>如果是直接类方法调用，就是son和father</p>
+<p>参考<a href="/file/Runtime%E9%9D%A2%E8%AF%95%E9%A2%98.pdf">Runtime面试题.pdf</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的每一份肯定 都是对我最大的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/code_picture_alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/code_picture_wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -227,103 +268,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2020/02/04/oc-runtime-interview/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/04/internet_delegate/" class="archive-article-date">
-  	<time datetime="2020-02-04T02:58:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/02/10/async-thread-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS面试题-多线程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/04/internet_delegate/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS面试题-网络协议</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/04/internet_delegate/">iOS面试题-网络协议</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS基本功</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS面试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/oc-base/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:36:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/02/oc-base/">iOS面试题-OC基础语法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS基本功</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS面试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -346,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>OpenRTB详解（二） | 齐小胖之家</title>
+  <title>iOS面试题-多线程 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="OpenRTB详解（二）">
-<meta property="og:url" content="http://www.coderqi.com/2021/08/29/OpenRTB_page_2/index.html">
+<meta property="og:title" content="iOS面试题-多线程">
+<meta property="og:url" content="http://www.coderqi.com/2020/02/10/async-thread-01/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.coderqi.com/img/open_rtb_logo_line.jpeg">
-<meta property="article:published_time" content="2021-08-29T06:05:21.000Z">
-<meta property="article:modified_time" content="2021-12-08T03:31:49.931Z">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/topic_thread.jpg">
+<meta property="og:image" content="http://www.coderqi.com/img/多线程/oc_thread_gcd.png">
+<meta property="article:published_time" content="2020-02-10T03:24:21.000Z">
+<meta property="article:modified_time" content="2022-01-14T08:03:44.919Z">
 <meta property="article:author" content="CoderQi">
-<meta property="article:tag" content="实时竞价">
-<meta property="article:tag" content="商业化">
-<meta property="article:tag" content="广告">
+<meta property="article:tag" content="多线程">
+<meta property="article:tag" content="iOS面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.coderqi.com/img/open_rtb_logo_line.jpeg">
+<meta name="twitter:image" content="http://www.coderqi.com/img/oldPic/topic_thread.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -143,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-OpenRTB_page_2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-async-thread-01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      OpenRTB详解（二）
+      iOS面试题-多线程
     </h1>
   
 
         
-        <a href="/2021/08/29/OpenRTB_page_2/" class="archive-article-date">
-  	<time datetime="2021-08-29T06:05:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-29</time>
+        <a href="/2020/02/10/async-thread-01/" class="archive-article-date">
+  	<time datetime="2020-02-10T03:24:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
 </a>
         
       </header>
@@ -164,46 +164,67 @@
     <div class="article-entry" itemprop="articleBody">
       
         <div align=center>
-<img src="/img/open_rtb_logo_line.jpeg"/>
+<img src="/img/oldPic/topic_thread.jpg"/>
 </div>
 
 <span id="more"></span>
 
-<p> Bid Response 规范</p>
-<p>RTB响应包含着一个对特定展示的出价信息。 出价信息本质上是一个购买要约。竞价响应由顶层的竞价响应对象和用于描述该出价信息的一些可选对象组成。 表示不出价的最节省带宽的方式是使用空的HTTP响应。 不符合标准格式的响应或者没有包含实际出价信息的响应都可以解释为不出价。</p>
-<p>4.1 Object Model</p>
-<p>下边是竞价响应的对象模型。模型中的顶级对象（即没有名字的最外层的JSON对象）表示 BidResponse. 一个竞价响应可能包含来自多个席位（即来自实际出价者的购买实体）。 实际上一个响应可能包含来自同一个席位的多个出价； 通常来自不同的camapigns,但也不一定总是这样。 这样可以提高席位的胜出可能性， 因为大多数交易平台会为了展示者的利益强制设置了一些限制列表。</p>
-<p>从上图可以看出，真实的响应对象都显示在左边：顶级对象BidResponse, 表示席位的SeatBid以及Bid对象。 其他展示的对象都是与竞价响应相关的来自竞价请求的对象。特别要指出的是出于积极的追踪目的， BidResponse包含了BidRequest的ID。由于一个竞价请求可以包含多个展示， 所以Bid对象包含了Imp的ID, 用以表示是对该展示的出价。 如果某个出价符合某个私有交易市场的交易管制信息， Bid也应当包含特定Deal对象的ID.</p>
-<p>图中没有展示的是扩展对象。扩展对象是一个没有定义结构的对象， 它可以添加到任何对象中以纯属交易相关的扩展信息。 使用这些对象的竞拍者有责任将这些扩展信息传递给交易平台。</p>
-<p>下表总结了竞价响应中的对象， 可以作为作为下文详细信息描述的索引。<br>对象    章节    描述<br>BidResponse    4.2.1    顶级对象<br>SeatBid    4.2.2    竞拍者给出的一组出价信息<br>Bid    4.2.3    在特定商业条款下购买某个指定展示的要约</p>
-<p>Object Specifications</p>
-<p>以下部分将会详细介绍竞价响应模型中的每个对象。 首先介绍下适用于所有如下内容的公约：</p>
-<p>带有required修饰的属性的缺失将会技术上导致协议的破坏。<br>处于某些可选属性的业务重要性， 会被标识为recommended。<br>除非默认值被显示指定，一个缺失的属性被解释为unknown。<br>4.2.1 BidResponse</p>
-<p>顶级的竞价形影对象（即没有名称的最外层JSON对象）。 id属性是竞价请求的ID,用于记录日志。 同样的bidid是一个可选的响应追踪标识， 如果指定了该标识， 如果之后竞拍者胜出了，则在胜出通知子流程中，需要将该标识填充进去。 至少一个 seatbid对象是必须的， 表示对该展示的至少一个出价。 其他的属性都是可选的。</p>
-<p>如果要表示不出价， 可以选择使用空的HTTP响应体以及HTTP 204响应码。 如果竞拍者想要向交易平台传递不出价的原因， 可以返回一个只填充nbr属性的BidResponse对象。</p>
-<p>属性    类型    描述<br>id    string; required    竞价请求的标识<br>seatbid    object array    一组SeatBid对象， 如果出价，则至少应该填充一个<br>bidid    string    竞拍者生成的响应ID, 辅助日志或者交易追踪<br>cur    string; default ‘USD’    使用ISO-4217码表标识货币类型<br>customdata    string    可选特性，允许出价者以设置cookie的方式向交易平台传递信息。 字符串可以是任何格式， 必须使用base85编码，JSON编码必须包含转义的引号。<br>nbr    integer    不出价的原因， 参考表5.19<br>ext    object    特定交易的OpenRTB协议的扩展信息占位符<br>4.2.2 SeatBid</p>
-<p>一个竞价响应可以包含多个SeatBid对象， 每个代表着不同的出价者且包含一个或多个独立的出价信息。 如果请求中有多个展示信息， group属性可以用来指定一个席位对胜出任何展示感兴趣（可以不是全部展示）或者它仅对胜出所有展示感兴趣。</p>
-<p>属性    类型    描述<br>bid    object array; required    至少一个Bid对象的数组，每个对象关联一个展示。多个出价可以关联同一个展示<br>seat    string    出价者席位标识， 代表本次出价的出价人<br>group    integer; default 0    0 标识展示可以独立胜出， 1标识展示必须整组胜出或失败<br>ext    object    特定交易的OpenRTB协议的扩展信息占位符<br>4.2.3 Bid</p>
-<p>一个SeatBid对象包括一个或者多个Bid对象， 每一个Bid对象通过impid关联竞价请求中的一个展示, 由一个对该展示出价组成。</p>
-<p>属性    类型    描述<br>id    string; required    竞拍者生成的竞价ID，用于记录日志或行为追踪<br>impid    string; required    关联的竞价请求中的Imp对象的ID<br>price    float; required    虽然本次只是对某一个展示的出价，但是竞拍价格是以CPM表示。需要注意数据类型是float,所以在处理货币的时候强烈建议使用相关的数学处理对象（比如，Java中的BigDecimal)<br>adid    string    预加载的广告ID, 可以在交易胜出的时候使用<br>nurl    string    胜出通知地址， 如果竞价胜出的时候由交易平台调用； 可选标识serving ad markup<br>adm    string    竞拍胜出之后可选的传输ad markup的方式， 如果胜出通知中包含ad markup则优先使用adm<br>adomain    string array    用于限制检测的广告主域名， 对于旋转的物料可以是一个数组， 交易平台可以限制只允许一个域名<br>bundle    string    被广告的应用的包名或者其他信息， 如果可以，倾向于使用交易内唯一的ID<br>iurl    string    用于质量或者安全监测的表示广告活动内容的图像地址， 不允许缓存<br>cid    string    Campaign ID , 辅助广告质量检查，iurl代表的一组物料<br>crid    string    Creative ID, 辅助广告质量检查<br>cat    string array    creative的IAB内容类型，参考表5.1<br>attr    integer array    描述creative的属性集合，参考表5.3<br>dealid    string    如果出价从属与某个私有市场直接交易规则， 则指向竞价请求中该交易规则的deal.id<br>h    integer    　creative 的高度， 以像素为单位<br>w    integer    creative 的宽度， 以像素为单位<br>ext    object    特定交易的OpenRTB协议的扩展信息占位符<br>对于每一个Bid对象， nurl属性包含了一个胜出通知地址，如果竞拍者胜出了一个展示， 交易平台会通过通知地址通知竞拍者胜出信息并通过替换通知地址中的宏向竞拍者传递特定的信息。 胜出通知的返回或者adm书慈宁宫可以用于提供markup. 不管使用哪种方式， 交易平台需要对markup执行前面提到的宏替换操作。</p>
-<p>4.3 Ad Serving Options</p>
-<p>在OpenRTB规范范围内的RTB过程实现核心在与markup的传输。 随着展示以及其他广告类型的限制， markup可以使XHTML, 带有内嵌Javascript的XHTML，用于视频的超大文档， 一个Native广告单元结果以及其他未来可能出现的类型。</p>
-<p>除了宏替换以及传输到提供方， OpenRTB标准没有要求对ad markup做任何处理。 然而， 还是有很多标准方式用于从竞拍者向交易平台传输markup信息。具体的方式由竞拍者决定， 一个遵从OpenRTB协议的交易平台应当支持以下定义的所有方式。</p>
-<p>4.3.1 Markup Served on the Win Notice</p>
-<p>在这种实现方式中， ad markup是通过胜出通知返回给交易平台的。 在这种情况下， 胜出通知的响应体包含且仅包含ad markup信息。 响应体中必须不能再有其他数据， 使用这种方式， bid.adm属性必须被忽略。</p>
-<p>4.3.2 Markup Served in the Bid</p>
-<p>在这种实现方式中， ad markup在bid实体中被返回。 这需要通过bid.adm属性完成， 如果adm属性和胜出通知都返回数据， adm内容会被使用。</p>
-<p>4.3.3 Comparison of Ad Serving Approaches</p>
-<p>每种广告提供方式有它自己的优势，且这种优势随着交易平台和竞拍者不同而不同。</p>
-<p>** Ad Served on the Win Notice**</p>
-<p>较少带宽： 仅仅在胜出之后提供ad markup可以节省大量的带宽使用， 尤其是对于交易平台， 其代价是非常巨大的。<br>额外的竞拍者灵活性： 竞拍者可能在竞拍的时候已经知道了将要提供的广告信息， 但是这种方式在结算价格发布之后提供了附加的可选决策点。<br>** Ad Served in the Bid**</p>
-<p>减少广告丢失的风险： 一次广告丢失是这样的场景， 一个竞拍者胜出了， 但是在提供广告内容的时候失败了。 但是额外的HTTP 失败可能被减少了。<br>潜在的并发： 交易平台可以选择并发的返回ad markup和进行胜出通知， 从而提高用户体验。<br>4.4 Substitituion Macros</p>
-<p>胜出通知地址以及它的格式是由竞拍者定义的。为了让交易平台可以向胜出的竞价者传输确定的信息，可以在胜出通知地址中插入一些可替换的宏。在调用胜出通知地址之外， 交易平台会在竞拍者提供的胜出通知地址中查找已定义的宏并使用合适的数据进行替换。 注意这个替换过程是非常简单的，仅仅是在查找到宏的地方直接进行替换， 不会进行任何的语法校验。如果响应的值是可选的且没有被指定， 响应的宏就会直接被删除掉（即使用空字符串替换）。</p>
-<p>相同的替换宏业可以出现在ad markup中。 交易平台会做相同的数据替换操作。 这个操作是不会关心markup是在胜出通知中返回或者通过bid.adm属性在竞价响应中传递。 将宏用在ad markup中的一个用例是当竞拍者希望从设备本身接收官方胜出通知。 为了完成这些， 竞拍者需要在ad markup中包含一个追踪像素， 该追踪像素的地址可能包含任何可用的宏。</p>
-<p>Micro    Description<br>${AUCTION_ID}    竞价请求的ID; 来自 BidRequest.id 属性.<br>${AUCTION_BID_ID}    Bid的ID; 来自 BidResponse.bidid 属性.<br>${AUCTION_IMP_ID}    胜出的展示的ID ; 来自 imp.id 属性.<br>${AUCTION_SEAT_ID}    竞拍者的席位ID<br>${AUCTION_AD_ID}    竞拍者要提供的广告的ID ; 来自 bid.adid 属性.<br>${AUCTION_PRICE}    拍卖价格，与Bid使用相同的货币类型<br>${AUCTION_CURRENCY}    竞价使用的货币类型（隐式或者显式）， 仅仅用于确认<br>在替换之前， 处于安全性考虑， 宏对应数据的信息是可以使用多种混淆或者加密算法加密的。 当比如价格信息通过广告信息中的一个追踪像素被带出交易平台， 通过发布者，最终到达设备浏览器这种场景下， 这种做法就尤其有用。</p>
-<p>要制定某个特定的宏是被加密的，需要将“:X”后缀附加到宏名称之后， X是一个表示所使用算法的字符串。 本规范并没有规定的具体的算法选项，这需要交易平台和竞拍者之间进行协商。 举个例子， 假设表示价格的宏使用Base64加密其使用加密码“B64”, 宏就会被写成如下模样：</p>
-<p>${AUCTION_PRICE:B64}<br>最佳实践： 应该尽量少的对宏进行加密，因为这需要额外的处理消耗（加解密）。 对于完全在竞拍者和交易平台之间的通信（比如， 从交易平台发起的一个胜出通知）， 加密通常是没有必要的。</p>
+<h2 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a><strong>进程和线程的区别</strong></h2><p>1 进程是操作系统分配资源的最小单元，拥有独立运行所需的全部资源.线程是CPU 分配资源和调度的最小单位<br>2 线程是进程的执行单元，进程的所有任务都在线程中执行<br>3 一个程序可以对应多个进程(多进程),一个进程中可有多个线程,但至少要有一条线程<br>4 同一个进程内的线程共享进程资源</p>
+<h2 id="多线程的优缺点"><a href="#多线程的优缺点" class="headerlink" title="多线程的优缺点"></a><strong>多线程的优缺点</strong></h2><p><strong>优点：</strong><br>1 能提高程序的执行效率<br>2 能提高资源利用率(CPU、内存的利用率)<br><strong>缺点：</strong><br>1 开启线程会占用一定的内存空间(默认情况下，主线程占用1M，子线程占用512K)，如果开启大量子线程，会占用大量的内存空间，降低程序的性能<br>2 线程越多，CPU在调度线程上的开销就越大<br>3 程序设计更加复杂：比如线程之间的通信、多线程的数据共享与安全</p>
+<h2 id="什么是线程任务"><a href="#什么是线程任务" class="headerlink" title="什么是线程任务"></a><strong>什么是线程任务</strong></h2><p>任务就是线程执行的操作，也就是在线程中执行的代码，在 GCD 中是放在 block 中的。执行任务有两种 方式:同步执行(sync)和异步执行(async)<br><strong>同步(Sync)</strong>:同步添加任务到指定的队列中，在添加的任务执行结束之前，会一直等待，直到队列里面的 任务完成之后再继续执行，即会阻塞线程。只能在当前线程中执行任务(是当前线程，不一定是主线程)， 不具备开启新线程的能力。<br><strong>异步(Async)</strong>:线程会立即返回，无需等待就会继续执行下面的任务，不阻塞当前线程。可以在新的线程中 执行任务，具备开启新线程的能力(并不一定开启新线程)。如果不是添加到主队列上，异步会在子线程中 执行任务。</p>
+<h2 id="什么是线程队列"><a href="#什么是线程队列" class="headerlink" title="什么是线程队列"></a><strong>什么是线程队列</strong></h2><p>队列(Dispatch Queue)是指执行任务的等待队列，即用来存放任务的队列。队列是一种特殊的线性表，采用FIFO(先进先出)的原则，即新任务总是被插入到队列的末尾，而读取任务的时候总是从 队列的头部开始读取。每读取一个任务，则从队列中释放一个任务<br>在 GCD 中有两种队列:串行队列和并发队列。两者都符合 FIFO(先进先出)的原则。两者的主要区别是: 执行顺序不同，以及开启线程数不同。<br><strong>串行队列(Serial Dispatch Queue)</strong>: 同一时间内，队列中只能执行一个任务，只有当前的任务执行完成之后，才能执行下一个任务。(只开启一个线程，一个任务执行完毕后，再执行下一个任务)。主队列是主线程上的一个串行队列,是系统自动为我们创建的<br><strong>并发队列(Concurrent Dispatch Queue)</strong>: 同时允许多个任务并发执行。(可以开启多个线程，并且同时执行任务)。并发队列的并发功能只有在异步(dispatch_async)函数下才有效</p>
+<h2 id="介绍下NSThread"><a href="#介绍下NSThread" class="headerlink" title="介绍下NSThread"></a><strong>介绍下NSThread</strong></h2><p>NSThread:轻量级别的多线程技术，是我们自己手动开辟的子线程，如果使用的是初始化方式就需要我们自己启动，如果使用的是构造器方式，它就会自动启动。只要是我们手动开辟的线程，都需要我们自己管理该线程，不只是启动，还有该线程使<br>用完毕后的资源回收</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用初始化创建出来的方法，需要主动启动,主动关闭</span></span><br><span class="line">    <span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(testThread) object:<span class="string">@&quot;我是一个参数&quot;</span>];</span><br><span class="line">    [thread start];</span><br><span class="line">    [thread cancel];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用构造器方式开辟主线程</span></span><br><span class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(testThread) toTarget:<span class="keyword">self</span> withObject:<span class="string">@&quot;我还是一个参数&quot;</span>];</span><br></pre></td></tr></table></figure>
 
+<h2 id="介绍下performSelector"><a href="#介绍下performSelector" class="headerlink" title="介绍下performSelector"></a><strong>介绍下performSelector</strong></h2><p>performSelector…只要是NSObject的子类或者对象都可以通过调用方法进入子线程和主线程，其实这些 方法所开辟的子线程也是 NSThread 的另一种体现方式。 在编译阶段并不会去检查方法是否有效存在，如果不存在只会给出警告<br>需要注意的是:如果是带 afterDelay 的延时函数，会在内部创建一个 NSTimer，然后添加到当前线程的 Runloop 中。也就是如果当前线程没有开启 runloop，该方法会失效。在子线程中，需要启动 runloop(注 意调用顺序)</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(testThread) withObject:<span class="literal">nil</span> afterDelay:<span class="number">1</span>];</span><br><span class="line">[[<span class="built_in">NSRunLoop</span> currentRunLoop] run];</span><br></pre></td></tr></table></figure>
+<p>而 performSelector:withObject:只是一个单纯的消息发送，和时间没有一点关系。所以不需要添加到子 线程的 Runloop 中也能执行</p>
+<h2 id="GCD和NSOperation的关系"><a href="#GCD和NSOperation的关系" class="headerlink" title="GCD和NSOperation的关系"></a><strong>GCD和NSOperation的关系</strong></h2><p>GCD 是面向底层的C语言的API，NSOpertaionQueue用GCD构建封装的，是GCD 的高级抽象。<br>1、GCD 执行效率更高，而且由于队列中执行的是由 block 构成的任务，这是一个轻量级的数据结构，写起 来更方便<br>2、GCD 只支持FIFO的队列，而NSOperationQueue可以通过设置最大并发数，设置优先级，添加依赖关系等调整执行顺序<br>3、NSOperationQueue甚至可以跨队列设置依赖关系，但是GCD只能通过设置串行队列，或者在队列内添 加barrier(dispatch_barrier_async)任务，才能控制执行顺序,较为复杂<br>4、NSOperationQueue因为面向对象，所以支持KVO，可以监测operation是否正在执行(isExecuted)、 是否结束(isFinished)、是否取消(isCanceld)</p>
+<p>1 实际项目开发中，很多时候只是会用到异步操作，不会有特别复杂的线程关系管理，所以苹果推崇的且优化完善、运行快速的GCD是首选<br>2 如果考虑异步操作之间的事务性，顺序行，依赖关系，比如多线程并发下载，GCD需要自己写更多的代码来实现，而NSOperationQueue 已经内建了这些支持<br>3 不论是GCD还是NSOperationQueue，我们接触的都是任务和队列，都没有直接接触到线程，事实上线程管理也的确不需要我们操心，系统对于线程的创建，调度管理和释放都做得很好。而NSThread需要我们自己去管理线程的生命周期，还要考虑线程同步、加锁问题，造成一些性能上的开销</p>
+<h2 id="GCD的队列有哪几种"><a href="#GCD的队列有哪几种" class="headerlink" title="GCD的队列有哪几种"></a><strong>GCD的队列有哪几种</strong></h2><p>iOS中GCD的队列有三种类型：<br>1 main_queue：通过dispatch_get_main_queue()获得，这是一个与主线程相关的串行队列。<br>2 global queue：全局队列，是并发队列，由整个<strong>进程</strong>共享，存在着高、中、低三种优先级的全局队列，调用dispath_get_global_queue 并传入优先级来访问队列。<br>3 自定义队列：通过函数 dispatch_queue_create 创建的队列，有串并行之分</p>
+<h2 id="GCD-dispatch-queue-t-作为属性用strong还是assign"><a href="#GCD-dispatch-queue-t-作为属性用strong还是assign" class="headerlink" title="GCD dispatch_queue_t 作为属性用strong还是assign?"></a><strong>GCD dispatch_queue_t 作为属性用strong还是assign?</strong></h2><p>在AFNetWorking里有段代码，是dispatch_queue_t作为属性</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">dispatch_queue_t</span> requestHeaderModificationQueue;</span><br></pre></td></tr></table></figure>
+<p>为什么要用strong的方式来管理呢？</p>
+<div align=center>
+<img src="/img/多线程/oc_thread_gcd.png"/>
+</div>
+
+<p>运行时打断点，就可以看到dispatch_queue_t的继承关系，最终的父类NSObject，所以要用strong的方式来管理。</p>
+<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a><strong>死锁</strong></h2><p>死锁就是队列引起的循环等待，下面是几个常见的死锁例子：</p>
+<p><strong>1 主队列同步</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;主队列同步打印&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在主线程中运用主队列同步，也就是把任务放到了主线程的队列中。 同步对于任务是立刻执行的，那么当把任务放进主队列时，它就会立马执行,只有执行完这个任务， viewDidLoad 才会继续向下执行。<br>而 viewDidLoad 和任务都是在主队列上的，由于队列的先进先出原则，任务又需等待 viewDidLoad 执行完 毕后才能继续执行，viewDidLoad 和这个任务就形成了相互循环等待，就造成了死锁。 想避免这种死锁，可以将同步改成异步 dispatch_async,或者将 dispatch_get_main_queue 换成其他串行 或并行队列，都可以解决。</p>
+<p><strong>2 同步队列里循环等待</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> serialQueue = dispatch_queue_create(<span class="string">&quot;测试的同步队列&quot;</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"><span class="built_in">dispatch_async</span>(serialQueue, ^&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dispatch_sync</span>(serialQueue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;同步队列的子线程添加同步任务&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>外面的函数无论是同步还是异步都会造成死锁。<br>这是因为里面的任务和外面的任务都在同一个 serialQueue 队列内，又是同步，这就和上边主队列同步的 例子一样造成了死锁<br>解决方法也和上边一样，将里面的同步改成异步 dispatch_async,或者将 serialQueue 换成其他串行或并 行队列，都可以解决</p>
+<h2 id="代码执行效果评估"><a href="#代码执行效果评估" class="headerlink" title="代码执行效果评估"></a><strong>代码执行效果评估</strong></h2><h4 id="第一段"><a href="#第一段" class="headerlink" title="第一段"></a><strong>第一段</strong></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> serialQueue = dispatch_queue_create(<span class="string">&quot;测试的同步队列&quot;</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;1&quot;</span>);</span><br><span class="line"><span class="built_in">dispatch_async</span>(serialQueue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;2&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;3&quot;</span>);</span><br><span class="line"><span class="built_in">dispatch_sync</span>(serialQueue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;4&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;5&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>打印顺序是 13245<br>原因是:<br>首先先打印 1<br>接下来将任务 2 其添加至串行队列上，由于任务 2 是异步，不会阻塞线程，继续向下执行，打印 3 然后是任务 4,将任务 4 添加至串行队列上，因为任务 4 和任务 2 在同一串行队列，根据队列先进先出原则， 任务 4 必须等任务 2 执行后才能执行，又因为任务 4 是同步任务，会阻塞线程，只有执行完任务 4 才能继 续向下执行打印 5<br>所以最终顺序就是 13245。<br>这里的任务 4 在主线程中执行，而任务 2 在子线程中执行。<br>如果任务 4 是添加到另一个串行队列或者并行队列，则任务 2 和任务 4 无序执行(可以添加多个任务看效果)  </p>
+<h4 id="第二段"><a href="#第二段" class="headerlink" title="第二段"></a><strong>第二段</strong></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">&quot;ceshi&quot;</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        sleep(<span class="number">5</span>);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;1&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</span><br><span class="line">        sleep(<span class="number">3</span>);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;2&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;3&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-10</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">54.273147</span>+<span class="number">0800</span> 多线程测试[<span class="number">60327</span>:<span class="number">2437248</span>] 程序开始</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-10</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">59.274331</span>+<span class="number">0800</span> 多线程测试[<span class="number">60327</span>:<span class="number">2437485</span>] <span class="number">1</span></span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-10</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">02.275258</span>+<span class="number">0800</span> 多线程测试[<span class="number">60327</span>:<span class="number">2437248</span>] <span class="number">2</span></span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-10</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">03.276579</span>+<span class="number">0800</span> 多线程测试[<span class="number">60327</span>:<span class="number">2437248</span>] <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>运行情况是，执行到第一个dispatch_async的时候，异步添加到同步队列里，会立即走后面的dispatch_sync，dispatch_sync在同步队列阻塞队列，知道轮到它执行，那么就会等第一个dispatch_async添加的操作执行完毕，也就是休眠五秒打印1，然后轮到第二个同步操作执行，休眠3秒打印2.最后才轮到主线程休眠1秒打印3.</p>
+<h4 id="第三段"><a href="#第三段" class="headerlink" title="第三段"></a><strong>第三段</strong></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(testThread) withObject:<span class="literal">nil</span> afterDelay:<span class="number">0</span>];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里的test方法是不会去执行的，原因在于performSelector<br>这个方法中带延时的方法，要创建提交任务到runloop上的，而gcd底层创建的线程是默认没有开启对应runloop的，所有这个方法就会失效。<br>而如果将dispatch_get_global_queue改成主队列，由于主队列所在的主线程是默认开启了runloop的， 就会去执行(将 dispatch_async 无需改成同步，虽然同步是在当前线程执行，但这里的异步同步只是决定添加到主线程队列这个任务的操作是同步还是异步，这个无所谓。那么如果当前线程是主线程，test方法也是会去执行的)。</p>
+<h3 id="多线程常用案例"><a href="#多线程常用案例" class="headerlink" title="多线程常用案例"></a>多线程常用案例</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a><strong>案例一</strong></h4><p>判断当前是不是主线程，如果是直接执行，如果不是，切换到主线程再执行</p>
+<h4 id="案例二：用GCD实现多读单写"><a href="#案例二：用GCD实现多读单写" class="headerlink" title="案例二：用GCD实现多读单写"></a><strong>案例二：用GCD实现多读单写</strong></h4><p>多读单写的意思就是:可以多个读者同时读取数据，而在读的时候，不能取写入数据。并且，在写的过程 中，不能有其他写者去写。即读者之间是并发的，写者与读者或其他写者是互斥的。这里的写处理就是通过栅栏的形式去写。 就可以用dispatch_barrier_sync(栅栏函数)去实现<br><strong>dispatch_barrier_sync</strong>: Submits a barrier block object for execution and waits until that block completes.(提交一个栅栏函数在执行中,它会等待栅栏函数执行完)<br><strong>dispatch_barrier_async</strong>: Submits a barrier block for asynchronous execution and returns immediately.(提交一个栅栏函数在异步执行中,它会立马返回)<br>实现代码如下：  </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)readDataForKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    __block <span class="keyword">id</span> result;</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(_concurrentQueue, ^&#123;</span><br><span class="line">        result = [<span class="keyword">self</span> valueForKey:key];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeData:(<span class="keyword">id</span>)data forKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    dispatch_barrier_sync(_concurrentQueue, ^&#123;</span><br><span class="line">        [<span class="keyword">self</span> setValue:data forKey:key];</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="案例三：多个网络请求并发，全部结束后刷新界面"><a href="#案例三：多个网络请求并发，全部结束后刷新界面" class="headerlink" title="案例三：多个网络请求并发，全部结束后刷新界面"></a><strong>案例三：多个网络请求并发，全部结束后刷新界面</strong></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> concurrentQueue = dispatch_queue_create(<span class="string">&quot;测试的同步队列&quot;</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">dispatch_group_t group = dispatch_group_create();</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    dispatch_group_async(group, concurrentQueue, ^&#123;</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;模拟网络请求%ld&quot;</span>,i);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">dispatch_group_notify(group, concurrentQueue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;刷新界面&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="案例四：实现单例"><a href="#案例四：实现单例" class="headerlink" title="案例四：实现单例"></a><strong>案例四：实现单例</strong></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)shareInstance &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">id</span> instance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        instance = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GCD的信号量"><a href="#GCD的信号量" class="headerlink" title="GCD的信号量"></a><strong>GCD的信号量</strong></h2><p>GCD 中的信号量是指 Dispatch Semaphore，是持有计数的信号。 Dispatch Semaphore 提供了三个函数：<br>1.dispatch_semaphore_create:创建一个 Semaphore 并初始化信号的总量 2.dispatch_semaphore_signal:发送一个信号，让信号总量加 1 3.dispatch_semaphore_wait:可以使总信号量减 1，当信号总量为 0 时就会一直等待(阻塞所在线程)，否 则就可以正常执行。<br>Dispatch Semaphore 在实际开发中主要有两个用途:<br>1 保持线程同步，将异步执行任务转换为同步执行任务</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dispatch_semaphore_t semaphore  = dispatch_semaphore_create(<span class="number">0</span>);</span><br><span class="line">__block <span class="built_in">NSInteger</span> number = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    number = <span class="number">100</span>;</span><br><span class="line">    dispatch_semaphore_signal(semaphore);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;number:%zd&quot;</span>, number);</span><br></pre></td></tr></table></figure>
+<p>dispatch_semaphore_wait 加锁阻塞了当前线程，dispatch_semaphore_signal 解锁后当前线程继续执行</p>
+<p>2 保证线程安全，为线程加锁<br>在线程安全中可以将 dispatch_semaphore_wait 看作加锁，而 dispatch_semaphore_signal 看作解锁 首先创建全局变量<br>注意到这里的初始化信号量是 1。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_semaphore  = dispatch_semaphore_create(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>异步任务</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)asyncTask &#123;</span><br><span class="line">    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line">    count++;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;执行任务：%zd&quot;</span>,count);</span><br><span class="line">    dispatch_semaphore_signal(_semaphore);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在子线程中并发执行 asyncTask，那么第一个添加到并发队列里的，会将信号量减 1，此时信号量等于 0， 可以执行接下来的任务。而并发队列中其他任务，由于此时信号量不等于 0，必须等当前正在执行的任务 执行完毕后调用 dispatch_semaphore_signal 将信号量加 1，才可以继续执行接下来的任务，以此类推，从而 达到线程加锁的目的。</p>
+<h2 id="延时函数"><a href="#延时函数" class="headerlink" title="延时函数"></a><strong>延时函数</strong></h2><p>dispatch_after 能让我们添加进队列的任务延时执行，该函数并不是在指定时间后执行处理，而只是在指 定时间追加处理到 dispatch_queue<br>由于其内部使用的是 dispatch_time_t 管理时间，而不是 NSTimer。 所以如果在子线程中调用，相比 performSelector:afterDelay,不用关心 runloop 是否开启</p>
+<h2 id="NSOperationQueue的优点"><a href="#NSOperationQueue的优点" class="headerlink" title="NSOperationQueue的优点"></a><strong>NSOperationQueue的优点</strong></h2><p>NSOperation、NSOperationQueue 是苹果提供给我们的一套多线程解决方案。实际上 NSOperation、 NSOperationQueue 是基于 GCD 更高一层的封装，完全面向对象。但是比 GCD 更简单易用、代码可读性 也更高。<br>1、可以添加任务依赖，方便控制执行顺序<br>2、可以设定操作执行的优先级 3、任务执行状态控制:isReady,isExecuting,isFinished,isCancelled<br>如果只是重写 NSOperation 的 main 方法，由底层控制变更任务执行及完成状态，以及任务退出 如果重写了 NSOperation 的 start 方法，自行控制任务状态<br>系统通过 KVO 的方式移除 isFinished==YES 的 NSOperation<br>3、可以设置最大并发量</p>
+<h2 id="自旋锁与互斥锁"><a href="#自旋锁与互斥锁" class="headerlink" title="自旋锁与互斥锁"></a><strong>自旋锁与互斥锁</strong></h2><p>自旋锁:<br>是一种用于保护多线程共享资源的锁，与一般互斥锁(mutex)不同之处在于当自旋锁尝试获取锁时以忙等 待(busy waiting)的形式不断地循环检查锁是否可用。当上一个线程的任务没有执行完毕的时候(被锁住)， 那么下一个线程会一直等待(不会睡眠)，当上一个线程的任务执行完毕，下一个线程会立即执行。<br>在多 CPU 的环境中，对持有锁较短的程序来说，使用自旋锁代替一般的互斥锁往往能够提高程序的性能。<br>互斥锁:<br>当上一个线程的任务没有执行完毕的时候(被锁住)，那么下一个线程会进入睡眠状态等待任务执行完毕， 当上一个线程的任务执行完毕，下一个线程会自动唤醒然后执行任务。<br>总结:<br>自旋锁会忙等: 所谓忙等，即在访问被锁资源时，调用者线程不会休眠，而是不停循环在那里，直到被锁 资源释放锁。<br>互斥锁会休眠: 所谓休眠，即在访问被锁资源时，调用者线程会休眠，此时 cpu 可以调度其他线程工 作。直到被锁资源释放锁。此时会唤醒休眠线程。<br>优缺点:<br>自旋锁的优点在于，因为自旋锁不会引起调用者睡眠，所以不会进行线程调度，CPU 时间片轮转等耗时操 作。所有如果能在很短的时间内获得锁，自旋锁的效率远高于互斥锁。<br>缺点在于，自旋锁一直占用 CPU，他在未获得锁的情况下，一直运行–自旋，所以占用着 CPU，如果不 能在很短的时 间内获得锁，这无疑会使 CPU 效率降低。自旋锁不能实现递归调用。<br>自旋锁:atomic、OSSpinLock、dispatch_semaphore_t<br>互斥锁:pthread_mutex、@ synchronized、NSLock、NSConditionLock 、NSCondition、NSRecursiveLock十六、自旋锁与互斥锁<br>自旋锁:<br>是一种用于保护多线程共享资源的锁，与一般互斥锁(mutex)不同之处在于当自旋锁尝试获取锁时以忙等 待(busy waiting)的形式不断地循环检查锁是否可用。当上一个线程的任务没有执行完毕的时候(被锁住)， 那么下一个线程会一直等待(不会睡眠)，当上一个线程的任务执行完毕，下一个线程会立即执行。<br>在多 CPU 的环境中，对持有锁较短的程序来说，使用自旋锁代替一般的互斥锁往往能够提高程序的性能。<br>互斥锁:<br>当上一个线程的任务没有执行完毕的时候(被锁住)，那么下一个线程会进入睡眠状态等待任务执行完毕， 当上一个线程的任务执行完毕，下一个线程会自动唤醒然后执行任务。<br>总结:<br>自旋锁会忙等: 所谓忙等，即在访问被锁资源时，调用者线程不会休眠，而是不停循环在那里，直到被锁 资源释放锁。<br>互斥锁会休眠: 所谓休眠，即在访问被锁资源时，调用者线程会休眠，此时 cpu 可以调度其他线程工 作。直到被锁资源释放锁。此时会唤醒休眠线程。<br>优缺点:<br>自旋锁的优点在于，因为自旋锁不会引起调用者睡眠，所以不会进行线程调度，CPU 时间片轮转等耗时操 作。所有如果能在很短的时间内获得锁，自旋锁的效率远高于互斥锁。<br>缺点在于，自旋锁一直占用 CPU，他在未获得锁的情况下，一直运行–自旋，所以占用着 CPU，如果不 能在很短的时 间内获得锁，这无疑会使 CPU 效率降低。自旋锁不能实现递归调用。<br>自旋锁:atomic、OSSpinLock、dispatch_semaphore_t<br>互斥锁:pthread_mutex、@ synchronized、NSLock、NSConditionLock 、NSCondition、NSRecursiveLock</p>
+<h3 id="线程死锁案例"><a href="#线程死锁案例" class="headerlink" title="线程死锁案例"></a>线程死锁案例</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a0b40296564f">https://www.jianshu.com/p/a0b40296564f</a><br>这个案例很经典. </p>
+<p>-(void)testThreadDeadlock {<br>①    NSLog(@”0 —- %@”, [NSThread currentThread]);<br>②    // 创建一个串行队列<br>③    dispatch_queue_t queue = dispatch_queue_create(“queue”, DISPATCH_QUEUE_SERIAL);<br>④    dispatch_async(queue, ^{// block1开始<br>⑤       NSLog(@”1 —- %@”, [NSThread currentThread]);<br>⑥<br>⑦        dispatch_async(queue, ^{// block2开始<br>⑧            NSLog(@”2 —- %@”, [NSThread currentThread]);<br>⑨        });// block2结束<br>⑩<br>⑪        NSLog(@”3 —- %@”, [NSThread currentThread]);<br>⑫    });// block1结束<br>⑬    NSLog(@”4 —- %@”, [NSThread currentThread]);<br>}</p>
+<h2 id="线程池怎么提升性能"><a href="#线程池怎么提升性能" class="headerlink" title="线程池怎么提升性能"></a><strong>线程池怎么提升性能</strong></h2><h3 id="线程锁的类型及性能"><a href="#线程锁的类型及性能" class="headerlink" title="线程锁的类型及性能"></a>线程锁的类型及性能</h3>
       
 
       
@@ -247,15 +268,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实时竞价</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">商业化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">广告</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS面试题</a>
         		</li>
       		
 		</ul>
@@ -311,7 +328,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2021/08/29/OpenRTB_page_2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2020/02/10/async-thread-01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,9 +342,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/08/15/OpenRTB_page_0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          实时竞价RTB
+        
+      </div>
+    </a>
   
-    <a href="/2021/08/28/OpenRTB_page_1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OpenRTB详解（一）</div>
+  
+    <a href="/2020/02/04/oc-runtime-interview/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS面试题-Runtime</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -470,6 +496,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Runtime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">

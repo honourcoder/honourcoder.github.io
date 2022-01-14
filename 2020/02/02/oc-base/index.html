@@ -13,17 +13,17 @@
 <meta property="og:url" content="http://www.coderqi.com/2020/02/02/oc-base/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.coderqi.com/img/topic_oc.jpg">
-<meta property="og:image" content="http://www.coderqi.com/img/framework-exzample.png">
-<meta property="og:image" content="http://www.coderqi.com/img/block_struct.png">
-<meta property="og:image" content="http://www.coderqi.com/img/response_link.png">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/topic_oc.jpg">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/framework-exzample.png">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/block_struct.png">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/response_link.png">
 <meta property="article:published_time" content="2020-02-02T07:36:03.000Z">
-<meta property="article:modified_time" content="2022-01-07T10:25:12.007Z">
+<meta property="article:modified_time" content="2022-01-14T08:48:22.391Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="iOS基本功">
 <meta property="article:tag" content="iOS面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.coderqi.com/img/topic_oc.jpg">
+<meta name="twitter:image" content="http://www.coderqi.com/img/oldPic/topic_oc.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -166,7 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <div align=center>
-<img src="/img/topic_oc.jpg"/>
+<img src="/img/oldPic/topic_oc.jpg"/>
 </div>
 
 <span id="more"></span>
@@ -177,7 +177,7 @@
 <p>也就是说，id类型的指针指向的是objc_object结构体，而objc_object结构体表示的就是类对象的实例对象，所以id可以表示所有类型的实例。<br>而instancetype也是一个可以指向所有类型的实例变量指针。<br>不同点在于：在编译期，编译器会检索对象指针instancetype的真实类型；而id类型的实例变量是在运行期才会确定其真实类型，所以编译期即便是类型不匹配也不会报警告。因此，使用instancetype作为返回值，实际上也是提高程序健壮性的一个手段。</p>
 <h2 id="静态库和动态库"><a href="#静态库和动态库" class="headerlink" title="静态库和动态库"></a><strong>静态库和动态库</strong></h2><p>动态库形式：.dylib和.framework<br>静态库形式：.a和.framework<br>静态库：链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝（图1所示）<br>系统动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用,节省内存(图2所示)</p>
 <div align=center>
-<img src="/img/framework-exzample.png"/>
+<img src="/img/oldPic/framework-exzample.png"/>
 </div>
 
 <h2 id="KVC和KVO区别"><a href="#KVC和KVO区别" class="headerlink" title="KVC和KVO区别"></a><strong>KVC和KVO区别</strong></h2><p>*“KVC”:key value Coding(键值编码)<br>*目的:间接的修改或获取对象的属性,降低程序(类与类)之间的耦合度.</p>
@@ -185,8 +185,8 @@
 <h2 id="KVO原理"><a href="#KVO原理" class="headerlink" title="KVO原理"></a><strong>KVO原理</strong></h2><p>在Foundation/NSKeyValueObserving.h可以找到下面的方法，</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)willChangeValueForKey:(<span class="built_in">NSString</span> *)key;</span><br><span class="line">- (<span class="keyword">void</span>)didChangeValueForKey:(<span class="built_in">NSString</span> *)key;</span><br><span class="line">+ (<span class="built_in">BOOL</span>)automaticallyNotifiesObserversForKey:(<span class="built_in">NSString</span> *)key;</span><br></pre></td></tr></table></figure>
 <p>+(BOOL)automaticallyNotifiesObserversForKey:(NSString *)key控制是否自动发送通知<br>如果set方法是自己实现的，那KVO是无法运作的，但是，如果把上面的前两个方法加到set方法里面，如下，KVO也会跑起来，哪怕方法名不是正规的set方法。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)changeValue:(<span class="built_in">NSString</span> *)value &#123;</span><br><span class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@&quot;value&quot;</span>];</span><br><span class="line">    _value = value;</span><br><span class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@&quot;value&quot;</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>,<span class="keyword">readonly</span>)<span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)<span class="built_in">NSString</span> *age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setNameObj:(<span class="built_in">NSString</span> *)name &#123;</span><br><span class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@&quot;name&quot;</span>];</span><br><span class="line">    _name = name;</span><br><span class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@&quot;name&quot;</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ([keyPath isEqualToString:<span class="string">@&quot;name&quot;</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,[object valueForKey:<span class="string">@&quot;name&quot;</span>]);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;ChangeInfo:%@&quot;</span>,change);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ([keyPath isEqualToString:<span class="string">@&quot;age&quot;</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,[object valueForKey:<span class="string">@&quot;age&quot;</span>]);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;ChangeInfo:%@&quot;</span>,change);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    [<span class="keyword">self</span> addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@&quot;name&quot;</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> | <span class="built_in">NSKeyValueObservingOptionOld</span> context:<span class="literal">nil</span>];</span><br><span class="line">    [<span class="keyword">self</span> addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@&quot;age&quot;</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> | <span class="built_in">NSKeyValueObservingOptionOld</span> context:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> setNameObj:<span class="string">@&quot;更新名字&quot;</span>];</span><br><span class="line">    <span class="keyword">self</span>.age = <span class="string">@&quot;更新年龄&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>这里有个注意点</strong>：<br>尽管声明name属性的时候，声明的是readOnly，即不生成set方法，但是如果自己重定义了set方法，还是会被Observer覆盖掉set方法，KVO还是会走，但是如果定义了一个别名的set方法，在里面修改属性的值，就不会走了。</p>
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a><strong>泛型</strong></h2><p>OC中经常用到的典型的泛型使用案例如下：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化一个元素类型为`NSString`的数组</span></span><br><span class="line"><span class="built_in">NSArray</span> &lt;<span class="built_in">NSString</span> *&gt; *array = [<span class="built_in">NSArray</span> new];</span><br><span class="line"><span class="comment">// 或者字典</span></span><br><span class="line"><span class="built_in">NSDictionary</span> &lt;<span class="built_in">NSString</span> *, <span class="built_in">NSNumber</span> *&gt; *dict = @&#123;<span class="string">@&quot;manoboo&quot;</span>: @<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>可以直接打开NSArray.h,看看NSArray是怎么使用泛型的。</p>
@@ -195,7 +195,7 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSMutableArray</span> &lt;__kindof T&gt; *elements;</span><br></pre></td></tr></table></figure>
 <h2 id="block-原理"><a href="#block-原理" class="headerlink" title="block 原理"></a><strong>block 原理</strong></h2><p><strong>Block的本质</strong><br>Block本质上是一个OC对象，是一个系统定义好的比较特殊的一个类似自定义对象的OC对象。它内部也有isa指针，这个对象封装了函数调用地址以及函数调用环境(函数参数、返回值、捕获的外部变量等)。</p>
 <div align=center>
-<img src="/img/block_struct.png"/>
+<img src="/img/oldPic/block_struct.png"/>
 </div>
 
 <p>从上面的Block的结构体中的几个变量可以看出Block的本质<br>impl的isa变量：就是isa指针，可见它就是一个OC对象。<br>impl的FuncPtr变量：是一个函数指针，也就是底层将block中要执行的代码封装成了一个函数，然后用这个指针指向那个函数。<br>Desc的Block_size变量：block占用的内存大小。<br>age变量：捕获的外部变量age，可见block会捕获外部变量并将其存储在block的底层结构体中。<br>当我们调用block时(block())，实际上就是通过函数指针FuncPtr找到封装的函数并将block的地址作为参数传给这个函数进行执行，把block传给函数是因为函数执行中需要用到的某些数据是存在block的结构体中的(比如捕获的外部变量)。如果定义的是带参数的block，调用block时是将block地址和block的参数一起传给封装好的函数。<br>注：这里查看编译后的代码的指令有两个，一个是利用GCC的编译指令，进行预编译</p>
@@ -203,11 +203,16 @@
 <p>一个是运行命令行指令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.m</span><br></pre></td></tr></table></figure>
 
-<p><strong>Block的参数捕获机制</strong><br>在编译期间，Block会被转换为一个函数，并把用到的参数捕获到函数内部，这里捕获也分三种类型<br>1 全局变量，不会捕获。<br>因为全局变量在哪里都能访问<br>2 局部变量，捕获的是变量的值。<br>局部变量的作用域是在它所属的大括号内，出了大括号就会被释放掉。block里面的代码在底层是被封装成了一个函数，这个函数是在b所在的大括号外面，如果这个时候Block再调用这个局部变量就会有问题，所以，对于局部变量，是捕获变量的值<br>3 静态局部变量，捕获的是变量的地址<br>虽然静态局部变量的作用域依旧是它所属的大括号内，但是他的生命周期是和整个程序的生命周期一样的，整个程序运行过程中都不会被释放，那么保存他的地址就可以了。<br><strong>Block的修饰符</strong><br>_<em>block修饰完变量后，会在Block的结构体中生成一个__Block_byref</em>[变量名]_0的结构体指针，这个新的结构体包含isa指针，是一个对象，要捕获的变量也包含在这个结构体中。<br>所以，__block不管是修饰基础数据类型还是修饰对象数据类型，底层都是将它包装成一个对象(我这里取个名字叫__blockObj)，然后block结构体中有个指针指向这个对象。<br>这个捕获的对象的内存管理为：<br>1 当block在栈上时，block内部并不会对__blockObj产生强引用。<br>2 当block调用copy函数从栈拷贝到堆中时，它同时会将__blockObj也拷贝到堆上，并对__blockObj产生强引用。<br>3 当block从堆中移除时，会调用block内部的dispose函数，dispose函数内部又会调用_Block_object_dispose函数来释放__blockObj。</p>
+<p><strong>Block的参数捕获机制</strong><br>看一段代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> c  = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">void</span>(^block)(<span class="keyword">int</span> b) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">      a = <span class="number">10</span>;</span><br><span class="line">      b = <span class="number">20</span>;</span><br><span class="line">      c = <span class="number">30</span>;</span><br><span class="line">   &#125;;</span><br><span class="line">   a = <span class="number">100</span>;</span><br><span class="line">   b = <span class="number">200</span>;</span><br><span class="line">   c = <span class="number">300</span>;</span><br><span class="line">   block(b);</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@&quot;a:%ld&quot;</span>, a);</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@&quot;b:%ld&quot;</span>, b);</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@&quot;c:%ld&quot;</span>, c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最终的打印结果为：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a:<span class="number">10</span></span><br><span class="line">b:<span class="number">200</span></span><br><span class="line">c:<span class="number">30</span></span><br></pre></td></tr></table></figure>
+<p>在编译期间，Block会被转换为一个函数，并把用到的参数捕获到函数内部，这里捕获也分三种类型<br>1 全局变量，不会捕获。<br>因为全局变量在哪里都能访问<br>2 局部变量，捕获的是变量的值。<br>局部变量的作用域是在它所属的大括号内，出了大括号就会被释放掉。block里面的代码在底层是被封装成了一个函数，这个函数是在b所在的大括号外面，如果这个时候Block再调用这个局部变量就会有问题，所以，对于局部变量，是捕获变量的值<br>3 静态局部变量，捕获的是变量的地址<br>虽然静态局部变量的作用域依旧是它所属的大括号内，但是他的生命周期是和整个程序的生命周期一样的，整个程序运行过程中都不会被释放，那么保存他的地址就可以了。<br><strong>Block的修饰符</strong><br>_<em>block修饰完变量后，会在Block的结构体中生成一个__Block_byref</em>[变量名]_0的结构体指针，这个新的结构体包含isa指针，是一个对象，要捕获的变量也包含在这个结构体中。<br>所以，__block不管是修饰基础数据类型还是修饰对象数据类型，底层都是将它包装成一个对象(我这里取个名字叫__blockObj)，然后block结构体中有个指针指向这个对象。<br>这个捕获的对象的内存管理为：<br>1 当block在栈上时，block内部并不会对__blockObj产生强引用。<br>2 当block调用copy函数从栈拷贝到堆中时，它同时会将__blockObj也拷贝到堆上，并对__blockObj产生强引用。<br>3 当block从堆中移除时，会调用block内部的dispose函数，dispose函数内部又会调用_Block_object_dispose函数来释放__blockObj。</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8de36c7e3440">关于Block，这一篇就很详尽</a></p>
 <h2 id="iOS事件传递、响应者链"><a href="#iOS事件传递、响应者链" class="headerlink" title="iOS事件传递、响应者链"></a><strong>iOS事件传递、响应者链</strong></h2><p><strong>响应者对象</strong>：继承自UIResponder的对象称之为响应者对象。UIApplication、UIWindow、UIViewController和所有继承UIView的UIKit类都直接或间接的继承自UIResponder<br><strong>响应者链</strong>：由多个响应者组合起来的链条，就叫做响应者链。它表示了每个响应者之间的联系，并且可以使得一个事件可选择多个对象处理<br><strong>hitTest:withEvent</strong>:决定由哪个视图来响应这次交互<br><strong>pointInside</strong>：决定点击的点是否在该视图内</p>
 <div align=center>
-<img src="/img/response_link.png" alt="响应图示例"/>
+<img src="/img/oldPic/response_link.png" alt="响应图示例"/>
 </div>
 
 <p><strong>响应者链</strong>：假设触摸了红色View，<br>1.第一响应者就是红色View即红色View首先响应touchesBegan:withEvent:方法，接着传递给蓝色view<br>2.蓝色view开始响应touchesBegan:withEvent:方法，接着传递给橘色view<br>3.橘色view响应touchesBegan:withEvent:方法，接着传递给控制器的view<br>4.控制器view响应touchesBegan:withEvent:方法，控制器传递给了Window<br>5.Window再传递给application<br>如果上述响应者都不处理该事件，那么这次时间响应会被丢弃</p>
@@ -350,7 +355,7 @@
   
   
     <a href="/2019/07/21/oc-runtime-fa/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS基本功-Runtime专题</div>
+      <div class="article-nav-title">iOS基本功-Runtime基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -493,6 +498,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Runtime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">

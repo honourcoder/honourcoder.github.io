@@ -13,16 +13,16 @@
 <meta property="og:url" content="http://www.coderqi.com/2020/02/04/internet_delegate/index.html">
 <meta property="og:site_name" content="齐小胖之家">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.coderqi.com/img/topic_net_delegate.jpg">
-<meta property="og:image" content="http://www.coderqi.com/img/hands%20for%203.png">
-<meta property="og:image" content="http://www.coderqi.com/img/hands%20for%204.png">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/topic_net_delegate.jpg">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/hands%20for%203.png">
+<meta property="og:image" content="http://www.coderqi.com/img/oldPic/hands%20for%204.png">
 <meta property="article:published_time" content="2020-02-04T02:58:21.000Z">
-<meta property="article:modified_time" content="2022-01-06T08:05:23.353Z">
+<meta property="article:modified_time" content="2022-01-08T09:19:46.664Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="iOS基本功">
 <meta property="article:tag" content="iOS面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.coderqi.com/img/topic_net_delegate.jpg">
+<meta name="twitter:image" content="http://www.coderqi.com/img/oldPic/topic_net_delegate.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,7 +165,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <div align=center>
-<img src="/img/topic_net_delegate.jpg"/>
+<img src="/img/oldPic/topic_net_delegate.jpg"/>
 </div>
 
 <span id="more"></span>
@@ -173,13 +173,13 @@
 <h2 id="TCP与UDP区别"><a href="#TCP与UDP区别" class="headerlink" title="TCP与UDP区别"></a><strong>TCP与UDP区别</strong></h2><p>TCP是请求与响应两者之间建立链接进行传输， UDP是两者之间通过数据包进行传输，两者的区别也是基于此。<br>TCP：有连接的、稳定的、有序的、占用资源大的<br>UDP：无连接的、可能丢包的、乱序的、占用资源小的<br><strong>注</strong>：Socket是TCP协议，Http也是TCP协议，只是Socket是建立并保持长连接，Http是短连接</p>
 <h2 id="三次握手是什么"><a href="#三次握手是什么" class="headerlink" title="三次握手是什么"></a><strong>三次握手是什么</strong></h2><p>三次握手是服务器建立连接的方式。</p>
 <div align=center>
-<img src="/img/hands for 3.png"/>
+<img src="/img/oldPic/hands for 3.png"/>
 </div>
 
 <p><strong>第一次握手</strong>：A通知B，A准备好了<br>建立连接时，客户端发送syn包（syn=x）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。<br><strong>第二次握手</strong>：B告诉A，他知道A准备好了，B自己也准备好了<br>服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br><strong>第三次握手</strong>：A告诉B，A知道了B也准备好了。<br>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=y+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
 <h2 id="四次挥手是什么"><a href="#四次挥手是什么" class="headerlink" title="四次挥手是什么"></a><strong>四次挥手是什么</strong></h2><p>四次挥手是服务器关闭连接的方式。</p>
 <div align=center>
-<img src="/img/hands for 4.png"/>
+<img src="/img/oldPic/hands for 4.png"/>
 </div>
 
 <p><strong>第一次挥手</strong>：A通知B，我要断开连接了。<br>客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。<br><strong>第二次挥手</strong>：B通知A我知道你要断开连接了。<br>服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文，在这之前还需要接受服务器发送的最后的数据）。<br><strong>第三次挥手</strong>：B通知A，所有的收尾工作都做完了，可以断开连接了<br>服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。<br><strong>第四次挥手</strong>：A通知B，我知道你收尾完事儿了。没有意外发生的话，我要2MSL之后要开始断开连接了。<br>客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。<br>关于三次握手四次挥手的其他面试题，见下面的参考连接<br>参考连接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38950316/article/details/81087809">TCP的三次握手与四次挥手理解及面试题</a></p>
@@ -311,11 +311,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/15/OpenRTB_page_0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/04/oc-runtime-interview/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          实时竞价RTB
+          iOS面试题-Runtime
         
       </div>
     </a>
@@ -465,6 +465,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Runtime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
