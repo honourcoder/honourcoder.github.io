@@ -15,9 +15,8 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://www.coderqi.com/img/oldPic/topic_thread.jpg">
 <meta property="og:image" content="http://www.coderqi.com/img/多线程/oc_thread_gcd.png">
-<meta property="og:image" content="https://www.jianshu.com/p/a0b40296564f">
 <meta property="article:published_time" content="2020-02-10T03:24:21.000Z">
-<meta property="article:modified_time" content="2022-01-18T06:40:52.253Z">
+<meta property="article:modified_time" content="2022-01-19T08:25:23.295Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="多线程">
 <meta property="article:tag" content="iOS面试题">
@@ -231,7 +230,7 @@
 <h4 id="第三段"><a href="#第三段" class="headerlink" title="第三段"></a><strong>第三段</strong></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(testThread) withObject:<span class="literal">nil</span> afterDelay:<span class="number">0</span>];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>这里的test方法是不会去执行的，原因在于performSelector<br>这个方法中带延时的方法，要创建提交任务到runloop上的，而gcd底层创建的线程是默认没有开启对应runloop的，所有这个方法就会失效。<br>而如果将dispatch_get_global_queue改成主队列，由于主队列所在的主线程是默认开启了runloop的， 就会去执行(将 dispatch_async 无需改成同步，虽然同步是在当前线程执行，但这里的异步同步只是决定添加到主线程队列这个任务的操作是同步还是异步，这个无所谓。那么如果当前线程是主线程，test方法也是会去执行的)。</p>
 <h2 id="并发下线程池的最佳数量计算"><a href="#并发下线程池的最佳数量计算" class="headerlink" title="并发下线程池的最佳数量计算"></a><strong>并发下线程池的最佳数量计算</strong></h2><p>如果是<strong>CPU密集型</strong>应用，则线程池大小设置为N+1；（对于计算密集型的任务，在拥有N个处理器的系统上，当线程池的大小为N+1时，通常能实现最优的效率。(即使当计算密集型的线程偶尔由于缺失故障或者其他原因而暂停时，这个额外的线程也能确保CPU的时钟周期不会被浪费。摘自《Java Concurrency In Practise》)<br>如果是<strong>IO密集型</strong>应用，则线程池大小设置为2N+1<br>任务一般可分为：CPU密集型、IO密集型、混合型，对于不同类型的任务需要分配不同大小的线程池。CPU密集型任务 尽量使用较小的线程池，一般为CPU核心数+1。 因为CPU密集型任务使得CPU使用率很高，若开过多的线程数，只能增加上下文切换的次数，因此会带来额外的开销。IO密集型任务 可以使用稍大的线程池，一般为2乘以CPU核心数。 IO密集型任务CPU使用率并不高，因此可以让CPU在等待IO的时候去处理别的任务，充分利用CPU时间。混合型任务 可以将任务分成IO密集型和CPU密集型任务，然后分别用不同的线程池去处理。 只要分完之后两个任务的执行时间相差不大，那么就会比串行执行来的高效。 因为如果划分之后两个任务执行时间相差甚远，那么先执行完的任务就要等后执行完的任务，最终的时间仍然取决于后执行完的任务，而且还要加上任务拆分与合并的开销，得不偿失。<br>这里还有一种计算方式：<br>一个系统最快的部分是CPU，所以决定一个系统吞吐量上限的是CPU。增强CPU处理能力，可以提高系统吞吐量上限。在考虑时需要把CPU吞吐量加进去。在IO优化文档中，有这样地公式：<br>最佳线程数目 = （（线程等待时间+线程CPU时间）/线程CPU时间 ）* CPU数目 </p>
-<p><img src="https://www.jianshu.com/p/a0b40296564f" alt="参考资料"></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a0b40296564f">参考资料</a></p>
 
       
 
