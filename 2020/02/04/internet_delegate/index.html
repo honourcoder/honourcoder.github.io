@@ -8,21 +8,22 @@
   <link rel="dns-prefetch" href="http://www.coderqi.com">
   <title>iOS面试题-网络协议 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="当下iOS网络协议相关的常见面试题">
+<meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试题-网络协议">
 <meta property="og:url" content="http://www.coderqi.com/2020/02/04/internet_delegate/index.html">
 <meta property="og:site_name" content="齐小胖之家">
+<meta property="og:description" content="当下iOS网络协议相关的常见面试题">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.coderqi.com/img/oldPic/topic_net_delegate.jpg">
 <meta property="og:image" content="http://www.coderqi.com/img/oldPic/hands%20for%203.png">
 <meta property="og:image" content="http://www.coderqi.com/img/oldPic/hands%20for%204.png">
 <meta property="article:published_time" content="2020-02-04T02:58:21.000Z">
-<meta property="article:modified_time" content="2022-01-24T03:19:24.223Z">
+<meta property="article:modified_time" content="2022-04-20T08:37:06.968Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="iOS基本功">
 <meta property="article:tag" content="iOS面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.coderqi.com/img/oldPic/topic_net_delegate.jpg">
+<meta name="twitter:image" content="http://www.coderqi.com/img/oldPic/hands%20for%203.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -49,7 +50,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/avatar.jpg" class="js-avatar">
+			<img src="img/oldPic/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -61,7 +62,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业化</a></li>
+				<li><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业变现</a></li>
+	        
+				<li><a href="/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/">面 试 题</a></li>
+	        
+				<li><a href="/tags/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/">算法解析</a></li>
 	        
 			</ul>
 		</nav>
@@ -85,6 +90,10 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="weixin" target="_blank" href="/stefan_pro" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="mail" target="_blank" href="/nianshiguang@126.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -101,13 +110,17 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/avatar.jpg" class="js-avatar">
+				<img src="img/oldPic/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
+			
+				
 			
 				
 			
@@ -120,16 +133,24 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="weixin" target="_blank" href="/stefan_pro" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/nianshiguang@126.com" title="mail"><i class="icon-mail"></i></a>
+			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业化</a></li>
+					<li style="width: 25%"><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业变现</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/">面 试 题</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/">算法解析</a></li>
 		        
 				</ul>
 			</nav>
@@ -164,10 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div align=center>
-<img src="/img/oldPic/topic_net_delegate.jpg"/>
-</div>
-
+        <p>当下iOS网络协议相关的常见面试题</p>
 <span id="more"></span>
 
 <h2 id="TCP与UDP区别"><a href="#TCP与UDP区别" class="headerlink" title="TCP与UDP区别"></a><strong>TCP与UDP区别</strong></h2><p>TCP是请求与响应两者之间建立链接进行传输， UDP是两者之间通过数据包进行传输，两者的区别也是基于此。<br>TCP：有连接的、稳定的、有序的、占用资源大的<br>UDP：无连接的、可能丢包的、乱序的、占用资源小的<br><strong>注</strong>：Socket是TCP协议，Http也是TCP协议，只是Socket是建立并保持长连接，Http是短连接</p>
@@ -377,7 +395,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 CoderQi
+    		&copy; 2024 CoderQi
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -489,6 +507,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">个人独立博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SDK开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">UIKit</a>
               </li>
             
             <div class="clearfix"></div>

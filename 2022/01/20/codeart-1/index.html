@@ -8,21 +8,20 @@
   <link rel="dns-prefetch" href="http://www.coderqi.com">
   <title>算法解析001 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="反转链表查找链表环入口爬楼梯合并两个有序链表">
+<meta property="og:type" content="article">
 <meta property="og:title" content="算法解析001">
 <meta property="og:url" content="http://www.coderqi.com/2022/01/20/codeart-1/index.html">
 <meta property="og:site_name" content="齐小胖之家">
+<meta property="og:description" content="反转链表查找链表环入口爬楼梯合并两个有序链表">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.coderqi.com/img/codeart/coderart_topic.jpeg">
 <meta property="og:image" content="http://www.coderqi.com/img/codeart/160_statement.png">
-<meta property="og:image" content="http://www.coderqi.com/img/codeart/coder12313.jpg">
-<meta property="og:image" content="https://media.giphy.com/media/g66sTlrHPB0p1EkGkR/giphy.gif">
 <meta property="article:published_time" content="2022-01-20T07:36:03.000Z">
-<meta property="article:modified_time" content="2022-01-26T06:58:45.147Z">
+<meta property="article:modified_time" content="2022-04-20T09:15:43.248Z">
 <meta property="article:author" content="CoderQi">
 <meta property="article:tag" content="算法解析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.coderqi.com/img/codeart/coderart_topic.jpeg">
+<meta name="twitter:image" content="http://www.coderqi.com/img/codeart/160_statement.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -49,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/avatar.jpg" class="js-avatar">
+			<img src="img/oldPic/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -61,7 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业化</a></li>
+				<li><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业变现</a></li>
+	        
+				<li><a href="/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/">面 试 题</a></li>
+	        
+				<li><a href="/tags/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/">算法解析</a></li>
 	        
 			</ul>
 		</nav>
@@ -85,6 +88,10 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="weixin" target="_blank" href="/stefan_pro" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="mail" target="_blank" href="/nianshiguang@126.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -101,13 +108,17 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/avatar.jpg" class="js-avatar">
+				<img src="img/oldPic/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
+			
+				
 			
 				
 			
@@ -120,16 +131,24 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="weixin" target="_blank" href="/stefan_pro" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/nianshiguang@126.com" title="mail"><i class="icon-mail"></i></a>
+			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业化</a></li>
+					<li style="width: 25%"><a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/">商业变现</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/">面 试 题</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/">算法解析</a></li>
 		        
 				</ul>
 			</nav>
@@ -164,10 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div align=center>
-<img src="/img/codeart/coderart_topic.jpeg"/>
-</div>
-
+        <p>反转链表<br>查找链表环入口<br>爬楼梯<br>合并两个有序链表  </p>
 <span id="more"></span>
 
 <h2 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a><strong>反转链表</strong></h2><p><strong>问题：</strong><br>将一个单链表的所有节点反转<br><strong>代码示例：</strong></p>
@@ -191,58 +207,6 @@
 <p><strong>代码示例：</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode *<span class="title">getIntersectionNode</span><span class="params">(struct ListNode *headA, struct ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (headA == <span class="literal">NULL</span> || headB == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">pA</span> =</span> headA,*pB = headB;</span><br><span class="line">    <span class="keyword">while</span> (pA != pB) &#123;</span><br><span class="line">        pA = pA==<span class="literal">NULL</span>?headB:pA-&gt;next;</span><br><span class="line">        pB = pB==<span class="literal">NULL</span>?headA:pB-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>解题思路：</strong><br>这道题采用<em>双指针法</em>：<br>定义两个指针pA和pB，每步操作需要同时向后移动一个节点。<br>这时会有两个情况，一是，两者不相交，最终pA和pB都为NULL，返回NULL<br>一种是两者相交。<br>这时，如果pA等于NULL，让pA.next=pB,如果pB等于NULL，让pB.next=pA，依旧继续每次pA和pB都向后更新一个节点，直到pA和pB相等。<br>这个时候，算一个公式：<br>如上图假设，链表a，相交前的长度为a，相交后的长度为c；链表b，相交前的长度为b，相交后的长度为c。<br>这时，pA走过的长度为a+c+b;pB走过的长度为b+c+a；<br>去除掉各自链表本身的长度，每个指针都分别走过了对方链表前面不相交的长度，这个时候两者所在的节点就是相交点</p>
-<h2 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a><strong>无重复字符的最长子串</strong></h2><p><strong>题目：</strong><br>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。<br>示例 1:</p>
-<pre><code>输入: s = &quot;abcabcbb&quot;
-输出: 3 
-解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。 
-</code></pre>
-<p>示例 2:</p>
-<pre><code>输入: s = &quot;bbbbb&quot;
-输出: 1
-解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。
-</code></pre>
-<p>示例 3:</p>
-<pre><code>输入: s = &quot;pwwkew&quot;
-输出: 3
-解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。
-     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。
-</code></pre>
-<p>示例 4:</p>
-<pre><code>输入: s = &quot;&quot;
-输出: 0
-</code></pre>
-<p><strong>代码示例：</strong>  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length(), ans = <span class="number">0</span>;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> end = <span class="number">0</span>, start = <span class="number">0</span>; end &lt; n; end++) &#123;</span><br><span class="line">            <span class="keyword">char</span> alpha = s.charAt(end);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(alpha)) &#123;</span><br><span class="line">                start = Math.max(map.get(alpha), start);</span><br><span class="line">            &#125;</span><br><span class="line">            ans = Math.max(ans, end - start + <span class="number">1</span>);</span><br><span class="line">            map.put(s.charAt(end), end + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>解题思路:</strong><br>这道题很多人说采用的<em>浮窗法</em>，我觉得说是<em>双指针法</em>更合适。如图：</p>
-<div align=center>
-<img src="/img/codeart/coder12313.jpg"/>
-</div>
-
-<p>看上图，题目是找不重复的最长子串，那么就意味着字符串两边的字符肯定是一样的，以此为入手点：<br>定义一个Map保存字符和他最后出现的位置。<br>定义一个指针，名字为start，指向字符串最开始，用来记录当前不重复子串的起点。<br>定义一个指针，一个是从前往后遍历，每次遇到一个字符，将这个字符作为key，他当前的位置作为value存储下来，名字为end<br>end指针一次向后遍历，同时计算end到start之前的长度，如果这次遍历时取到的字符在Map中存在，那么更新start的位置为<em>Map中存储的上一次的位置和start两者取最大</em>，因为start标记的已经重复过的，如果新值比start小，说明在新值后已经有过一个比他更小的重复段了，他就不是最大的不重复。</p>
-<h2 id="最小覆盖子串"><a href="#最小覆盖子串" class="headerlink" title="最小覆盖子串"></a><strong>最小覆盖子串</strong></h2><p><strong>题目：</strong><br>给你一个字符串s、一个字符串t 。返回s中涵盖t所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 “”<br>示例 1：</p>
-<pre><code>输入：s = &quot;ADOBECODEBANC&quot;, t = &quot;ABC&quot;
-输出：&quot;BANC&quot;
-</code></pre>
-<p>示例 2：</p>
-<pre><code>输入：s = &quot;a&quot;, t = &quot;a&quot;
-输出：&quot;a&quot;
-</code></pre>
-<p>示例 3:</p>
-<pre><code>输入: s = &quot;a&quot;, t = &quot;aa&quot;
-输出: &quot;&quot;
-解释: t 中两个字符 &#39;a&#39; 均应包含在 s 的子串中，
-因此没有符合条件的子字符串，返回空字符串。
-</code></pre>
-<p><strong>示例代码：</strong>      </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Map&lt;Character, Integer&gt; ori = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;();</span><br><span class="line">    Map&lt;Character, Integer&gt; cnt = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">minWindow</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tLen = t.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tLen; i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = t.charAt(i);</span><br><span class="line">            ori.put(c, ori.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> len = Integer.MAX_VALUE, ansL = -<span class="number">1</span>, ansR = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> sLen = s.length();</span><br><span class="line">        <span class="keyword">while</span> (r &lt; sLen) &#123;</span><br><span class="line">            ++r;</span><br><span class="line">            <span class="keyword">if</span> (r &lt; sLen &amp;&amp; ori.containsKey(s.charAt(r))) &#123;</span><br><span class="line">                cnt.put(s.charAt(r), cnt.getOrDefault(s.charAt(r), <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (check() &amp;&amp; l &lt;= r) &#123;</span><br><span class="line">                <span class="keyword">if</span> (r - l + <span class="number">1</span> &lt; len) &#123;</span><br><span class="line">                    len = r - l + <span class="number">1</span>;</span><br><span class="line">                    ansL = l;</span><br><span class="line">                    ansR = l + len;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ori.containsKey(s.charAt(l))) &#123;</span><br><span class="line">                    cnt.put(s.charAt(l), cnt.getOrDefault(s.charAt(l), <span class="number">0</span>) - <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                ++l;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ansL == -<span class="number">1</span> ? <span class="string">&quot;&quot;</span> : s.substring(ansL, ansR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Iterator iter = ori.entrySet().iterator(); </span><br><span class="line">        <span class="keyword">while</span> (iter.hasNext()) &#123; </span><br><span class="line">            Map.Entry entry = (Map.Entry) iter.next(); </span><br><span class="line">            Character key = (Character) entry.getKey(); </span><br><span class="line">            Integer val = (Integer) entry.getValue(); </span><br><span class="line">            <span class="keyword">if</span> (cnt.getOrDefault(key, <span class="number">0</span>) &lt; val) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>解题思路：</strong><br>这里采用的是窗口法，主要的操作流程如下图：</p>
-<div align=center>
-<img src="https://media.giphy.com/media/g66sTlrHPB0p1EkGkR/giphy.gif"/>
-</div>
-
-<p>1 创建一个存储Map，记录当前窗口中包含的字母以及对应的数量。<br>2 创建左右两个指针<br>3<br>3.1 如果当前存储map没有包含子字符串，那么右指针向右；<br>3.2 如果当前存储map有完整包含子字符串，那么左指针向右；<br>4 如果上面3.2左指针向右移动后不包含，那么异动前就是最小覆盖子串候选结果之一。移动完之后，继续进行第三步的操作，知道得到新的候选结果，比较候选结果中字符的数量，取最小值。</p>
 
       
 
@@ -411,7 +375,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 CoderQi
+    		&copy; 2024 CoderQi
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -523,6 +487,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">个人独立博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SDK开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">UIKit</a>
               </li>
             
             <div class="clearfix"></div>
