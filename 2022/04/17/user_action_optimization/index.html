@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.coderqi.com">
-  <title>Tag: UIKit | 齐小胖之家</title>
+  <title>聚合SDK用户体验优化 | 齐小胖之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="齐小胖之家">
-<meta property="og:url" content="http://www.coderqi.com/tags/UIKit/index.html">
+  <meta name="description" content="作为一个聚合SDK，除了转接用户的广告请求，另外一个很重要的工作方面就是用户体验上的质量 保障，这其中就包含三方广告源的用户质量保证。下面，就几个用户体验的点探讨一下把控的思路。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聚合SDK用户体验优化">
+<meta property="og:url" content="http://www.coderqi.com/2022/04/17/user_action_optimization/index.html">
 <meta property="og:site_name" content="齐小胖之家">
+<meta property="og:description" content="作为一个聚合SDK，除了转接用户的广告请求，另外一个很重要的工作方面就是用户体验上的质量 保障，这其中就包含三方广告源的用户质量保证。下面，就几个用户体验的点探讨一下把控的思路。">
 <meta property="og:locale">
+<meta property="article:published_time" content="2022-04-17T07:36:03.000Z">
+<meta property="article:modified_time" content="2024-04-18T02:25:30.561Z">
 <meta property="article:author" content="CoderQi">
+<meta property="article:tag" content="商业化">
+<meta property="article:tag" content="广告">
+<meta property="article:tag" content="体验优化">
 <meta name="twitter:card" content="summary">
   
   
@@ -162,64 +169,195 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-user_action_optimization" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/01/setFrontToLabel/" class="archive-article-date">
-  	<time datetime="2019-04-01T07:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/01/setFrontToLabel/">iOS设置字体的三种方式</a>
+    <h1 class="article-title" itemprop="name">
+      聚合SDK用户体验优化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/04/17/user_action_optimization/" class="archive-article-date">
+  	<time datetime="2022-04-17T07:36:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为一个聚合SDK，除了转接用户的广告请求，另外一个很重要的工作方面就是用户体验上的质量 保障，这其中就包含三方广告源的用户质量保证。下面，就几个用户体验的点探讨一下把控的思路。</p>
+<span id="more"></span>
+<h4 id="广告长时间没有反应，如何实时监控并处理"><a href="#广告长时间没有反应，如何实时监控并处理" class="headerlink" title="广告长时间没有反应，如何实时监控并处理"></a>广告长时间没有反应，如何实时监控并处理</h4><p>这个问题其实可以从ANR卡顿问题的处理方案中寻找灵感</p>
+<p><strong>1 监控FPS刷新</strong><br>通过CADisplayLink监听屏幕刷新信号。如果fps发生明显下滑，说明发生了卡顿。参考文献：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lfdanding/article/details/86542383">获取PFS</a>  </p>
+<p><strong>2 ping主线程</strong><br>启动一个监控线程，每隔一段时间（后台配置）ping一下主线程，如果主线程有空，必然会有回馈；如果没有回馈，说明主线程任务忙，可以打印主线程目前的函数调用栈。</p>
+<p><strong>3 对比调用堆栈</strong><br>代码质量不够好的方法可能会在一段时间内持续占用CPU的资源，换句话说在一段时间内，调用栈总是停留在执行某个地址指令的状态。如果两次调用栈的符号信息，后者包含前者，可以认定为出现了卡顿。</p>
+<p><strong>4 重写msgSend</strong><br>在函数调用前后插入自定义函数，维护一个函数栈调用表，可以获取每一个OC方法的调用耗时，以此进行性能分析与优化</p>
+<h4 id="如何监控上游三方广告源的关闭按钮是否成功渲染出来"><a href="#如何监控上游三方广告源的关闭按钮是否成功渲染出来" class="headerlink" title="如何监控上游三方广告源的关闭按钮是否成功渲染出来"></a>如何监控上游三方广告源的关闭按钮是否成功渲染出来</h4><p>这里有两个方案，根据业务场景选择合适的方案：<br><strong>方案一</strong>：截屏后OCR<br>在广告曝光后，或者曝光后3秒，对当前屏幕进行截屏，然后通过OCR识别截图中是否存在关闭按钮。<br><strong>方案二</strong>：遍历图层结构<br>遍历当前VC的所有图层结构，找寻是否存在关闭按钮view。</p>
+<p>方案一是通用方案，相比方案二，首次开发成本高，后续的维护成本很低。另外就是方案二也受上游SDK版本的影响，一旦三方变更了实现方式，监控效果极有可能失效。</p>
+<h4 id="如何确认视频类广告播放正常"><a href="#如何确认视频类广告播放正常" class="headerlink" title="如何确认视频类广告播放正常"></a>如何确认视频类广告播放正常</h4><h3 id="iOS下的异常监控方案"><a href="#iOS下的异常监控方案" class="headerlink" title="iOS下的异常监控方案"></a>iOS下的异常监控方案</h3><h4 id="实时模块"><a href="#实时模块" class="headerlink" title="实时模块"></a>实时模块</h4><p><strong>1 内存水位监控</strong><br>通过对vm_logger,malloc_logger,OC对象的alloc进行hook，统计内存的申请和释放，达到一个内存水位实时监控的目的。对设置内存警告水位，在crash前，对当前内存水位进行上报。<br><strong>2 ANR卡顿监控</strong><br>ANR卡顿的方案很多，这里不多赘述。触发ANR的时候，对当前的设备进行及程序运行状态进行上报。<br><strong>3 图层监控</strong><br>交互卡住还有一个令人哭笑不得的场景：广告落地页再一个新建的window上展示，关闭落地页后，VC销毁，但是window还在屏幕上，导致应用流畅，但是无法响应用户的交互。<br>针对这个场景，可实时监控空window并移除。</p>
+<h4 id="延时模块"><a href="#延时模块" class="headerlink" title="延时模块"></a>延时模块</h4><p><strong>1 日志读取</strong><br>iOS有一个看门狗机制，在程序崩溃的时候，都会留下日志，根据exception code类型可以知道崩溃的类型，筛选指定的类型，将日志上报进行分析</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的每一份肯定 都是对我最大的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/code_picture_alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/code_picture_wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iOS基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">商业化</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">UIKit</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">广告</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">体验优化</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.coderqi.com/2022/04/17/user_action_optimization/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2022/01/22/codeart-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法解析002</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +380,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
